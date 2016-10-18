@@ -9,11 +9,19 @@ Création d'un outil de gestion des formations de l'entreprise Cofidur (projet a
 2. **Framework :** Symfony (version 2.8.12)
 3. **Outils complémentaires :** Jenkins ? Travis ?
 
-##Plan
+##À installer :
 
-1. 
-2. 
-3. 
+1. Php
+2. Symfony
+3. MySQL
+
+##Commandes à exécuter :
+
+//Lancement du serveur
+- ./app/console server:run
+
+//Accès à la page principale
+- http://localhost:8000/
 
 ##Pages à ajouter :
 - [ ] Accueil
