@@ -18,7 +18,7 @@ Création d'un outil de gestion des formations de l'entreprise Cofidur (projet a
 ##Commandes à exécuter :
 
 //Lancement du serveur
-- ./app/console server:run
+- `$php ./app/console server:run`
 
 //Accès à la page principale
 - http://localhost:8000/
@@ -38,10 +38,9 @@ Les fichiers controlleurs sont accessibles dans :
 - [ ] Matrice des compétences
 - [ ] Visibilité de l'ensemble des FFO d'un utilisateur lambda
 
-#Acces specifique au root:
-
-- [ ] Création de FFO
-- [ ] Affichage d'une FFO
+#Acces specifique à l'administreur:
+- [ ] Création d'une formation
+- [ ] Génération et affichage d'une FFO
 - [ ] Ajout d'un employé
 - [ ] Modification d'un employé
 - [ ] Visibilité d'un ensemble de FFO par le root
@@ -49,7 +48,7 @@ Les fichiers controlleurs sont accessibles dans :
 ##Prise en main du framework :
 - [ ] Mise en place de la BDD + affichages basiques
 - [ ] Authentification des utilisateurs
-- [ ] Lecture de la BDD par le root
+- [ ] Lecture de la BDD par l'administreur
 - [ ] Lecture de la BDD par un utilisateur lambda
 
 - [ ] Modification de la BDD par le root (Infos sur le personnel, FFO etc)
