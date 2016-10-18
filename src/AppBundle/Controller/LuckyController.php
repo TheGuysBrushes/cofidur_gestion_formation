@@ -16,11 +16,11 @@ class LuckyController extends Controller
     public function numberAction()
     {
         $number = mt_rand(0, 100);
-	$coucou= "COUCOU";
+		$coucou= "COUCOU";
 
         return $this->render('lucky/number.html.twig', array(
             'number' => $number,
-	    'champ_texte' => $coucou,
+	    	'champ_texte' => $coucou,
         ));
     }
 }
