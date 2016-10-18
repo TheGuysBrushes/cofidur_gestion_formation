@@ -20,14 +20,13 @@ class UserController extends Controller
 	$user_lastname= "Last name";
 	$user_firstname= "First name";
 
-	$add_user= "Complete this fields to add a user";
+	$page_title= "Complete this fields to add a user";
 
         return $this->render('user/add.html.twig', array(
-	    'page_msg' => $add_user,
+	    'title' => $page_title,
             'id' => $user_id,
-	    'user_lastname' => $user_lastname,
-	    'user_firstname' => $user_firstname,
-	    'add_user' => $add_user,
+	    'lastname' => $user_lastname,
+	    'firstname' => $user_firstname,
         ));
     }
 }

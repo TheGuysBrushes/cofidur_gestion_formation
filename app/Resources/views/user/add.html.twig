@@ -1,15 +1,19 @@
 {# app/Resources/views/user/add.html.twig #}
 
 <form method=POST>
-<h1> Add a user </h1>
+<h1> {{ title }} </h1>
 
 <table>
 <tr>
-	<td> User last name </td>
-	<td> {{ user_lastname|upper }} </td>
+	<td> User ID : </td>
+	<td> {{ id }} </td>
 </tr>
 <tr>
-	<td> User first name </td>
-	<td> {{ user_firstname|upper }} </td>
+	<td> User last name : </td>
+	<td> {{ lastname|upper }} </td>
+</tr>
+<tr>
+	<td> User first name : </td>
+	<td> {{ firstname|upper }} </td>
 </tr>
 </form>
