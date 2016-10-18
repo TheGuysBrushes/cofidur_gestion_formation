@@ -23,13 +23,36 @@ Création d'un outil de gestion des formations de l'entreprise Cofidur (projet a
 //Accès à la page principale
 - http://localhost:8000/
 
+##Emplacement des fichiers
+Les fichiers html affichés sont accessibles dans :
+	/cofidur_gestion_formation/app/Resources/views/
+
+Les fichiers controlleurs sont accessibles dans :
+	/cofidur_gestion_formation/src/AppBundle/Controller/
+
+---
+
 ##Pages à ajouter :
+#Acces utilisateur lambda:
 - [ ] Accueil
+- [ ] Matrice des compétences
+- [ ] Visibilité de l'ensemble des FFO d'un utilisateur lambda
+
+#Acces specifique au root:
+
 - [ ] Création de FFO
+- [ ] Affichage d'une FFO
 - [ ] Ajout d'un employé
 - [ ] Modification d'un employé
-- [ ] Matrice des compétences
+- [ ] Visibilité d'un ensemble de FFO par le root
 
 ##Prise en main du framework :
 - [ ] Mise en place de la BDD + affichages basiques
 - [ ] Authentification des utilisateurs
+- [ ] Lecture de la BDD par le root
+- [ ] Lecture de la BDD par un utilisateur lambda
+
+- [ ] Modification de la BDD par le root (Infos sur le personnel, FFO etc)
+- [ ] Ajout des nouvelles compétences disponibles après l'ajout d'une nouvelle formation
+- [ ] Actualisation de la matrice des compétences suite à la validation d'une FFO
+- [ ] Proposition de formation lorsqu'une compétence va venir à manquer (message à envoyer au root à propos des départs en retraite proches)
