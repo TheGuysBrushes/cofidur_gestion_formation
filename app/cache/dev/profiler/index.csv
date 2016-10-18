@@ -156,3 +156,5 @@ ef0942,127.0.0.1,GET,http://localhost:8000/lucky/number,1476793180,,200
 ca1c26,127.0.0.1,GET,http://localhost:8000/lucky/number,1476793313,,200
 495db8,127.0.0.1,GET,http://localhost:8000/lucky/number,1476793316,,200
 0d90dc,127.0.0.1,GET,http://localhost:8000/lucky/number,1476793316,,200
+c5ab5c,127.0.0.1,GET,http://localhost:8000/,1476793981,,200
+6a7793,127.0.0.1,GET,http://localhost:8000/,1476794811,,200

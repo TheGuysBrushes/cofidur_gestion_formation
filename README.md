@@ -5,8 +5,8 @@ Création d'un outil de gestion des formations de l'entreprise Cofidur (projet a
 
 ##Choix des technologies
 
-1. **Langage :** Php ? C# ?
-2. **Framework :** Symfony ?
+1. **Langage :** Php (version 7.0.8)
+2. **Framework :** Symfony (version 2.8.12)
 3. **Outils complémentaires :** Jenkins ? Travis ?
 
 ##Plan
@@ -15,9 +15,13 @@ Création d'un outil de gestion des formations de l'entreprise Cofidur (projet a
 2. 
 3. 
 
-##Éléments à implémenter :
-- [ ] Page d'accueil
-- [ ] Page de création de FFO
-- [ ] Page d'ajout d'un employé
-- [ ] Page de modification d'un employé
-- [ ] Page de matrice des compétences 
+##Pages à ajouter :
+- [ ] Accueil
+- [ ] Création de FFO
+- [ ] Ajout d'un employé
+- [ ] Modification d'un employé
+- [ ] Matrice des compétences
+
+##Prise en main du framework :
+- [ ] Mise en place de la BDD + affichages basiques
+- [ ] Authentification des utilisateurs
