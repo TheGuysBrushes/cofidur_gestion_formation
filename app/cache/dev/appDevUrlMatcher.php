@@ -119,6 +119,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'AppBundle\\Controller\\LuckyController::numberAction',  '_route' => 'app_lucky_number',);
         }
 
+        // app_user_add
+        if ($pathinfo === '/user/add') {
+            return array (  '_controller' => 'AppBundle\\Controller\\UserController::addAction',  '_route' => 'app_user_add',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }
