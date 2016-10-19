@@ -11,3 +11,7 @@ AppCofidurBundle_about:
 AppCofidurBundle_contact:
     pattern: /contact
     defaults: { _controller: AppCofidurBundle:Page:contact }
+
+AppCofidurBundle_add:
+    pattern: /operator/add
+    defaults: { _controller: AppCofidurBundle:Operator:add}

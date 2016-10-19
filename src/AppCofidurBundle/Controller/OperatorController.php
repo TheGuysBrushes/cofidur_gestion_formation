@@ -1,18 +1,13 @@
 <?php
 
-// src/AppBundle/Controller/OperatorController.php
-namespace AppBundle\Controller;
+namespace AppCofidurBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-
 class OperatorController extends Controller
 {
-    /**
-     * @Route("/operator/add")
-     */
     public function addAction()
     {
     //operator info
@@ -23,7 +18,7 @@ class OperatorController extends Controller
 	$page_title= "Complete this fields to add a user";
 
 
-        return $this->render('operator/add.html.twig', array(
+        return $this->render('AppCofidurBundle:Page:add.html.twig', array(
 	    'title' => $page_title,
         'id' => $operator_id,
 	    'lastname' => $operator_lastname,
