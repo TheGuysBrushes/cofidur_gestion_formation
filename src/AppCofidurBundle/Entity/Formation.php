@@ -20,6 +20,21 @@ class Formation
     /**
      * @var string
      */
+    private $objectif;
+
+    /**
+     * @var string
+     */
+    private $moyen_pedagogiques;
+
+    /**
+     * @var string
+     */
+    private $lieu_moyens_materiels;
+
+    /**
+     * @var string
+     */
     private $description;
 
 
@@ -81,4 +96,3 @@ class Formation
         return $this->description;
     }
 }
-
