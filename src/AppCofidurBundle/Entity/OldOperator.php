@@ -8,7 +8,7 @@ class Operator
 
     public function get_lastname()
     {
-        return $this->task;
+        return $this->lastname;
     }
 
     public function set_lastname($lastname)
@@ -26,3 +26,4 @@ class Operator
         $this->$firstname = $firstname;
     }
 }
+
