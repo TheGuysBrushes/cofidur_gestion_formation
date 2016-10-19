@@ -2,14 +2,13 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>{% block title %}symblog{% endblock %} - symblog</title>
+        <title>{% block title %}Cofidur EMS{% endblock %}</title>
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
         {% block stylesheets %}
-            <link href='http://fonts.googleapis.com/css?family=Irish+Grover' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=La+Belle+Aurore' rel='stylesheet' type='text/css'>
-            <link href="{{ asset('bundles/CofidurAppBundle/css/screen.css') }}" type="text/css" rel="stylesheet" />
+            <link href='http://fonts.googleapis.com/css?family=Cambria' rel='stylesheet' type='text/css'>
+            <link href="{{ asset('bundles/AppCofidurBundle/css/screen.css') }}" type="text/css" rel="stylesheet" />
         {% endblock %}
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -30,8 +29,8 @@
                 </div>
 
                 <hgroup>
-                    <h2>{% block blog_title %}<a href="#">symblog</a>{% endblock %}</h2>
-                    <h3>{% block blog_tagline %}<a href="#">creating a blog in Symfony2</a>{% endblock %}</h3>
+                    <img src="{{ asset('bundles/AppCofidurBundle/images/logoCofidurEMS.png') }}" alt="logo_cofidurEMS"></img>
+                    <h3>{% block blog_tagline %}Spécialiste des produits et services électroniques depuis un demi-siècle{% endblock %}</h3>
                 </hgroup>
             </header>
 
@@ -44,7 +43,7 @@
 
             <div id="footer">
                 {% block footer %}
-                    Symfony2 blog tutorial - created by <a href="https://github.com/dsyph3r">dsyph3r</a>
+                    Site de gestion du personnel et des formations Cofidur EMS par DAVID, DE LEEUW, GARNIER
                 {% endblock %}
             </div>
         </section>
