@@ -49,3 +49,7 @@ AppCofidurBundle_formation_show:
 AppCofidurBundle_formation_show_all:
     path:  /formations
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
+
+AppCofidurBundle_skillMatrix:
+    path: /skillMatrix
+    defaults: { _controller: AppCofidurBundle:skillMatrix:show }

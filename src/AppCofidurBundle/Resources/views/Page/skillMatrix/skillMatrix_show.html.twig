@@ -1,0 +1,36 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block body %}
+
+    <table>
+        <tr>
+            <td> ID </td>
+            <td> LAST NAME </td>
+            <td> FIRST NAME </td>
+            <td> SUPERIEUR </td>
+            <td> STATUT </td>
+
+            //tous les types de formation
+            {% for formation in tab_formations %}
+                <td> {{ formation }} </td>
+            {% endfor %}
+
+        </tr>
+
+        {% for operator in tab_operators %}
+            <tr>
+                <td> TODO </td>
+                <td> {{ operator.lastname }} </td>
+                <td> {{ operator.firstname }} </td>
+                <td> SUPERIEUR </td>
+                <td> STATUT </td>
+
+                {% for formation in tab_formations %}
+                    <td> {{ formation }} </td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}
