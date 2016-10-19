@@ -33,25 +33,25 @@ Les fichiers controlleurs sont accessibles dans :
 ---
 
 ##Pages à ajouter :
-#Acces utilisateur lambda:
+#Accessible aux opérateurs:
 - [ ] Accueil
 - [ ] Matrice des compétences
-- [ ] Visibilité de l'ensemble des FFO d'un utilisateur lambda
+- [ ] Visibilité de l'ensemble des FFO d'un opérateur
 
-#Acces specifique à l'administreur:
+#Accessible specifiquement par l'administrateur:
 - [ ] Création d'une formation
 - [ ] Génération et affichage d'une FFO
-- [ ] Ajout d'un employé
-- [ ] Modification d'un employé
-- [ ] Visibilité d'un ensemble de FFO par le root
+- [ ] Ajout d'un opérateur
+- [ ] Modification d'un opérateur
+- [ ] Visibilité d'un ensemble de FFO par l'administrateur
 
 ##Prise en main du framework :
-- [ ] Mise en place de la BDD + affichages basiques
-- [ ] Authentification des utilisateurs
-- [ ] Lecture de la BDD par l'administreur
-- [ ] Lecture de la BDD par un utilisateur lambda
+- [x] Mise en place de la BDD + affichages basiques
+- [ ] Authentification des opérateurs
+- [ ] Lecture de la BDD par l'administrateur
+- [ ] Lecture de la BDD par un opérateur
 
-- [ ] Modification de la BDD par le root (Infos sur le personnel, FFO etc)
+- [ ] Modification de la BDD par l'administrateur (Infos sur le personnel, FFO etc)
 - [ ] Ajout des nouvelles compétences disponibles après l'ajout d'une nouvelle formation
 - [ ] Actualisation de la matrice des compétences suite à la validation d'une FFO
-- [ ] Proposition de formation lorsqu'une compétence va venir à manquer (message à envoyer au root à propos des départs en retraite proches)
+- [ ] Proposition de formation lorsqu'une compétence va venir à manquer (message à envoyer à l'administrateur à propos des départs en retraite proches)
