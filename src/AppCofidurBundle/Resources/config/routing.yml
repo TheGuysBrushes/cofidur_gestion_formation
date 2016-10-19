@@ -21,13 +21,20 @@ AppCofidurBundle_contact:
 
 
 #page de formation
-AppCofidurBundle_create:
+AppCofidurBundle_formation_add:
     path: /formations/add
     defaults: { _controller: AppCofidurBundle:Formation:add}
 
 AppCofidurBundle_formation_edit:
     path:  /formations/edit/{id}
     defaults: { _controller: AppCofidurBundle:Formation:edit }
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_formation_delete:
+    path:  /formations/delete/{id}
+    defaults: { _controller: AppCofidurBundle:Formation:delete }
     requirements:
         methods: GET
         id: \d+

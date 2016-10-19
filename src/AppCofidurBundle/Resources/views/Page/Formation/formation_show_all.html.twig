@@ -1,0 +1,23 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block body %}
+
+<table>
+	<tr>
+		<td> ID </td>
+		<td> NAME </td>
+		<td> DESCRIPTION </td>
+	</tr>
+{% for formation in formations %}
+	<tr>
+		<td> {{ formation.id }} </td>
+		<td> {{ formation.name }} </td>
+		<td> {{ formation.description }} </td>
+		<td> <a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">Editer</a>
+		<td> <a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">Supprimer</a>
+	</tr>
+{% endfor %}
+</table>
+	<a href="{{ path('AppCofidurBundle_formation_add') }}">Ajouter une formation</a>
+
+{% endblock %}

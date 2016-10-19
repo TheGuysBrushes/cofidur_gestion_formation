@@ -35,7 +35,7 @@ class FormationController extends Controller
             return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
         }
 
-        return $this->render('AppCofidurBundle:Page/Formation:add_formation.html.twig', array(
+        return $this->render('AppCofidurBundle:Page/Formation:formation_add.html.twig', array(
             'form' => $form->createView(),
         ));    
     }   
@@ -68,12 +68,30 @@ class FormationController extends Controller
             return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
         }
 
-        return $this->render('AppCofidurBundle:Page/Formation:edit_formation.html.twig', array(
+        return $this->render('AppCofidurBundle:Page/Formation:formation_edit.html.twig', array(
             'form' => $form->createView(),
         )); 
 
 
     }
+
+
+    public function deleteAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
+
+        if (!$formation) {
+            throw $this->createNotFoundException('Pas d\'objet');
+        }
+
+        $em->remove($formation);
+        $em->flush();
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
+    }
+
 
 
     public function showAction($id)
@@ -86,9 +104,9 @@ class FormationController extends Controller
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
-        return $this->render('AppCofidurBundle:Page/Formation:show_formation.html.twig', array(
+        return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'      => $formation,
-        ));
+        )); 
     }
 
 
@@ -98,11 +116,7 @@ class FormationController extends Controller
 
         $formations = $em->findAll();
 
-        if (!$formations) {
-            throw $this->createNotFoundException('Pas d\'objets');
-        }
-
-        return $this->render('AppCofidurBundle:Page/Formation:show_all_formation.html.twig', array(
+        return $this->render('AppCofidurBundle:Page/Formation:formation_show_all.html.twig', array(
             'formations'      => $formations,
         ));
     }
