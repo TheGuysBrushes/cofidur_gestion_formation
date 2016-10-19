@@ -2,25 +2,14 @@
 
 namespace AppCofidurBundle\Entity;
 
+#use AppCofidurBundle\Entity\User;
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Operator
  */
 class Operator extends User
 {
-    /**
-     * @var int
-     */
-    protected $id;
-
-    /**
-     * @var string
-     */
-    private $firstName;
-
-    /**
-     * @var string
-     */
-    private $lastName;
 
     /**
      * @var \DateTime
@@ -36,54 +25,6 @@ class Operator extends User
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return Operator
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-    
-        return $this;
-    }
-
-    /**
-     * Get firstName
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     *
-     * @return Operator
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-    
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
     }
 
     /**

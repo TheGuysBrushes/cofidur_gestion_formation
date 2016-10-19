@@ -17,10 +17,10 @@ Création d'un outil de gestion des formations de l'entreprise Cofidur (projet a
 
 ##Commandes à exécuter :
 
-//Lancement du serveur
+### // Lancement du serveur
 - `$php ./app/console server:run`
 
-//Accès à la page principale
+### // Accès à la page principale
 - http://localhost:8000/
 
 ##Emplacement des fichiers
@@ -28,7 +28,7 @@ Les fichiers html affichés sont accessibles dans :
 	/cofidur_gestion_formation/app/Resources/views/
 
 Les fichiers controlleurs sont accessibles dans :
-	/cofidur_gestion_formation/src/AppBundle/Controller/
+	/cofidur_gestion_formation/src/AppCofidurBundle/Controller/
 
 ---
 
