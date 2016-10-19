@@ -1,0 +1,8 @@
+AppCofidurBundle_homepage:
+    pattern:  /
+    defaults: { _controller: AppCofidurBundle:Page:index }
+
+
+AppCofidurBundle_about:
+    pattern:  /about
+    defaults: { _controller: AppCofidurBundle:Page:about }
