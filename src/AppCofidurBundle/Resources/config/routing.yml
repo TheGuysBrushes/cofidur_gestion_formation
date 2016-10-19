@@ -6,3 +6,8 @@ AppCofidurBundle_homepage:
 AppCofidurBundle_about:
     pattern:  /about
     defaults: { _controller: AppCofidurBundle:Page:about }
+
+
+AppCofidurBundle_contact:
+    pattern: /contact
+    defaults: { _controller: AppCofidurBundle:Page:contact }

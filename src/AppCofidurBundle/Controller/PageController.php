@@ -15,4 +15,9 @@ class PageController extends Controller
     {
         return $this->render('AppCofidurBundle:Page:about.html.twig');
     }
+
+    public function contactAction()
+    {
+        return $this->render('AppCofidurBundle:Page:contact.html.twig');
+    }
 }
