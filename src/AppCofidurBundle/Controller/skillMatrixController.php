@@ -30,9 +30,16 @@ class skillMatrixController extends Controller
             $ope_3->setFirstName("Antoine");
         $operators= array($ope_1, $ope_2, $ope_3);
 
+        $FormeFormateur= array(
+            array("GARNIER","form_1"),
+            array("DE LEEUW", "form_1"),
+            array("DAVID", "form_3  "));
+
+
         return $this->render('AppCofidurBundle:Page/skillMatrix:skillMatrix_show.html.twig', array(
             'tab_formations'      => $formations,
             'tab_operators'       => $operators,
+            'liaison'             => $FormeFormateur,
         ));
     }
 }

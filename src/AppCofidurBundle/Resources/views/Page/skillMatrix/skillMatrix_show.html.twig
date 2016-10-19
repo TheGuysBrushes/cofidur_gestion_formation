@@ -27,11 +27,12 @@
 
                 <!-- TODO : cases à colorer -->
                 {% for formation in tab_formations %}
-                    {% if ("GARNIER" == operator.lastname) and ("form_2" == formation) %}
-                        <td class="formedValidated"> {{  formation }}</td>
-                    {% else %}
-                    <td class="learningFormation"> {{ formation }} </td>
-                    {% endif %}
+                    {% for forme_formateur in liaison %}
+                        {% if((operator == forme_formateur[0]) and (formation == forme_formateur[1])) %}
+                            <td class="formedValidated">X</td>
+                        <!--{% else %}<td class="learningFormation">X</td>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             </tr>
         {% endfor %}
