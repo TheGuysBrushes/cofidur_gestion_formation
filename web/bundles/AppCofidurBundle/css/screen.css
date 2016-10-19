@@ -63,3 +63,23 @@ span.intact {
 	width:30px;
 	height:100px;
 }
+
+.formedNotValidated {
+	background-color: #F48A00;
+}
+
+.learningFormation {
+	background-color: #C82829;
+}
+
+.futureFormation{
+	background-color: #0088CC;
+}
+
+.formedValidated {
+	background-color: #629755;
+}
+
+.formedToTeach {
+	background-color: #ffcc00;
+}
