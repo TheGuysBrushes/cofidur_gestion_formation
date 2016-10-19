@@ -8,11 +8,11 @@
             <td> LAST NAME </td>
             <td> FIRST NAME </td>
             <td> SUPERIEUR </td>
-            <td> STATUT </td>
+            <td class="verticalite"> <span class="intact"> COFIDUR / INTERIM </span></td>
 
-            //tous les types de formation
+            <!-- Tous les types de formations -->
             {% for formation in tab_formations %}
-                <td> {{ formation }} </td>
+                <td class="verticalite"> {{ formation }} </td>
             {% endfor %}
 
         </tr>
@@ -25,6 +25,7 @@
                 <td> SUPERIEUR </td>
                 <td> STATUT </td>
 
+                <!-- TODO : cases à colorer -->
                 {% for formation in tab_formations %}
                     <td> {{ formation }} </td>
                 {% endfor %}

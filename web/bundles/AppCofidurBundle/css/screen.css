@@ -51,3 +51,15 @@ label{
 	width:30%;
 	float:left;
 }
+
+td.verticalite {
+	white-space: nowrap;
+	transform: rotate(-90.0deg);
+	transform-origin: 65px 60px;
+}
+
+span.intact {
+	display: inline-block;
+	width:30px;
+	height:100px;
+}
