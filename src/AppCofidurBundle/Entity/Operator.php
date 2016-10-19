@@ -5,12 +5,12 @@ namespace AppCofidurBundle\Entity;
 /**
  * Operator
  */
-class Operator
+class Operator extends User
 {
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
