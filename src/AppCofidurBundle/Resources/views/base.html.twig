@@ -20,12 +20,13 @@
                     {% block navigation %}
                         <nav>
                             <ul class="navigation">
-                                <li><a href="{{ path('AppCofidurBundle_homepage') }}">Home</a></li>
-                                <li><a href="{{ path('AppCofidurBundle_about') }}">About</a></li>
+                                <li><a href="{{ path('AppCofidurBundle_homepage') }}">Accueil</a></li>
+                                <li><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></li>
                                 <li><a href="{{ path('AppCofidurBundle_contact') }}">Contact</a></li>
-                                <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Skill Matrix</a></li>
-                                {# <li><a href="{{ path('AppCofidurBundle_user_login') }}">Login</a></li> #}
-
+                                <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
+                                <li><a href="register">S'enregistrer</a></li>
+                                <li><a href="login">Connexion</a></li>
+                                {#{{ path('AppCofidurBundle_login') }}#}
                             </ul>
                         </nav>
                     {% endblock %}

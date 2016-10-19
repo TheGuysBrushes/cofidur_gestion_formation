@@ -14,10 +14,11 @@ AppCofidurBundle_contact:
     defaults: { _controller: AppCofidurBundle:Page:contact }
 
 # Page de connexion
+#
 #AppCofidurBundle_login:
 #    path: /login
-#    defaults: { _controller: AppCofidurBundle:User:login }
-
+#    defaults: { _controller: AppCofidurBundle:login }
+#}
 # Page d'un opérateur
 #CofidurBundle_add:
 #    pattern: /operator/add
