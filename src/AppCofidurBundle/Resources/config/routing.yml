@@ -19,6 +19,7 @@ AppCofidurBundle_contact:
 #    path: /login
 #    defaults: { _controller: AppCofidurBundle:login }
 #}
+
 # Page d'un opérateur
 #CofidurBundle_add:
 #    pattern: /operator/add
