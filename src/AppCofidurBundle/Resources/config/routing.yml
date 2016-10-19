@@ -1,33 +1,33 @@
 #pages de bases
 AppCofidurBundle_homepage:
-    pattern:  /
+    path:  /
     defaults: { _controller: AppCofidurBundle:Page:index }
 
 
 AppCofidurBundle_about:
-    pattern:  /about
+    path:  /about
     defaults: { _controller: AppCofidurBundle:Page:about }
 
 
 AppCofidurBundle_contact:
-    pattern: /contact
+    path: /contact
     defaults: { _controller: AppCofidurBundle:Page:contact }
 
 
 #page d'operator
-AppCofidurBundle_add:
-    pattern: /operator/add
-    defaults: { _controller: AppCofidurBundle:Operator:add}
+#CofidurBundle_add:
+#    pattern: /operator/add
+#    defaults: { _controller: AppCofidurBundle:Operator:add}
 
 
 #page de formation
 AppCofidurBundle_formation_show:
-    pattern:  /formation/show/{id}
+    path:  /formation/show/{id}
     defaults: { _controller: AppCofidurBundle:Formation:show }
     requirements:
-        _method: GET
+        methods: GET
         id: \d+
 
-AppCofidurBundle_formation_add:
-    pattern:  /formation/add
-    defaults: { _controller: AppCofidurBundle:Formation:add }
+AppCofidurBundle_formation_show_all:
+    path:  /formation/show/
+    defaults: { _controller: AppCofidurBundle:Formation:showAll }

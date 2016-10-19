@@ -20,4 +20,20 @@ class FormationController extends Controller
             'formation'      => $formation,
         ));
     }
+
+    public function showAllAction()
+    {
+        $em = $this->getDoctrine()->getRepository('AppCofidurBundle:Formation');
+
+        $formations = $em->findAll();
+
+        if (!$formations) {
+            throw $this->createNotFoundException('Pas d\'objets');
+        }
+
+        return $this->render('AppCofidurBundle:Page/Formation:show_all_formation.html.twig', array(
+            'formations'      => $formations,
+        ));
+    }
+
 }
