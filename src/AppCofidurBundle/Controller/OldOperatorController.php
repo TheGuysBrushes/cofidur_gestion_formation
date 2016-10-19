@@ -1,7 +1,7 @@
 <?php
 
-// src/AppBundle/Controller/OperatorController.php
-namespace AppBundle\Controller;
+// src/AppBundle/Controller/OldOperatorController.php
+namespace AppCofidurBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
