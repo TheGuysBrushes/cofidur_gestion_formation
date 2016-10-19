@@ -64,6 +64,8 @@ span.intact {
 	height:100px;
 }
 
+/*** Couleurs du tableau de formations ***/
+
 .formedNotValidated {
 	background-color: #F48A00;
 }
@@ -82,4 +84,32 @@ span.intact {
 
 .formedToTeach {
 	background-color: #ffcc00;
+}
+
+/*** Menu déroulant ***/
+#menu-deroulant, #menu-deroulant ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#menu-deroulant ul li {
+	/* on place les liens du menu horizontalement */
+	/* on enlève ce comportement pour les liens du sous menu */
+	display: inherit;
+}
+#menu-deroulant a {
+	display: block;
+}
+#menu-deroulant ul {
+	position: absolute;
+	/* on cache les sous menus complètement sur la gauche */
+	right: 999em;
+	text-align: left;
+	z-index: 1000;
+}
+#menu-deroulant li:hover ul {
+	/* Au survol des li du menu on replace les sous menus */
+	right: 12em;
+	border-bottom: 1px solid #ccc;
 }
