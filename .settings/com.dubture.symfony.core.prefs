@@ -1,0 +1,4 @@
+com.dubture.symfony.coreconsole=app/console
+com.dubture.symfony.coredumped_container=app/cache/dev/appDevDebugProjectContainer.xml
+com.dubture.symfony.coreuse_project_phar=false
+eclipse.preferences.version=1
