@@ -1,3 +1,4 @@
+#pages de bases
 AppCofidurBundle_homepage:
     pattern:  /
     defaults: { _controller: AppCofidurBundle:Page:index }
@@ -12,6 +13,21 @@ AppCofidurBundle_contact:
     pattern: /contact
     defaults: { _controller: AppCofidurBundle:Page:contact }
 
+
+#page d'operator
 AppCofidurBundle_add:
     pattern: /operator/add
     defaults: { _controller: AppCofidurBundle:Operator:add}
+
+
+#page de formation
+AppCofidurBundle_formation_show:
+    pattern:  /formation/show/{id}
+    defaults: { _controller: AppCofidurBundle:Formation:show }
+    requirements:
+        _method: GET
+        id: \d+
+
+AppCofidurBundle_formation_add:
+    pattern:  /formation/add
+    defaults: { _controller: AppCofidurBundle:Formation:add }
