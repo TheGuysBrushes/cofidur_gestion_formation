@@ -34,4 +34,66 @@ class CategorieController extends Controller
         ));    
     }   
 
+
+    public function editAction(Request $request, $idCat)
+    {
+
+        $tache = $em->getRepository('AppCofidurBundle:Categorie')->find($idCat);
+
+        $form = $this->createForm(CategorieType::class, $categorie);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $categorie = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($categorie);
+            $em->flush();
+
+            $requete_formation = $em->createQuery('
+                SELECT c.idFormation FROM AppCofidurBundle:Categorie c WHERE c.id = :idCategorie')
+            ->setParameter('idCategorie', $idCat);
+
+            $formation = $requete_formation->getResult();
+
+            $formation_id = $formation[0]['idFormation'];
+
+
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $idForm));
+        }
+
+        return $this->render('AppCofidurBundle:Page/Categorie:categorie_edit.html.twig', array(
+            'form' => $form->createView(),
+        ));    
+    }   
+
+
+    public function deleteAction(Request $request, $idCat)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categorie = $em->getRepository('AppCofidurBundle:Categorie')->find($idCat);
+        $taches = $em->getRepository('AppCofidurBundle:Tache')->findBy(array('idCategorie'=>$idCat));
+
+        if (!$categorie) {
+            throw $this->createNotFoundException('Pas d\'objet');
+        }
+
+        $requete_formation = $em->createQuery('
+            SELECT c.idFormation FROM AppCofidurBundle:Categorie c WHERE c.id = :idCategorie')
+        ->setParameter('idCategorie', $idCat);
+
+        $formation = $requete_formation->getResult();
+
+        $formation_id = $formation[0]['idFormation'];
+
+
+        $em->remove($categorie);
+        $em->remove($taches);
+        $em->flush();
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
+    }
+
 }
