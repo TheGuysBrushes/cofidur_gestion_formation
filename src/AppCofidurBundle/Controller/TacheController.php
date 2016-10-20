@@ -61,11 +61,43 @@ class TacheController extends Controller
 
         $formation_id = $formation[0]['idFormation'];
 
-        var_dump($formation_id);
-
         $em->remove($tache);
         $em->flush();
 
         return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
     }
+
+
+    public function editAction(Request $request, $idTache)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $tache = $em->getRepository('AppCofidurBundle:Tache')->find($idTache);
+
+        $form = $this->createForm(TacheType::class, $tache);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $tache = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($tache);
+            $em->flush();
+
+            $requete_formation = $em->createQuery('
+                SELECT c.idFormation FROM AppCofidurBundle:Categorie c JOIN AppCofidurBundle:Tache t WHERE t.id = :idTache')
+            ->setParameter('idTache', $idTache);
+
+            $formation = $requete_formation->getResult();
+
+            $formation_id = $formation[0]['idFormation'];
+
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
+        }
+
+        return $this->render('AppCofidurBundle:Page/Tache:tache_edit.html.twig', array(
+            'form' => $form->createView(),
+        ));    
+    }   
 }
