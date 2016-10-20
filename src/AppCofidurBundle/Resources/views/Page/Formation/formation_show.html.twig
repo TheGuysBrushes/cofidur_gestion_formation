@@ -47,12 +47,12 @@
 						<td>{{tache.ordre}}</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_tache_edit', {'idTache': tache.id}) }}">
-								Editer
+								editer
 							</a>
 						</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">
-								Supprimer
+								supprimer
 							</a>
 						</td>
 					</tr>
@@ -69,22 +69,24 @@
 
 {% block sidebar %}
 	<div class="sidebar_link">
-		<p>Formation :</p>
-		<ul>
-			<li>
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">EDIT</a>
-			</li>
-			<li>
-				<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">SUPPR</a>
-			</li>
-		</ul>
-	</div>
-	<div class="sidebar_link">
-		<p>Categorie :</p>
-		<ul>
-			<li>
-				<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
-			</li>
-		</ul>
+		<div class="sidebar_link_formation">
+			<p>Formation :</p>
+			<ul>
+				<li>
+					<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">editer</a>
+				</li>
+				<li>
+					<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">supprimer</a>
+				</li>
+			</ul>
+		</div>
+		<div class="sidebar_link_category">
+			<p>Categorie :</p>
+			<ul>
+				<li>
+					<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">ajouter une catégorie</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 {% endblock %}
