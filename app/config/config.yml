@@ -71,5 +71,5 @@ fos_user:
     firewall_name: main
     user_class: AppCofidurBundle\Entity\User
     registration:
-            form:
-                type: AppCofidurBundle\Form\RegistrationType
+        form:
+            type: AppCofidurBundle\Form\Type\RegistrationType
