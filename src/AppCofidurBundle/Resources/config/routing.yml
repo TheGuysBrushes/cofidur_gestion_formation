@@ -69,6 +69,20 @@ AppCofidurBundle_categorie_add:
         methods: GET
         id: \d+
 
+AppCofidurBundle_categorie_edit:
+    path: /categorie/edit/{idCat}
+    defaults: { _controller: AppCofidurBundle:Categorie:edit}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_categorie_delete:
+    path: /categorie/delete/{idCat}
+    defaults: { _controller: AppCofidurBundle:Categorie:delete}
+    requirements:
+        methods: GET
+        id: \d+
+
 #page de taches
 AppCofidurBundle_tache_add:
     path: /tache/add/{idCat}
