@@ -1,5 +1,5 @@
 <?php
-namespace Acme\UserBundle\Controller;
+namespace AppCofidurBundle\Controller;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
