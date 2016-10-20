@@ -52,25 +52,14 @@ label{
 	float:left;
 }
 
-/*** Verticalité des en-têtes de la matrice de compétence ***/
-/*
-td.verticalite {
-	white-space: nowrap;
-	transform: rotate(-90.0deg);
-	transform-origin: 65px 60px;
-}
 
-span.intact {
-	display: inline-block;
-	width:30px;
-	height:100px;
-}
-*/
-
+/*used for the first headers of the skill matrix*/
 .text_in_bottom {
 	vertical-align: bottom;
 	text-align: center;
 }
+
+/*** Verticalité des en-têtes de la matrice de compétence ***/
 
 td.verticalite {
 	height: 140px;

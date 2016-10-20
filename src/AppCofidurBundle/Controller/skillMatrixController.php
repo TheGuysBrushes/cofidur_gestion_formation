@@ -30,6 +30,9 @@ class skillMatrixController extends Controller
             $ope_3->setFirstName("Antoine");
         $operators= array($ope_1, $ope_2, $ope_3);
 
+        //future case 1 : id de l'operateur
+        //future case 2 : id de la formation
+        //future case 3 : int associé à la couleur à placer dans le tableau (0 en formation, 1 formé non validé etc)
         $FormeFormateur= array(
             array("GARNIER","form_1","1"),
             array("DE LEEUW", "form_1","1"),

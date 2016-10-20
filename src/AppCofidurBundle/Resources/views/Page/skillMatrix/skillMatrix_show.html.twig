@@ -44,3 +44,34 @@
     </table>
 
 {% endblock %}
+{% block sidebar %}
+<h1>Légende des couleurs :</h1>
+<br/>
+    <table>
+        <tr>
+            <td>Code couleur</td>
+            <td>Statut</td>
+        </tr>
+        <tr>
+            <td class="formedNotValidated"></td>
+            <td>Formé non habilité</td>
+        </tr>
+        <tr>
+            <td class="learningFormation"></td>
+            <td>En Formation</td>
+        </tr>
+        <tr>
+            <td class="futureFormation"></td>
+            <td>Prévision Formation</td>
+        </tr>
+        <tr>
+            <td class="formedValidated"></td>
+            <td>Habilité</td>
+        </tr>
+        <tr>
+            <td class="formedToTeach"></td>
+            <td>Habilité à former(Tuteur)</td>
+        </tr>
+
+    </table>
+{% endblock %}
