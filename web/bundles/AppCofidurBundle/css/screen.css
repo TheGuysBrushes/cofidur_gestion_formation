@@ -52,6 +52,8 @@ label{
 	float:left;
 }
 
+/*** Verticalité des en-têtes de la matrice de compétence ***/
+/*
 td.verticalite {
 	white-space: nowrap;
 	transform: rotate(-90.0deg);
@@ -62,6 +64,31 @@ span.intact {
 	display: inline-block;
 	width:30px;
 	height:100px;
+}
+*/
+
+.text_in_bottom {
+	vertical-align: bottom;
+	text-align: center;
+}
+
+td.verticalite {
+	height: 140px;
+	white-space: nowrap;
+}
+
+td.verticalite > div {
+	/* 360 - 90 = 270 */
+	transform-origin: 50% 100%;
+	transform:
+			rotate(270deg)
+			translate(-120px, 10px);
+	width: 10px;
+	text-align: center;
+}
+td.verticalite > div > span {
+	border-bottom: 1px solid #ccc;
+	padding: 5px 10px;
 }
 
 /*** Couleurs du tableau de formations ***/
