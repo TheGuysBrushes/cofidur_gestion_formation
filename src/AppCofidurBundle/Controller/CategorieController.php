@@ -37,8 +37,9 @@ class CategorieController extends Controller
 
     public function editAction(Request $request, $idCat)
     {
+        $em = $this->getDoctrine()->getManager();
 
-        $tache = $em->getRepository('AppCofidurBundle:Categorie')->find($idCat);
+        $categorie = $em->getRepository('AppCofidurBundle:Categorie')->find($idCat);
 
         $form = $this->createForm(CategorieType::class, $categorie);
 
@@ -60,7 +61,7 @@ class CategorieController extends Controller
             $formation_id = $formation[0]['idFormation'];
 
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $idForm));
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
         }
 
         return $this->render('AppCofidurBundle:Page/Categorie:categorie_edit.html.twig', array(
@@ -90,7 +91,10 @@ class CategorieController extends Controller
 
 
         $em->remove($categorie);
-        $em->remove($taches);
+
+        foreach ($taches as $tache) 
+            $em->remove($tache);
+
         $em->flush();
 
         return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
