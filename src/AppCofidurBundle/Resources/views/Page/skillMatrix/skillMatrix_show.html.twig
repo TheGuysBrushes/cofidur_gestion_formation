@@ -27,12 +27,16 @@
 
                 <!-- TODO : cases à colorer -->
                 {% for formation in tab_formations %}
+                    {% set caseCompleted= "false" %}
                     {% for forme_formateur in liaison %}
-                        {% if((operator == forme_formateur[0]) and (formation == forme_formateur[1])) %}
-                            <td class="formedValidated">X</td>
-                        <!--{% else %}<td class="learningFormation">X</td>
+                        {% if((operator.lastname == forme_formateur[0]) and (formation == forme_formateur[1])) %}
+                            <td class="formedValidated"> {{ forme_formateur[2] }} </td>
+                            {% set caseCompleted= "true" %}
                         {% endif %}
                     {% endfor %}
+                    {% if ("false" == caseCompleted) %}
+                        <td class="formedNotValidated">X</td>
+                    {% endif %}
                 {% endfor %}
             </tr>
         {% endfor %}
