@@ -44,7 +44,7 @@ class skillMatrixController extends Controller
 
     public function showAction(Request $request)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $formations= array('form_1', 'form_2', 'form_3');
 

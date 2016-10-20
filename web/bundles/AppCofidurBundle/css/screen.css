@@ -22,7 +22,7 @@ body { line-height: 1;font-family: 'Cambria', sans-serif;font-size: 12px; width:
 .main-col a { color: #F48A00; }
 .main-col h1,
 .main-col h2
-    { line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: #F48A00; }
+    { line-height: 1.2em; font-size: 32px; margin-bottom: 10px; font-weight: normal; color: #00628A; }
 .main-col p { line-height: 1.5em; margin-bottom: 20px; }
 
 #footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa; }
@@ -35,6 +35,7 @@ table{
 	border-collapse: collapse;
 }
 td, th{
+	text-align: center;
 	border: 1px solid black;
 	padding: 5px;
 }
@@ -132,4 +133,30 @@ td.verticalite > div > span {
 	/* Au survol des li du menu on replace les sous menus */
 	right: 12em;
 	border-bottom: 1px solid #ccc;
+}
+
+.category_page {
+
+}
+
+.entete_category {
+	background-color: lightgray;
+}
+
+.task_name {
+
+}
+
+.task_order {
+
+}
+
+.task_tab {
+	background-color: lightgray;
+}
+
+.category {
+	border: solid;
+	border-color: green;
+	padding: 5%;
 }
