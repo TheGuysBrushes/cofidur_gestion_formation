@@ -83,28 +83,27 @@ td.verticalite > div > span {
 /*** Couleurs du tableau de formations ***/
 
 .formedNotValidated {
-	text-align: center;
 	background-color: #F48A00;
 }
 
 .learningFormation {
-	text-align: center;
 	background-color: #C82829;
 }
 
 .futureFormation{
-	text-align: center;
 	background-color: #0088CC;
 }
 
 .formedValidated {
-	text-align: center;
 	background-color: #629755;
 }
 
 .formedToTeach {
-	text-align: center;
 	background-color: #ffcc00;
+}
+
+.text_legende {
+	text-align: center;
 }
 
 /*** Menu déroulant ***/

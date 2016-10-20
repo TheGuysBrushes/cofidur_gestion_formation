@@ -30,12 +30,22 @@
                     {% set caseCompleted= "false" %}
                     {% for forme_formateur in liaison %}
                         {% if((operator.lastname == forme_formateur[0]) and (formation == forme_formateur[1])) %}
-                            <td class="formedValidated"> {{ forme_formateur[2] }} </td>
+                            {% if "1" == forme_formateur[2] %}
+                                <td class="formedNotValidated"> {{ forme_formateur[2] }} </td>
+                            {% elseif "2" == forme_formateur[2] %}
+                                <td class="learningFormation"> {{ forme_formateur[2] }} </td>
+                            {% elseif "3" == forme_formateur[2] %}
+                                <td class="futureFormation"> {{ forme_formateur[2] }} </td>
+                            {% elseif "4" == forme_formateur[2] %}
+                                <td class="formedValidated"> {{ forme_formateur[2] }} </td>
+                            {% elseif "5" == forme_formateur[2] %}
+                                <td class="formedToTeach"> {{ forme_formateur[2] }} </td>
+                            {% endif %}
                             {% set caseCompleted= "true" %}
                         {% endif %}
                     {% endfor %}
                     {% if ("false" == caseCompleted) %}
-                        <td class="formedNotValidated">X</td>
+                        <td></td>
                     {% endif %}
                 {% endfor %}
             </tr>
@@ -49,28 +59,28 @@
 <br/>
     <table>
         <tr>
-            <td>Code couleur</td>
-            <td>Statut</td>
+            <td class="text_legende">Code couleur</td>
+            <td class="text_legende">Statut</td>
         </tr>
         <tr>
             <td class="formedNotValidated"></td>
-            <td>Formé non habilité</td>
+            <td class="text_legende">Formé non habilité</td>
         </tr>
         <tr>
             <td class="learningFormation"></td>
-            <td>En Formation</td>
+            <td class="text_legende">En Formation</td>
         </tr>
         <tr>
             <td class="futureFormation"></td>
-            <td>Prévision Formation</td>
+            <td class="text_legende">Prévision Formation</td>
         </tr>
         <tr>
             <td class="formedValidated"></td>
-            <td>Habilité</td>
+            <td class="text_legende">Habilité</td>
         </tr>
         <tr>
             <td class="formedToTeach"></td>
-            <td>Habilité à former(Tuteur)</td>
+            <td class="text_legende">Habilité à former(Tuteur)</td>
         </tr>
 
     </table>
