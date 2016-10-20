@@ -86,7 +86,7 @@ class TacheController extends Controller
             $em->flush();
 
             $requete_formation = $em->createQuery('
-                SELECT c.idFormation FROM AppCofidurBundle:Categorie c JOIN AppCofidurBundle:Tache t WHERE t.id = :idTache')
+                SELECT c.idFormation FROM AppCofidurBundle:Categorie c  WHERE c.id = (SELECT t.idCategorie FROM AppCofidurBundle:Tache t WHERE t.id = :idTache)')
             ->setParameter('idTache', $idTache);
 
             $formation = $requete_formation->getResult();

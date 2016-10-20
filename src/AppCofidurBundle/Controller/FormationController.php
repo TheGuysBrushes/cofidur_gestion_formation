@@ -59,7 +59,7 @@ class FormationController extends Controller
             $em->persist($formation);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
+            return $this->redirectToRoute('AppCofidurBundle_formation_show',array('id'=>$id));
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_edit.html.twig', array(
@@ -75,6 +75,15 @@ class FormationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
+        $categories = $em->getRepository('AppCofidurBundle:Categorie')->findBy(array('idFormation'=>$id));
+
+        foreach($categories as $categorie){
+            $taches = $em->getRepository('AppCofidurBundle:Tache')->findBy(array('idCategorie'=>$categorie->getId()));
+            foreach($taches as $tache){
+                $em->remove($tache);
+            }
+            $em->remove($categorie);
+        }
 
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
