@@ -6,13 +6,21 @@
 	<tr>
 		<th> ID </th>
 		<th> NOM </th>
-		<th> DESCRIPTION </th>
+		<th> TYPE </th>
+		<th> OBJECTIF </th>
+		<th> MOYENS PEDAGOGIQUES </th>
+		<th> MOYENS MATERIELS </th>
+		<th> CRITICITE </th>
 	</tr>
 {% for formation in formations %}
 	<tr>
 		<td> {{ formation.id }} </td>
 		<td> {{ formation.name }} </td>
-		<td> {{ formation.description }} </td>
+		<td> {{ formation.typeFormation }} </td>
+		<td> {{ formation.objectif }} </td>
+		<td> {{ formation.moyensPedagogiques }} </td>
+		<td> {{ formation.lieuMoyensMateriels }} </td>
+		<td> {{ formation.criticite }} </td>
 		<td> <a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">Editer</a>
 		<td> <a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">Supprimer</a>
 	</tr>

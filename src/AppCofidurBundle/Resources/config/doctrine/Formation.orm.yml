@@ -12,7 +12,18 @@ AppCofidurBundle\Entity\Formation:
         name:
             type: string
             length: 255
-        description:
+        typeFormation:
+            type: string
+            length: 255
+        criticite:
+            type: integer
+        objectif:
+            type: string
+            length: 255
+        moyensPedagogiques:
+            type: string
+            length: 255
+        lieuMoyensMateriels:
             type: string
             length: 255
     lifecycleCallbacks: {  }

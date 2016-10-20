@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 
 class FormationController extends Controller
@@ -19,8 +20,12 @@ class FormationController extends Controller
 
         $form = $this->createFormBuilder($formation)
             ->add('name', TextType::class)
-            ->add('description', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Create formation'))
+            ->add('typeFormation', TextType::class)
+            ->add('objectif', TextType::class)
+            ->add('moyensPedagogiques', TextType::class)
+            ->add('lieuMoyensMateriels', TextType::class)
+            ->add('criticite', IntegerType::class)
+            ->add('save', SubmitType::class, array('label' => 'Créer formation'))
             ->getForm();
 
         $form->handleRequest($request);
@@ -52,8 +57,12 @@ class FormationController extends Controller
 
         $form = $this->createFormBuilder($formation)
             ->add('name', TextType::class)
-            ->add('description', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'Update formation'))
+            ->add('typeFormation', TextType::class)
+            ->add('objectif', TextType::class)
+            ->add('moyensPedagogiques', TextType::class)
+            ->add('lieuMoyensMateriels', TextType::class)
+            ->add('criticite', IntegerType::class)
+            ->add('save', SubmitType::class, array('label' => 'Mettre à jour la formation'))
             ->getForm();
 
         $form->handleRequest($request);

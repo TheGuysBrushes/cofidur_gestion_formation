@@ -49,3 +49,8 @@ AppCofidurBundle_formation_show:
 AppCofidurBundle_formation_show_all:
     path:  /formations
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
+
+
+AppCofidurBundle_categorie_new:
+    path: /categorie/new
+    defaults: { _controller: AppCofidurBundle:Categorie:new}
