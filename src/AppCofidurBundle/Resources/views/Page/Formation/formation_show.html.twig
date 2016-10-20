@@ -19,7 +19,8 @@ categories :
 	taches:<br/>
 	{% for tache in taches %}
 		{% if tache.idCategorie == categorie.id %}
-			ordre : {{tache.ordre}} & nom {{tache.nom}}
+			ordre : {{tache.ordre}} & nom {{tache.nom}} 
+				<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">suppr une tache...</a>
 		{%endif%}
 	{% endfor %}
 	<a href="{{ path('AppCofidurBundle_tache_add', {'idCat': categorie.id}) }}">Ajouter une tache...</a>

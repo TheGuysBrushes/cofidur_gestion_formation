@@ -1,6 +1,8 @@
 <?php
 namespace AppCofidurBundle\Controller;
 
+
+use AppCofidurBundle\Entity\Categorie;
 use AppCofidurBundle\Entity\Tache;
 use AppCofidurBundle\Form\Type\TacheType;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,8 +27,14 @@ class TacheController extends Controller
             $em->persist($tache);
             $em->flush();
 
-            //TODO refaire la page
-            return $this->redirectToRoute('AppCofidurBundle_homepage');
+            $requete_formation = $em->createQuery('SELECT c.idFormation FROM AppCofidurBundle:Categorie c WHERE c.id = :idCategory')
+            ->setParameter('idCategory', $idCat);
+
+            $formation = $requete_formation->getResult();
+
+            $formation_id = $formation[0]['idFormation'];
+
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
         }
 
         return $this->render('AppCofidurBundle:Page/Tache:tache_add.html.twig', array(
@@ -34,4 +42,30 @@ class TacheController extends Controller
         ));    
     }   
 
+
+    public function deleteAction(Request $request, $idTache)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $tache = $em->getRepository('AppCofidurBundle:Tache')->find($idTache);
+
+        if (!$tache) {
+            throw $this->createNotFoundException('Pas d\'objet');
+        }
+
+        $requete_formation = $em->createQuery('
+            SELECT c.idFormation FROM AppCofidurBundle:Categorie c JOIN AppCofidurBundle:Tache t WHERE t.id = :idTache')
+        ->setParameter('idTache', $idTache);
+
+        $formation = $requete_formation->getResult();
+
+        $formation_id = $formation[0]['idFormation'];
+
+        var_dump($formation_id);
+
+        $em->remove($tache);
+        $em->flush();
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $formation_id));
+    }
 }

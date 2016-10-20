@@ -76,3 +76,10 @@ AppCofidurBundle_tache_add:
     requirements:
         methods: GET
         id: \d+
+
+AppCofidurBundle_tache_delete:
+    path: /tache/delete/{idTache}
+    defaults: { _controller: AppCofidurBundle:Tache:delete}
+    requirements:
+        methods: GET
+        id: \d+
