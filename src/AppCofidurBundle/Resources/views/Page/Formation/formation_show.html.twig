@@ -1,35 +1,39 @@
 {% extends 'AppCofidurBundle::layout.html.twig' %}
 
 {% block body %}
-<table class="category_page">
-	<tr>
+	<table class="category_page">
+		<tr>
 		<td class="entete_category">ID</td><td>{{ formation.id }} </td>
 	</tr>
-	<tr>
+		<tr>
 		<td class="entete_category">Name</td><td>{{ formation.name }} </td>
 	</tr>
-	<tr>
+		<tr>
 		<td class="entete_category">Type</td><td>{{ formation.typeFormation }} </td>
 	</tr>
-	<tr>
+		<tr>
 		<td class="entete_category">Objectif</td><td>{{ formation.objectif }} </td>
 	</tr>
-	<tr>
+		<tr>
 		<td class="entete_category">Moyens pédagogiques</td><td>{{ formation.moyensPedagogiques }} </td>
 	</tr>
-	<tr>
+		<tr>
 		<td class="entete_category">Lieu & moyens matériels</td><td>{{ formation.lieuMoyensMateriels }} </td>
 	</tr>
-	<tr>
+		<tr>
 		<td class="entete_category">Criticité</td><td>{{ formation.criticite }} </td>
 	</tr>
-</table>
+	</table>
 
-
-{% for categorie in categories %}
-	<fieldset class="category">
+	{% for categorie in categories %}
+		<br/>
+		<fieldset class="category">
 		<legend>
-			<h2>Catégorie : {{ categorie.nom }} ({{categorie.ordre}}) </h2>
+			<div class="category_title">
+				Catégorie : {{ categorie.nom }} ({{categorie.ordre}}) ---------------------
+				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">EDIT</a>
+				<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">SUPPR</a>
+			</div>
 		</legend>
 		<table class="task_tab">
 			<tr>
@@ -42,15 +46,15 @@
 						<td>{{tache.nom}}</td>
 						<td>{{tache.ordre}}</td>
 						<td>
-							<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">
-								<img src="{{ asset('bundles/AppCofidurBundle/images/corb.png') }}" alt="delete">
+							<a href="{{ path('AppCofidurBundle_tache_edit', {'idTache': tache.id}) }}">
+								Editer
 							</a>
 						</td>
-						{#<td>#}
-							{#<a href="{{ path('AppCofidurBundle_tache_edit', {'idTache': tache.id}) }}">#}
-								{#<img src="asset('bundles/AppCofidurBundle/images/pen.png')" alt="edit">#}
-							{#</a>#}
-						{#</td>#}
+						<td>
+							<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">
+								Supprimer
+							</a>
+						</td>
 					</tr>
 				{%endif%}
 			{% endfor %}
@@ -69,3 +73,6 @@
 
 {% endblock %}
 
+{% block sidebar %}
+
+{% endblock %}

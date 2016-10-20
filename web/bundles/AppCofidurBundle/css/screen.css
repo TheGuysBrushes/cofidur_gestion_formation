@@ -152,11 +152,15 @@ td.verticalite > div > span {
 }
 
 .task_tab {
-;
+
 }
 
 .category {
 	border: solid;
 	border-color: green;
 	padding: 5%;
+}
+
+.category_title {
+	font-size: 200%;
 }
