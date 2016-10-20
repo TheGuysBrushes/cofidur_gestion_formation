@@ -1,0 +1,42 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block body %}
+
+    <table>
+        <tr>
+            <td> ID </td>
+            <td> LAST NAME </td>
+            <td> FIRST NAME </td>
+            <td> SUPERIEUR </td>
+            <td class="verticalite"> <span class="intact"> COFIDUR / INTERIM </span></td>
+
+            <!-- Tous les types de formations -->
+            {% for formation in tab_formations %}
+                <td class="verticalite"> {{ formation }} </td>
+            {% endfor %}
+
+        </tr>
+
+        {% for operator in tab_operators %}
+            <tr>
+                <td> TODO </td>
+                <td> {{ operator.lastname }} </td>
+                <td> {{ operator.firstname }} </td>
+                <td> SUPERIEUR </td>
+                <td> STATUT </td>
+
+                <!-- TODO : cases à colorer -->
+                {% for formation in tab_formations %}
+                    {% for forme_formateur in liaison %}
+                        {% if((operator == forme_formateur[0]) and (formation == forme_formateur[1])) %}
+                            <td class="formedValidated">X</td>
+                        <!--{% else %}<td class="learningFormation">X</td>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

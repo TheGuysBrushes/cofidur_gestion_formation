@@ -13,12 +13,17 @@ AppCofidurBundle_contact:
     path: /contact
     defaults: { _controller: AppCofidurBundle:Page:contact }
 
+# Page de connexion
+#
+#AppCofidurBundle_login:
+#    path: /login
+#    defaults: { _controller: AppCofidurBundle:login }
+#}
 
-#page d'operator
+# Page d'un opérateur
 #CofidurBundle_add:
 #    pattern: /operator/add
 #    defaults: { _controller: AppCofidurBundle:Operator:add}
-
 
 #page de formation
 AppCofidurBundle_formation_add:
@@ -50,7 +55,10 @@ AppCofidurBundle_formation_show_all:
     path:  /formations
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
 
-
 AppCofidurBundle_categorie_new:
     path: /categorie/new
     defaults: { _controller: AppCofidurBundle:Categorie:new}
+
+AppCofidurBundle_skillMatrix:
+    path: /skillMatrix
+    defaults: { _controller: AppCofidurBundle:skillMatrix:show }

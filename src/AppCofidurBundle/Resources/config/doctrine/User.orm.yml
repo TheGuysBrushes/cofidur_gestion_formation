@@ -8,4 +8,13 @@ AppCofidurBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
+    fields:
+        firstName:
+            type: string
+            length: 255
+            column: first_name
+        lastName:
+            type: string
+            length: 255
+            column: last_name
     lifecycleCallbacks: {  }
