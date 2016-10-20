@@ -30,9 +30,9 @@
 		<fieldset class="category">
 		<legend>
 			<div class="category_title">
-				Catégorie : {{ categorie.nom }} ({{categorie.ordre}}) ---------------------
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">EDIT</a>
-				<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">SUPPR</a>
+				Catégorie : {{ categorie.nom }} ({{categorie.ordre}})
+				<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}">EDIT</a>
+				<a href="{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}">SUPPR</a>
 			</div>
 		</legend>
 		<table class="task_tab">
@@ -65,14 +65,15 @@
 
 	</fieldset>
 {% endfor %}
-
-{#<!--	<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">Supprimer une tache...</a>-->#}
-
-	<br/>
-<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">Ajouter une catégorie à la formation...</a>
-
 {% endblock %}
 
 {% block sidebar %}
+	<p>Formation :</p>
+	<ol>
+		<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">EDIT</a>
+		<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">SUPPR</a>
+	</ol>
+	<p>Category :</p>
+		<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
 
 {% endblock %}
