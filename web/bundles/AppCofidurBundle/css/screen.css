@@ -144,15 +144,15 @@ td.verticalite > div > span {
 }
 
 .task_name {
-
+	background-color: lightgray;
 }
 
 .task_order {
-
+	background-color: lightgray;
 }
 
 .task_tab {
-	background-color: lightgray;
+;
 }
 
 .category {

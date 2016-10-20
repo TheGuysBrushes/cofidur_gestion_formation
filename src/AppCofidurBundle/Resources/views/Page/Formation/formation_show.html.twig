@@ -33,19 +33,31 @@
 		</legend>
 		<table class="task_tab">
 			<tr>
-				<td class="task_name">Nom tache</td><td class="task_order">Ordre tache</td>
+				<td class="task_name">Nom tache</td>
+				<td class="task_order">Ordre tache</td>
 			</tr>
 			{% for tache in taches %}
 				{% if tache.idCategorie == categorie.id %}
 					<tr>
-						<td class="task_name">{{tache.nom}}</td><td class="task_order">{{tache.ordre}}</td>
+						<td>{{tache.nom}}</td>
+						<td>{{tache.ordre}}</td>
+						<td>
+							<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">
+								<img src="{{ asset('bundles/AppCofidurBundle/images/corb.png') }}" alt="delete">
+							</a>
+						</td>
+						{#<td>#}
+							{#<a href="{{ path('AppCofidurBundle_tache_edit', {'idTache': tache.id}) }}">#}
+								{#<img src="asset('bundles/AppCofidurBundle/images/pen.png')" alt="edit">#}
+							{#</a>#}
+						{#</td>#}
 					</tr>
 				{%endif%}
 			{% endfor %}
 		</table>
-
-		<a href="{{ path('AppCofidurBundle_tache_add', {'idCat': categorie.id}) }}">Ajouter une tache...</a>
 		<br/>
+
+		<a href="{{ path('AppCofidurBundle_tache_add', {'idCat': categorie.id}) }}">Ajouter une tache</a>
 
 	</fieldset>
 {% endfor %}
