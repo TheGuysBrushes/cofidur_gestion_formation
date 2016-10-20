@@ -9,6 +9,6 @@ parameters:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 services:
     app.form.registration:
-        class: AppCofidurBundle\Form\RegistrationType
+        class: AppCofidurBundle\Form\Type\RegistrationType
         tags:
             - { name: form.type, alias: app_user_registration }
