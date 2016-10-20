@@ -11,5 +11,5 @@ class AppCofidurBundle extends Bundle
     {
         return 'FOSUserBundle';
     }
-
+    /**/
 }

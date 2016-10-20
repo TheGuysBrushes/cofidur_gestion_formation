@@ -58,7 +58,7 @@ AppCofidurBundle_formation_show:
         id: \d+
 
 AppCofidurBundle_formation_show_all:
-    path:  /formation
+    path:  /formations
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
 
 #page de categorie
