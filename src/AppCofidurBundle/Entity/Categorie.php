@@ -1,31 +1,113 @@
 <?php
+
 namespace AppCofidurBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-
+/**
+ * Categorie
+ */
 class Categorie
 {
-    protected $description;
+    /**
+     * @var int
+     */
+    private $id;
 
-    protected $taches;
+    /**
+     * @var int
+     */
+    private $ordre;
 
-    public function __construct()
+    /**
+     * @var string
+     */
+    private $nom;
+
+    /**
+     * @var int
+     */
+    private $idFormation;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
     {
-        $this->taches = new ArrayCollection();
+        return $this->id;
     }
 
-    public function getDescription()
+    /**
+     * Set ordre
+     *
+     * @param integer $ordre
+     *
+     * @return Categorie
+     */
+    public function setOrdre($ordre)
     {
-        return $this->description;
+        $this->ordre = $ordre;
+
+        return $this;
     }
 
-    public function setDescription($description)
+    /**
+     * Get ordre
+     *
+     * @return int
+     */
+    public function getOrdre()
     {
-        $this->description = $description;
+        return $this->ordre;
     }
 
-    public function getTaches()
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Categorie
+     */
+    public function setNom($nom)
     {
-        return $this->taches;
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set idFormation
+     *
+     * @param integer $idFormation
+     *
+     * @return Categorie
+     */
+    public function setIdFormation($idFormation)
+    {
+        $this->idFormation = $idFormation;
+
+        return $this;
+    }
+
+    /**
+     * Get idFormation
+     *
+     * @return int
+     */
+    public function getIdFormation()
+    {
+        return $this->idFormation;
     }
 }
+

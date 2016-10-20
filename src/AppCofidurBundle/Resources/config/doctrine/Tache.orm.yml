@@ -1,0 +1,19 @@
+AppCofidurBundle\Entity\Tache:
+    type: entity
+    table: null
+    repositoryClass: AppCofidurBundle\Repository\TacheRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        idCategorie:
+            type: integer
+        ordre:
+            type: integer
+        nom:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,19 @@
+AppCofidurBundle\Entity\Categorie:
+    type: entity
+    table: null
+    repositoryClass: AppCofidurBundle\Repository\CategorieRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        ordre:
+            type: integer
+        nom:
+            type: string
+            length: 255
+        idFormation:
+            type: integer
+    lifecycleCallbacks: {  }

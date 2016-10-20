@@ -1,6 +1,7 @@
 <?php
 
 namespace AppCofidurBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Formation
@@ -37,6 +38,19 @@ class Formation
      */
     private $typeFormation;
 
+
+    protected $categories;
+
+
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+
+    public function getCategories()
+    {
+        return $this->categories;
+    }
 
 
     /**

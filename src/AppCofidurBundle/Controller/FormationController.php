@@ -3,30 +3,23 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\Formation;
+use AppCofidurBundle\Entity\Categorie;
+use AppCofidurBundle\Entity\Tache;
+
+use AppCofidurBundle\Form\Type\FormationType;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 
 
 class FormationController extends Controller
 {   
-
-
+    
     public function addAction(Request $request)
     {
         $formation = new Formation();
 
-        $form = $this->createFormBuilder($formation)
-            ->add('name', TextType::class)
-            ->add('typeFormation', TextType::class)
-            ->add('objectif', TextType::class)
-            ->add('moyensPedagogiques', TextType::class)
-            ->add('lieuMoyensMateriels', TextType::class)
-            ->add('criticite', IntegerType::class)
-            ->add('save', SubmitType::class, array('label' => 'Créer formation'))
-            ->getForm();
+        $form = $this->createForm(FormationType::class, $formation);
 
         $form->handleRequest($request);
 
@@ -48,22 +41,14 @@ class FormationController extends Controller
 
     public function editAction(Request $request, $id)
     {   
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
 
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
-        $form = $this->createFormBuilder($formation)
-            ->add('name', TextType::class)
-            ->add('typeFormation', TextType::class)
-            ->add('objectif', TextType::class)
-            ->add('moyensPedagogiques', TextType::class)
-            ->add('lieuMoyensMateriels', TextType::class)
-            ->add('criticite', IntegerType::class)
-            ->add('save', SubmitType::class, array('label' => 'Mettre à jour la formation'))
-            ->getForm();
+        $form = $this->createForm(FormationType::class, $formation);
 
         $form->handleRequest($request);
 
@@ -87,7 +72,7 @@ class FormationController extends Controller
 
     public function deleteAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
 
@@ -105,9 +90,16 @@ class FormationController extends Controller
 
     public function showAction($id)
     {
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
+        $categories = $em->getRepository('AppCofidurBundle:Categorie')->findBy(array('idFormation'=>$id));
+
+
+        $requete_tache = $em->createQuery('SELECT t FROM AppCofidurBundle:Tache t JOIN AppCofidurBundle:Categorie c WHERE c.id = t.idCategorie AND c.idFormation =  :id')
+            ->setParameter('id', $id);
+        $taches = $requete_tache->getResult();
+
 
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -115,6 +107,8 @@ class FormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'      => $formation,
+            'categories'     => $categories,
+            'taches'         => $taches,
         )); 
     }
 

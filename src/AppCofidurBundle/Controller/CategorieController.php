@@ -2,27 +2,36 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\Categorie;
-use AppCofidurBundle\Entity\Tache;
 use AppCofidurBundle\Form\Type\CategorieType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CategorieController extends Controller
 {
-    public function newAction(Request $request)
+
+
+    public function addAction(Request $request, $idForm)
     {
         $categorie = new Categorie();
+        $categorie->setIdFormation($idForm);
 
         $form = $this->createForm(CategorieType::class, $categorie);
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            // ... maybe do some form processing, like saving the Task and Tag objects
+        if ($form->isSubmitted() && $form->isValid()) {
+            $categorie = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($categorie);
+            $em->flush();
+
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('id' => $idForm));
         }
 
-        return $this->render('AppCofidurBundle:Categorie:new.html.twig', array(
+        return $this->render('AppCofidurBundle:Page/Categorie:categorie_add.html.twig', array(
             'form' => $form->createView(),
-        ));
-    }
+        ));    
+    }   
+
 }

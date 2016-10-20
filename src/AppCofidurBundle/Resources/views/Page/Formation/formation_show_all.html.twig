@@ -15,7 +15,7 @@
 {% for formation in formations %}
 	<tr>
 		<td> {{ formation.id }} </td>
-		<td> {{ formation.name }} </td>
+		<td> <a href="{{ path('AppCofidurBundle_formation_show', {'id': formation.id}) }}">{{ formation.name }}</a> </td>
 		<td> {{ formation.typeFormation }} </td>
 		<td> {{ formation.objectif }} </td>
 		<td> {{ formation.moyensPedagogiques }} </td>

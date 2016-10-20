@@ -13,6 +13,12 @@ AppCofidurBundle_contact:
     path: /contact
     defaults: { _controller: AppCofidurBundle:Page:contact }
 
+
+AppCofidurBundle_skillMatrix:
+    path: /skillMatrix
+    defaults: { _controller: AppCofidurBundle:skillMatrix:show }
+
+
 # Page de connexion
 #
 #AppCofidurBundle_login:
@@ -27,38 +33,46 @@ AppCofidurBundle_contact:
 
 #page de formation
 AppCofidurBundle_formation_add:
-    path: /formations/add
+    path: /formation/add
     defaults: { _controller: AppCofidurBundle:Formation:add}
 
 AppCofidurBundle_formation_edit:
-    path:  /formations/edit/{id}
+    path:  /formation/edit/{id}
     defaults: { _controller: AppCofidurBundle:Formation:edit }
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_formation_delete:
-    path:  /formations/delete/{id}
+    path:  /formation/delete/{id}
     defaults: { _controller: AppCofidurBundle:Formation:delete }
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_formation_show:
-    path:  /formations/{id}
+    path:  /formation/{id}
     defaults: { _controller: AppCofidurBundle:Formation:show }
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_formation_show_all:
-    path:  /formations
+    path:  /formation
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
 
-AppCofidurBundle_categorie_new:
-    path: /categorie/new
-    defaults: { _controller: AppCofidurBundle:Categorie:new}
+#page de categorie
+AppCofidurBundle_categorie_add:
+    path: /categorie/add/{idForm}
+    defaults: { _controller: AppCofidurBundle:Categorie:add}
+    requirements:
+        methods: GET
+        id: \d+
 
-AppCofidurBundle_skillMatrix:
-    path: /skillMatrix
-    defaults: { _controller: AppCofidurBundle:skillMatrix:show }
+#page de taches
+AppCofidurBundle_tache_add:
+    path: /tache/add/{idCat}
+    defaults: { _controller: AppCofidurBundle:Tache:add}
+    requirements:
+        methods: GET
+        id: \d+

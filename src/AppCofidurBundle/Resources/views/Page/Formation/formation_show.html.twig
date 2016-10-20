@@ -1,9 +1,34 @@
 {% extends 'AppCofidurBundle::layout.html.twig' %}
 
 {% block body %}
-id : {{ formation.id }} <br/>
-name : {{ formation.name }} <br/>
-description : {{ formation.description }} <br/>
+id: {{ formation.id }} </br>
+name: {{ formation.name }} </br>
+type: {{ formation.typeFormation }} </br>
+objectif: {{ formation.objectif }} </br>
+moyens pedagogiques : {{ formation.moyensPedagogiques }} </br>
+lieu & moyens materiels : {{ formation.lieuMoyensMateriels }} </br>
+criticite : {{ formation.criticite }} </br>
+
+
+<br/>
+<br/>
+categories :
+<br/>
+{% for categorie in categories %}
+	ordre : {{categorie.ordre}}  & nom : {{categorie.nom}} </br><br/>
+	taches:<br/>
+	{% for tache in taches %}
+		{% if tache.idCategorie == categorie.id %}
+			ordre : {{tache.ordre}} & nom {{tache.nom}}
+		{%endif%}
+	{% endfor %}
+	<a href="{{ path('AppCofidurBundle_tache_add', {'idCat': categorie.id}) }}">Ajouter une tache...</a>
+	<br/>
+	<br/>
+{% endfor %}
+
+<br/>
+<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">Ajouter une catégorie à la formation...</a>
 
 {% endblock %}
 
