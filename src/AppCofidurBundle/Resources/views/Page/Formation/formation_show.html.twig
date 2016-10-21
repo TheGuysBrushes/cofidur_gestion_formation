@@ -25,37 +25,31 @@
 	</tr>
 	</table>
 
-	{% for categorie in categories %}
+	{% for category in categories %}
 		<br/>
 		<fieldset class="category">
-		<legend>
-			<div class="category_title">
-				Catégorie : {{ categorie.nom }} ({{categorie.ordre}})
-				<a href="{{ path('AppCofidurBundle_categorie_edit', {'idCat': categorie.id}) }}">
-					Editer
-				</a>
-				<a href="{{ path('AppCofidurBundle_categorie_delete', {'idCat': categorie.id}) }}">
-					Supprimer
-				</a>
-			</div>
+		<legend class="category_title">
+			Catégorie : {{ category.nom }} ({{ category.ordre }})
+			<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}">Éditer</a>
+			<a href="{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}">Supprimer</a>
 		</legend>
 		<table class="task_tab">
 			<tr>
-				<td class="task_name">Nom tache</td>
-				<td class="task_order">Ordre tache</td>
+				<td class="task_name">Nom task</td>
+				<td class="task_order">Ordre task</td>
 			</tr>
-			{% for tache in taches %}
-				{% if tache.idCategorie == categorie.id %}
+			{% for task in tasks %}
+				{% if task.idCategory == category.id %}
 					<tr>
-						<td>{{tache.nom}}</td>
-						<td>{{tache.ordre}}</td>
+						<td>{{ task.nom }}</td>
+						<td>{{ task.ordre }}</td>
 						<td>
-							<a href="{{ path('AppCofidurBundle_tache_edit', {'idTache': tache.id}) }}">
-								Editer
+							<a href="{{ path('AppCofidurBundle_task_edit', {'idTask': task.id}) }}">
+								Éditer
 							</a>
 						</td>
 						<td>
-							<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">
+							<a href="{{ path('AppCofidurBundle_task_delete', {'idTask': task.id}) }}">
 								Supprimer
 							</a>
 						</td>
@@ -65,7 +59,7 @@
 		</table>
 		<br/>
 
-		<a href="{{ path('AppCofidurBundle_tache_add', {'idCat': categorie.id}) }}">Ajouter une tache</a>
+			<a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}">Ajouter une task</a>
 
 	</fieldset>
 {% endfor %}
@@ -80,7 +74,7 @@
 		</legend>
 		<ul>
 			<li>
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">Editer</a>
+				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">Éditer</a>
 			</li>
 			<li>
 				<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">Supprimer</a>
@@ -93,7 +87,7 @@
 		</legend>
 		<ul>
 			<li>
-				<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
+				<a href="{{ path('AppCofidurBundle_category_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
 			</li>
 		</ul>
 	</fieldset>

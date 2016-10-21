@@ -18,13 +18,10 @@ AppCofidurBundle_skillMatrix:
     path: /skillMatrix
     defaults: { _controller: AppCofidurBundle:skillMatrix:show }
 
-
 # Page de connexion
-#
 #AppCofidurBundle_login:
 #    path: /login
-#    defaults: { _controller: AppCofidurBundle:login }
-#}
+#    defaults: { _controller: FOSUserBundle:UserBundle:login}
 
 # Page d'un opérateur
 #CofidurBundle_add:
@@ -62,45 +59,45 @@ AppCofidurBundle_formation_show_all:
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
 
 #page de categorie
-AppCofidurBundle_categorie_add:
-    path: /categorie/add/{idForm}
-    defaults: { _controller: AppCofidurBundle:Categorie:add}
+AppCofidurBundle_category_add:
+    path: /category/add/{idForm}
+    defaults: { _controller: AppCofidurBundle:Category:add}
     requirements:
         methods: GET
         id: \d+
 
-AppCofidurBundle_categorie_edit:
-    path: /categorie/edit/{idCat}
-    defaults: { _controller: AppCofidurBundle:Categorie:edit}
+AppCofidurBundle_category_edit:
+    path: /category/edit/{idCat}
+    defaults: { _controller: AppCofidurBundle:Category:edit}
     requirements:
         methods: GET
         id: \d+
 
-AppCofidurBundle_categorie_delete:
-    path: /categorie/delete/{idCat}
-    defaults: { _controller: AppCofidurBundle:Categorie:delete}
+AppCofidurBundle_category_delete:
+    path: /category/delete/{idCat}
+    defaults: { _controller: AppCofidurBundle:Category:delete}
     requirements:
         methods: GET
         id: \d+
 
 #page de taches
-AppCofidurBundle_tache_add:
-    path: /tache/add/{idCat}
-    defaults: { _controller: AppCofidurBundle:Tache:add}
+AppCofidurBundle_task_add:
+    path: /task/add/{idCat}
+    defaults: { _controller: AppCofidurBundle:Task:add}
     requirements:
         methods: GET
         id: \d+
 
-AppCofidurBundle_tache_delete:
-    path: /tache/delete/{idTache}
-    defaults: { _controller: AppCofidurBundle:Tache:delete}
+AppCofidurBundle_task_delete:
+    path: /task/delete/{idTask}
+    defaults: { _controller: AppCofidurBundle:Task:delete}
     requirements:
         methods: GET
         id: \d+
 
-AppCofidurBundle_tache_edit:
-    path: /tache/edit/{idTache}
-    defaults: { _controller: AppCofidurBundle:Tache:edit}
+AppCofidurBundle_task_edit:
+    path: /task/edit/{idTask}
+    defaults: { _controller: AppCofidurBundle:Task:edit}
     requirements:
         methods: GET
         id: \d+

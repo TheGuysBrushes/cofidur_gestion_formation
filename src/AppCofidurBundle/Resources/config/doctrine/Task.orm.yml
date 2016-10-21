@@ -1,7 +1,7 @@
-AppCofidurBundle\Entity\Categorie:
+AppCofidurBundle\Entity\Task:
     type: entity
     table: null
-    repositoryClass: AppCofidurBundle\Repository\CategorieRepository
+    repositoryClass: AppCofidurBundle\Repository\TaskRepository
     id:
         id:
             type: integer
@@ -9,11 +9,11 @@ AppCofidurBundle\Entity\Categorie:
             generator:
                 strategy: AUTO
     fields:
+        idCategory:
+            type: integer
         ordre:
             type: integer
         nom:
             type: string
             length: 255
-        idFormation:
-            type: integer
     lifecycleCallbacks: {  }

@@ -3,8 +3,8 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\Formation;
-use AppCofidurBundle\Entity\Categorie;
-use AppCofidurBundle\Entity\Tache;
+use AppCofidurBundle\Entity\Category;
+use AppCofidurBundle\Entity\Task;
 
 use AppCofidurBundle\Form\Type\FormationType;
 
@@ -75,14 +75,14 @@ class FormationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
-        $categories = $em->getRepository('AppCofidurBundle:Categorie')->findBy(array('idFormation'=>$id));
+        $categories = $em->getRepository('AppCofidurBundle:Category')->findBy(array('idFormation' => $id));
 
-        foreach($categories as $categorie){
-            $taches = $em->getRepository('AppCofidurBundle:Tache')->findBy(array('idCategorie'=>$categorie->getId()));
-            foreach($taches as $tache){
-                $em->remove($tache);
+        foreach ($categories as $category) {
+            $tasks = $em->getRepository('AppCofidurBundle:Task')->findBy(array('idCategory' => $category->getId()));
+            foreach ($tasks as $task) {
+                $em->remove($task);
             }
-            $em->remove($categorie);
+            $em->remove($category);
         }
 
         if (!$formation) {
@@ -102,12 +102,12 @@ class FormationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
-        $categories = $em->getRepository('AppCofidurBundle:Categorie')->findBy(array('idFormation'=>$id));
+        $categories = $em->getRepository('AppCofidurBundle:Category')->findBy(array('idFormation' => $id));
 
 
-        $requete_tache = $em->createQuery('SELECT t FROM AppCofidurBundle:Tache t JOIN AppCofidurBundle:Categorie c WHERE c.id = t.idCategorie AND c.idFormation =  :id')
+        $requete_task = $em->createQuery('SELECT t FROM AppCofidurBundle:Task t JOIN AppCofidurBundle:Category c WHERE c.id = t.idCategory AND c.idFormation =  :id')
             ->setParameter('id', $id);
-        $taches = $requete_tache->getResult();
+        $tasks = $requete_task->getResult();
 
 
         if (!$formation) {
@@ -117,7 +117,7 @@ class FormationController extends Controller
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'      => $formation,
             'categories'     => $categories,
-            'taches'         => $taches,
+            'tasks' => $tasks,
         )); 
     }
 
