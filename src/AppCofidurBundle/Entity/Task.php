@@ -3,14 +3,19 @@
 namespace AppCofidurBundle\Entity;
 
 /**
- * Categorie
+ * Task
  */
-class Categorie
+class Task
 {
     /**
      * @var int
      */
     private $id;
+
+    /**
+     * @var int
+     */
+    private $idCategory;
 
     /**
      * @var int
@@ -21,11 +26,6 @@ class Categorie
      * @var string
      */
     private $nom;
-
-    /**
-     * @var int
-     */
-    private $idFormation;
 
 
     /**
@@ -39,15 +39,25 @@ class Categorie
     }
 
     /**
-     * Set ordre
+     * Get idCategory
      *
-     * @param integer $ordre
-     *
-     * @return Categorie
+     * @return int
      */
-    public function setOrdre($ordre)
+    public function getIdCategory()
     {
-        $this->ordre = $ordre;
+        return $this->idCategory;
+    }
+
+    /**
+     * Set idCategory
+     *
+     * @param integer $idCategory
+     *
+     * @return Task
+     */
+    public function setIdCategory($idCategory)
+    {
+        $this->idCategory = $idCategory;
 
         return $this;
     }
@@ -63,15 +73,15 @@ class Categorie
     }
 
     /**
-     * Set nom
+     * Set ordre
      *
-     * @param string $nom
+     * @param integer $ordre
      *
-     * @return Categorie
+     * @return Task
      */
-    public function setNom($nom)
+    public function setOrdre($ordre)
     {
-        $this->nom = $nom;
+        $this->ordre = $ordre;
 
         return $this;
     }
@@ -87,27 +97,17 @@ class Categorie
     }
 
     /**
-     * Set idFormation
+     * Set nom
      *
-     * @param integer $idFormation
+     * @param string $nom
      *
-     * @return Categorie
+     * @return Task
      */
-    public function setIdFormation($idFormation)
+    public function setNom($nom)
     {
-        $this->idFormation = $idFormation;
+        $this->nom = $nom;
 
         return $this;
-    }
-
-    /**
-     * Get idFormation
-     *
-     * @return int
-     */
-    public function getIdFormation()
-    {
-        return $this->idFormation;
     }
 }
 

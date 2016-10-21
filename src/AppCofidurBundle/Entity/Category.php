@@ -3,19 +3,14 @@
 namespace AppCofidurBundle\Entity;
 
 /**
- * Tache
+ * Category
  */
-class Tache
+class Category
 {
     /**
      * @var int
      */
     private $id;
-
-    /**
-     * @var int
-     */
-    private $idCategorie;
 
     /**
      * @var int
@@ -26,6 +21,11 @@ class Tache
      * @var string
      */
     private $nom;
+
+    /**
+     * @var int
+     */
+    private $idFormation;
 
 
     /**
@@ -39,44 +39,6 @@ class Tache
     }
 
     /**
-     * Set idCategorie
-     *
-     * @param integer $idCategorie
-     *
-     * @return Tache
-     */
-    public function setIdCategorie($idCategorie)
-    {
-        $this->idCategorie = $idCategorie;
-
-        return $this;
-    }
-
-    /**
-     * Get idCategorie
-     *
-     * @return int
-     */
-    public function getIdCategorie()
-    {
-        return $this->idCategorie;
-    }
-
-    /**
-     * Set ordre
-     *
-     * @param integer $ordre
-     *
-     * @return Tache
-     */
-    public function setOrdre($ordre)
-    {
-        $this->ordre = $ordre;
-
-        return $this;
-    }
-
-    /**
      * Get ordre
      *
      * @return int
@@ -87,15 +49,15 @@ class Tache
     }
 
     /**
-     * Set nom
+     * Set ordre
      *
-     * @param string $nom
+     * @param integer $ordre
      *
-     * @return Tache
+     * @return Category
      */
-    public function setNom($nom)
+    public function setOrdre($ordre)
     {
-        $this->nom = $nom;
+        $this->ordre = $ordre;
 
         return $this;
     }
@@ -108,6 +70,44 @@ class Tache
     public function getNom()
     {
         return $this->nom;
+    }
+
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Category
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get idFormation
+     *
+     * @return int
+     */
+    public function getIdFormation()
+    {
+        return $this->idFormation;
+    }
+
+    /**
+     * Set idFormation
+     *
+     * @param integer $idFormation
+     *
+     * @return Category
+     */
+    public function setIdFormation($idFormation)
+    {
+        $this->idFormation = $idFormation;
+
+        return $this;
     }
 }
 
