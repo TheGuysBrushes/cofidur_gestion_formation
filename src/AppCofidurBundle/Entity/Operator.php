@@ -13,21 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Operator extends User
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    private $id;
-    
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_of_birth", type="date", nullable=true)
      */
     private $dateOfBirth;
-
 
 
     /**
