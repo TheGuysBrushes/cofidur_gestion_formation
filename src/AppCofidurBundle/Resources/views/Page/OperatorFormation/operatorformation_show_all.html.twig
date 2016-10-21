@@ -1,0 +1,33 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block body %}
+
+<table>
+	<tr>
+		<th> ID </th>
+		<th> ID OPERATOR </th>
+		<th> ID FORMATION </th>
+		<th> DATE DEBUT </th>
+		<th> DATE FIN </th>
+		<th> VALIDATION </th>
+		<th> COMMENTAIRE </th>
+		<th> ID FORMATEUR </th>
+	</tr>
+{% for operatorformation in operatorsformations %}
+	<tr>
+		<td> {{ operatorformation.id }} </td>
+		<td> {{ operatorformation.idOperator }}</td>
+		<td> {{ operatorformation.idFormation }} </td>
+		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>
+		<td> {{ operatorformation.dateEnd|date("m/d/Y") }} </td>
+		<td> {{ operatorformation.validation }} </td>
+		<td> {{ operatorformation.commentary }} </td>
+		<td> {{ operatorformation.idFormer}} </td>
+	</tr>
+{% endfor %}
+</table>
+
+<br/>
+<a href="{{ path('AppCofidurBundle_operatorformation_add') }}">Faire passer une formation à un opérateur </a>
+
+{% endblock %}
