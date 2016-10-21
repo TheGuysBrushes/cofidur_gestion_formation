@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="operator")
  * @ORM\Entity(repositoryClass="AppCofidurBundle\Repository\OperatorRepository")
  */
-class Operator
+class Operator extends User
 {
     /**
      * @var int
