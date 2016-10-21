@@ -112,3 +112,9 @@ AppCofidurBundle_operatorformation_show_all:
     path:  /operatorsformations/
     defaults: { _controller: AppCofidurBundle:OperatorFormation:showAll }
 
+AppCofidurBundle_operatorformation_show:
+    path:  /operatorformation/{idOpForm}
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:show }
+    requirements:
+        methods: GET
+        id: \d+

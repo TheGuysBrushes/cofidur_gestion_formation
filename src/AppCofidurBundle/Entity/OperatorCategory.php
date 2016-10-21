@@ -62,7 +62,7 @@ class OperatorCategory
      /**
      * @var ArrayCollection $operatortasks
      *
-     * @ORM\OneToMany(targetEntity="OperatorTask", mappedBy="category", cascade={"remove"})
+     * @ORM\OneToMany(targetEntity="OperatorTask", mappedBy="operatorcategory", cascade={"remove"})
      */
     private $operatortasks;
 
