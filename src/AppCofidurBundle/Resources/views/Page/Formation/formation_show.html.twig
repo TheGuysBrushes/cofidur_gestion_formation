@@ -31,8 +31,12 @@
 		<legend>
 			<div class="category_title">
 				Catégorie : {{ categorie.nom }} ({{categorie.ordre}})
-				<a href="{{ path('AppCofidurBundle_categorie_edit', {'idCat': categorie.id}) }}">EDIT</a>
-				<a href="{{ path('AppCofidurBundle_categorie_delete', {'idCat': categorie.id}) }}">SUPPR</a>
+				<a href="{{ path('AppCofidurBundle_categorie_edit', {'idCat': categorie.id}) }}">
+					Editer
+				</a>
+				<a href="{{ path('AppCofidurBundle_categorie_delete', {'idCat': categorie.id}) }}">
+					Supprimer
+				</a>
 			</div>
 		</legend>
 		<table class="task_tab">
@@ -47,12 +51,12 @@
 						<td>{{tache.ordre}}</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_tache_edit', {'idTache': tache.id}) }}">
-								editer
+								Editer
 							</a>
 						</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_tache_delete', {'idTache': tache.id}) }}">
-								supprimer
+								Supprimer
 							</a>
 						</td>
 					</tr>
@@ -68,25 +72,29 @@
 {% endblock %}
 
 {% block sidebar %}
-	<div class="sidebar_link">
-		<div class="sidebar_link_formation">
-			<p>Formation :</p>
-			<ul>
-				<li>
-					<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">editer</a>
-				</li>
-				<li>
-					<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">supprimer</a>
-				</li>
-			</ul>
-		</div>
-		<div class="sidebar_link_category">
-			<p>Categorie :</p>
-			<ul>
-				<li>
-					<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">ajouter une catégorie</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+	<fieldset class="category">
+		<legend class="category_title">
+			<div>
+				Formation :
+			</div>
+		</legend>
+		<ul>
+			<li>
+				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">Editer</a>
+			</li>
+			<li>
+				<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">Supprimer</a>
+			</li>
+		</ul>
+	</fieldset>
+	<fieldset class="category">
+		<legend class="category_title">
+			Catégorie :
+		</legend>
+		<ul>
+			<li>
+				<a href="{{ path('AppCofidurBundle_categorie_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
+			</li>
+		</ul>
+	</fieldset>
 {% endblock %}

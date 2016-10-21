@@ -168,11 +168,11 @@ td.verticalite > div > span {
 .sidebar_link {
 	font-size: 150%;
 }
-.sidebar_link > div > ul > li {
+.category > ul > li {
 	line-height: 1.3em;
 	padding-top: 5px;
-	margin-bottom: 5px;
-	list-style-type: hiragana;
+	margin-left: 10px;
+	list-style-type: disc;
 }
 
 .sidebar_link_formation {
