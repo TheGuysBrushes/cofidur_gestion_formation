@@ -42,7 +42,7 @@ class OperatorFormationController extends Controller
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getIdFormation());
-//        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($operatorformation->getIdOperator());
+        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($operatorformation->getIdOperator());
 
 
         if (!$idOpForm) {
@@ -55,7 +55,7 @@ class OperatorFormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show.html.twig', array(
             'formation'             => $formation,
-//            'operator'              => $operator,
+            'operator'              => $operator,
             'operatorformation'     => $operatorformation,
         )); 
     }
