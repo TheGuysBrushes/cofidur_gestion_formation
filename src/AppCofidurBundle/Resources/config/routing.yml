@@ -34,21 +34,21 @@ AppCofidurBundle_formation_add:
     defaults: { _controller: AppCofidurBundle:Formation:add}
 
 AppCofidurBundle_formation_edit:
-    path:  /formation/edit/{id}
+    path:  /formation/edit/{idForm}
     defaults: { _controller: AppCofidurBundle:Formation:edit }
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_formation_delete:
-    path:  /formation/delete/{id}
+    path:  /formation/delete/{idForm}
     defaults: { _controller: AppCofidurBundle:Formation:delete }
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_formation_show:
-    path:  /formation/{id}
+    path:  /formation/{idForm}
     defaults: { _controller: AppCofidurBundle:Formation:show }
     requirements:
         methods: GET

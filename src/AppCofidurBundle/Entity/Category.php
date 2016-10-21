@@ -2,36 +2,71 @@
 
 namespace AppCofidurBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use DoctrineCommonCollectionsArrayCollection;
+
 /**
  * Category
+ *
+ * @ORM\Table(name="category")
+ * @ORM\Entity(repositoryClass="AppCofidurBundle\Repository\CategoryRepository")
  */
 class Category
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var Formation $formation
+     *
+     * @ORM\ManyToOne(targetEntity="Formation", inversedBy="categories")
+     * @ORM\JoinColumns({
+     *  @ORM\JoinColumn(name="formation_id", referencedColumnName="id")
+     * })
+     */
+    private $formation;
+
+     /**
+     * @var ArrayCollection $tasks
+     *
+     * @ORM\OneToMany(targetEntity="Task", mappedBy="category", cascade={"remove"})
+     */
+    private $tasks;
+
+
+    /**
      * @var int
+     *
+     * @ORM\Column(name="ordre", type="integer")
      */
     private $ordre;
 
-    /**
-     * @var string
-     */
-    private $nom;
 
     /**
-     * @var int
+     * Constructor
      */
-    private $idFormation;
-
+    public function __construct()
+    {
+        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -39,13 +74,27 @@ class Category
     }
 
     /**
-     * Get ordre
+     * Set name
      *
-     * @return int
+     * @param string $name
+     *
+     * @return Category
      */
-    public function getOrdre()
+    public function setName($name)
     {
-        return $this->ordre;
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -63,51 +112,70 @@ class Category
     }
 
     /**
-     * Get nom
+     * Get ordre
      *
-     * @return string
+     * @return integer
      */
-    public function getNom()
+    public function getOrdre()
     {
-        return $this->nom;
+        return $this->ordre;
     }
 
     /**
-     * Set nom
+     * Set formation
      *
-     * @param string $nom
+     * @param \AppCofidurBundle\Entity\Formation $formation
      *
      * @return Category
      */
-    public function setNom($nom)
+    public function setFormation(\AppCofidurBundle\Entity\Formation $formation = null)
     {
-        $this->nom = $nom;
+        $this->formation = $formation;
 
         return $this;
     }
 
     /**
-     * Get idFormation
+     * Get formation
      *
-     * @return int
+     * @return \AppCofidurBundle\Entity\Formation
      */
-    public function getIdFormation()
+    public function getFormation()
     {
-        return $this->idFormation;
+        return $this->formation;
     }
 
     /**
-     * Set idFormation
+     * Add task
      *
-     * @param integer $idFormation
+     * @param \AppCofidurBundle\Entity\Task $task
      *
      * @return Category
      */
-    public function setIdFormation($idFormation)
+    public function addTask(\AppCofidurBundle\Entity\Task $task)
     {
-        $this->idFormation = $idFormation;
+        $this->tasks[] = $task;
 
         return $this;
+    }
+
+    /**
+     * Remove task
+     *
+     * @param \AppCofidurBundle\Entity\Task $task
+     */
+    public function removeTask(\AppCofidurBundle\Entity\Task $task)
+    {
+        $this->tasks->removeElement($task);
+    }
+
+    /**
+     * Get tasks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
     }
 }
-

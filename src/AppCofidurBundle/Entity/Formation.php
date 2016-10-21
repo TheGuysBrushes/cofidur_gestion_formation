@@ -1,66 +1,117 @@
 <?php
 
 namespace AppCofidurBundle\Entity;
-use Doctrine\Common\Collections\ArrayCollection;
+
+use Doctrine\ORM\Mapping as ORM;
+use DoctrineCommonCollectionsArrayCollection;
 
 /**
  * Formation
+ *
+ * @ORM\Table(name="formation")
+ * @ORM\Entity(repositoryClass="AppCofidurBundle\Repository\FormationRepository")
  */
 class Formation
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="criticality", type="integer")
+     */
+    private $criticality;
+
+    /**
      * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="goal", type="string", length=255)
      */
-    private $objectif;
+    private $goal;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
      */
-    private $moyensPedagogiques;
+    private $type;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="teachingAids", type="string", length=255)
      */
-    private $lieuMoyensMateriels;
+    private $teachingAids;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="placesMaterialRessources", type="string", length=255)
      */
-    private $typeFormation;
+    private $placesMaterialRessources;
+
+     /**
+     * @var ArrayCollection $categories
+     *
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="formation", cascade={"remove"})
+     */
+    private $categories;
 
 
-    protected $categories;
-
-
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    public function getCategories()
-    {
-        return $this->categories;
-    }
-
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set criticality
+     *
+     * @param integer $criticality
+     *
+     * @return Formation
+     */
+    public function setCriticality($criticality)
+    {
+        $this->criticality = $criticality;
+
+        return $this;
+    }
+
+    /**
+     * Get criticality
+     *
+     * @return integer
+     */
+    public function getCriticality()
+    {
+        return $this->criticality;
     }
 
     /**
@@ -88,152 +139,132 @@ class Formation
     }
 
     /**
-     * Set description
+     * Set goal
      *
-     * @param string $description
+     * @param string $goal
      *
      * @return Formation
      */
-    public function setDescription($description)
+    public function setGoal($goal)
     {
-        $this->description = $description;
+        $this->goal = $goal;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get goal
      *
      * @return string
      */
-    public function getDescription()
+    public function getGoal()
     {
-        return $this->description;
+        return $this->goal;
     }
 
     /**
-     * Set objectif
+     * Set type
      *
-     * @param string $objectif
+     * @param string $type
      *
      * @return Formation
      */
-    public function setObjectif($objectif)
+    public function setType($type)
     {
-        $this->objectif = $objectif;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get objectif
+     * Get type
      *
      * @return string
      */
-    public function getObjectif()
+    public function getType()
     {
-        return $this->objectif;
+        return $this->type;
     }
 
     /**
-     * Set moyensPedagogiques
+     * Set teachingAids
      *
-     * @param string $moyensPedagogiques
+     * @param string $teachingAids
      *
      * @return Formation
      */
-    public function setMoyensPedagogiques($moyensPedagogiques)
+    public function setTeachingAids($teachingAids)
     {
-        $this->moyensPedagogiques = $moyensPedagogiques;
+        $this->teachingAids = $teachingAids;
 
         return $this;
     }
 
     /**
-     * Get moyensPedagogiques
+     * Get teachingAids
      *
      * @return string
      */
-    public function getMoyensPedagogiques()
+    public function getTeachingAids()
     {
-        return $this->moyensPedagogiques;
+        return $this->teachingAids;
     }
 
     /**
-     * Set lieuMoyensMateriels
+     * Set placesMaterialRessources
      *
-     * @param string $lieuMoyensMateriels
+     * @param string $placesMaterialRessources
      *
      * @return Formation
      */
-    public function setLieuMoyensMateriels($lieuMoyensMateriels)
+    public function setPlacesMaterialRessources($placesMaterialRessources)
     {
-        $this->lieuMoyensMateriels = $lieuMoyensMateriels;
+        $this->placesMaterialRessources = $placesMaterialRessources;
 
         return $this;
     }
 
     /**
-     * Get lieuMoyensMateriels
+     * Get placesMaterialRessources
      *
      * @return string
      */
-    public function getLieuMoyensMateriels()
+    public function getPlacesMaterialRessources()
     {
-        return $this->lieuMoyensMateriels;
+        return $this->placesMaterialRessources;
     }
 
     /**
-     * Set typeFormation
+     * Add category
      *
-     * @param string $typeFormation
+     * @param \AppCofidurBundle\Entity\Category $category
      *
      * @return Formation
      */
-    public function setTypeFormation($typeFormation)
+    public function addCategory(\AppCofidurBundle\Entity\Category $category)
     {
-        $this->typeFormation = $typeFormation;
+        $this->categories[] = $category;
 
         return $this;
     }
 
     /**
-     * Get typeFormation
+     * Remove category
      *
-     * @return string
+     * @param \AppCofidurBundle\Entity\Category $category
      */
-    public function getTypeFormation()
+    public function removeCategory(\AppCofidurBundle\Entity\Category $category)
     {
-        return $this->typeFormation;
-    }
-    /**
-     * @var integer
-     */
-    private $criticite;
-
-
-    /**
-     * Set criticite
-     *
-     * @param integer $criticite
-     *
-     * @return Formation
-     */
-    public function setCriticite($criticite)
-    {
-        $this->criticite = $criticite;
-
-        return $this;
+        $this->categories->removeElement($category);
     }
 
     /**
-     * Get criticite
+     * Get categories
      *
-     * @return integer
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCriticite()
+    public function getCategories()
     {
-        return $this->criticite;
+        return $this->categories;
     }
-
 }

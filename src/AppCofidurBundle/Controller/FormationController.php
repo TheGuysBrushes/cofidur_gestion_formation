@@ -39,10 +39,10 @@ class FormationController extends Controller
     }   
 
 
-    public function editAction(Request $request, $id)
+    public function editAction(Request $request, $idForm)
     {   
         $em = $this->getDoctrine()->getManager();
-        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
+        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
 
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -59,7 +59,7 @@ class FormationController extends Controller
             $em->persist($formation);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show',array('id'=>$id));
+            return $this->redirectToRoute('AppCofidurBundle_formation_show',array('idForm'=>$idForm));
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_edit.html.twig', array(
@@ -70,20 +70,11 @@ class FormationController extends Controller
     }
 
 
-    public function deleteAction($id)
+    public function deleteAction($idForm)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
-        $categories = $em->getRepository('AppCofidurBundle:Category')->findBy(array('idFormation' => $id));
-
-        foreach ($categories as $category) {
-            $tasks = $em->getRepository('AppCofidurBundle:Task')->findBy(array('idCategory' => $category->getId()));
-            foreach ($tasks as $task) {
-                $em->remove($task);
-            }
-            $em->remove($category);
-        }
+        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
 
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -97,27 +88,18 @@ class FormationController extends Controller
 
 
 
-    public function showAction($id)
+    public function showAction($idForm)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($id);
-        $categories = $em->getRepository('AppCofidurBundle:Category')->findBy(array('idFormation' => $id));
-
-
-        $requete_task = $em->createQuery('SELECT t FROM AppCofidurBundle:Task t JOIN AppCofidurBundle:Category c WHERE c.id = t.idCategory AND c.idFormation =  :id')
-            ->setParameter('id', $id);
-        $tasks = $requete_task->getResult();
-
+        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
 
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
-            'formation'      => $formation,
-            'categories'     => $categories,
-            'tasks' => $tasks,
+            'formation'     => $formation,
         )); 
     }
 

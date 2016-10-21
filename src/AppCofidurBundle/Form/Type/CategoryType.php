@@ -16,7 +16,7 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('ordre', IntegerType::class)
-            ->add('nom', TextType::class)
+            ->add('name', TextType::class)
             ->add('save', SubmitType::class, array('label' => 'Sauvegarder'));
     }
 

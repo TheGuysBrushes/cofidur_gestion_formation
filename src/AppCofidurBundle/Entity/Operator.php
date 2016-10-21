@@ -6,14 +6,29 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Operator
+ *
+ * @ORM\Table(name="operator")
+ * @ORM\Entity(repositoryClass="AppCofidurBundle\Repository\OperatorRepository")
  */
-class Operator extends User
+class Operator
 {
-
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+    
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="date_of_birth", type="date", nullable=true)
      */
     private $dateOfBirth;
+
+
 
     /**
      * Set dateOfBirth
@@ -25,7 +40,7 @@ class Operator extends User
     public function setDateOfBirth($dateOfBirth)
     {
         $this->dateOfBirth = $dateOfBirth;
-    
+
         return $this;
     }
 
@@ -39,4 +54,3 @@ class Operator extends User
         return $this->dateOfBirth;
     }
 }
-

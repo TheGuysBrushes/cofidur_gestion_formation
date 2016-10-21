@@ -2,39 +2,40 @@
 
 namespace AppCofidurBundle\Entity;
 
-use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * User
+ *
+ * @ORM\Table(name="fos_user")
+ * @ORM\Entity(repositoryClass="AppCofidurBundle\Repository\UserRepository")
  */
-class User extends BaseUser
+class User
 {
     /**
-     * @var int
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
      *
+     * @ORM\Column(name="first_name", type="string", length=255)
      */
-    protected $firstName;
+    private $firstName;
 
     /**
      * @var string
-     */
-    protected $lastName;
-
-    /**
-     * User constructor.
      *
+     * @ORM\Column(name="last_name", type="string", length=255)
      */
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
+    private $lastName;
+
+
 
     /**
      * Get id
@@ -94,4 +95,3 @@ class User extends BaseUser
         return $this->lastName;
     }
 }
-

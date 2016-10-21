@@ -1,5 +1,6 @@
 {% extends 'AppCofidurBundle::layout.html.twig' %}
 
+
 {% block body %}
 	<table class="category_page">
 		<tr>
@@ -9,27 +10,27 @@
 		<td class="entete_category">Name</td><td>{{ formation.name }} </td>
 	</tr>
 		<tr>
-		<td class="entete_category">Type</td><td>{{ formation.typeFormation }} </td>
+		<td class="entete_category">Type</td><td>{{ formation.type }} </td>
 	</tr>
 		<tr>
-		<td class="entete_category">Objectif</td><td>{{ formation.objectif }} </td>
+		<td class="entete_category">Objectif</td><td>{{ formation.goal }} </td>
 	</tr>
 		<tr>
-		<td class="entete_category">Moyens pédagogiques</td><td>{{ formation.moyensPedagogiques }} </td>
+		<td class="entete_category">Moyens pédagogiques</td><td>{{ formation.teachingAids }} </td>
 	</tr>
 		<tr>
-		<td class="entete_category">Lieu & moyens matériels</td><td>{{ formation.lieuMoyensMateriels }} </td>
+		<td class="entete_category">Lieu & moyens matériels</td><td>{{ formation.placesMaterialRessources }} </td>
 	</tr>
 		<tr>
-		<td class="entete_category">Criticité</td><td>{{ formation.criticite }} </td>
+		<td class="entete_category">Criticité</td><td>{{ formation.criticality }} </td>
 	</tr>
 	</table>
 
-	{% for category in categories %}
+	{% for category in formation.categories %}
 		<br/>
 		<fieldset class="category">
 		<legend class="category_title">
-			Catégorie : {{ category.nom }} ({{ category.ordre }})
+			Catégorie : {{ category.name }} ({{ category.ordre }})
 			<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}">Éditer</a>
 			<a href="{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}">Supprimer</a>
 		</legend>
@@ -38,10 +39,9 @@
 				<td class="task_name">Nom task</td>
 				<td class="task_order">Ordre task</td>
 			</tr>
-			{% for task in tasks %}
-				{% if task.idCategory == category.id %}
+			{% for task in category.tasks %}
 					<tr>
-						<td>{{ task.nom }}</td>
+						<td>{{ task.name }}</td>
 						<td>{{ task.ordre }}</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_task_edit', {'idTask': task.id}) }}">
@@ -54,7 +54,6 @@
 							</a>
 						</td>
 					</tr>
-				{%endif%}
 			{% endfor %}
 		</table>
 		<br/>
@@ -74,10 +73,10 @@
 		</legend>
 		<ul>
 			<li>
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'id': formation.id}) }}">Éditer</a>
+				<a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Éditer</a>
 			</li>
 			<li>
-				<a href="{{ path('AppCofidurBundle_formation_delete', {'id': formation.id}) }}">Supprimer</a>
+				<a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a>
 			</li>
 		</ul>
 	</fieldset>

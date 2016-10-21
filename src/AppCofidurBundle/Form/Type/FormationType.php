@@ -16,11 +16,11 @@ class FormationType extends AbstractType
     {
         $builder
             ->add('name', TextType::class)
-            ->add('typeFormation', TextType::class)
-            ->add('objectif', TextType::class)
-            ->add('moyensPedagogiques', TextType::class)
-            ->add('lieuMoyensMateriels', TextType::class)
-            ->add('criticite', IntegerType::class) 
+            ->add('type', TextType::class)
+            ->add('goal', TextType::class)
+            ->add('teachingAids', TextType::class)
+            ->add('placesMaterialRessources', TextType::class)
+            ->add('criticality', IntegerType::class) 
             ->add('save', SubmitType::class, array('label' => 'Sauvegarder'));
     }
 
