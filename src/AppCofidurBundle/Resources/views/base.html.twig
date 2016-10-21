@@ -43,12 +43,16 @@
                     {% endblock %}
                 </div>
 
-                <hgroup>
-                    <a href="{{ path('AppCofidurBundle_homepage') }}">
-                        <img src="{{ asset('bundles/AppCofidurBundle/images/logoCofidurEMS.png') }}" alt="logo_cofidurEMS">
-                    </a>
-                    <h3>{% block blog_tagline %}Spécialiste des produits et services électroniques depuis un demi-siècle{% endblock %}</h3>
-                </hgroup>
+                <fieldset class="main_header">
+                    <legend>
+                        <a href="{{ path('AppCofidurBundle_homepage') }}">
+                            <img src="{{ asset('bundles/AppCofidurBundle/images/logoCofidurEMS.png') }}" alt="logo_cofidurEMS">
+                        </a>
+                    </legend>
+                    <div>
+                        <h3>{% block blog_tagline %}Spécialiste des produits et services électroniques depuis un demi-siècle{% endblock %}</h3>
+                    </div>
+                </fieldset>
             </header>
 
             <section class="main-col">
