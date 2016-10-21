@@ -31,7 +31,7 @@ class OperatorTask
     /**
      * @var Category $category
      *
-     * @ORM\ManyToOne(targetEntity="OperatorCategory", inversedBy="tasks")
+     * @ORM\ManyToOne(targetEntity="OperatorCategory", inversedBy="operatortasks")
      * @ORM\JoinColumns({
      *  @ORM\JoinColumn(name="operator_category_id", referencedColumnName="id")
      * })

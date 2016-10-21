@@ -15,7 +15,7 @@
 	</tr>
 {% for operatorformation in operatorsformations %}
 	<tr>
-		<td> {{ operatorformation.id }} </td>
+		<td> <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">{{ operatorformation.id }}</a> </td>
 		<td> {{ operatorformation.idOperator }}</td>
 		<td> {{ operatorformation.idFormation }} </td>
 		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>

@@ -110,3 +110,19 @@ AppCofidurBundle_task_edit:
     requirements:
         methods: GET
         id: \d+
+
+# Pages de operatorformation
+AppCofidurBundle_operatorformation_add:
+    path: /operatorformation/add/
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:add}
+
+AppCofidurBundle_operatorformation_show_all:
+    path:  /operatorsformations/
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:showAll }
+
+AppCofidurBundle_operatorformation_show:
+    path:  /operatorformation/{idOpForm}
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:show }
+    requirements:
+        methods: GET
+        id: \d+

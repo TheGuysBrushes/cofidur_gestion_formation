@@ -36,6 +36,30 @@ class OperatorFormationController extends Controller
         ));    
     }   
 
+    public function showAction($idOpForm)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
+        $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getIdFormation());
+        //$operator = $em->getRepository('AppCofidurBundle:Operator')->find($operatorformation->getIdOperator());
+
+
+        if (!$idOpForm) {
+            throw $this->createNotFoundException('Pas d\'objet');
+        }
+
+        if (!$formation) {
+            throw $this->createNotFoundException('Formation non existante');
+        }
+
+        return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show.html.twig', array(
+            'formation'             => $formation,
+        //    'operator'              => $operator,
+            'operatorformation'     => $operatorformation,
+        )); 
+    }
+
     public function showAllAction()
     {
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
