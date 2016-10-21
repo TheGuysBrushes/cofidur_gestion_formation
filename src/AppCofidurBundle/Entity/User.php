@@ -3,6 +3,8 @@
 namespace AppCofidurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * User
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="fos_user")
  * @ORM\Entity(repositoryClass="AppCofidurBundle\Repository\UserRepository")
  */
-class User
+class User extends BaseUser
 {
     /**
      * @var integer
@@ -19,22 +21,37 @@ class User
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="first_name", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Please enter your first name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The first name is too short.",
+     *     maxMessage="The first name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     private $firstName;
 
     /**
      * @var string
-     *
      * @ORM\Column(name="last_name", type="string", length=255)
+     *
+     * @Assert\NotBlank(message="Please enter your last name.", groups={"Registration", "Profile"})
+     * @Assert\Length(
+     *     min=3,
+     *     max=255,
+     *     minMessage="The last name is too short.",
+     *     maxMessage="The last name is too long.",
+     *     groups={"Registration", "Profile"}
+     * )
      */
     private $lastName;
-
 
 
     /**
