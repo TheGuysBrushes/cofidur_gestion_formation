@@ -23,6 +23,16 @@
 		<td> {{ operatorformation.validation }} </td>
 		<td> {{ operatorformation.commentary }} </td>
 		<td> {{ operatorformation.idFormer}} </td>
+		<td>
+			<a href="{{ path('AppCofidurBundle_operatorformation_edit', {'idOpForm': operatorformation.id}) }}">
+				<button id="edit"> Edit </button>
+			</a>
+		</td>
+		<td>
+			<a href="{{ path('AppCofidurBundle_operatorformation_delete', {'idOpForm': operatorformation.id}) }}">
+				<button id="delete">Supprimer</button>
+			</a>
+		</td>
 	</tr>
 {% endfor %}
 </table>
