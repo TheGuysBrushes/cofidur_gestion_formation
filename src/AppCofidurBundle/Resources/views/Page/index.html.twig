@@ -9,9 +9,10 @@
 
     {% if is_granted('ROLE_USER') %}
     <h2><ul>
-        <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
         <li><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></li>
+	    <li><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></li>
         <li><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formations des Opérateurs</a></li>
+        <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
     </ul></h2>
 {#
     {% if is_granted('ROLE_USER') %}
@@ -23,11 +24,4 @@
 
     {% endif %}
 {% endblock %}
-
-{% block sidebar %}                      
-    <h2><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></h2>
-    {% if is_granted('ROLE_ADMIN') %}
-    <h2><a href="{{ path('AppCofidurBundle_admin') }}">Administration</a></h2>
-    {% endif %}
-{% endblock sidebar%}
 

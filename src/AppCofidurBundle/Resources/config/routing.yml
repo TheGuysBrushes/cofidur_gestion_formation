@@ -40,10 +40,14 @@ AppCofidurBundle_logout:
 #    defaults : { _controller: FOSUserBundle:Security:change-password}
 
 
-# Page d'un opérateur
-#CofidurBundle_add:
-#    pattern: /operator/add
-#    defaults: { _controller: AppCofidurBundle:Operator:add}
+# Pages des opérateurs
+AppCofidurBundle_add:
+    pattern: /operator/add
+    defaults: { _controller: AppCofidurBundle:Operator:add}
+
+AppCofidurBundle_operator_show_all:
+    pattern: /operators
+    defaults: { _controller: AppCofidurBundle:Operator:showAll}
 
 ### page de formation ###
 AppCofidurBundle_formation_add:

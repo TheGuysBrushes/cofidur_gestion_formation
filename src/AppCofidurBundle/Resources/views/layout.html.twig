@@ -1,5 +1,15 @@
 {% extends 'AppCofidurBundle::base.html.twig' %}
 
-{% block sidebar %}
-    <h1> Sidebar content</h1>
+{% block sidebar %}                   
+    {# Pages accessibles par tout le monde #}   
+    <h2><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></h2>
+    {# Pages accessibles par les utilisateurs#}
+    {#
+    {% if is_granted('ROLE_USER') %}
+    {% endif %}
+    #}
+    {# Pages accessibles par les administrateurs #}
+    {% if is_granted('ROLE_ADMIN') %}
+    <h2><a href="{{ path('AppCofidurBundle_admin') }}">Administration</a></h2>
+    {% endif %}
 {% endblock sidebar%}

@@ -17,14 +17,12 @@ class RegistrationType extends AbstractType
             ->add('lastName', TextType::class, ['label_format' => '%security.login.lastName%',]);
     }
 
-    /*
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppCofidurBundle\Entity\User',
         ));
     }
-    */
 
     public function getParent()
     {
