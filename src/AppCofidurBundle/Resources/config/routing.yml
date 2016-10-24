@@ -116,6 +116,20 @@ AppCofidurBundle_operatorformation_add:
     path: /operatorformation/add/
     defaults: { _controller: AppCofidurBundle:OperatorFormation:add}
 
+AppCofidurBundle_operatorformation_edit:
+    path: /operatorformation/edit/{idOpForm}
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:edit}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_operatorformation_delete:
+    path: /operatorformation/delete/{idOpForm}
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:delete}
+    requirements:
+        methods: GET
+        id: \d+
+
 AppCofidurBundle_operatorformation_show_all:
     path:  /operatorsformations/
     defaults: { _controller: AppCofidurBundle:OperatorFormation:showAll }

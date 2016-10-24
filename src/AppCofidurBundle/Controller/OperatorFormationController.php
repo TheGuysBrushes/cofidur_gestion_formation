@@ -42,10 +42,10 @@ class OperatorFormationController extends Controller
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getIdFormation());
-        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($operatorformation->getIdOperator());
+        //$operator = $em->getRepository('AppCofidurBundle:Operator')->find($operatorformation->getIdOperator());
 
 
-        if (!$idOpForm) {
+        if (!$operatorformation) {
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
@@ -53,9 +53,14 @@ class OperatorFormationController extends Controller
             throw $this->createNotFoundException('Formation non existante');
         }
 
+        /*if (!$operator) {
+            throw $this->createNotFoundException('Utilisateur non existant');
+        }*/
+
+
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show.html.twig', array(
             'formation'             => $formation,
-            'operator'              => $operator,
+            //'operator'              => $operator,
             'operatorformation'     => $operatorformation,
         )); 
     }
@@ -69,5 +74,21 @@ class OperatorFormationController extends Controller
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show_all.html.twig', array(
             'operatorsformations'      => $operatorsformations,
         ));
+    }
+
+    public function deleteAction($idOpForm)
+    {
+        $em = $this->getDoctrine()->getManager();;
+
+        $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
+
+        if (!$operatorformation) {
+            throw $this->createNotFoundException('Pas d\'objet');
+        }
+
+        $em->remove($operatorformation);
+        $em->flush();
+
+        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show_all');
     }
 }
