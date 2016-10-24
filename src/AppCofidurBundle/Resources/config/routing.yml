@@ -1,24 +1,28 @@
-#pages de bases
+#===== ROUTING =====#
+
+### Pages générales ###
 AppCofidurBundle_homepage:
     path:  /
     defaults: { _controller: AppCofidurBundle:Page:index }
-
 
 AppCofidurBundle_about:
     path:  /about
     defaults: { _controller: AppCofidurBundle:Page:about }
 
-
 AppCofidurBundle_contact:
     path: /contact
     defaults: { _controller: AppCofidurBundle:Page:contact }
 
+AppCofidurBundle_admin:
+    path: /admin
+    defaults: { _controller: AppCofidurBundle:Page:admin }
 
+### Matrice de compétences ###
 AppCofidurBundle_skillMatrix:
     path: /skillMatrix
     defaults: { _controller: AppCofidurBundle:skillMatrix:show }
 
-# Pages d'authentifiation
+### Pages d'authentifiation ###
 AppCofidurBundle_login:
     path: /login
     defaults : { _controller: FOSUserBundle:Security:login}
@@ -37,7 +41,7 @@ AppCofidurBundle_login:
 #    pattern: /operator/add
 #    defaults: { _controller: AppCofidurBundle:Operator:add}
 
-#page de formation
+### page de formation ###
 AppCofidurBundle_formation_add:
     path: /formation/add
     defaults: { _controller: AppCofidurBundle:Formation:add}
@@ -67,7 +71,7 @@ AppCofidurBundle_formation_show_all:
     path:  /formations
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
 
-#page de categorie
+### page de categorie ###
 AppCofidurBundle_category_add:
     path: /category/add/{idForm}
     defaults: { _controller: AppCofidurBundle:Category:add}
@@ -89,7 +93,7 @@ AppCofidurBundle_category_delete:
         methods: GET
         id: \d+
 
-#page de taches
+### page de taches 
 AppCofidurBundle_task_add:
     path: /task/add/{idCat}
     defaults: { _controller: AppCofidurBundle:Task:add}
@@ -111,7 +115,7 @@ AppCofidurBundle_task_edit:
         methods: GET
         id: \d+
 
-# Pages de operatorformation
+### Pages de formation d'opérateurs ###
 AppCofidurBundle_operatorformation_add:
     path: /operatorformation/add/
     defaults: { _controller: AppCofidurBundle:OperatorFormation:add}
@@ -159,6 +163,14 @@ AppCofidurBundle_operatorcategory_edit:
 AppCofidurBundle_operatorcategory_delete:
     path: /operatorcategory/delete/{idOpForm}/{idCategory}
     defaults: { _controller: AppCofidurBundle:OperatorCategory:delete}
+    requirements:
+        methods: GET
+        id: \d+
+
+#page de operatortasks
+AppCofidurBundle_operatortask_add:
+    path: /operatortask/add/{idOpForm}/{idCategory}/{idTask}
+    defaults: { _controller: AppCofidurBundle:OperatorTask:add}
     requirements:
         methods: GET
         id: \d+

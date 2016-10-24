@@ -29,6 +29,13 @@ class OperatorTask
     private $validation;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="idTask", type="integer")
+     */
+    private $idTask;
+
+    /**
      * @var Category $category
      *
      * @ORM\ManyToOne(targetEntity="OperatorCategory", inversedBy="operatortasks")
@@ -94,5 +101,29 @@ class OperatorTask
     public function getOperatorcategory()
     {
         return $this->operatorcategory;
+    }
+
+    /**
+     * Set idTask
+     *
+     * @param integer $idTask
+     *
+     * @return OperatorTask
+     */
+    public function setIdTask($idTask)
+    {
+        $this->idTask = $idTask;
+
+        return $this;
+    }
+
+    /**
+     * Get idTask
+     *
+     * @return integer
+     */
+    public function getIdTask()
+    {
+        return $this->idTask;
     }
 }

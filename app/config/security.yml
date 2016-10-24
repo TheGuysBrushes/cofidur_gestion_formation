@@ -23,6 +23,10 @@ security:
                 provider: fos_userbundle
             security: false
 
+        default:
+            anonymous: ~
+            http_basic: ~
+
         main:
             pattern: ^/
             form_login:
@@ -38,8 +42,9 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        - { path: ^/skillMatrix, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, role: ROLE_ADMIN }
+        - { path: ^/skillMatrix, role: ROLE_USER }
+        - { path: ^/formations, role: ROLE_USER }
         - { path: ^/operatorsformations/, role: ROLE_ADMIN }
 
 #            form_login:

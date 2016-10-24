@@ -21,8 +21,9 @@ class PageController extends Controller
         return $this->render('AppCofidurBundle:Page:contact.html.twig');
     }
 
-    public function loginAction()
+    public function adminAction()
     {
-        return $this->render('AppCofidurBundle:Page:login.html.twig');
+        return $this->render('AppCofidurBundle:Page:admin.html.twig');
     }
+
 }
