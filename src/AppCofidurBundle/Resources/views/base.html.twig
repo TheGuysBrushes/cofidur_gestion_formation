@@ -23,9 +23,14 @@
                         <nav>
                             <ul class="navigation" id="menu-deroulant">
                                 <li><a href="{{ path('AppCofidurBundle_homepage') }}">Accueil</a></li>
+                                {% if is_granted('ROLE_USER') %}
+                                <li><a href="{{ path('AppCofidurBundle_logout') }}">Déconnexion</a></li>
+                                {% else %}
                                 <li><a href="/register">S'enregistrer</a></li>
                                 {#<li><a href="{{ path('AppCofidurBundle_register') }}">S'enregistrer</a></li>#}
                                 <li><a href="{{ path('AppCofidurBundle_login') }}">Connexion</a></li>
+                                {% endif %}
+                                {% if is_granted('ROLE_USER') %}
                                 <li><a href="#">Divers</a>
                                     <ul>
                                         <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
@@ -33,11 +38,14 @@
                                         <li><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formations des Opérateurs</a></li>
                                     </ul>
                                 </li>
+                                {% endif %}
                                 <li><a href="#">Autres</a>
                                     <ul>
                                         <li><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></li>
                                         <li><a href="{{ path('AppCofidurBundle_contact') }}">Contact</a></li>
+                                        {% if is_granted('ROLE_ADMIN') %}
                                         <li><a href="{{ path('AppCofidurBundle_admin') }}">Admin</a></li>
+                                        {% endif %}
                                     </ul>
                                 </li>
                             </ul>
@@ -60,6 +68,7 @@
             <section class="main-col">
                 {% block body %}{% endblock %}
             </section>
+            
             <aside class="sidebar">
                 {% block sidebar %}{% endblock %}
             </aside>

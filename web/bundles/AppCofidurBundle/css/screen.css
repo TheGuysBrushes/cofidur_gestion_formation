@@ -126,6 +126,7 @@ td.verticalite > div > span {
 #menu-deroulant, #menu-deroulant ul {
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 #menu-deroulant {
 /* on centre le menu dans la page */
