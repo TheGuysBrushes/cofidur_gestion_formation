@@ -31,7 +31,7 @@ class OperatorCategory
     /**
      * @var bool
      *
-     * @ORM\Column(name="signature", type="boolean")
+     * @ORM\Column(name="signature", type="string", length=255)
      */
     private $signature;
 

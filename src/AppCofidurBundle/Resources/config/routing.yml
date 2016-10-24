@@ -140,3 +140,11 @@ AppCofidurBundle_operatorformation_show:
     requirements:
         methods: GET
         id: \d+
+
+#pages de operatorcategory.
+AppCofidurBundle_operatorcategory_add:
+    path: /operatorcategory/add/{idOpForm}
+    defaults: { _controller: AppCofidurBundle:OperatorCategory:add}
+    requirements:
+        methods: GET
+        id: \d+
