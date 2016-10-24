@@ -5,9 +5,7 @@
 		function checking_category(){
 			alert('Tache validee !');
 			var validating_category= document.getElementById(accept);
-			if(validating_category.checked) {
-				accept.checked= false
-			}
+			if(validating_category.checked)	accept.checked= false
 			else accept.checked= true;
 		}
 	</script>
@@ -90,35 +88,80 @@
 		<legend class="category_title">
 			Catégorie : {{ category.name }} ({{ category.ordre }})
 		</legend>
-		<table class="task_tab">
-			<tr>
-				<td class="task_name">Nom tache</td>
-				<td class="task_order">Ordre tache</td>
-			</tr>
-			{% for task in category.tasks %}
-					<tr>
-						<td>{{ task.name }}</td>
-						<td>{{ task.ordre }}</td>
-						{% if loop.last %}
-							<td>
-								<div class="task_validator">
-									<input type="checkbox" name="accept" value="accept" id="accept" disabled>
-									<label for="accepted_category"></label>
-									<button onclick='checking_category()'>Accepter</button>
-								</div>
-							</td>
+		<div class="operatorformation_task_tab">
+			<table>
+				<tr>
+					<td class="task_name">Nom tache</td>
+					<td class="task_order">Ordre tache</td>
+				</tr>
+				{% for task in category.tasks %}
+						<tr>
+							<td>{{ task.name }}</td>
+							<td>{{ task.ordre }}</td>
+							{% if loop.last %}
+								<td>
+									<div class="task_validator">
+										<input type="checkbox" name="accept" value="accept" id="accept" disabled>
+										<label for="accepted_category"></label>
+										<button onclick='checking_category()'>Accepter</button>
+									</div>
+								</td>
+							{% endif %}
+						</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<div class="operatorformation_informations">
+			<table>
+				<tr>
+					<th>ID Catégorie</th>
+					<td>TODO</td>
+				</tr>
+				<tr>
+					<th>Date signature</th>
+					<td>TODO</td>
+				</tr>
+				<tr>
+					<th>Signature</th>
+					<td>TODO</td>
+				</tr>
+				<tr>
+					<th>Nombre d'heures</th>
+					<td>TODO</td>
+				</tr>
+				<tr>
+					<th>ID formateur</th>
+					<td>TODO</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<fieldset>
+				<legend>
+					<!-- A afficher si la categorie est validée -->
+					{% set validated_category="" %}
+					{% for opeCat in operatorformation.operatorcategories %}
+						{% if category.id == opeCat.idCategory %}
+							{% set validated_category= true %}
+							Catégorie validée !
+							<br/>
 						{% endif %}
-					</tr>
-			{% endfor %}
-		</table>
-		<br/>
+					{% endfor %}
 
-		<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
-			<button id="validate">Valider la catégorie</button>
-		</a>
-		<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
-		<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
-
+					{% if not validated_category %}
+						<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
+							<button id="validate">Valider la catégorie</button>
+						</a>
+						<br/>
+					{% endif %}
+				</legend>
+				<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+				<br/>
+				<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
+				<br/>
+				<a href="" alt="details">Détails (JS à implémenter)</a>
+			</fieldset>
+		</div>
 		</fieldset>
 {% endfor %}
 {% endblock %}

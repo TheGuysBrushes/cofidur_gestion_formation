@@ -150,10 +150,6 @@ td.verticalite > div > span {
 	border-bottom: 1px solid #ccc;
 }
 
-.category_page {
-
-}
-
 .entete_category {
 	background-color: lightgray;
 }
@@ -164,10 +160,6 @@ td.verticalite > div > span {
 
 .task_order {
 	background-color: lightgray;
-}
-
-.task_tab {
-
 }
 
 .category {
@@ -206,23 +198,30 @@ td.verticalite > div > span {
 }
 
 /* Page operatorformateur/X */
-.operatorformation_ids {
-	float: left;
-}
-
-.operatorformation_dates {
-	float: right;
-}
-
 .operatorformation_sumup {
 	border: solid;
 	border-color: cornflowerblue;
+	margin-bottom: 3%;
 }
+
+.operatorformation_ids {
+float: left;
+}
+
+.operatorformation_dates {
+float: right;
+}
+
 
 .operatorformation_sumup > legend {
 	font-size: 150%;
 }
 
-.formation_sumup {
-
+.operatorformation_task_tab {
+	margin-bottom: 2%;
 }
+
+.operatorformation_informations {
+	margin-bottom: 2%;
+}
+
