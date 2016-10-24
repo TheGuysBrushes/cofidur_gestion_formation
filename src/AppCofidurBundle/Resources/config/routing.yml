@@ -144,3 +144,25 @@ AppCofidurBundle_operatorformation_show:
     requirements:
         methods: GET
         id: \d+
+
+#pages de operatorcategory.
+AppCofidurBundle_operatorcategory_add:
+    path: /operatorcategory/add/{idOpForm}/{idCategory}
+    defaults: { _controller: AppCofidurBundle:OperatorCategory:add}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_operatorcategory_edit:
+    path: /operatorcategory/edit/{idOpForm}/{idCategory}
+    defaults: { _controller: AppCofidurBundle:OperatorCategory:edit}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_operatorcategory_delete:
+    path: /operatorcategory/delete/{idOpForm}/{idCategory}
+    defaults: { _controller: AppCofidurBundle:OperatorCategory:delete}
+    requirements:
+        methods: GET
+        id: \d+

@@ -22,6 +22,13 @@ class OperatorCategory
     private $id;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="idCategory", type="integer")
+     */
+    private $idCategory;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateSignature", type="date")
@@ -31,7 +38,7 @@ class OperatorCategory
     /**
      * @var bool
      *
-     * @ORM\Column(name="signature", type="boolean")
+     * @ORM\Column(name="signature", type="string", length=255)
      */
     private $signature;
 
@@ -66,9 +73,6 @@ class OperatorCategory
      */
     private $operatortasks;
 
-
-
-
     /**
      * Get id
      *
@@ -78,6 +82,33 @@ class OperatorCategory
     {
         return $this->id;
     }
+
+
+    /**
+     * Set idCategory
+     *
+     * @param integer $idCategory
+     *
+     * @return OperatorCategory
+     */
+    public function setIdCategory($idCategory)
+    {
+        $this->idCategory = $idCategory;
+
+        return $this;
+    }
+
+    /**
+     * Get idCategory
+     *
+     * @return int
+     */
+    public function getIdCategory()
+    {
+        return $this->idCategory;
+    }
+    /**
+
 
     /**
      * Set dateSignature

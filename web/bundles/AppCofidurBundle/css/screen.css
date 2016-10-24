@@ -12,7 +12,7 @@ body {
 #wrapper a { text-decoration: none; color: #00628A; }
 #wrapper span.highlight { color: #00628A; }
 
-#header { border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+#header { margin-bottom: 20px; }
 #header .top { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
 #header ul.navigation { list-style: none; text-align: right; }
 /*#header .navigation li { display: inline }*/
@@ -65,6 +65,9 @@ label{
 	float:left;
 }
 
+.page_title {
+	text-align: center;
+}
 
 /*used for the first headers of the skill matrix*/
 .text_in_bottom {
@@ -210,4 +213,26 @@ td.verticalite > div > span {
 /*Validation des taches d'une FFO*/
 .task_validator {
 	text-align: right;
+}
+
+/* Page operatorformateur/X */
+.operatorformation_ids {
+	float: left;
+}
+
+.operatorformation_dates {
+	float: right;
+}
+
+.operatorformation_sumup {
+	border: solid;
+	border-color: cornflowerblue;
+}
+
+.operatorformation_sumup > legend {
+	font-size: 150%;
+}
+
+.formation_sumup {
+
 }
