@@ -104,9 +104,11 @@
 		</table>
 		<br/>
 
-		{#<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id}) }}"></a>#}
+		<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id}) }}">
+			<button id="validate">Valider la catégorie</button>
+		</a>
 		{#<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpCat': operatorcategory.id}) }}"></a>#}
-		{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpCat': operatorcategory.id}) }}"></a>#}
+		{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpCat': operatorcategory.id}) }}">SUPPRIMER</a>#}
 
 		</fieldset>
 {% endfor %}
