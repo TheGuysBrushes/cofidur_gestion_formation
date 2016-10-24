@@ -27,6 +27,10 @@ AppCofidurBundle_login:
     path: /login
     defaults : { _controller: FOSUserBundle:Security:login}
 
+AppCofidurBundle_logout:
+    path: /logout
+    defaults : { _controller: FOSUserBundle:Security:logout}
+
 #AppCofidurBundle_register:
 #    path: /register
 #    defaults : { _controller: FOSUserBundle:Security:register }

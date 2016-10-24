@@ -23,20 +23,27 @@ security:
                 provider: fos_userbundle
             security: false
 
-        default:
-            anonymous: ~
-            http_basic: ~
-
         main:
-            pattern: ^/
+            # pattern: ^/
+            # form_login:
+            #     provider: fos_userbundle
+            #     csrf_token_generator: security.csrf.token_manager
+            # logout:       true
+            # anonymous:    true
             form_login:
                 provider: fos_userbundle
-                csrf_token_generator: security.csrf.token_manager
-                # if you are using Symfony < 2.8, use the following config instead:
-                # csrf_provider: form.csrf_provider
-
+                csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+                remember_me: true
+                default_target_path: /
             logout:       true
             anonymous:    true
+            remember_me:
+                key:      %secret%
+                lifetime: 604800 # 1 week in seconds
+                path:     /
+                domain:   ~ # Defaults to the current domain from $_SERVER
+#                secure:   true
+                httponly: true
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
