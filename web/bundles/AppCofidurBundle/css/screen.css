@@ -201,3 +201,25 @@ td.verticalite > div > span {
 .task_validator {
 	text-align: right;
 }
+
+/* Page operatorformateur/X */
+.operatorformation_ids {
+	float: left;
+}
+
+.operatorformation_dates {
+	float: right;
+}
+
+.operatorformation_sumup {
+	border: solid;
+	border-color: cornflowerblue;
+}
+
+.operatorformation_sumup > legend {
+	font-size: 150%;
+}
+
+.formation_sumup {
+
+}
