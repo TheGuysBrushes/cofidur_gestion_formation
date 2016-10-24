@@ -3,6 +3,7 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\OperatorFormation;
+use AppCofidurBundle\Entity\OperatorCategory;
 
 use AppCofidurBundle\Form\Type\OperatorFormationType;
 
@@ -26,6 +27,16 @@ class OperatorFormationController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($operatorformation);
+
+            $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getIdFormation());
+            $tab_cat = $formation->getCategories();
+            foreach($tab_cat as $cat){
+                $operatorcategory = new OperatorCategory();
+                $operatorcategory->setIdCategory($cat->getId());
+                $operatorcategory->setOperatorformation($operatorformation);
+                $em->persist($operatorcategory);
+            }
+
             $em->flush();
 
             return $this->redirectToRoute('AppCofidurBundle_operatorformation_show_all');

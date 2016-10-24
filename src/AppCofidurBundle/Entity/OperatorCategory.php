@@ -31,28 +31,28 @@ class OperatorCategory
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateSignature", type="date")
+     * @ORM\Column(name="dateSignature", type="date", nullable=true)
      */
     private $dateSignature;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="signature", type="string", length=255)
+     * @ORM\Column(name="signature", type="string", length=255, nullable=true)
      */
     private $signature;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="nbHours", type="time")
+     * @ORM\Column(name="nbHours", type="time", nullable=true)
      */
     private $nbHours;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="idTrainer", type="integer")
+     * @ORM\Column(name="idTrainer", type="integer", nullable=true)
      */
     private $idTrainer;
 

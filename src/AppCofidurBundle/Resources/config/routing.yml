@@ -162,3 +162,11 @@ AppCofidurBundle_operatorcategory_delete:
     requirements:
         methods: GET
         id: \d+
+
+#page de operatortasks
+AppCofidurBundle_operatortask_add:
+    path: /operatortask/add/{idOpForm}/{idCategory}/{idTask}
+    defaults: { _controller: AppCofidurBundle:OperatorTask:add}
+    requirements:
+        methods: GET
+        id: \d+

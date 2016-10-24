@@ -102,7 +102,7 @@
 								<div class="task_validator">
 									<input type="checkbox" name="accept" value="accept" id="accept" disabled>
 									<label for="accepted_category"></label>
-									<button onclick='checking_category()'>Accepter</button>
+									<a href="{{path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id})}}">Accepter</a>
 								</div>
 							</td>
 						{% endif %}
