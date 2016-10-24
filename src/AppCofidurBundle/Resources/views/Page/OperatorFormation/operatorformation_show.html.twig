@@ -6,34 +6,59 @@
 			alert('Tache validee !');
 		}
 	</script>
-	<div class="">
+
+	<!-- idOperator, idFormation, dateBegin, dateEnd, validation, commentary, idFormer-->
+	<fieldset class="operatorformation_sumup">
+		<legend> Formation operateur ({{ operatorformation.idFormer }})</legend>
+		<table class="operatorformation_ids">
+			<tr>
+				<th>ID operateur</th>
+				<td> {{ operatorformation.idOperator }}</td>
+			</tr>
+			<tr>
+				<th>ID formation</th>
+				<td> {{ operatorformation.idFormation}}</td>
+			</tr>
+			<tr>
+				<th>ID formateur</th>
+				<td> {{ operatorformation.idFormer }}</td>
+			</tr>
+		</table>
+		<table class="operatorformation_dates">
+			<tr>
+				<th>Date de début</th>
+				<td> {{ operatorformation.dateBegin|date("m/d/Y")}}</td>
+			</tr>
+			<tr>
+				<th>Date de fin</th>
+				<td> {{ operatorformation.dateEnd|date("m/d/Y") }}</td>
+			</tr>
+		</table>
+
+	</fieldset>
+	<fieldset class="operatorformation_sumup">
+		<legend>Résumé de la formation</legend>
 		<table class="category_page">
 			<tr>
-			<td class="entete_category">ID</td><td>{{ formation.id }} </td>
-		</tr>
+				<th class="entete_category">ID</th>
+				<th class="entete_category">Name</th>
+				<th class="entete_category">Type</th>
+				<th class="entete_category">Objectif</th>
+				<th class="entete_category">Moyens pédagogiques</th>
+				<th class="entete_category">Lieu & moyens matériels</th>
+				<th class="entete_category">Criticité</th>
+			</tr>
 			<tr>
-			<td class="entete_category">Name</td><td>{{ formation.name }} </td>
-		</tr>
-			<tr>
-			<td class="entete_category">Type</td><td>{{ formation.type }} </td>
-		</tr>
-			<tr>
-			<td class="entete_category">Objectif</td><td>{{ formation.goal }} </td>
-		</tr>
-			<tr>
-			<td class="entete_category">Moyens pédagogiques</td><td>{{ formation.teachingAids }} </td>
-		</tr>
-			<tr>
-			<td class="entete_category">Lieu & moyens matériels</td><td>{{ formation.placesMaterialRessources }} </td>
-		</tr>
-			<tr>
-			<td class="entete_category">Criticité</td><td>{{ formation.criticality }} </td>
-		</tr>
+				<td>{{ formation.id }} </td>
+				<td>{{ formation.name }} </td>
+				<td>{{ formation.type }} </td>
+				<td>{{ formation.goal }} </td>
+				<td>{{ formation.teachingAids }} </td>
+				<td>{{ formation.placesMaterialRessources }} </td>
+				<td>{{ formation.criticality }} </td>
+			</tr>
 		</table>
-	</div>
-
-	{{ operator.name }}
-
+	</fieldset>
 	{% for category in formation.categories %}
 		<br/>
 		<fieldset class="category">
@@ -51,7 +76,7 @@
 						<td>{{ task.ordre }}</td>
 						<td>
 							<div class="task_validator">
-								<input type="checkbox" name="accepter" value="accepter" id="accepter">
+								<input type="checkbox" name="accepter" value="accepter" id="accepter" disabled checked="true">
 								<label for="accepted"></label>
 								<button onclick='validated_task()'>Accepter</button>
 							</div>
@@ -60,37 +85,10 @@
 			{% endfor %}
 		</table>
 		<br/>
-
-		<a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}">Ajouter une tache</a>
-
 	</fieldset>
 {% endfor %}
 {% endblock %}
 
 {% block sidebar %}
-	<fieldset class="category">
-		<legend class="category_title">
-			<div>
-				Formation :
-			</div>
-		</legend>
-		<ul>
-			<li>
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Éditer</a>
-			</li>
-			<li>
-				<a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a>
-			</li>
-		</ul>
-	</fieldset>
-	<fieldset class="category">
-		<legend class="category_title">
-			Catégorie :
-		</legend>
-		<ul>
-			<li>
-				<a href="{{ path('AppCofidurBundle_category_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
-			</li>
-		</ul>
-	</fieldset>
+
 {% endblock %}
