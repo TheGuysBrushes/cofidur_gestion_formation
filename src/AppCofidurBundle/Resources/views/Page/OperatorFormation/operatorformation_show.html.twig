@@ -113,11 +113,11 @@
 		</table>
 		<br/>
 
-		<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id}) }}">
+		<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
 			<button id="validate">Valider la catégorie</button>
 		</a>
-		{#<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpCat': operatorcategory.id}) }}">Editer</a>#}
-		{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpCat': operatorcategory.id}) }}">Supprimer</a>#}
+		<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+		<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
 
 		</fieldset>
 {% endfor %}

@@ -78,7 +78,7 @@ class OperatorFormationController extends Controller
 
     public function deleteAction($idOpForm)
     {
-        $em = $this->getDoctrine()->getManager();;
+        $em = $this->getDoctrine()->getManager();
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
 
@@ -90,5 +90,34 @@ class OperatorFormationController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('AppCofidurBundle_operatorformation_show_all');
+    }
+
+    public function editAction(Request $request, $idOpForm)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
+
+        if (!$operatorformation) {
+            throw $this->createNotFoundException('Pas d\'objet');
+        }
+
+        $form = $this->createForm(OperatorFormationType::class, $operatorformation);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $operatorformation = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($operatorformation);
+            $em->flush();
+
+            return $this->redirectToRoute('AppCofidurBundle_operatorformation_show_all');
+        }
+
+        return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_add.html.twig', array(
+            'form' => $form->createView(),
+        ));    
     }
 }
