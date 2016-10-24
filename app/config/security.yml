@@ -45,7 +45,7 @@ security:
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/skillMatrix, role: ROLE_USER }
         - { path: ^/formations, role: ROLE_USER }
-        - { path: ^/operatorsformations/, role: ROLE_ADMIN }
+#        - { path: ^/operatorsformations, role: ROLE_ADMIN }
 
 #            form_login:
 #                provider: fos_userbundle

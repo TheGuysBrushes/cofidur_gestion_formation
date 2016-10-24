@@ -237,5 +237,6 @@ float: right;
 
 .operatorformation_informations {
 	margin-bottom: 2%;
+	visibility: hidden;
 }
 

@@ -4,9 +4,14 @@
 	<script type="text/javascript">
 		function checking_category(){
 			alert('Tache validee !');
-			var validating_category= document.getElementById(accept);
-			if(validating_category.checked)	accept.checked= false
-			else accept.checked= true;
+			var validating_category= document.getElementById('accept');
+			if(validating_category.checked) validating_category.checked= false;
+			else validating_category.checked= true;
+		}
+		function show_details(){
+			alert('Details demandés');
+			var details_block= document.getElementById('operatorformation_informations');
+			details_block.style.visibility= "visible	";
 		}
 	</script>
 
@@ -94,24 +99,23 @@
 					<td class="task_name">Nom tache</td>
 					<td class="task_order">Ordre tache</td>
 				</tr>
+				{% set task_checked= true %}
 				{% for task in category.tasks %}
 						<tr>
 							<td>{{ task.name }}</td>
 							<td>{{ task.ordre }}</td>
-							{% if loop.last %}
-								<td>
-									<div class="task_validator">
-										<input type="checkbox" name="accept" value="accept" id="accept" disabled>
-										<label for="accepted_category"></label>
-										<button onclick='checking_category()'>Accepter</button>
-									</div>
-								</td>
-							{% endif %}
+							<td>
+								<div class="task_validator">
+									<input type="checkbox" name="accept" value="accept" id="accept" disabled>
+									<label for="accepted_category"></label>
+									<button onclick='checking_category(accept)'>Accepter</button>
+								</div>
+							</td>
 						</tr>
 				{% endfor %}
 			</table>
 		</div>
-		<div class="operatorformation_informations">
+		<div id="operatorformation_informations" class="operatorformation_informations">
 			<table>
 				<tr>
 					<th>ID Catégorie</th>
@@ -159,7 +163,7 @@
 				<br/>
 				<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
 				<br/>
-				<a href="" alt="details">Détails (JS à implémenter)</a>
+				<button name="details" value="details" onclick="show_details()">Détails</button>
 			</fieldset>
 		</div>
 		</fieldset>
