@@ -65,6 +65,9 @@ label{
 	float:left;
 }
 
+.page_title {
+	text-align: center;
+}
 
 /*used for the first headers of the skill matrix*/
 .text_in_bottom {
