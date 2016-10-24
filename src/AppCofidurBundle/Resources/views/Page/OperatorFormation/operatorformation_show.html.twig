@@ -2,8 +2,13 @@
 
 {% block body %}
 	<script type="text/javascript">
-		function validated_task(){
+		function checking_category(){
 			alert('Tache validee !');
+			var validating_category= document.getElementById(accept);
+			if(validating_category.checked) {
+				accept.checked= false
+			}
+			else accept.checked= true;
 		}
 	</script>
 
@@ -92,13 +97,15 @@
 					<tr>
 						<td>{{ task.name }}</td>
 						<td>{{ task.ordre }}</td>
-						<td>
-							<div class="task_validator">
-								<input type="checkbox" name="accepter" value="accepter" id="accepter" disabled checked="true">
-								<label for="accepted"></label>
-								<button onclick='validated_task()'>Accepter</button>
-							</div>
-						</td>
+						{% if loop.last %}
+							<td>
+								<div class="task_validator">
+									<input type="checkbox" name="accept" value="accept" id="accept" disabled>
+									<label for="accepted_category"></label>
+									<button onclick='checking_category()'>Accepter</button>
+								</div>
+							</td>
+						{% endif %}
 					</tr>
 			{% endfor %}
 		</table>
