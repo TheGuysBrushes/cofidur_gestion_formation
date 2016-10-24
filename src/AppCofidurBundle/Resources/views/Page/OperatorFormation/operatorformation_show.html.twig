@@ -9,7 +9,7 @@
 
 	<!-- idOperator, idFormation, dateBegin, dateEnd, validation, commentary, idFormer-->
 	<fieldset class="operatorformation_sumup">
-		<legend> Formation operateur ({{ operatorformation.idFormer }})</legend>
+		<legend> Formation operateur </legend>
 		<table class="operatorformation_ids">
 			<tr>
 				<th>ID operateur</th>
@@ -59,6 +59,24 @@
 			</tr>
 		</table>
 	</fieldset>
+	<!-- Résumé opérateur à réparer TODO @infern @florian-->
+	{#<fieldset class="operatorformation_sumup">#}
+		{#<legend>Résumé de l'opérateur</legend>#}
+		{#<table class="category_page">#}
+			{#<tr>#}
+				{#<th class="entete_category">ID</th>#}
+				{#<th class="entete_category">Nom</th>#}
+				{#<th class="entete_category">Prénom</th>#}
+				{#<th class="entete_category">Date de putain de naissance</th>#}
+			{#</tr>#}
+			{#<tr>#}
+				{#<td>{{ operator.id }} </td>#}
+				{#<td>{{ operator.firstname }} </td>#}
+				{#<td>{{ operator.lastname }} </td>#}
+				{#<td>{{ operator.dateofbirth }} </td>#}
+			{#</tr>#}
+		{#</table>#}
+	{#</fieldset>#}
 	{% for category in formation.categories %}
 		<br/>
 		<fieldset class="category">
@@ -85,7 +103,12 @@
 			{% endfor %}
 		</table>
 		<br/>
-	</fieldset>
+
+		{#<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id}) }}"></a>#}
+		{#<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpCat': operatorcategory.id}) }}"></a>#}
+		{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpCat': operatorcategory.id}) }}"></a>#}
+
+		</fieldset>
 {% endfor %}
 {% endblock %}
 
