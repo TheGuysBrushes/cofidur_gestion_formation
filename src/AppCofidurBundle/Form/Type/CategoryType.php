@@ -17,7 +17,7 @@ class CategoryType extends AbstractType
         $builder
             ->add('ordre', IntegerType::class,  array('label' => 'category.ordre'))
             ->add('name', TextType::class,      array('label' => 'category.name'))
-            ->add('save', SubmitType::class,    array('label' => 'category.edit.submit'));
+            ->add('save', SubmitType::class,    array('label' => 'category.save.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

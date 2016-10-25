@@ -7,7 +7,7 @@
 		<td class="entete_category">ID</td><td>{{ formation.id }} </td>
 	</tr>
 		<tr>
-		<td class="entete_category">Name</td><td>{{ formation.name }} </td>
+		<td class="entete_category">Nom</td><td>{{ formation.name }} </td>
 	</tr>
 		<tr>
 		<td class="entete_category">Type</td><td>{{ formation.type }} </td>
@@ -36,8 +36,8 @@
 		</legend>
 		<table class="task_tab">
 			<tr>
-				<td class="task_name">Nom task</td>
-				<td class="task_order">Ordre task</td>
+				<td class="task_name">Nom de la tâche</td>
+				<td class="task_order">Ordonnancement de la tâche</td>
 			</tr>
 			{% for task in category.tasks %}
 					<tr>
@@ -58,7 +58,7 @@
 		</table>
 		<br/>
 
-			<a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}">Ajouter une task</a>
+			<a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}">Ajouter une tâche</a>
 
 	</fieldset>
 {% endfor %}

@@ -30,7 +30,7 @@ class FormationType extends AbstractType
                     ),
                 )
             )
-            ->add('save', SubmitType::class, array('label' => 'formation.edit.submit'));
+            ->add('save', SubmitType::class, array('label' => 'formation.save.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)
