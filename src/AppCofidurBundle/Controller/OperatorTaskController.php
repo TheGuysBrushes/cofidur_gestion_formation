@@ -34,9 +34,11 @@ class OperatorTaskController extends Controller
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
         $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
 
-        $operatortask = $em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory, 'idTask'=>$idTask));
+        $operatortasks = $em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory, 'idTask'=>$idTask));
 
-        $em->remove($operatortask);
+        foreach($operatortasks as $operatortask)
+            $em->remove($operatortask);
+        
         $em->flush();
 
 
