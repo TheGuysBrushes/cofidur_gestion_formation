@@ -1,0 +1,68 @@
+# Catégorie
+category:
+    id: 'Identifiant de la catégorie'
+    edit:
+        submit: 'Mettre à jour la catégorie' 
+    add:
+        submit: 'Créer la catégorie'
+    delete:
+        submit: 'Supprimer la catégorie'
+# Formation
+formation:
+    id: 'Identifiant de la formation'
+    name: 'Nom de la formation'
+    type: 'Type de la formation'
+    goal: 'Objectif'
+    teachingAids: 'Moyens pédagogiques'
+    placesMaterialRessources: 'Lieux et ressources matérielles'
+    criticality: 'Criticité'
+    edit:
+        submit: 'Mettre à jour la formation'
+    add:
+        submit: 'Créer la formation'
+    delete:
+        submit: 'Supprimer la formation'
+# OperatorCategory
+operatorCategory:
+    id: 'Identifiant de la catégorie de l''opérateur'
+    edit:
+        submit: 'Mettre à jour la catégorie de l''opérateur'
+    add:
+        submit: 'Créer la catégorie de l''opérateur'
+    delete:
+        submit: 'Supprimer la catégorie de l''opérateur'
+# Formation d'opérateur
+operatorFormation:
+    id: 'Identifiant de la formation'
+    edit:
+        submit: 'Mettre à jour la formation d''opérateur'
+    add:
+        submit: 'Créer la formation d''opérateur'
+    delete:
+        submit: 'Supprimer la formation d''opérateur'
+# Opérateur
+operator:
+    id: 'Identifiant de l''opérateur'
+    firstName: 'Prénom'
+    lastName: 'Nom'
+    dateOfBirth: 'Date de naissance'
+    edit:
+        submit: 'Mettre à jour l''opérateur'
+    add:
+        submit: 'Créer l''opérateur'
+    delete:
+        submit: 'Supprimer l''opérateur'
+# Enregistrement
+security:
+    login:
+        firstName: 'Prénom'
+        lastName: 'Nom'
+# Tâche
+task:
+    id: 'Identifiant de la tâche'
+    edit:
+        submit: 'Mettre à jour la tâche'
+    add:
+        submit: 'Créer la tâche'
+    delete:
+        submit: 'Supprimer la tâche'

@@ -14,7 +14,7 @@ class RegistrationType extends AbstractType
     {
         $builder
             ->add('firstName', TextType::class, ['label_format' => 'security.login.firstName',])
-            ->add('lastName', TextType::class, ['label_format' => '%security.login.lastName%',]);
+            ->add('lastName', TextType::class,  ['label_format' => 'security.login.lastName',]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

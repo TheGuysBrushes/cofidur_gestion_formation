@@ -59,7 +59,7 @@ class OperatorFormation
     /**
      * @var string
      *
-     * @ORM\Column(name="commentary", type="string", length=255)
+     * @ORM\Column(name="commentary", type="string", length=255, nullable=true)
      */
     private $commentary;
 
