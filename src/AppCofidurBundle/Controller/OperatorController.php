@@ -13,7 +13,7 @@ class OperatorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($idForm);
+        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($idOp);
 
         if (!$operator) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -21,7 +21,7 @@ class OperatorController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
-        )); 
+        ));
     }
 
     public function showAllAction()
@@ -73,7 +73,7 @@ class OperatorController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_edit.html.twig', array(
             'form' => $form->createView(),
-        ));    
+        ));
     }
 
     public function addAction(Request $request)
@@ -96,6 +96,6 @@ class OperatorController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_add.html.twig', array(
             'form' => $form->createView(),
-        )); 
+        ));
     }
 }

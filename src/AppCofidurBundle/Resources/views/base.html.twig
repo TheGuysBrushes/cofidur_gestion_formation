@@ -2,6 +2,12 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <!-- Live tile on Windows 8+ devices -->
+        <!-- <meta name="msapplication-TileColor" content=" #009900" />
+
+        <meta name="msapplication-square150x150logo" content="images/mediumtile.png" />
+        <meta name="msapplication-wide310x150logo" content="images/widetile.png" />
+        <meta name="msapplication-config" content="winconfig.xml" /> -->
         <title>{% block title %}Cofidur EMS{% endblock %}</title>
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -9,10 +15,16 @@
         {% block stylesheets %}
             <link href='http://fonts.googleapis.com/css?family=Cambria' rel='stylesheet' type='text/css'>
             <link href="{{ asset('bundles/AppCofidurBundle/css/screen.css') }}" type="text/css" rel="stylesheet" />
+
         {% endblock %}
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="apple-touch-icon" type="image/png" href="/apple-touch-icon.png">
+
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="apple-touch-icon-precomposed" type="image/png" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="manifest" href="/manifest.json">
+        <meta name="theme-color" content="#ffffff">
     </head>
     <body>
 

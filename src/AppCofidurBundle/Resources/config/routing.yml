@@ -20,7 +20,7 @@ AppCofidurBundle_admin:
 ### Matrice de compétences ###
 AppCofidurBundle_skillMatrix:
     path: /skillMatrix
-    defaults: { _controller: AppCofidurBundle:skillMatrix:show }
+    defaults: { _controller: AppCofidurBundle:Page:skillMatrix }
 
 ### Pages d'authentifiation ###
 AppCofidurBundle_login:
@@ -42,25 +42,25 @@ AppCofidurBundle_logout:
 
 # Pages des opérateurs
 AppCofidurBundle_operator_add:
-    pattern: /operator/add
+    path: /operator/add
     defaults: { _controller: AppCofidurBundle:Operator:add}
 
 AppCofidurBundle_operator_edit:
-    pattern: /operator/edit/{idOp}
+    path: /operator/edit/{idOp}
     defaults: { _controller: AppCofidurBundle:Operator:edit}
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_operator_delete:
-    pattern: /operator/delete/{idOp}
+    path: /operator/delete/{idOp}
     defaults: { _controller: AppCofidurBundle:Operator:delete}
     requirements:
         methods: GET
         id: \d+
 
 AppCofidurBundle_operator_show_all:
-    pattern: /operators
+    path: /operators
     defaults: { _controller: AppCofidurBundle:Operator:showAll}
 
 ### page de formation ###
@@ -115,7 +115,7 @@ AppCofidurBundle_category_delete:
         methods: GET
         id: \d+
 
-### page de taches 
+### page de taches
 AppCofidurBundle_task_add:
     path: /task/add/{idCat}
     defaults: { _controller: AppCofidurBundle:Task:add}
