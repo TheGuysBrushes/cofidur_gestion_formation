@@ -1,7 +1,7 @@
 {% extends 'AppCofidurBundle::layout.html.twig' %}
 
 
-{% block sidebar %}
+{% block sidebar_nav %}
 
 {% if is_granted('ROLE_USER') %}
 <h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
