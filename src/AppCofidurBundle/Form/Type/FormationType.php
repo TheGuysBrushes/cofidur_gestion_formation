@@ -16,21 +16,21 @@ class FormationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class)
-            ->add('type', TextType::class)
-            ->add('goal', TextType::class)
-            ->add('teachingAids', TextType::class)
-            ->add('placesMaterialRessources', TextType::class)           
-            ->add('criticality', ChoiceType::class,
-               array(
+            ->add('name', TextType::class,    array('label' => 'formation.name'))
+            ->add('type', TextType::class,    array('label' => 'formation.type'))
+            ->add('goal', TextType::class,    array('label' => 'formation.goal'))
+            ->add('teachingAids', TextType::class,  array('label' => 'formation.teachingAids'))
+            ->add('placesMaterialRessources', TextType::class,  array('label' => 'formation.placesMaterialRessources'))           
+            ->add('criticality', ChoiceType::class,  
+               array('label' => 'formation.criticality', 
                     'choices'  => array(
                         1 => '1',
                         2 => '2',
                         3 => '3',
-                    )
+                    ),
                 )
             )
-            ->add('save', SubmitType::class, array('label' => 'Sauvegarder'));
+            ->add('save', SubmitType::class, array('label' => 'formation.edit.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

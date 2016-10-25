@@ -1,4 +1,4 @@
-{% extends 'AppCofidurBundle::layout.html.twig' %}
+{% extends 'AppCofidurBundle::Page/Operator/operator.html.twig' %}
 
 {% block body %}
 
@@ -24,17 +24,3 @@
     <a href="{{ path('AppCofidurBundle_operator_add') }}">Ajouter un opérateur</a>
     
 {% endblock %}
-
-
-{% block sidebar %}
-    {% if is_granted('ROLE_USER') %}
-	<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
-    {% endif %}
-	{% if is_granted('ROLE_ADMIN') %}
-    <h2><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formation d'opérateurs</a></h2>
-    {% endif %}
-    {% if is_granted('ROLE_USER') %}
-    <h2><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence des opérateurs</a></h2>
-    {% endif %}
-{% endblock sidebar%}
-
