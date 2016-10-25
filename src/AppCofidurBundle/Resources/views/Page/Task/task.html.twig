@@ -6,7 +6,7 @@
 <h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
 {% endif %}
 {% if is_granted('ROLE_ADMIN') %}
-<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">IL FAUT AJOUTER LE RETOUR A LA FORMATION CORRESPONDANTE</a></h2>
+<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">AJOUTER LE RETOUR A LA FORMATION CORRESPONDANTE dans task.html.twig</a></h2>{#"{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}"#}
 <p><a href="javascript:history.go(-1)">EN JAVASCRIPT</a></p>
 {% endif %}
 

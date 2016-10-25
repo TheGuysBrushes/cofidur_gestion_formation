@@ -45,7 +45,6 @@ AppCofidurBundle_operator_add:
     pattern: /operator/add
     defaults: { _controller: AppCofidurBundle:Operator:add}
 
-
 AppCofidurBundle_operator_edit:
     pattern: /operator/edit/{idOp}
     defaults: { _controller: AppCofidurBundle:Operator:edit}
@@ -55,7 +54,7 @@ AppCofidurBundle_operator_edit:
 
 AppCofidurBundle_operator_delete:
     pattern: /operator/delete/{idOp}
-    defaults: { _controller: AppCofidurBundle:Operator:add}
+    defaults: { _controller: AppCofidurBundle:Operator:delete}
     requirements:
         methods: GET
         id: \d+
@@ -124,16 +123,16 @@ AppCofidurBundle_task_add:
         methods: GET
         id: \d+
 
-AppCofidurBundle_task_delete:
-    path: /task/delete/{idTask}
-    defaults: { _controller: AppCofidurBundle:Task:delete}
+AppCofidurBundle_task_edit:
+    path: /task/edit/{idTask}
+    defaults: { _controller: AppCofidurBundle:Task:edit}
     requirements:
         methods: GET
         id: \d+
 
-AppCofidurBundle_task_edit:
-    path: /task/edit/{idTask}
-    defaults: { _controller: AppCofidurBundle:Task:edit}
+AppCofidurBundle_task_delete:
+    path: /task/delete/{idTask}
+    defaults: { _controller: AppCofidurBundle:Task:delete}
     requirements:
         methods: GET
         id: \d+
@@ -157,10 +156,6 @@ AppCofidurBundle_operatorformation_delete:
         methods: GET
         id: \d+
 
-AppCofidurBundle_operatorformation_show_all:
-    path:  /operatorsformations/
-    defaults: { _controller: AppCofidurBundle:OperatorFormation:showAll }
-
 AppCofidurBundle_operatorformation_show:
     path:  /operatorformation/{idOpForm}
     defaults: { _controller: AppCofidurBundle:OperatorFormation:show }
@@ -168,7 +163,11 @@ AppCofidurBundle_operatorformation_show:
         methods: GET
         id: \d+
 
-#pages de operatorcategory.
+AppCofidurBundle_operatorformation_show_all:
+    path:  /operatorsformations/
+    defaults: { _controller: AppCofidurBundle:OperatorFormation:showAll }
+
+#pages de operatorcategory
 AppCofidurBundle_operatorcategory_add:
     path: /operatorcategory/add/{idOpForm}/{idCategory}
     defaults: { _controller: AppCofidurBundle:OperatorCategory:add}

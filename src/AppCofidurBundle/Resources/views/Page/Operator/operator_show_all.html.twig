@@ -14,7 +14,9 @@
 		<td> {{ operator.id }} </td>
         <td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
-       {# <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td> #}
+        {# <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td> #}
+		<td> <a href="{{ path('AppCofidurBundle_operator_edit',     {'idOp': operator.id}) }}">Editer</a>
+		{#<td> <a href="{{ path('AppCofidurBundle_operator_delete',   {'idOp': operator.id}) }}">Supprimer</a>#}
 	</tr>
 {% endfor %}
 </table>
