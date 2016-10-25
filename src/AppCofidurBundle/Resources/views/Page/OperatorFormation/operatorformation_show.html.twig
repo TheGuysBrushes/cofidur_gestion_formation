@@ -121,6 +121,11 @@
 									<td>
 										Tache validÃ©e !
 									</td>
+									<td>
+										<a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}">
+											Invalider tache
+										</a>
+									</td>
 								{% endif %}
 							{% endfor %}
 							{% if task_found == 0 %}
