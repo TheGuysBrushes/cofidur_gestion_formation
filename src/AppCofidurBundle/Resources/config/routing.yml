@@ -41,9 +41,24 @@ AppCofidurBundle_logout:
 
 
 # Pages des opérateurs
-AppCofidurBundle_add:
+AppCofidurBundle_operator_add:
     pattern: /operator/add
     defaults: { _controller: AppCofidurBundle:Operator:add}
+
+
+AppCofidurBundle_operator_edit:
+    pattern: /operator/edit/{idOp}
+    defaults: { _controller: AppCofidurBundle:Operator:edit}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_operator_delete:
+    pattern: /operator/delete/{idOp}
+    defaults: { _controller: AppCofidurBundle:Operator:add}
+    requirements:
+        methods: GET
+        id: \d+
 
 AppCofidurBundle_operator_show_all:
     pattern: /operators

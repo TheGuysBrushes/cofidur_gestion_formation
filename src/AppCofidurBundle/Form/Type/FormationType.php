@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class FormationType extends AbstractType
 {
@@ -19,8 +20,16 @@ class FormationType extends AbstractType
             ->add('type', TextType::class)
             ->add('goal', TextType::class)
             ->add('teachingAids', TextType::class)
-            ->add('placesMaterialRessources', TextType::class)
-            ->add('criticality', IntegerType::class) 
+            ->add('placesMaterialRessources', TextType::class)           
+            ->add('criticality', ChoiceType::class,
+               array(
+                    'choices'  => array(
+                        1 => '1',
+                        2 => '2',
+                        3 => '3',
+                    )
+                )
+            )
             ->add('save', SubmitType::class, array('label' => 'Sauvegarder'));
     }
 

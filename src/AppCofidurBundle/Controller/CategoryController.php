@@ -64,7 +64,7 @@ class CategoryController extends Controller
     }   
 
 
-    public function deleteAction(Request $request, $idCat)
+    public function deleteAction($idCat)
     {
         $em = $this->getDoctrine()->getManager();
 
