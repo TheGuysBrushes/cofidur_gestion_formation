@@ -244,3 +244,29 @@ float: right;
 .modif_category {
 	margin-bottom: 2%;
 }
+
+/***
+    By theme
+*/
+.aeronautic {
+	border-color: #00628A;
+}
+
+.aluminium {
+	border-color: #D9D9D9;
+}
+
+.PCB {
+	border-color: #E0B40F;
+}
+
+.EMS {
+	border-color: #BBBE1F;
+}
+.environment {
+	border-color: #BBBE1F;
+}
+/* Identical to environment */
+.ecology {
+	border-color: #BBBE1F;
+}

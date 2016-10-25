@@ -8,6 +8,7 @@ version: 0.1
 */
 .aeronautic {
     color: #00628A;
+    border-color: #00628A;
 }
 
 .aeronautic legend{
@@ -16,10 +17,12 @@ version: 0.1
 
 .aluminium {
     color: #D9D9D9;
+    border-color: #D9D9D9;
 }
 
 .PCB {
     color: #E0B40F;
+    border-color: #E0B40F;
 }
 
 .EMS {

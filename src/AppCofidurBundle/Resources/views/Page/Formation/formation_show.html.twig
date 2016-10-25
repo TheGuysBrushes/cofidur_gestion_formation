@@ -2,6 +2,14 @@
 
 
 {% block body %}
+
+{% set AERONAUTIC= 1 %}
+{% set ALUMINIUM= 2 %}
+{% set PCB= 3 %}
+{% set EMS= 4 %}
+{% set ENVIRONMENT= 5 %}
+{% set ECOLOGY= 6 %}
+
 	<table class="category_page">
 		<tr>
 		<td class="entete_category">ID</td><td>{{ formation.id }} </td>
@@ -28,7 +36,19 @@
 
 	{% for category in formation.categories %}
 		<br/>
-		<fieldset class="category">
+		{% if AERONAUTIC == formation.type %}
+			<fieldset class="aeronautic">
+		{% elseif ALUMINIUM == formation.type %}
+			<fieldset class="aluminium">
+		{% elseif PCB == formation.type %}
+			<fieldset class="aluminium">
+		{% elseif EMS == formation.type %}
+			<fieldset class="EMS">
+		{% elseif ENVIRONMENT == formation.type %}
+			<fieldset class="environment">
+		{% else %}
+			<fieldset class="ecology">
+		{% endif %}
 		<legend class="category_title">
 			Catégorie : {{ category.name }} ({{ category.ordre }})
 			<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}">Éditer</a>
