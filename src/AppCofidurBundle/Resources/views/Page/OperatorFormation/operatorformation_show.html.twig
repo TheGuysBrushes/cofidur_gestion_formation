@@ -2,16 +2,15 @@
 
 {% block body %}
 	<script type="text/javascript">
-		function checking_category(){
-			alert('Tache validee !');
-			var validating_category= document.getElementById('accept');
-			if(validating_category.checked) validating_category.checked= false;
-			else validating_category.checked= true;
-		}
-		function show_details(){
-			alert('Details demandés');
-			var details_block= document.getElementById('operatorformation_informations');
-			details_block.style.visibility= "visible	";
+		function show_details(indice_category){
+			var details_block= document.getElementById("operatorformation_informations".concat(indice_category));
+			var details_button= document.getElementById("details".concat(indice_category));
+
+			if(details_block.style.display == "none"){
+				details_block.style.display= "block";
+			} else {
+				details_block.style.display= "none";
+			}
 		}
 	</script>
 
@@ -69,24 +68,24 @@
 			</tr>
 		</table>
 	</fieldset>
-	<!-- Résumé opérateur à réparer TODO @infern @florian-->
-	{#<fieldset class="operatorformation_sumup">#}
-		{#<legend>Résumé de l'opérateur</legend>#}
-		{#<table class="category_page">#}
-			{#<tr>#}
-				{#<th class="entete_category">ID</th>#}
-				{#<th class="entete_category">Nom</th>#}
-				{#<th class="entete_category">Prénom</th>#}
-				{#<th class="entete_category">Date de putain de naissance</th>#}
-			{#</tr>#}
-			{#<tr>#}
-				{#<td>{{ operator.id }} </td>#}
-				{#<td>{{ operator.firstname }} </td>#}
-				{#<td>{{ operator.lastname }} </td>#}
-				{#<td>{{ operator.dateofbirth }} </td>#}
-			{#</tr>#}
-		{#</table>#}
-	{#</fieldset>#}
+	<fieldset class="operatorformation_sumup">
+		<legend>Résumé de l'opérateur</legend>
+		<table class="category_page">
+			<tr>
+				<th class="entete_category">ID</th>
+				<th class="entete_category">Nom</th>
+				<th class="entete_category">Prénom</th>
+				<th class="entete_category">Date de naissance</th>
+			</tr>
+			<tr>
+				<td>{{ operator.id }} </td>
+				<td>{{ operator.firstname }} </td>
+				<td>{{ operator.lastname }} </td>
+				<td>{{ operator.dateofbirth }} </td>
+			</tr>
+		</table>
+	</fieldset>
+	{% set indice_category= 1 %}
 	{% for category in formation.categories %}
 		<br/>
 		<fieldset class="category">
@@ -106,20 +105,20 @@
 							<td>{{ task.ordre }}</td>
 							<td>
 								<div class="task_validator">
-									<input type="checkbox" name="accept" value="accept" id="accept" disabled>
-									<label for="accepted_category"></label>
-									<button onclick='checking_category(accept)'>Accepter</button>
+									<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
+										Valider
+									</a>
 								</div>
 							</td>
 						</tr>
 				{% endfor %}
 			</table>
 		</div>
-		<div id="operatorformation_informations" class="operatorformation_informations">
+		<div id="operatorformation_informations{{ indice_category }}" class="operatorformation_informations">
 			<table>
 				<tr>
 					<th>ID Catégorie</th>
-					<td>TODO</td>
+					<td>{{ category.id }}</td>
 				</tr>
 				<tr>
 					<th>Date signature</th>
@@ -159,14 +158,21 @@
 						<br/>
 					{% endif %}
 				</legend>
-				<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
-				<br/>
-				<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
-				<br/>
-				<button name="details" value="details" onclick="show_details()">Détails</button>
+				<table>
+					<tr>
+						<td>
+							<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+						</td>
+						<td>
+							<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
+						</td>
+					</tr>
+				</table>
+				<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
 			</fieldset>
 		</div>
 		</fieldset>
+		{% set indice_category= indice_category+1 %}
 {% endfor %}
 {% endblock %}
 
