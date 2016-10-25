@@ -1,10 +1,9 @@
-{% extends 'AppCofidurBundle::layout.html.twig' %}
+{% extends 'AppCofidurBundle::Page/Task/task.html.twig' %}
 
 {% block body %}
 
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
-
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
 
 {% endblock %}

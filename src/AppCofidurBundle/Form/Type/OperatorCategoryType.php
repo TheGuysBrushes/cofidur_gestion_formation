@@ -33,12 +33,12 @@ class OperatorCategoryType extends AbstractType
         }
 
         $builder
-            ->add('dateSignature', DateType::class)
-            ->add('signature', TextType::class)
-            ->add('nbHours', TimeType::class) 
+            ->add('dateSignature', DateType::class, array('label' => 'operatorCategory.dateSignature'))
+            ->add('signature', TextType::class, array('label' => 'operatorCategory.signature'))
+            ->add('nbHours', TimeType::class, array('label' => 'operatorCategory.nbHours')) 
             ->add('idTrainer', ChoiceType::class,
-               array('choices'  => $op_tab))    
-            ->add('save', SubmitType::class, array('label' => 'Sauvegarder'));
+               array('choices'  => $op_tab, 'label' => 'operatorCategory.nbHours'))    
+            ->add('save', SubmitType::class, array('label' => 'operatorCategory.save'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

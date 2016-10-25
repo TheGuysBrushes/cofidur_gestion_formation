@@ -1,6 +1,9 @@
 # Catégorie
 category:
     id: 'Identifiant de la catégorie'
+    name: 'Nom de la catégorie'
+    save:
+        submit: 'Enregistrer la catégorie'
     edit:
         submit: 'Mettre à jour la catégorie' 
     add:
@@ -16,6 +19,8 @@ formation:
     teachingAids: 'Moyens pédagogiques'
     placesMaterialRessources: 'Lieux et ressources matérielles'
     criticality: 'Criticité'
+    save:
+        submit: 'Enregistrer la formation'
     edit:
         submit: 'Mettre à jour la formation'
     add:
@@ -25,6 +30,11 @@ formation:
 # OperatorCategory
 operatorCategory:
     id: 'Identifiant de la catégorie de l''opérateur'
+    dateSignature: 'Date de la signature'
+    signature: 'Signature'
+    nbHours: 'Nombre d''heures'
+    save:
+        submit: 'Enregistrer'
     edit:
         submit: 'Mettre à jour la catégorie de l''opérateur'
     add:
@@ -33,19 +43,35 @@ operatorCategory:
         submit: 'Supprimer la catégorie de l''opérateur'
 # Formation d'opérateur
 operatorFormation:
-    id: 'Identifiant de la formation'
+    idOperator: 'Identifiant de l''opérateur'
+    idFormation: 'Identifiant de la formation'
+    dateBegin: 'Date de début de formation'
+    dateEnd: 'Date de fin de formation'
+    validation: 'Etat de la formation'
+    commentary: 'Commentaire°'
+    idFormer: 'Identifiant du formateur'
+    choices:
+        unvalidated: 'Non validé'
+        validating: 'En cours de validation'
+        planned: 'Prévue'
+        formed: 'Formé'
+        can_form: 'Peut former'
+    save:
+        submit: 'Enregistrer la formation de l''opérateur'
     edit:
         submit: 'Mettre à jour la formation d''opérateur'
     add:
-        submit: 'Créer la formation d''opérateur'
+        submit: 'Ajouter la formation à l''opérateur'
     delete:
-        submit: 'Supprimer la formation d''opérateur'
+        submit: 'Supprimer la formation de l''opérateur'
 # Opérateur
 operator:
     id: 'Identifiant de l''opérateur'
     firstName: 'Prénom'
     lastName: 'Nom'
     dateOfBirth: 'Date de naissance'
+    save:
+        submit: 'Enregistrer l''opérateur'
     edit:
         submit: 'Mettre à jour l''opérateur'
     add:
@@ -60,6 +86,10 @@ security:
 # Tâche
 task:
     id: 'Identifiant de la tâche'
+    order: 'Ordonnancement de la tâche'
+    name: 'Intitulé de la tâche'
+    save:
+        submit: 'Enregistrer la tâche'
     edit:
         submit: 'Mettre à jour la tâche'
     add:

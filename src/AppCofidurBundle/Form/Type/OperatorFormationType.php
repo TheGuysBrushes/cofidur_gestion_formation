@@ -42,26 +42,32 @@ class OperatorFormationType extends AbstractType
 
         $builder            
             ->add('idOperator', ChoiceType::class,
-               array('choices'  => $op_tab))            
+               array('choices'  => $op_tab,
+               'label' => 'operatorFormation.idOperator'))
             ->add('idFormation', ChoiceType::class,
-               array('choices'  => $form_tab))
-            ->add('dateBegin', DateType::class)
-            ->add('dateEnd', DateType::class)
+               array('choices'  => $form_tab,
+               'label' => 'operatorFormation.idFormation'))
+            ->add('dateBegin', DateType::class,
+                array('label' => 'operatorFormation.dateBegin'))
+            ->add('dateEnd', DateType::class,
+                array('label' => 'operatorFormation.dateEnd'))
             ->add('validation', ChoiceType::class,
                array(
                     'choices'  => array(
-                        1 => 'Non validé',
-                        2 => 'En cours de validation',
-                        3 => 'Prévue',
-                        4 => 'Formé',
-                        5 => 'Peut former',
-                    )
+                        1 => 'operatorFormation.choices.unvalidated',
+                        2 => 'operatorFormation.choices.validating',
+                        3 => 'operatorFormation.choices.planned',
+                        4 => 'operatorFormation.choices.formed',
+                        5 => 'operatorFormation.choices.can_form',
+                    ),
+                    'label' => 'operatorFormation.validation',
                 )
             )
-            ->add('commentary', TextType::class) 
+            ->add('commentary', TextType::class,
+                array('label' => 'operatorFormation.commentary')) 
             ->add('idFormer', ChoiceType::class,
-               array('choices'  => $op_tab))       
-            ->add('save', SubmitType::class, array('label' => 'Sauvegarder'));
+               array('choices'  => $op_tab,'label' => 'operatorFormation.idFormer'))
+            ->add('save', SubmitType::class, array('label' => 'operatorFormation.save.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -1,0 +1,13 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block sidebar %}
+
+{% if is_granted('ROLE_USER') %}
+<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
+{% endif %}
+{% if is_granted('ROLE_ADMIN') %}
+<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">IL FAUT AJOUTER LE RETOUR A LA FORMATION CORRESPONDANTE</a></h2>
+<p><a href="javascript:history.go(-1)">EN JAVASCRIPT</a></p>
+{% endif %}
+
+{% endblock %}
