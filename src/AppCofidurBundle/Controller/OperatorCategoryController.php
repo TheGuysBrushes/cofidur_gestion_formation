@@ -60,7 +60,16 @@ class OperatorCategoryController extends Controller
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
-        $em->remove($operatorcategory);
+        $operatorcategory->setSignature(NULL);
+        $operatorcategory->setDateSignature(NULL);
+        $operatorcategory->setIdTrainer(NULL);
+        $operatorcategory->setNbHours(NULL);
+
+        /*$operatortask=$em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory));
+        foreach($operatortask as $op_task){
+            $em->remove($op_task);
+        }*/
+
         $em->flush();
 
         $idOpForm = $operatorcategory->getOperatorFormation()->getId();
@@ -75,6 +84,7 @@ class OperatorCategoryController extends Controller
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
         $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
+
         if(sizeof($operatorcategory_test) == 0){
             throw $this->createNotFoundException('Formation non validée!');
         }

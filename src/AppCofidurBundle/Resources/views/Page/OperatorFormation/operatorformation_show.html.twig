@@ -170,7 +170,7 @@
 		{% endfor %}
 
 								{% if not validated_category %}
-									<a href="{{ path('AppCofidurBundle_operatorcategory_add', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
+									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
 										<button id="validate">Valider la catégorie</button>
 									</a>
 									<br/>
@@ -194,8 +194,4 @@
 		</fieldset>
 		{% set indice_category= indice_category+1 %}
 {% endfor %}
-{% endblock %}
-
-{% block sidebar %}
-
 {% endblock %}
