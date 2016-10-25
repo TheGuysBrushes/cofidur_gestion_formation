@@ -12,6 +12,10 @@
 				details_block.style.display= "none";
 			}
 		}
+		function validate_task(id_task_button){
+			var task_button= document.getElementById(id_task_button);
+//			task_button.style.display= "none";
+		}
 	</script>
 
 	<h1 class="page_title">Formation d'un opérateur</h1>
@@ -85,9 +89,14 @@
 			</tr>
 		</table>
 	</fieldset>
+
 	{% set indice_category= 1 %}
 	{% for category in formation.categories %}
-		<br/>
+		{% set validated_category="" %}
+		<!-- A afficher si la categorie est validée -->
+		{% for opeCat in operatorformation.operatorcategories %}
+			{% if category.id == opeCat.idCategory %}
+					<br/>
 		<fieldset class="category">
 		<legend class="category_title">
 			Catégorie : {{ category.name }} ({{ category.ordre }})
@@ -98,27 +107,33 @@
 					<td class="task_name">Nom tache</td>
 					<td class="task_order">Ordre tache</td>
 				</tr>
-				{% set task_checked= true %}
+				{% set task_nb= 1 %}
 				{% for task in category.tasks %}
+					{% set task_found= 0 %}
 						<tr>
 							<td>{{ task.name }}</td>
 							<td>{{ task.ordre }}</td>
-							<td>
-								<div class="task_validator">
-									<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
-										Valider
-									</a>
-								</div>
-							</td>
+							{% for opeTask in opeCat.operatortasks %}
+								{% if opeTask.idTask == task.id %}
+									{% set task_found= 1 %}
+									<td>
+										Tache validée !
+									</td>
+								{% endif %}
+							{% endfor %}
+							{% if task_found == 0 %}
+								<td>
+									<div class="task_validator">
+										<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
+											<button id="validateTask{{ indice_category }}{{ task_nb }}" onclick="validate_task(this.id)">Valider</button>
+										</a>
+									</div>
+								</td>
+							{% endif %}
 						</tr>
 				{% endfor %}
 			</table>
 		</div>
-		{% set validated_category="" %}
-		<!-- A afficher si la categorie est validée -->
-		{% for opeCat in operatorformation.operatorcategories %}
-			{% if category.id == opeCat.idCategory %}
-				{% if opeCat.signature != null %}
 					<div id="operatorformation_informations{{ indice_category }}" class="operatorformation_informations">
 						<table>
 							<tr>
@@ -146,10 +161,11 @@
 					<div>
 						<fieldset>
 							<legend>
-								{% set validated_category= true %}
+								{% if opeCat.signature != null %}
+									{% set validated_category= true %}
 									Catégorie validée !
 									<br/>
-				{% endif %}
+								{% endif %}
 			{% endif %}
 		{% endfor %}
 
