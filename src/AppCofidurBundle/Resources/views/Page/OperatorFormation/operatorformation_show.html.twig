@@ -101,6 +101,8 @@
 		<legend class="category_title">
 			Catégorie : {{ category.name }} ({{ category.ordre }})
 		</legend>
+
+		<!-- div propre -->
 		<div class="operatorformation_task_tab">
 			<table>
 				<tr>
@@ -134,41 +136,6 @@
 				{% endfor %}
 			</table>
 		</div>
-					<div id="operatorformation_informations{{ indice_category }}" class="operatorformation_informations">
-						<table>
-							<tr>
-								<th>ID Catégorie</th>
-								<td>{{ category.id }}</td>
-							</tr>
-							<tr>
-								<th>Date signature</th>
-								<td>{{ opeCat.dateSignature|date("m/d/Y") }}</td>
-							</tr>
-							<tr>
-								<th>Signature</th>
-								<td>{{ opeCat.signature }}</td>
-							</tr>
-							<tr>
-								<th>Nombre d'heures</th>
-								<td>{{ opeCat.nbHours|date("H:i")}}</td>
-							</tr>
-							<tr>
-								<th>ID formateur</th>
-								<td>{{ opeCat.idTrainer }}</td>
-							</tr>
-						</table>
-					</div>
-					<div>
-						<fieldset>
-							<legend>
-								{% if opeCat.signature != null %}
-									{% set validated_category= true %}
-									Catégorie validée !
-									<br/>
-								{% endif %}
-			{% endif %}
-		{% endfor %}
-
 								{% if not validated_category %}
 									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
 										<button id="validate">Valider la catégorie</button>
@@ -194,4 +161,4 @@
 		</fieldset>
 		{% set indice_category= indice_category+1 %}
 {% endfor %}
-{% endblock %}
+{% endblock % }
