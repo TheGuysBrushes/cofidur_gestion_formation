@@ -25,7 +25,7 @@ class OperatorCategoryController extends Controller
 
         $operatorcategory->setOperatorFormation($operatorformation);
         
-        $form = $this->createForm(OperatorCategoryType::class, $operatorcategory);
+        $form = $this->createForm(new OperatorCategoryType($em), $operatorcategory);
 
         $form->handleRequest($request);
 
@@ -81,7 +81,7 @@ class OperatorCategoryController extends Controller
 
         $operatorcategory = $operatorcategory_test[0];
 
-        $form = $this->createForm(OperatorCategoryType::class, $operatorcategory);
+        $form = $this->createForm(new OperatorCategoryType($em), $operatorcategory);
 
         $form->handleRequest($request);
 

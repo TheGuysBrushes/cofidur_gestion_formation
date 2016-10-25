@@ -1,0 +1,248 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<script>
+		//<![CDATA[
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!="dataLayer"?"&amp;l="+l:"";j.async=true;j.src=
+                "//www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);})
+                (window,document,"script","dataLayer","GTM-TPRHR6");
+		//]]>
+    </script>
+		<div id="languageChoice" style="display:none" lang="en-gb">
+			<div class="position">
+				<a href="#" onclick="document.location ='http://eu.blizzard.com/en-gb/fsd'" class="linkto-otherlanguage">
+					<div class="iconglobal"></div>
+					<p>
+							  This site is also available in English<span>View this site in English</span>
+
+					</p>
+				</a>
+				<div class="closebar" lang="en-gb">
+					<a href="/en-gb/fsd">
+						<div class="icon-close"></div>
+						Close this bar and continue in English
+					</a>
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+	<map name="menuMap">
+		<area shape="poly" title="" coords="903,66, 938,140, 802,204, 766,131" href='http://eu.blizzard.com/store/'/>
+		<area shape="poly" title="" coords="766,132, 802,204, 666,270, 629,197" href='http://eu.blizzard.com/support/'/>
+		<area shape="poly" title="" coords="629,198, 665,270, 529,336, 492,263" href="/company/careers/"/>
+		<area shape="poly" title="" coords="492,264, 528,336, 391,402, 354,329" href="/company/"/>
+		<area shape="poly" title="" coords="354,330, 390,402, 253,469, 217,395" href="/games/"/>
+		<area shape="poly" title="" coords="200,369, 20,456, 67,554, 248,467" href="/">
+	</map>
+	<!--<script language="javascript">
+		gId = function(someID){return document.getElementById(someID);}
+		flicker = true;
+		thisNav = "";
+		function navIn() { var elem = gId(thisNav); elem.style.zIndex = "111"; elem.style.backgroundPosition = "bottom left"; }
+		function navOut() {var elem = gId(thisNav); elem.style.zIndex = "110"; elem.style.backgroundPosition = "top left"; }
+		
+		function menuFlicker(thisElement)
+		{
+			var rando = Math.round(Math.random()*500);
+			if(rando>200 && flicker)
+			{
+				if(gId(thisElement).style.zIndex=="111") { thisNav=thisElement; navOut(); }
+				else { thisNav=thisElement; navIn(); }
+			}
+			else if(!flicker)
+			{
+				if(gId(thisElement).style.zIndex=="111" && thisElement!=thisNav) {gId(thisElement).style.zIndex = "110"; gId(thisElement).style.backgroundPosition = "top left";}
+			}
+			window.setTimeout("menuFlicker('"+thisElement+"')",rando)
+		}
+	</script>-->
+	<div class="subheader">
+		<div class="temp" style="display:block">
+			<div class="brokennavcontainer">
+				<div class="brokennavloc" style="background-image:url(/static/_images/lang/en-gb/brokennav.gif);">
+					<div class="shatter2"></div>
+					<div class="brokennav">
+						<img src="/static/_images/layout/pixel.gif" usemap="#menuMap"/>
+						<div class="gratz">
+						    <p class="lead"><strong>Grats.</strong> You broke it.</p> 
+								<p>This page doesn't exist or some other horrible error has occurred.</p>
+							<!--<script language="javascript">menuFlicker('community'); menuFlicker('games')</script>-->
+						</div>
+					</div>
+					<div class="shatter1"></div>
+				</div>						
+			</div>					
+		</div>
+	</div>
+
+	<script language="javascript">
+	//This is some of the hackiest code I've ever written... but a pretty good solution, given that I had like 5 minutes to come up with it.
+	if(window.location.toString().indexOf("bwcrelease")!= -1) window.location = "http://us.blizzard.com/en-us/company/press/pressreleases.html?id=6711271";
+	</script>
+	<div class="footercontainer">
+	<div class="footer">
+		<a href="/en-gb/" class="logo-blizzard"></a>
+		<a href="http://eu.battle.net/?locale=en_GB" class="logo-battlenet" target="_blank"></a>
+		<div class="footercontents">
+			<div class="footercontents_int">
+				<div class="links">
+
+				<a href="http://blizzard.gamespress.com/">Press</a>
+				<span class="spacer">|</span>
+				<a href="/en-gb/company/careers/index.html">Career Opportunities</a>
+				<span class="spacer">|</span>
+				<a href="/en-gb/company/about/privacy.html" class="privacy">Privacy Policy</a>
+				<span class="spacer">|</span>
+				<a href="/en-gb/company/legal/">Legal Documentation</a>
+				<span class="spacer">|</span>
+				<a href="/en-gb/company/about/contact.html">Contact Us</a>
+                <span class="spacer">|</span>
+                <a href="/en-gb/sitemap.html">Sitemap</a>
+				</div>
+				<br />
+				<br/>
+
+				<p class="dark">
+					All trademarks referenced herein are the properties of their respective owners. <br />&copy;2016 Blizzard Entertainment. All rights reserved.
+				</p>
+
+				<br />
+				<br/>
+				<span class="languagetitle">Language:   </span>
+				<div class="lang-select links" onMouseOver="this.mfocus=true" onMouseOut="this.mfocus=false">
+                        <a class="language" href="javascript:;" onclick="$j('#locdrop').toggle();" onblur="btoggle('locdrop',this)">
+                        	<span class="languageitem">English (GB)</span>
+                            <span class="langarrow"></span>
+                        </a>
+
+                        <div class="langbox" id="locdrop">
+                            <div class="top"></div>
+                            <div class="middle">
+                                <div class="left"></div>
+                                <div class="right"></div>
+                                <div class="content">
+                                    <div class="regions">
+                                          <div class="regionus"><div class="regiontitle">Americas &amp; Oceanic</div>
+                                           <div class="languages">
+                                              <a href="http://us.blizzard.com/en-us/fsd">English</a><br />
+                                              <a href="http://us.blizzard.com/es-mx/fsd">Español</a><br />
+                                              <a href="http://us.blizzard.com/pt-br/fsd">Português</a><br />
+                                          </div>
+                                          </div>
+                                          <div class="regioneu"><div class="regiontitle">Europe</div>
+                                           <div class="languages">
+                                              <a href="http://eu.blizzard.com/en-gb/fsd">English</a><br />
+                                              <a href="http://eu.blizzard.com/de-de/fsd">Deutsch</a><br />
+                                              <a href="http://eu.blizzard.com/fr-fr/fsd">Français</a><br />
+                                              <a href="http://eu.blizzard.com/it-it/fsd">Italiano</a><br />
+                                              <a href="http://eu.blizzard.com/pl-pl/fsd">Polski</a><br />
+                                              <a href="http://eu.blizzard.com/es-es/fsd">Español</a><br />
+                                              <a href="http://eu.blizzard.com/ru-ru/fsd">Русский</a><br />
+                                          </div>
+                                          </div>
+                                          <div class="regioncn"><div class="regiontitle">Asia</div>
+                                           <div class="languages">
+                                              <a href="http://kr.blizzard.com/ko-kr/fsd">한국어</a><br />
+                                              <a href="http://tw.blizzard.com/zh-tw/fsd">繁體中文</a><br />
+                                              <a href="http://sea.blizzard.com/en-sg/fsd">English</a><br />
+                                          </div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <div class="left"></div>
+                                <div class="lang">
+			                        <a class="currentlanguage" href="javascript:;" onclick="$j('#locdrop').toggle();" onblur="btoggle('locdrop',this)">
+                                    	<span class="languageitem">English (GB)</span>
+			                            <span class="langarrow"></span>
+                                 	</a>
+                                </div>
+                                <div class="middle"></div>
+                                <div class="right"></div>
+                                <div class="stretch"></div>
+                            </div>
+                        </div>
+                    </div>
+
+			</div>
+		</div>
+		
+	        <div class="ratings">
+				<div class="block7">
+					<ul class="socialnetworking">
+						<li class="ratings-title">Stay Connected</li>
+						<li class="main-footer-facebook"><a href="http://www.facebook.com/Blizzard">&nbsp;&nbsp;</a></li>
+						<li class="main-footer-twitter"><a href="http://twitter.com/Blizzard_Ent">&nbsp;&nbsp;</a></li>
+						<li class="main-footer-youtube"><a href="http://www.youtube.com/Blizzard">&nbsp;&nbsp;</a></li>
+						<li class="main-footer-glassdoor"><a href="http://www.glassdoor.com/Overview/Working-at-Blizzard-Entertainment-EI_IE24858.11,33.htm">&nbsp;&nbsp;</a></li>
+					</ul>
+				</div>
+			</div>
+
+	</div>
+    </div>
+		<div id="blackout" onClick="sV.close()"></div>
+
+		<div class="divcenter"><div id="screenViewer" style="display:none" class="blizzard_sv">
+
+
+			<a href="javascript:;" onclick="sV.close()" class="close"><!-- --></a>
+
+	        <div class="topBorder"></div>
+	        <div class="rightBorder"></div>
+	        <div class="bottomBorder"></div>
+	        <div class="leftBorder"></div>
+	        <div class="topLeft"></div>
+	        <div class="topRight"></div>
+	        <div class="bottomLeft"></div>
+	        <div class="bottomRight"></div>
+	        <div class="topDeco"></div>
+
+	        <div id="viewerTitle"><!-- --></div>
+
+	        <div id="viewerCopyLink"><!-- --></div>
+
+	        <div id="viewerDescImage"><!-- --></div>
+
+	        <div id="loadingAnimation" style="display:none"><!-- --></div>
+
+	        <a href="javascript:;" onclick="sV.prevImage();" id="pageLeft"><!-- --></a>
+	        <a href="javascript:;" onclick="sV.nextImage();" id="pageRight"><!-- --></a>
+
+	        <div id="viewerContent">
+				<div class="viewer-wrapper">
+					<div id="videoContainer"><!-- --></div>
+				</div>
+	        </div>
+		</div></div>
+	<script type="text/javascript">
+	//<![CDATA[
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-544112-15']);
+		_gaq.push(['_setDomainName', '.blizzard.com']);
+		_gaq.push(['_trackPageview']);
+		_gaq.push(['_setAllowLinker', true]);
+		
+		(function() {
+		var ga = document.createElement('script');
+		var src = "https://ssl.google-analytics.com/ga.js";
+		if ('http:' == document.location.protocol) {
+		src = "http://www.google-analytics.com/ga.js";
+		}
+		ga.type = 'text/javascript';
+		ga.setAttribute('async', 'true');
+		ga.src = src;
+		var s = document.getElementsByTagName('script');
+		s = s[s.length-1];
+		s.parentNode.insertBefore(ga, s.nextSibling);
+		})();
+	//]]>
+	</script>
+{% endblock %}
+
+
+
+
+

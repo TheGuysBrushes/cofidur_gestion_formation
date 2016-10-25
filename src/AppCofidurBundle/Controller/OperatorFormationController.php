@@ -16,16 +16,17 @@ class OperatorFormationController extends Controller
     
     public function addAction(Request $request)
     {
+
+        $em = $this->getDoctrine()->getManager();
         $operatorformation = new OperatorFormation();
 
-        $form = $this->createForm(OperatorFormationType::class, $operatorformation);
+        $form = $this->createForm(new OperatorFormationType($em), $operatorformation);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $operatorformation = $form->getData();
 
-            $em = $this->getDoctrine()->getManager();
             $em->persist($operatorformation);
 
             $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getIdFormation());
@@ -53,7 +54,7 @@ class OperatorFormationController extends Controller
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getIdFormation());
-        //$operator = $em->getRepository('AppCofidurBundle:Operator')->find($operatorformation->getIdOperator());
+        $operator = $em->getRepository('AppCofidurBundle:User')->find($operatorformation->getIdOperator());
 
 
         if (!$operatorformation) {
@@ -64,14 +65,14 @@ class OperatorFormationController extends Controller
             throw $this->createNotFoundException('Formation non existante');
         }
 
-        /*if (!$operator) {
-            throw $this->createNotFoundException('Utilisateur non existant');
-        }*/
+        if (!$operator) {
+            throw $this->createNotFoundException('Utilisateur non existant '.$operator->getId());
+        }
 
 
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show.html.twig', array(
             'formation'             => $formation,
-            //'operator'              => $operator,
+            'operator'              => $operator,
             'operatorformation'     => $operatorformation,
         )); 
     }
@@ -113,7 +114,7 @@ class OperatorFormationController extends Controller
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
-        $form = $this->createForm(OperatorFormationType::class, $operatorformation);
+        $form = $this->createForm(new OperatorFormationType($em), $operatorformation);
 
         $form->handleRequest($request);
 

@@ -1,34 +1,10 @@
 {% extends 'AppCofidurBundle::layout.html.twig' %}
 
-{% block title %}Add an operator{% endblock%}
-
 {% block body %}
-    <header>
-        <h1>{{ title }}</h1>
-    </header>
 
-<form method=POST>
-    <table>
-        <tr>
-            <td class="dark-blue"> Operator ID : </td>
-            <td> {{ id }} </td>
-        </tr>
-        <tr>
-            <td> Nom de famille de l'opérateur: </td>
-            <td> {{ security.login.lastname|upper }} </td>
-            <td> <input type="text"> </td>
-        </tr>
-        <tr>
-            <td> Prénom de l'opérateur : </td>
-            <td> {{ security.login.firstname|upper }} </td>
-            <td> <input type="text"> </td>
-        </tr>
-        <tr>
-            <td> <input type="submit" name="Submit" value="submit"> </td>
-            <td> <input type="reset" name="Cancel" value="cancel"> </td>
-        </tr>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 
-    </table>
-</form>
 
 {% endblock %}
