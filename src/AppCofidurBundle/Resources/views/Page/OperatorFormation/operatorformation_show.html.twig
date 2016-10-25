@@ -75,13 +75,13 @@
 				<th class="entete_category">ID</th>
 				<th class="entete_category">Nom</th>
 				<th class="entete_category">Prénom</th>
-				<th class="entete_category">Date de naissance</th>
+				{#<th class="entete_category">Date de naissance</th>#}
 			</tr>
 			<tr>
 				<td>{{ operator.id }} </td>
 				<td>{{ operator.firstname }} </td>
 				<td>{{ operator.lastname }} </td>
-				<td>{{ operator.dateofbirth }} </td>
+				{#<td>{{ operator.dateofbirth }} </td>#}
 			</tr>
 		</table>
 	</fieldset>
@@ -114,6 +114,11 @@
 				{% endfor %}
 			</table>
 		</div>
+		{% set validated_category="" %}
+		<!-- A afficher si la categorie est validée -->
+		{% for opeCat in operatorformation.operatorcategories %}
+		{% if category.id == opeCat.idCategory %}
+
 		<div id="operatorformation_informations{{ indice_category }}" class="operatorformation_informations">
 			<table>
 				<tr>
@@ -122,30 +127,26 @@
 				</tr>
 				<tr>
 					<th>Date signature</th>
-					<td>TODO</td>
+					<td>{{ opeCat.dateSignature|date("m/d/Y") }}</td>
 				</tr>
 				<tr>
 					<th>Signature</th>
-					<td>TODO</td>
+					<td>{{ opeCat.signature }}</td>
 				</tr>
 				<tr>
 					<th>Nombre d'heures</th>
-					<td>TODO</td>
+					<td>{{ opeCat.nbHours|date("H:i")}}</td>
 				</tr>
 				<tr>
 					<th>ID formateur</th>
-					<td>TODO</td>
+					<td>{{ opeCat.idTrainer }}</td>
 				</tr>
 			</table>
 		</div>
 		<div>
 			<fieldset>
 				<legend>
-					<!-- A afficher si la categorie est validée -->
-					{% set validated_category="" %}
-					{% for opeCat in operatorformation.operatorcategories %}
-						{% if category.id == opeCat.idCategory %}
-							{% set validated_category= true %}
+						{% set validated_category= true %}
 							Catégorie validée !
 							<br/>
 						{% endif %}
@@ -158,17 +159,19 @@
 						<br/>
 					{% endif %}
 				</legend>
-				<table>
-					<tr>
-						<td>
-							<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
-						</td>
-						<td>
-							<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
-						</td>
-					</tr>
-				</table>
-				<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
+				{% if validated_category %}
+					<table class="modif_category">
+						<tr>
+							<td>
+								<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+							</td>
+							<td>
+								<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
+							</td>
+						</tr>
+					</table>
+					<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
+				{% endif %}
 			</fieldset>
 		</div>
 		</fieldset>
