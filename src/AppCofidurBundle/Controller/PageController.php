@@ -62,7 +62,7 @@ class PageController extends Controller
         return $formFormer;
     }
 
-    public function skillMatrixAction(Request $request)
+    public function skillMatrixAction()
     {
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:Formation');
 
