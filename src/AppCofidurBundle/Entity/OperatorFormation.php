@@ -50,7 +50,7 @@ class OperatorFormation
     /**
      * @var int
      *
-     * @ORM\Column(name="validation", type="int")
+     * @ORM\Column(name="validation", type="integer")
      */
     private $validation;
 
