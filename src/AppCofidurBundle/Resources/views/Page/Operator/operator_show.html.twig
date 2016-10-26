@@ -1,0 +1,31 @@
+{% extends 'AppCofidurBundle::Page/Operator/operator.html.twig' %}
+
+{% block body %}
+
+<table>
+	<tr>
+        <th> ID </th>
+        <th> PRENOM </th>
+        <th> NOM </th>
+		{# <th> DATE DE NAISSANCE </th> #}
+	</tr>
+	<tr>
+		<td> {{ operator.id }} </td>
+        <td> {{ operator.firstName }} </td>
+        <td> {{ operator.lastName }} </td>
+        {# <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td> #}
+		<td> <a href="{{ path('AppCofidurBundle_operator_edit',     {'idOp': operator.id}) }}">Editer</a>
+		<td> <a href="{{ path('AppCofidurBundle_operator_delete',   {'idOp': operator.id}) }}">Supprimer</a>
+	</tr>
+</table>
+
+<br/>
+
+	Cette opérater a passer les formassion suivante : 
+	{% for formations in formations %}
+
+	{% endfor %}
+    <a href="{{ path('AppCofidurBundle_operator_add') }}">Ajouter un opérateur</a>
+	
+    
+{% endblock %}
