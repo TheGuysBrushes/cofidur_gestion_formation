@@ -67,7 +67,6 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
-
             return $this->redirectToRoute('AppCofidurBundle_user_show_all');
         }
 

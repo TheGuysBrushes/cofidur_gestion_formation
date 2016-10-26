@@ -21,7 +21,7 @@ class OperatorCategoryController extends Controller
         $operatorcategory->setCategory($category);
 
         $operatorcategory->setOperatorFormation($operatorformation);
-        
+
         $form = $this->createForm(new OperatorCategoryType($em), $operatorcategory);
 
         $form->handleRequest($request);
@@ -38,7 +38,7 @@ class OperatorCategoryController extends Controller
 
         return $this->render('AppCofidurBundle:Page/OperatorCategory:operatorcategory_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
+        ));
     }
 
     public function deleteAction($idOpForm, $idCategory)
@@ -48,7 +48,8 @@ class OperatorCategoryController extends Controller
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
 
         $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
-        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
+        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')
+                                    ->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
 
         if(sizeof($operatorcategory_test) == 0){
             throw $this->createNotFoundException('Formation non validée!');
@@ -60,10 +61,10 @@ class OperatorCategoryController extends Controller
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
-        $operatorcategory->setSignature(NULL);
-        $operatorcategory->setDateSignature(NULL);
-        $operatorcategory->setTrainer(NULL);
-        $operatorcategory->setNbHours(NULL);
+        $operatorcategory->setSignature(null);
+        $operatorcategory->setDateSignature(null);
+        $operatorcategory->setTrainer(null);
+        $operatorcategory->setNbHours(null);
 
         /*$operatortask=$em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory));
         foreach($operatortask as $op_task){
@@ -74,7 +75,7 @@ class OperatorCategoryController extends Controller
 
         $idOpForm = $operatorcategory->getOperatorFormation()->getId();
 
-        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $idOpForm));   
+        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $idOpForm));
     }
 
 
@@ -103,13 +104,14 @@ class OperatorCategoryController extends Controller
             $em->persist($operatorcategory);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $operatorcategory->getOperatorFormation()->getId()));
+            return $this->redirectToRoute('AppCofidurBundle_operatorformation_show',
+                                            array('idOpForm' => $operatorcategory->getOperatorFormation()->getId()));
         }
 
         return $this->render('AppCofidurBundle:Page/OperatorCategory:operatorcategory_edit.html.twig', array(
             'form' => $form->createView(),
-        ));    
-    }   
+        ));
+    }
 
 
-}   
+}

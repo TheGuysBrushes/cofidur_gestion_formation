@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 class OperatorFormationController extends Controller
-{   
-    
+{
+
     public function addAction(Request $request)
     {
 
@@ -45,8 +45,8 @@ class OperatorFormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
-    }   
+        ));
+    }
 
     public function showAction($idOpForm)
     {
@@ -61,7 +61,7 @@ class OperatorFormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show.html.twig', array(
             'operatorformation'     => $operatorformation,
-        )); 
+        ));
     }
 
     public function showAllAction()
@@ -117,6 +117,6 @@ class OperatorFormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
+        ));
     }
 }
