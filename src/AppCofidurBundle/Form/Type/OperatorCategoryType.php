@@ -25,8 +25,10 @@ class OperatorCategoryType extends AbstractType
             ->add('signature', TextType::class, array('label' => 'operatorCategory.signature'))
             ->add('nbHours', TimeType::class, array('label' => 'operatorCategory.nbHours')) 
             ->add('trainer', EntityType::class,
-               array('class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName'))
-            ->add('save', SubmitType::class, array('label' => 'operatorCategory.save'));
+               array('class'  => 'AppCofidurBundle:User',
+                    'choice_label' => 'firstName',
+                    'label' => 'operatorCategory.trainer'))
+            ->add('save', SubmitType::class, array('label' => 'operatorCategory.save.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)
