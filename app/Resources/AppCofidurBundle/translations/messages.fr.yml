@@ -33,6 +33,8 @@ operatorCategory:
     dateSignature: 'Date de la signature'
     signature: 'Signature'
     nbHours: 'Nombre d''heures'
+    trainer: 'Formateur'
+
     save:
         submit: 'Enregistrer'
     edit:
