@@ -2,7 +2,7 @@
 
 namespace AppCofidurBundle\Controller;
 
-use AppCofidurBundle\Entity\Operator;
+use AppCofidurBundle\Entity\User;
 use AppCofidurBundle\Entity\Formation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,9 +26,9 @@ class PageController extends Controller
         return $this->render('AppCofidurBundle:Page:contact.html.twig');
     }
 
-    public function loginAction()
+    public function adminAction()
     {
-        return $this->render('AppCofidurBundle:Page:login.html.twig');
+        return $this->render('AppCofidurBundle:Page:admin.html.twig');
     }
 
 
