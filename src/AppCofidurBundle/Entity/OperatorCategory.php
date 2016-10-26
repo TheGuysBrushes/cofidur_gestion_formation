@@ -22,11 +22,10 @@ class OperatorCategory
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idCategory", type="integer")
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    private $idCategory;
+    private $category;
 
     /**
      * @var \DateTime
@@ -50,11 +49,10 @@ class OperatorCategory
     private $nbHours;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idTrainer", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="trainer_id", referencedColumnName="id")
      */
-    private $idTrainer;
+    private $trainer;
 
     /**
      * @var OperatorFormation $operatorformation
@@ -85,29 +83,28 @@ class OperatorCategory
 
 
     /**
-     * Set idCategory
+     * Set category
      *
-     * @param integer $idCategory
+     * @param category $category
      *
      * @return OperatorCategory
      */
-    public function setIdCategory($idCategory)
+    public function setCategory($category)
     {
-        $this->idCategory = $idCategory;
+        $this->category = $category;
 
         return $this;
     }
 
     /**
-     * Get idCategory
+     * Get category
      *
-     * @return int
+     * @return Category
      */
-    public function getIdCategory()
+    public function getCategory()
     {
-        return $this->idCategory;
+        return $this->category;
     }
-    /**
 
 
     /**
@@ -183,27 +180,27 @@ class OperatorCategory
     }
 
     /**
-     * Set idTrainer
+     * Set trainer
      *
-     * @param integer $idTrainer
+     * @param User $trainer
      *
      * @return OperatorCategory
      */
-    public function setIdTrainer($idTrainer)
+    public function setTrainer($trainer)
     {
-        $this->idTrainer = $idTrainer;
+        $this->trainer = $trainer;
 
         return $this;
     }
 
     /**
-     * Get idTrainer
+     * Get trainer
      *
-     * @return int
+     * @return User
      */
-    public function getIdTrainer()
+    public function getTrainer()
     {
-        return $this->idTrainer;
+        return $this->trainer;
     }
     /**
      * Constructor

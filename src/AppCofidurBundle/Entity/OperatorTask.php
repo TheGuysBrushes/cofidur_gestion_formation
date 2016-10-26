@@ -22,18 +22,10 @@ class OperatorTask
     private $id;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="validation", type="boolean")
+     * @ORM\OneToOne(targetEntity="Task")
+     * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
      */
-    private $validation;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idTask", type="integer")
-     */
-    private $idTask;
+    private $task;
 
     /**
      * @var Category $category
@@ -104,26 +96,26 @@ class OperatorTask
     }
 
     /**
-     * Set idTask
+     * Set task
      *
-     * @param integer $idTask
+     * @param task $task
      *
      * @return OperatorTask
      */
-    public function setIdTask($idTask)
+    public function setTask($task)
     {
-        $this->idTask = $idTask;
+        $this->task = $task;
 
         return $this;
     }
 
     /**
-     * Get idTask
+     * Get task
      *
-     * @return integer
+     * @return Task
      */
-    public function getIdTask()
+    public function getTask()
     {
-        return $this->idTask;
+        return $this->task;
     }
 }

@@ -13,11 +13,13 @@ class OperatorTaskController extends Controller
         $em = $this->getDoctrine()->getManager();
 
        	$operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
-        $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
+        $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
+        $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
 
         $operatortask = new OperatorTask();
         $operatortask->setOperatorcategory($operatorcategory[0]);
-        $operatortask->setIdTask($idTask);
+        $operatortask->setTask($task);
         $operatortask->setValidation(true);
 
         $em->persist($operatortask);
@@ -32,9 +34,11 @@ class OperatorTaskController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
-        $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
+        $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
+        $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
 
-        $operatortasks = $em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory, 'idTask'=>$idTask));
+        $operatortasks = $em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory, 'task'=>$task));
 
         foreach($operatortasks as $operatortask)
             $em->remove($operatortask);

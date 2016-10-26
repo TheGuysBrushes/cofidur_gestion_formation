@@ -22,18 +22,16 @@ class OperatorFormation
     private $id;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idOperator", type="integer")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="operator_id", referencedColumnName="id")
      */
-    private $idOperator;
+    private $operator;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idFormation", type="integer")
+     * @ORM\ManyToOne(targetEntity="Formation")
+     * @ORM\JoinColumn(name="formation_id", referencedColumnName="id")
      */
-    private $idFormation;
+    private $formation;
 
     /**
      * @var \DateTime
@@ -64,11 +62,10 @@ class OperatorFormation
     private $commentary;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="idFormer", type="integer")
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="former_id", referencedColumnName="id")
      */
-    private $idFormer;
+    private $former;
 
     /**
      * @var ArrayCollection $operatorcategories
@@ -184,27 +181,27 @@ class OperatorFormation
     }
 
     /**
-     * Set idFormer
+     * Set former
      *
-     * @param integer $idFormer
+     * @param Operator $former
      *
      * @return OperatorFormation
      */
-    public function setIdFormer($idFormer)
+    public function setFormer($former)
     {
-        $this->idFormer = $idFormer;
+        $this->former = $former;
 
         return $this;
     }
 
     /**
-     * Get idFormer
+     * Get former
      *
-     * @return int
+     * @return Operator
      */
-    public function getIdFormer()
+    public function getFormer()
     {
-        return $this->idFormer;
+        return $this->former;
     }
     /**
      * Constructor
@@ -215,51 +212,51 @@ class OperatorFormation
     }
 
     /**
-     * Set idOperator
+     * Set operator
      *
-     * @param integer $idOperator
+     * @param Operator $operator
      *
      * @return OperatorFormation
      */
-    public function setIdOperator($idOperator)
+    public function setOperator($operator)
     {
-        $this->idOperator = $idOperator;
+        $this->operator = $operator;
 
         return $this;
     }
 
     /**
-     * Get idOperator
+     * Get operator
      *
-     * @return integer
+     * @return Operator
      */
-    public function getIdOperator()
+    public function getOperator()
     {
-        return $this->idOperator;
+        return $this->operator;
     }
 
     /**
-     * Set idFormation
+     * Set formation
      *
-     * @param integer $idFormation
+     * @param Formation $formation
      *
      * @return OperatorFormation
      */
-    public function setIdFormation($idFormation)
+    public function setFormation($formation)
     {
-        $this->idFormation = $idFormation;
+        $this->formation = $formation;
 
         return $this;
     }
 
     /**
-     * Get idFormation
+     * Get formation
      *
-     * @return integer
+     * @return formation
      */
-    public function getIdFormation()
+    public function getFormation()
     {
-        return $this->idFormation;
+        return $this->formation;
     }
 
     /**
