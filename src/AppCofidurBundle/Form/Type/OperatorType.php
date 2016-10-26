@@ -20,14 +20,14 @@ class OperatorType extends AbstractType
         $builder
             ->add('firstName', TextType::class, ['label_format' => 'operator.firstName',])
             ->add('lastName', TextType::class,  ['label_format' => 'operator.lastName',])
-            ->add('dateOfBirth', DateType::class,   ['label_format' => 'operator.dateOfBirth',])
+            //->add('dateOfBirth', DateType::class,   ['label_format' => 'operator.dateOfBirth',])
             ->add('save', SubmitType::class, array('label' => 'operator.add.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppCofidurBundle\Entity\Operator',
+            'data_class' => 'AppCofidurBundle\Entity\User',
         ));
     }
 

@@ -15,13 +15,10 @@ class OperatorCategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
-        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
-        if(sizeof($operatorcategory_test) != 0){
-            throw $this->createNotFoundException('Formation déjà validée!');
-        }
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
 
         $operatorcategory = new OperatorCategory();
-        $operatorcategory->setIdCategory($idCategory);
+        $operatorcategory->setCategory($category);
 
         $operatorcategory->setOperatorFormation($operatorformation);
         
@@ -49,7 +46,10 @@ class OperatorCategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
-        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
+
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
+        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
+
         if(sizeof($operatorcategory_test) == 0){
             throw $this->createNotFoundException('Formation non validée!');
         }
@@ -62,7 +62,7 @@ class OperatorCategoryController extends Controller
 
         $operatorcategory->setSignature(NULL);
         $operatorcategory->setDateSignature(NULL);
-        $operatorcategory->setIdTrainer(NULL);
+        $operatorcategory->setTrainer(NULL);
         $operatorcategory->setNbHours(NULL);
 
         /*$operatortask=$em->getRepository('AppCofidurBundle:OperatorTask')->findBy(array('operatorcategory'=>$operatorcategory));
@@ -83,7 +83,9 @@ class OperatorCategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
-        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'idCategory'=>$idCategory));
+
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
+        $operatorcategory_test = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
 
         if(sizeof($operatorcategory_test) == 0){
             throw $this->createNotFoundException('Formation non validée!');
@@ -91,7 +93,7 @@ class OperatorCategoryController extends Controller
 
         $operatorcategory = $operatorcategory_test[0];
 
-        $form = $this->createForm(new OperatorCategoryType($em), $operatorcategory);
+        $form = $this->createForm(OperatorCategoryType::class, $operatorcategory);
 
         $form->handleRequest($request);
 

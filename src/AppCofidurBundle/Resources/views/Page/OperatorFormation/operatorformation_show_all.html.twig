@@ -16,13 +16,13 @@
 {% for operatorformation in operatorsformations %}
 	<tr>
 		<td> <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">{{ operatorformation.id }}</a> </td>
-		<td> {{ operatorformation.idOperator }}</td>
-		<td> {{ operatorformation.idFormation }} </td>
+		<td> {{ operatorformation.operator.firstName }}</td> 
+		<td> {{ operatorformation.formation.name }} </td> 
 		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>
 		<td> {{ operatorformation.dateEnd|date("m/d/Y") }} </td>
 		<td> {{ operatorformation.validation }} </td>
 		<td> {{ operatorformation.commentary }} </td>
-		<td> {{ operatorformation.idFormer}} </td>
+		<td> {{ operatorformation.former.firstName}} </td>
 		<td>
 			<a href="{{ path('AppCofidurBundle_operatorformation_edit', {'idOpForm': operatorformation.id}) }}">
 				<button id="edit"> Edit </button>

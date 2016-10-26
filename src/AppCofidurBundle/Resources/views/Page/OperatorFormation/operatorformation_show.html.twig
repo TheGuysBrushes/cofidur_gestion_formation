@@ -26,15 +26,15 @@
 		<table class="operatorformation_ids">
 			<tr>
 				<th>ID operateur</th>
-				<td> {{ operatorformation.idOperator }}</td>
+				<td> {{ operatorformation.operator.id }}</td>
 			</tr>
 			<tr>
 				<th>ID formation</th>
-				<td> {{ operatorformation.idFormation}}</td>
+				<td> {{ operatorformation.formation.id}}</td>
 			</tr>
 			<tr>
 				<th>ID formateur</th>
-				<td> {{ operatorformation.idFormer }}</td>
+				<td> {{ operatorformation.former.id }}</td>
 			</tr>
 		</table>
 		<table class="operatorformation_dates">
@@ -62,13 +62,13 @@
 				<th class="entete_category">Criticité</th>
 			</tr>
 			<tr>
-				<td>{{ formation.id }} </td>
-				<td>{{ formation.name }} </td>
-				<td>{{ formation.type }} </td>
-				<td>{{ formation.goal }} </td>
-				<td>{{ formation.teachingAids }} </td>
-				<td>{{ formation.placesMaterialRessources }} </td>
-				<td>{{ formation.criticality }} </td>
+				<td>{{ operatorformation.formation.id }} </td>
+				<td>{{ operatorformation.formation.name }} </td>
+				<td>{{ operatorformation.formation.type }} </td>
+				<td>{{ operatorformation.formation.goal }} </td>
+				<td>{{ operatorformation.formation.teachingAids }} </td>
+				<td>{{ operatorformation.formation.placesMaterialRessources }} </td>
+				<td>{{ operatorformation.formation.criticality }} </td>
 			</tr>
 		</table>
 	</fieldset>
@@ -82,20 +82,21 @@
 				{#<th class="entete_category">Date de naissance</th>#}
 			</tr>
 			<tr>
-				<td>{{ operator.id }} </td>
-				<td>{{ operator.firstname }} </td>
-				<td>{{ operator.lastname }} </td>
+				<td>{{ operatorformation.operator.id }} </td>
+				<td>{{ operatorformation.operator.firstname }} </td>
+				<td>{{ operatorformation.operator.lastname }} </td>
 				{#<td>{{ operator.dateofbirth }} </td>#}
 			</tr>
 		</table>
 	</fieldset>
 
+
 	{% set indice_category= 1 %}
-	{% for category in formation.categories %}
+	{% for category in operatorformation.formation.categories %}
 		{% set validated_category="" %}
 		<!-- A afficher si la categorie est validée -->
 		{% for opeCat in operatorformation.operatorcategories %}
-			{% if category.id == opeCat.idCategory %}
+			{% if category.id == opeCat.category.id %}
 					<br/>
 		<fieldset class="category">
 		<legend class="category_title">
@@ -116,7 +117,7 @@
 							<td>{{ task.name }}</td>
 							<td>{{ task.ordre }}</td>
 							{% for opeTask in opeCat.operatortasks %}
-								{% if opeTask.idTask == task.id %}
+								{% if opeTask.task.id == task.id %}
 									{% set task_found= 1 %}
 									<td>
 										Tache validée !
@@ -162,8 +163,10 @@
 					<td>{{ opeCat.nbHours|date("H:i")}}</td>
 				</tr>
 				<tr>
-					<th>ID formateur</th>
-					<td>{{ opeCat.idTrainer }}</td>
+					{% if opeCat.signature != null %}
+						<th>ID formateur</th>
+						<td>{{ opeCat.trainer.id }}</td>
+					{% endif %}
 				</tr>
 			</table>
 		</div>

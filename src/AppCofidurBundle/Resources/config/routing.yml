@@ -59,6 +59,13 @@ AppCofidurBundle_operator_delete:
         methods: GET
         id: \d+
 
+AppCofidurBundle_operator_show:
+    path: /operator/show/{idOp}
+    defaults: { _controller: AppCofidurBundle:Operator:show}
+    requirements:
+        methods: GET
+        id: \d+
+
 AppCofidurBundle_operator_show_all:
     path: /operators
     defaults: { _controller: AppCofidurBundle:Operator:showAll}

@@ -1,6 +1,8 @@
 <?php
 namespace AppCofidurBundle\Controller;
 
+
+use AppCofidurBundle\Entity\User;
 use AppCofidurBundle\Entity\Operator;
 use AppCofidurBundle\Form\Type\OperatorType;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +15,7 @@ class OperatorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($idOp);
+        $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
 
         if (!$operator) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -26,7 +28,7 @@ class OperatorController extends Controller
 
     public function showAllAction()
     {
-        $em = $this->getDoctrine()->getRepository('AppCofidurBundle:Operator');
+        $em = $this->getDoctrine()->getRepository('AppCofidurBundle:User');
 
         $operators = $em->findAll();
 
@@ -39,7 +41,7 @@ class OperatorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($idOp);
+        $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
 
         if (!$operator) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -55,7 +57,7 @@ class OperatorController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $operator = $em->getRepository('AppCofidurBundle:Operator')->find($idOp);
+        $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
 
         $form = $this->createForm(OperatorType::class, $operator);
 
@@ -78,7 +80,7 @@ class OperatorController extends Controller
 
     public function addAction(Request $request)
     {
-        $operator = new Operator();
+        $operator = new User();
 
         $form = $this->createForm(OperatorType::class, $operator);
 

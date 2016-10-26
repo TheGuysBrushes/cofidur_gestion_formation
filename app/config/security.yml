@@ -52,6 +52,7 @@ security:
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/skillMatrix, role: ROLE_USER }
         - { path: ^/formation, role: ROLE_USER }
+        - { path: ^/formation/, role: ROLE_ADMIN }
         - { path: ^/operatorsformations, role: ROLE_ADMIN }
         - { path: ^/operator, role: ROLE_USER }
 
