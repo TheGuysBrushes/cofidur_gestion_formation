@@ -5,6 +5,7 @@
 <table>
 	<tr>
         <th> ID </th>
+		<th> NOM D'UTILISATEUR </th>
         <th> PRENOM </th>
         <th> NOM </th>
 		{# <th> DATE DE NAISSANCE </th> #}
@@ -12,6 +13,7 @@
 {% for operator in operators %}
 	<tr>
 		<td> {{ operator.id }} </td>
+        <td> {{ operator.username }} </td>
         <td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
         {# <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td> #}
@@ -23,5 +25,5 @@
 <br/>
 
     <a href="{{ path('AppCofidurBundle_operator_add') }}">Ajouter un opérateur</a>
-    
+
 {% endblock %}

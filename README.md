@@ -1,19 +1,20 @@
 # cofidur_gestion_formation
 Création d'un outil de gestion des formations de l'entreprise Cofidur (projet annuel M2 SILI)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f8744b5c39a7407a965fe3c1b7851c78)](https://www.codacy.com/app/flodavid/cofidur_gestion_formation?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TheGuysBrushes/cofidur_gestion_formation&amp;utm_campaign=Badge_Grade)
 ---
 
 ##Choix des technologies
 
 1. **Langage :** Php (version 7.0.8)
 2. **Framework :** Symfony (version 2.8.12)
-3. **Outils complémentaires :** Jenkins ? Travis ?
+3. **Outils complémentaires :** Codacy, Jenkins ? Travis ?
 
 ##À installer :
 
 1. Php
 2. Symfony
 3. MySQL
+4. Apache
 
 ##Commandes à exécuter :
 
@@ -32,26 +33,27 @@ Les fichiers controlleurs sont accessibles dans :
 
 ---
 
-##Pages à ajouter :
-#Accessible aux opérateurs:
+#Pages à ajouter :
+##Accessible aux opérateurs:
 - [ ] Accueil
 - [ ] Matrice des compétences
-- [ ] Visibilité de l'ensemble des FFO d'un opérateur
+- [ ] Visibilité de l'ensemble des formations d'un opérateur
 
-#Accessible specifiquement par l'administrateur:
-- [ ] Création d'une formation
+##Accessible specifiquement par l'administrateur:
+- [x] Création d'une formation
 - [ ] Génération et affichage d'une FFO
-- [ ] Ajout d'un opérateur
-- [ ] Modification d'un opérateur
-- [ ] Visibilité d'un ensemble de FFO par l'administrateur
+- [x] Ajout d'un opérateur
+- [x] Modification d'un opérateur
+- [x] Visibilité d'un ensemble de formations par l'administrateur
 
-##Prise en main du framework :
+#Prise en main du framework :
 - [x] Mise en place de la BDD + affichages basiques
-- [ ] Authentification des opérateurs
+- [x] Authentification des opérateurs
 - [ ] Lecture de la BDD par l'administrateur
-- [ ] Lecture de la BDD par un opérateur
+- [ ] Modification de la BDD par l'administrateur (Infos du personnel, formations etc)
+- [ ] Lecture de ses informations par un opérateur
 
-- [ ] Modification de la BDD par l'administrateur (Infos sur le personnel, FFO etc)
+# Fonctionnalités :
 - [ ] Ajout des nouvelles compétences disponibles après l'ajout d'une nouvelle formation
-- [ ] Actualisation de la matrice des compétences suite à la validation d'une FFO
+- [ ] Actualisation de la matrice des compétences suite à la validation d'une formation
 - [ ] Proposition de formation lorsqu'une compétence va venir à manquer (message à envoyer à l'administrateur à propos des départs en retraite proches)

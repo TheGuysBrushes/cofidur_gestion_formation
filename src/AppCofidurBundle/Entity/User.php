@@ -53,6 +53,13 @@ class User extends BaseUser
      */
     private $lastName;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_of_birth", type="date", nullable=true)
+     */
+    private $dateOfBirth;
+
 
     /**
      * Get id
@@ -110,5 +117,29 @@ class User extends BaseUser
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * Set dateOfBirth
+     *
+     * @param \DateTime $dateOfBirth
+     *
+     * @return User
+     */
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
+
+        return $this;
+    }
+
+    /**
+     * Get dateOfBirth
+     *
+     * @return \DateTime
+     */
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
     }
 }
