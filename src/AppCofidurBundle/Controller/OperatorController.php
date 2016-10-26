@@ -1,9 +1,9 @@
 <?php
 namespace AppCofidurBundle\Controller;
 
-
 use AppCofidurBundle\Entity\User;
 use AppCofidurBundle\Entity\Operator;
+use AppCofidurBundle\Entity\OperatorFormation;
 use AppCofidurBundle\Form\Type\OperatorType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,6 +16,31 @@ class OperatorController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
+        $ope_formations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
+        $operator_formations= array();
+
+        /* Récupération des IDs des formations liées à l'opérateur $idOp */
+        if(!$ope_formations){
+            throw $this->createNotFoundException('Pas de formation en cours');
+        } else {
+            for($i= 0; $i < count($operator_formations); ++$i){
+                if($idOp == $ope_formations[$i]->getOperateur()->getId()){
+                    array_push($operator_formations, $operator_formations[$i]->getFormation()->getId());
+                }
+            }
+        }
+
+        /* Récupération des formations de l'opérateur $idOp */
+        $formations= array();
+        if(!$operator_formations){
+            throw $this->createNotFoundException('Pas d\'operation formation');
+        } else {
+            $repo= $em->getRepository('AppCofidurBundle:Formation');
+            for($i= 0; $i < count($operator_formations); ++$i){
+                $tmp_formation= $repo->find($operator_formations[$i]);
+                $formations[$i]= $tmp_formation;
+            }
+        }
 
         if (!$operator) {
             throw $this->createNotFoundException('Pas d\'objet');
@@ -23,6 +48,7 @@ class OperatorController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
+            'formations'   => $formations
         ));
     }
 
