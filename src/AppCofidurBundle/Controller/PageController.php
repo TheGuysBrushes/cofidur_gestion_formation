@@ -34,17 +34,17 @@ class PageController extends Controller
 
     public function tempCreateOperators()
     {
-        $ope_1= new Operator();
-        $ope_1->setLastName("DAVID");
-        $ope_1->setFirstName("Florian");
-        $ope_2= new Operator();
-        $ope_2->setLastName("DE LEEUW");
-        $ope_2->setFirstName("Valérian");
-        $ope_3= new Operator();
-        $ope_3->setLastName("GARNIER");
-        $ope_3->setFirstName("Antoine");
+        $ope1= new Operator();
+        $ope1->setLastName("DAVID");
+        $ope1->setFirstName("Florian");
+        $ope2= new Operator();
+        $ope2->setLastName("DE LEEUW");
+        $ope2->setFirstName("Valérian");
+        $ope3= new Operator();
+        $ope3->setLastName("GARNIER");
+        $ope3->setFirstName("Antoine");
 
-        $operators= array($ope_1, $ope_2, $ope_3);
+        $operators= array($ope1, $ope2, $ope3);
         return $operators;
     }
 

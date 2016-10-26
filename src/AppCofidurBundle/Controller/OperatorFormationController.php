@@ -30,8 +30,8 @@ class OperatorFormationController extends Controller
             $em->persist($operatorformation);
 
             $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getFormation());
-            $tab_cat = $formation->getCategories();
-            foreach($tab_cat as $cat){
+            $tabCat = $formation->getCategories();
+            foreach($tabCat as $cat){
                 $operatorcategory = new OperatorCategory();
                 $operatorcategory->setCategory($cat);
                 $operatorcategory->setOperatorformation($operatorformation);
@@ -53,7 +53,6 @@ class OperatorFormationController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
-
 
         if (!$operatorformation) {
             throw $this->createNotFoundException('Pas d\'objet');

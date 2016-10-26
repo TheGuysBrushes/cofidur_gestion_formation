@@ -64,7 +64,7 @@ class OperatorTask
     /**
      * Get validation
      *
-     * @return bool
+     * @return int
      */
     public function getValidation()
     {
