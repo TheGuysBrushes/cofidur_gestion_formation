@@ -50,5 +50,5 @@ class OperatorType extends AbstractType
     {
         return $this->getBlockPrefix();
     }
-    
+
 }
