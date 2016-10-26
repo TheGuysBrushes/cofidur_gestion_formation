@@ -68,22 +68,21 @@ class PageController extends Controller
 
 
         $formations = $em->getRepository('AppCofidurBundle:Formation')->findAll();
-        $operators= $em->getRepository('AppCofidurBundle:Operator')->findAll();
+        $operators= $em->getRepository('AppCofidurBundle:User')->findAll();
         $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
+        $allconnexions= array();
+        for($i= 0; $i < count($operatorsformations); ++$i){
+            $id_ope= $operatorsformations[$i]->getOperator()->getId();
+            $id_formation= $operatorsformations[$i]->getFormation()->getId();
+            $validation= $operatorsformations[$i]->getValidation();
 
-        // foreach ($formations as $formation) {
-        //     $formation = $em->find(1);
-        //     $formationsNames[]= $formation.getName();
-        // }
-//        $formationsNames= array('form_1', 'form_2', 'form_3');
-
-//        $operators= $this->tempCreateOperators();
-//        $formFormer= $this->tempCreatorFormers();
+            $allconnexions[$i]= array($id_ope, $id_formation, $validation);
+        }
 
         return $this->render('AppCofidurBundle:Page:skillMatrix.html.twig', array(
             'tab_formations'      => $formations,
             'tab_operators'       => $operators,
-            'liaison'             => $operatorsformations,
+            'liaison'             => $allconnexions,
         ));
     }
 }
