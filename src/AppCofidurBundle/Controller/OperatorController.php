@@ -69,7 +69,6 @@ class OperatorController extends Controller
             $em->persist($operator);
             $em->flush();
 
-
             return $this->redirectToRoute('AppCofidurBundle_operator_show_all');
         }
 

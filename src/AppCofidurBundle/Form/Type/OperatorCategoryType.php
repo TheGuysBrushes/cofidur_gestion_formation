@@ -23,7 +23,7 @@ class OperatorCategoryType extends AbstractType
         $builder
             ->add('dateSignature', DateType::class, array('label' => 'operatorCategory.dateSignature'))
             ->add('signature', TextType::class, array('label' => 'operatorCategory.signature'))
-            ->add('nbHours', TimeType::class, array('label' => 'operatorCategory.nbHours')) 
+            ->add('nbHours', TimeType::class, array('label' => 'operatorCategory.nbHours'))
             ->add('trainer', EntityType::class,
                array('class'  => 'AppCofidurBundle:User',
                     'choice_label' => 'firstName',

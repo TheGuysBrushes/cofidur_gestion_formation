@@ -15,7 +15,8 @@ class OperatorTaskController extends Controller
        	$operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
         $category = $em->getRepository('AppCofidurBundle:Category')->find($idCategory);
         $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
-        $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
+        $operatorcategory = $em->getRepository('AppCofidurBundle:OperatorCategory')
+                                ->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
 
         $operatortask = new OperatorTask();
         $operatortask->setOperatorcategory($operatorcategory[0]);
@@ -25,8 +26,7 @@ class OperatorTaskController extends Controller
         $em->persist($operatortask);
         $em->flush();
 
-
-        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $idOpForm)); 
+        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $idOpForm));
     }
 
     public function deleteAction($idOpForm, $idCategory, $idTask)
@@ -42,11 +42,11 @@ class OperatorTaskController extends Controller
 
         foreach($operatortasks as $operatortask)
             $em->remove($operatortask);
-        
+
         $em->flush();
 
 
-        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $idOpForm)); 
+        return $this->redirectToRoute('AppCofidurBundle_operatorformation_show', array('idOpForm' => $idOpForm));
     }
-	
+
 }

@@ -35,7 +35,7 @@ class OperatorCategory
     private $dateSignature;
 
     /**
-     * @var bool
+     * @var string
      *
      * @ORM\Column(name="signature", type="string", length=255, nullable=true)
      */
@@ -148,7 +148,7 @@ class OperatorCategory
     /**
      * Get signature
      *
-     * @return bool
+     * @return string
      */
     public function getSignature()
     {

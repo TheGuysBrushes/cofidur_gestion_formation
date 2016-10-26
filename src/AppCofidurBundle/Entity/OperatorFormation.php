@@ -48,9 +48,9 @@ class OperatorFormation
     private $dateEnd;
 
     /**
-     * @var bool
+     * @var int
      *
-     * @ORM\Column(name="validation", type="string", length=255)
+     * @ORM\Column(name="validation", type="int")
      */
     private $validation;
 
@@ -135,7 +135,7 @@ class OperatorFormation
     /**
      * Set validation
      *
-     * @param boolean $validation
+     * @param int $validation
      *
      * @return OperatorFormation
      */
@@ -149,7 +149,7 @@ class OperatorFormation
     /**
      * Get validation
      *
-     * @return bool
+     * @return int
      */
     public function getValidation()
     {

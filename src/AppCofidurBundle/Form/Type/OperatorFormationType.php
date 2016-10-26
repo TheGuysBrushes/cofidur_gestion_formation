@@ -24,7 +24,7 @@ class OperatorFormationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
-        $builder            
+        $builder
             ->add('operator', EntityType::class,
                array('class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName'))
             ->add('formation', EntityType::class,
@@ -46,7 +46,7 @@ class OperatorFormationType extends AbstractType
                 )
             )
             ->add('commentary', TextType::class,
-                array('label' => 'operatorFormation.commentary'))             
+                array('label' => 'operatorFormation.commentary'))
             ->add('former', EntityType::class,
                array('class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName'))
             ->add('save', SubmitType::class, array('label' => 'operatorFormation.save.submit'));
