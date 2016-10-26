@@ -2,10 +2,11 @@
 category:
     id: 'Identifiant de la catégorie'
     name: 'Nom de la catégorie'
+    order: 'Ordonnancement de la catégorie'
     save:
         submit: 'Enregistrer la catégorie'
     edit:
-        submit: 'Mettre à jour la catégorie' 
+        submit: 'Mettre à jour la catégorie'
     add:
         submit: 'Créer la catégorie'
     delete:

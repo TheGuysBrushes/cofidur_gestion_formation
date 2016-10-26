@@ -20,9 +20,9 @@ class FormationType extends AbstractType
             ->add('type', TextType::class,    array('label' => 'formation.type'))
             ->add('goal', TextType::class,    array('label' => 'formation.goal'))
             ->add('teachingAids', TextType::class,  array('label' => 'formation.teachingAids'))
-            ->add('placesMaterialRessources', TextType::class,  array('label' => 'formation.placesMaterialRessources'))           
-            ->add('criticality', ChoiceType::class,  
-               array('label' => 'formation.criticality', 
+            ->add('placesMaterialRessources', TextType::class,  array('label' => 'formation.placesMaterialRessources'))
+            ->add('criticality', ChoiceType::class,
+               array('label' => 'formation.criticality',
                     'choices'  => array(
                         1 => '1',
                         2 => '2',
