@@ -21,6 +21,7 @@ class UserType extends AbstractType
             ->add('firstName', TextType::class, ['label_format' => 'user.firstName',])
             ->add('lastName', TextType::class,  ['label_format' => 'user.lastName',])
             ->add('dateOfBirth', DateType::class,   ['label_format' => 'user.dateOfBirth',])
+            ->add('superior', DateType::class,   ['label_format' => 'user.superior',])
             ->add('save', SubmitType::class, array('label' => 'user.add.submit'));
     }
 

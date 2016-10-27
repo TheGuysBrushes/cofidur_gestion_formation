@@ -60,6 +60,12 @@ class User extends BaseUser
      */
     private $dateOfBirth;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="superior_id", referencedColumnName="id", nullable=true)
+     */
+    private $superior;
+
 
     /**
      * Get id
@@ -141,5 +147,29 @@ class User extends BaseUser
     public function getDateOfBirth()
     {
         return $this->dateOfBirth;
+    }
+
+    /**
+     * Set superior
+     *
+     * @param User $superior
+     *
+     * @return User
+     */
+    public function setSuperior($superior)
+    {
+        $this->superior = $superior;
+
+        return $this;
+    }
+
+    /**
+     * Get superior
+     *
+     * @return User
+     */
+    public function getSuperior()
+    {
+        return $this->$superior;
     }
 }

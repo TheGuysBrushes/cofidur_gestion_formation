@@ -86,6 +86,7 @@ security:
     login:
         firstName: 'Prénom'
         lastName: 'Nom'
+        dateOfBirth: 'Date de naissance'
 # Tâche
 task:
     id: 'Identifiant de la tâche'
@@ -99,3 +100,8 @@ task:
         submit: 'Créer la tâche'
     delete:
         submit: 'Supprimer la tâche'
+
+date:
+    year: 'Année'
+    month: 'Mois'
+    day: 'Jour'

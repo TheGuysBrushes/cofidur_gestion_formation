@@ -31,37 +31,6 @@ class PageController extends Controller
         return $this->render('AppCofidurBundle:Page:admin.html.twig');
     }
 
-
-    public function tempCreateOperators()
-    {
-        $ope1= new Operator();
-        $ope1->setLastName("DAVID");
-        $ope1->setFirstName("Florian");
-        $ope2= new Operator();
-        $ope2->setLastName("DE LEEUW");
-        $ope2->setFirstName("Valérian");
-        $ope3= new Operator();
-        $ope3->setLastName("GARNIER");
-        $ope3->setFirstName("Antoine");
-
-        $operators= array($ope1, $ope2, $ope3);
-        return $operators;
-    }
-
-    public function tempCreatorFormers()
-    {
-        //future case 1 : id de l'operateur
-        //future case 2 : id de la formation
-        //future case 3 : int associé à la couleur à placer dans le tableau (0 en formation, 1 formé non validé etc)
-        $formFormer= array(
-            array("GARNIER","form_1","1"),
-            array("DE LEEUW", "form_1","1"),
-            array("DAVID", "form_3", "2"),
-            array("GARNIER", "form_2", "1"));
-
-        return $formFormer;
-    }
-
     public function skillMatrixAction()
     {
         $em = $this->getDoctrine()->getManager();
