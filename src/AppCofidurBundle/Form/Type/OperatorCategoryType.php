@@ -21,20 +21,32 @@ class OperatorCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dateSignature', DateType::class, array('label' => 'operatorCategory.dateSignature'))
-            ->add('signature', TextType::class, array('label' => 'operatorCategory.signature'))
-            ->add('nbHours', TimeType::class, array('label' => 'operatorCategory.nbHours'))
+            ->add('dateSignature', DateType::class,
+                array(
+                    'label_format' => 'operatorCategory.dateSignature',
+                    'placeholder' => array(
+                        'year' => 'date.year', 'month' => 'date.month', 'day' => 'date.day'
+                    ),
+                    // L'année de signature peut être choisie entre l'année actuelle et l'année précédente
+                    'years' => range( date("Y"), date("Y",strtotime("-1 year")) )
+                )
+            )
+            ->add('signature', TextType::class, array('label_format' => 'operatorCategory.signature'))
+            ->add('nbHours', TimeType::class, array('label_format' => 'operatorCategory.nbHours'))
             ->add('trainer', EntityType::class,
-               array('class'  => 'AppCofidurBundle:User',
-                    'choice_label' => 'firstName',
-                    'label' => 'operatorCategory.trainer'))
-            ->add('save', SubmitType::class, array('label' => 'operatorCategory.save.submit'));
+               array(
+                   'class'  => 'AppCofidurBundle:User',
+                   'choice_label' => 'firstName',
+                   'label_format' => 'operatorCategory.trainerName'
+               )
+            )
+            ->add('save', SubmitType::class, array('label_format' => 'operatorCategory.save.submit'));
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppCofidurBundle\Entity\OperatorCategory',
+            'data_class' => 'AppCofidurBundle\Entity\OperatorCategory'
         ));
     }
 }

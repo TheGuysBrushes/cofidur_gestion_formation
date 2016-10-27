@@ -134,7 +134,7 @@ class OperatorCategory
     /**
      * Set signature
      *
-     * @param boolean $signature
+     * @param string $signature
      *
      * @return OperatorCategory
      */

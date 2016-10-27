@@ -56,6 +56,10 @@
                                         <ul>
                                             <li><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></li>
                                             <li><a href="{{ path('AppCofidurBundle_contact') }}">Contact</a></li>
+                                            {% if is_granted('ROLE_USER') %}
+                                            <li><a href="/profile">Profil</a></li>
+                                            <li><a href="/profile/change-password">Changer de mot de passe</a></li>
+                                            {% endif %}
                                             {% if is_granted('ROLE_ADMIN') %}
                                             <li><a href="{{ path('AppCofidurBundle_admin') }}">Admin</a></li>
                                             {% endif %}

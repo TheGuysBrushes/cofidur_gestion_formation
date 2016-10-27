@@ -16,9 +16,9 @@ formation:
     id: 'Identifiant de la formation'
     name: 'Nom de la formation'
     type: 'Type de la formation'
-    goal: 'Objectif'
+    goal: 'Objectif visé'
     teachingAids: 'Moyens pédagogiques'
-    placesMaterialRessources: 'Lieux et ressources matérielles'
+    placesMaterialRessources: 'Lieu et moyens matériels'
     criticality: 'Criticité'
     save:
         submit: 'Enregistrer la formation'
@@ -34,8 +34,7 @@ operatorCategory:
     dateSignature: 'Date de la signature'
     signature: 'Signature'
     nbHours: 'Nombre d''heures'
-    trainer: 'Formateur'
-
+    trainerName: 'Nom du Formateur'
     save:
         submit: 'Enregistrer'
     edit:
@@ -46,13 +45,15 @@ operatorCategory:
         submit: 'Supprimer la catégorie de l''opérateur'
 # Formation d'opérateur
 operatorFormation:
-    idOperator: 'Identifiant de l''opérateur'
-    idFormation: 'Identifiant de la formation'
+    operatorId: 'Identifiant de l''opérateur'
+    formationId: 'Identifiant de la formation'
     dateBegin: 'Date de début de formation'
     dateEnd: 'Date de fin de formation'
     validation: 'Etat de la formation'
     commentary: 'Commentaire°'
-    idFormer: 'Identifiant du formateur'
+    formerId: 'Identifiant du formateur'
+    operatorName: 'Nom de l''opérateur'
+    formerName: 'Nom du tuteur'
     choices:
         unvalidated: 'Non validé'
         validating: 'En cours de validation'

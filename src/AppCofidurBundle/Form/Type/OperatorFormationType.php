@@ -26,15 +26,31 @@ class OperatorFormationType extends AbstractType
 
         $builder
             ->add('operator', EntityType::class,
-               array('class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName'))
+                array(
+                   'class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName',
+                   'label_format' => 'operatorFormation.operatorName',
+                )
+            )
             ->add('formation', EntityType::class,
-               array('class'  => 'AppCofidurBundle:Formation', 'choice_label' => 'name'))
-            ->add('dateBegin', DateType::class,
-                array('label' => 'operatorFormation.dateBegin'))
-            ->add('dateEnd', DateType::class,
-                array('label' => 'operatorFormation.dateEnd'))
+                array(
+                   'class'  => 'AppCofidurBundle:Formation', 'choice_label' => 'name',
+                   'label_format' => 'operatorFormation.formationName',
+                )
+            )
+            ->add('dateBegin', DateType::class, array(
+                    'label_format' => 'operatorFormation.dateBegin',
+                    // L'année de signature peut être choisie entre l'année actuelle et l'année précédente
+                    'years' => range( date("Y"), date("Y",strtotime("-1 year")) )
+                )
+            )
+            ->add('dateEnd', DateType::class, array(
+                    'label_format' => 'operatorFormation.dateEnd',
+                    // L'année de signature peut être choisie entre l'année précédente et l'année suivante
+                    'years' => range( date("Y",strtotime("-1 year")), date("Y",strtotime("+1 year")) )
+                )
+            )
             ->add('validation', ChoiceType::class,
-               array(
+                array(
                     'choices'  => array(
                         1 => 'operatorFormation.choices.unvalidated',
                         2 => 'operatorFormation.choices.validating',
@@ -42,13 +58,18 @@ class OperatorFormationType extends AbstractType
                         4 => 'operatorFormation.choices.formed',
                         5 => 'operatorFormation.choices.can_form',
                     ),
-                    'label' => 'operatorFormation.validation',
+                    'label_format' => 'operatorFormation.validation',
                 )
             )
             ->add('commentary', TextType::class,
                 array('label' => 'operatorFormation.commentary'))
             ->add('former', EntityType::class,
-               array('class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName'))
+                array(
+                   'class'  => 'AppCofidurBundle:User',
+                   'choice_label' => 'firstName',
+                   'label_format' => 'operatorFormation.formerName',
+                )
+            )
             ->add('save', SubmitType::class, array('label' => 'operatorFormation.save.submit'));
     }
 

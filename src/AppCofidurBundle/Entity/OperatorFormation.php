@@ -68,11 +68,27 @@ class OperatorFormation
     private $former;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="signature", type="string", length=255, nullable=true)
+     */
+    private $signature;
+
+    /**
      * @var ArrayCollection $operatorcategories
      *
      * @ORM\OneToMany(targetEntity="OperatorCategory", mappedBy="operatorformation", cascade={"remove"})
      */
     private $operatorcategories;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->operatorcategories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -203,12 +219,29 @@ class OperatorFormation
     {
         return $this->former;
     }
+
     /**
-     * Constructor
+     * Set signature
+     *
+     * @param string $signature
+     *
+     * @return OperatorCategory
      */
-    public function __construct()
+    public function setSignature($signature)
     {
-        $this->operatorcategories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->signature = $signature;
+
+        return $this;
+    }
+
+    /**
+     * Get signature
+     *
+     * @return string
+     */
+    public function getSignature()
+    {
+        return $this->signature;
     }
 
     /**

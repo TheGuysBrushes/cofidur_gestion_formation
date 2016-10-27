@@ -21,16 +21,10 @@ class RegistrationType extends AbstractType
                     'placeholder' => array(
                         'year' => 'date.year', 'month' => 'date.month', 'day' => 'date.day'
                     ),
-                    'years' => array(
-                        '1940','1941','1942','1943','1944','1945','1945','1946','1947','1948','1949',
-                        '1950',
-                        '1960',
-                        '1970',
-                        '1980',
-                        '1990',
-                        '2000'
-                    )
-                ));
+                    // L'année de naissance peut être choisie entre 80 et 15 ans avant l'année actuelle
+                    'years' => range(date("Y",strtotime("-15 year")), date("Y",strtotime("-80 year")))
+
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)
