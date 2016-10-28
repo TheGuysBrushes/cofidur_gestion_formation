@@ -35,11 +35,11 @@ class FormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
+        ));
     }
 
     public function editAction(Request $request, $idForm)
-    {   
+    {
         $em = $this->getDoctrine()->getManager();
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
 
@@ -63,7 +63,7 @@ class FormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_edit.html.twig', array(
             'form' => $form->createView(),
-        )); 
+        ));
 
     }
 
@@ -96,7 +96,7 @@ class FormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'     => $formation,
-        )); 
+        ));
     }
 
     public function showAllAction()

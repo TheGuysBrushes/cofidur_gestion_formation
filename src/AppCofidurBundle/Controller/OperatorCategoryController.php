@@ -51,14 +51,16 @@ class OperatorCategoryController extends Controller
         $operatorcategoryTest = $em->getRepository('AppCofidurBundle:OperatorCategory')
                                     ->findBy( ['operatorformation'=>$operatorformation, 'category'=>$category]);
 
-        if (sizeof($operatorcategoryTest) == 0){
+        if (sizeof($operatorcategoryTest) == 0) {
             throw $this->createNotFoundException('Formation non validée!');
         }
 
         $operatorcategory = $operatorcategoryTest[0];
 
         if (!$operatorcategory) {
-            throw $this->createNotFoundException('Aucune catégorie de la formation correspondant à l\'opérateur n\'a été trouvée' );
+            throw $this->createNotFoundException(
+                'Aucune catégorie de la formation correspondant à l\'opérateur n\'a été trouvée'
+            );
         }
 
         $operatorcategory->setSignature(null);
@@ -90,7 +92,7 @@ class OperatorCategoryController extends Controller
         $operatorcategoryTest = $em->getRepository('AppCofidurBundle:OperatorCategory')
                                     ->findBy(array('operatorformation'=>$operatorformation, 'category'=>$category));
 
-        if(sizeof($operatorcategoryTest) == 0){
+        if (sizeof($operatorcategoryTest) == 0) {
             throw $this->createNotFoundException('Formation non validée!');
         }
 
@@ -107,7 +109,8 @@ class OperatorCategoryController extends Controller
             $em->flush();
 
             return $this->redirectToRoute('AppCofidurBundle_operatorformation_show',
-                                            array('idOpForm' => $operatorcategory->getOperatorFormation()->getId()));
+                                            array('idOpForm' => $operatorcategory->getOperatorFormation()->getId())
+            );
         }
 
         return $this->render('AppCofidurBundle:Page/OperatorCategory:operatorcategory_edit.html.twig',

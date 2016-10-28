@@ -53,7 +53,6 @@ class CategoryController extends Controller
             $em->persist($category);
             $em->flush();
 
-
             return $this->redirectToRoute('AppCofidurBundle_formation_show',
                 ['idForm' => $category->getFormation()->getId()]
             );
@@ -62,8 +61,7 @@ class CategoryController extends Controller
         return $this->render('AppCofidurBundle:Page/Category:category_edit.html.twig',
             ['form' => $form->createView()]
         );
-    }   
-
+    }
 
     public function deleteAction($idCat)
     {

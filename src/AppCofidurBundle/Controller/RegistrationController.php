@@ -9,7 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseController
 {
-/*    public function registerAction(Request $request)
+    /*
+    public function registerAction(Request $request)
     {
 
     }

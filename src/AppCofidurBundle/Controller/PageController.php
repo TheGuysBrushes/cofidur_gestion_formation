@@ -39,7 +39,7 @@ class PageController extends Controller
         $operators= $em->getRepository('AppCofidurBundle:User')->findAll();
         $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
         $allconnexions= [];
-        for ($i= 0; $i < count($operatorsformations); ++$i){
+        for ($i= 0; $i < count($operatorsformations); ++$i) {
             $operatorId= $operatorsformations[$i]->getOperator()->getId();
             $formationId= $operatorsformations[$i]->getFormation()->getId();
             $validation= $operatorsformations[$i]->getValidation();
