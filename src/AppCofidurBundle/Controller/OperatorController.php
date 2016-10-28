@@ -17,18 +17,18 @@ class OperatorController extends Controller
 
         $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
 
-        $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
+        $operatorsFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
         $formationsIds= [];
         $formationsStatus= [];
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
-        if(!$operatorsformations){
+        if (!$operatorsFormations){
             throw $this->createNotFoundException('Pas de formation en cours');
         }
 
-        for($i= 0; $i < count($formationsIds); ++$i){
-            if($idOp == $formationsIds[$i]->getOperator()->getId()){
-                array_push($operatorformations, $formationsIds[$i]->getFormation()->getId());
+        for ($i= 0; $i < count($formationsIds); ++$i){
+            if ($idOp == $formationsIds[$i]->getOperator()->getId()){
+                array_push($operatorsFormations, $formationsIds[$i]->getFormation()->getId());
                 $formationsStatus[$i]= $formationsIds[$i]->getValidation();
             }
         }

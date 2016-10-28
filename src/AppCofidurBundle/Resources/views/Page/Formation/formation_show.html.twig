@@ -1,5 +1,9 @@
 {% extends 'AppCofidurBundle::Page/Formation/formation.html.twig' %}
 
+{% block sidebar_nav %}
+	<h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+	{{ parent() }}
+{% endblock %}
 
 {% block body %}
 
@@ -111,11 +115,4 @@
 			</li>
 		</ul>
 	</fieldset>
-{% endblock %}
-
-{% block sidebar_nav %}
-    <h2>
-        <em><a href="javascript:history.go(-1)">Retour</a></em>
-    </h2>
-    {{ parent() }}
 {% endblock %}

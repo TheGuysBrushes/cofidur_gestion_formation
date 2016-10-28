@@ -1,5 +1,10 @@
 {% extends 'AppCofidurBundle::Page/Operator/operator.html.twig' %}
 
+{% block sidebar_nav %}
+	<h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+	{{ parent() }}
+{% endblock %}
+
 {% block body %}
 <h1> Résumé des formations de {{ operator.firstname }} {{ operator.lastname }}</h1>
 
