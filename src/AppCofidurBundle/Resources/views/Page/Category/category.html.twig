@@ -2,8 +2,10 @@
 
 {% block sidebar_nav %}
 
-{% if is_granted('ROLE_USER') %}
-<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
-{% endif %}
+    <h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+
+    {% if is_granted('ROLE_USER') %}
+    <h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Toutes les formations</a></h2>
+    {% endif %}
 
 {% endblock %}

@@ -4,7 +4,6 @@
 
 <table>
 	<tr>
-		<td></td>
 		<th> ID </th>
 		<th> NOM </th>
 		<th> TYPE </th>
@@ -15,7 +14,6 @@
 	</tr>
 {% for formation in formations %}
 	<tr>
-		<td> <a href="{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}">Compléter</a> </td>
 		<td> {{ formation.id }} </td>
 		<td> {{ formation.name }} </td>
 		<td> {{ formation.type }} </td>
@@ -23,8 +21,13 @@
 		<td> {{ formation.teachingAids }} </td>
 		<td> {{ formation.placesMaterialRessources }} </td>
 		<td> {{ formation.criticality }} </td>
-		<td> <a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Editer</a>
-		<td> <a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a>
+		<td><a href="{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}">Compléter</a><br/>
+			<br/>
+			<a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Editer</a><br/>
+			<br/>
+			<a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a><br/>
+			<br/>
+		</td>
 	</tr>
 {% endfor %}
 </table>

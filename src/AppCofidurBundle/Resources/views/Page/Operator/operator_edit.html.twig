@@ -7,3 +7,8 @@
     {{ form_end(form) }}
 
 {% endblock %}
+
+{% block sidebar_nav %}
+    <h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+    {{ parent() }}
+{% endblock %}
