@@ -247,6 +247,10 @@ float: right;
 	margin-bottom: 2%;
 }
 
+/****************/
+/*** BORDERS ****/
+/****************/
+
 /***
     By theme
 */
@@ -268,7 +272,40 @@ float: right;
 .environment {
 	border-color: #BBBE1F;
 }
+
 /* Identical to environment */
 .ecology {
 	border-color: #BBBE1F;
+}
+
+/***
+	Etat des formations
+*/
+.formedNotValidated_formation_sumup {
+	border-color: #F48A00;
+}
+
+.learningFormation_formation_sumup {
+	border-color: #C82829;
+}
+
+.futureFormation_formation_sumup {
+	border-color: #0088CC;
+}
+
+.formedValidated_formation_sumup {
+	border-color: #629755;
+}
+
+.formedToTeach_formation_sumup {
+	border-color: #ffcc00;
+}
+
+.ope_formations_array {
+	max-width: 600px;
+	max-height: 600px;
+}
+
+.ope_formations_element {
+
 }
