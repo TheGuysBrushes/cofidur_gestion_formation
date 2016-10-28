@@ -24,15 +24,13 @@ class OperatorCategoryType extends AbstractType
             ->add('dateSignature', DateType::class,
                 array(
                     'label_format' => 'operatorCategory.dateSignature',
-                    'placeholder' => array(
-                        'year' => 'date.year', 'month' => 'date.month', 'day' => 'date.day'
-                    ),
+                    'placeholder' => ['year' => 'date.year', 'month' => 'date.month', 'day' => 'date.day'],
                     // L'année de signature peut être choisie entre l'année actuelle et l'année précédente
-                    'years' => range( date("Y"), date("Y",strtotime("-1 year")) )
+                    'years' => range( date("Y"), date("Y", strtotime("-1 year")) )
                 )
             )
-            ->add('signature', TextType::class, array('label_format' => 'operatorCategory.signature'))
-            ->add('nbHours', TimeType::class, array('label_format' => 'operatorCategory.nbHours'))
+            ->add('signature', TextType::class, ['label_format' => 'operatorCategory.signature'])
+            ->add('nbHours', TimeType::class, ['label_format' => 'operatorCategory.nbHours'])
             ->add('trainer', EntityType::class,
                array(
                    'class'  => 'AppCofidurBundle:User',
@@ -40,7 +38,7 @@ class OperatorCategoryType extends AbstractType
                    'label_format' => 'operatorCategory.trainerName'
                )
             )
-            ->add('save', SubmitType::class, array('label_format' => 'operatorCategory.save.submit'));
+            ->add('save', SubmitType::class, ['label_format' => 'operatorCategory.save.submit']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

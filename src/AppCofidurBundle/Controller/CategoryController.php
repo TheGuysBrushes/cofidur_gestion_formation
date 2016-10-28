@@ -17,7 +17,7 @@ class CategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
         $category->setFormation($formation);
-        
+
         $form = $this->createForm(CategoryType::class, $category);
 
         $form->handleRequest($request);
@@ -34,9 +34,8 @@ class CategoryController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Category:category_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
-    }   
-
+        ));
+    }
 
     public function editAction(Request $request, $idCat)
     {
@@ -55,12 +54,14 @@ class CategoryController extends Controller
             $em->flush();
 
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
+            return $this->redirectToRoute('AppCofidurBundle_formation_show',
+                ['idForm' => $category->getFormation()->getId()]
+            );
         }
 
-        return $this->render('AppCofidurBundle:Page/Category:category_edit.html.twig', array(
-            'form' => $form->createView(),
-        ));    
+        return $this->render('AppCofidurBundle:Page/Category:category_edit.html.twig',
+            ['form' => $form->createView()]
+        );
     }   
 
 

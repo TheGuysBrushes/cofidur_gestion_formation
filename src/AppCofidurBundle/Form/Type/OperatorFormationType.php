@@ -61,8 +61,7 @@ class OperatorFormationType extends AbstractType
                     'label_format' => 'operatorFormation.validation',
                 )
             )
-            ->add('commentary', TextType::class,
-                array('label' => 'operatorFormation.commentary'))
+            ->add('commentary', TextType::class, ['label' => 'operatorFormation.commentary'])
             ->add('former', EntityType::class,
                 array(
                    'class'  => 'AppCofidurBundle:User',
@@ -70,7 +69,7 @@ class OperatorFormationType extends AbstractType
                    'label_format' => 'operatorFormation.formerName',
                 )
             )
-            ->add('save', SubmitType::class, array('label' => 'operatorFormation.save.submit'));
+            ->add('save', SubmitType::class, ['label' => 'operatorFormation.save.submit']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

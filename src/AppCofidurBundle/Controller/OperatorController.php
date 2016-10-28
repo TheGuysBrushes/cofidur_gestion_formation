@@ -16,30 +16,29 @@ class OperatorController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
-        $ope_formations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
-        $operator_formations= array();
+        $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
+        $formationsIds= [];
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
-        if(!$ope_formations){
+        if(!$operatorsformations){
             throw $this->createNotFoundException('Pas de formation en cours');
-        } else {
-            for($i= 0; $i < count($operator_formations); ++$i){
-                if($idOp == $ope_formations[$i]->getOperateur()->getId()){
-                    array_push($operator_formations, $operator_formations[$i]->getFormation()->getId());
-                }
+        }
+
+        for ($i= 0; $i < count($formationsIds); ++$i){
+            if ($idOp == $operatorsformations[$i]->getOperateur()->getId()){
+                array_push($formationsIds, $formationsIds[$i]->getFormation()->getId());
             }
         }
 
         /* Récupération des formations de l'opérateur $idOp */
         $formations= array();
-        if(!$operator_formations){
+        if (!$formationsIds){
             throw $this->createNotFoundException('Pas d\'operation formation');
-        } else {
-            $repo= $em->getRepository('AppCofidurBundle:Formation');
-            for($i= 0; $i < count($operator_formations); ++$i){
-                $tmp_formation= $repo->find($operator_formations[$i]);
-                $formations[$i]= $tmp_formation;
-            }
+        }
+
+        $repo= $em->getRepository('AppCofidurBundle:Formation');
+        for ($i= 0; $i < count($formationsIds); ++$i){
+            $formations[$i]= $repo->find($formationsIds[$i]);
         }
 
         if (!$operator) {

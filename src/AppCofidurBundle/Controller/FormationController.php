@@ -13,8 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 class FormationController extends Controller
-{   
-    
+{
+
     public function addAction(Request $request)
     {
         $formation = new Formation();
@@ -36,8 +36,7 @@ class FormationController extends Controller
         return $this->render('AppCofidurBundle:Page/Formation:formation_add.html.twig', array(
             'form' => $form->createView(),
         ));    
-    }   
-
+    }
 
     public function editAction(Request $request, $idForm)
     {   
@@ -59,7 +58,7 @@ class FormationController extends Controller
             $em->persist($formation);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show',array('idForm'=>$idForm));
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', ['idForm'=>$idForm]);
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_edit.html.twig', array(

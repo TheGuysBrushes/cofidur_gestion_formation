@@ -31,7 +31,7 @@ class OperatorFormationController extends Controller
 
             $formation = $em->getRepository('AppCofidurBundle:Formation')->find($operatorformation->getFormation());
             $tabCat = $formation->getCategories();
-            foreach($tabCat as $cat){
+            foreach ($tabCat as $cat){
                 $operatorcategory = new OperatorCategory();
                 $operatorcategory->setCategory($cat);
                 $operatorcategory->setOperatorformation($operatorformation);
