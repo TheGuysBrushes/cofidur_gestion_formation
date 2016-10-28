@@ -47,6 +47,7 @@ operatorCategory:
 operatorFormation:
     operatorId: 'Identifiant de l''opérateur'
     formationId: 'Identifiant de la formation'
+    formationName: 'Nom de la formation'
     dateBegin: 'Date de début de formation'
     dateEnd: 'Date de fin de formation'
     validation: 'Etat de la formation'

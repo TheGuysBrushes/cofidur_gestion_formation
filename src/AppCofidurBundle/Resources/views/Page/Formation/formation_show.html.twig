@@ -86,8 +86,6 @@
 
 {% block sidebar %}
 
-<h2><a href="javascript:history.go(-1)">Retour</a></h2>
-
 	<fieldset class="category">
 		<legend class="category_title">
 			<div>
@@ -113,4 +111,11 @@
 			</li>
 		</ul>
 	</fieldset>
+{% endblock %}
+
+{% block sidebar_nav %}
+    <h2>
+        <em><a href="javascript:history.go(-1)">Retour</a></em>
+    </h2>
+    {{ parent() }}
 {% endblock %}
