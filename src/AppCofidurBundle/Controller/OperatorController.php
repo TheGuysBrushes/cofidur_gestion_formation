@@ -16,38 +16,41 @@ class OperatorController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
+
         $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
         $formationsIds= [];
+        $formationsStatus= [];
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
         if(!$operatorsformations){
             throw $this->createNotFoundException('Pas de formation en cours');
         }
 
-        for ($i= 0; $i < count($formationsIds); ++$i){
-            if ($idOp == $operatorsformations[$i]->getOperateur()->getId()){
-                array_push($formationsIds, $formationsIds[$i]->getFormation()->getId());
+        for($i= 0; $i < count($formationsIds); ++$i){
+            if($idOp == $formationsIds[$i]->getOperator()->getId()){
+                array_push($operatorformations, $formationsIds[$i]->getFormation()->getId());
+                $formationsStatus[$i]= $formationsIds[$i]->getValidation();
             }
         }
 
         /* Récupération des formations de l'opérateur $idOp */
         $formations= array();
-        if (!$formationsIds){
-            throw $this->createNotFoundException('Pas d\'operation formation');
-        }
+        if ($formationsIds){
+            $repo= $em->getRepository('AppCofidurBundle:Formation');
+            for ($i= 0; $i < count($formationsIds); ++$i){
+                $formations[$i]= $repo->find($formationsIds[$i]);
+            }
 
-        $repo= $em->getRepository('AppCofidurBundle:Formation');
-        for ($i= 0; $i < count($formationsIds); ++$i){
-            $formations[$i]= $repo->find($formationsIds[$i]);
-        }
+            if (!$operator) {
+                throw $this->createNotFoundException('Pas d\'opérateur trouvé');
+            }
 
-        if (!$operator) {
-            throw $this->createNotFoundException('Pas d\'objet');
         }
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
-            'formations'   => $formations
+            'formations'   => $formations,
+            'formationsStatus' => $formationsStatus
         ));
     }
 

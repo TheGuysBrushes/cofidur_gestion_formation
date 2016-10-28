@@ -8,15 +8,19 @@
 		<th> NOM D'UTILISATEUR </th>
         <th> PRENOM </th>
         <th> NOM </th>
-		{# <th> DATE DE NAISSANCE </th> #}
+		 <th> DATE DE NAISSANCE </th>
 	</tr>
 {% for operator in operators %}
 	<tr>
 		<td> {{ operator.id }} </td>
-        <td> {{ operator.username }} </td>
-        <td> {{ operator.firstName }} </td>
+        <td>
+			<a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operator.id}) }}">
+				{{ operator.username }}
+			</a>
+		</td>
+		<td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
-        {# <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td> #}
+         <td> {{ operator.dateOfBirth |date("d/m/Y") }} </td>
 		<td> <a href="{{ path('AppCofidurBundle_operator_edit',     {'idOp': operator.id}) }}">Editer</a>
 		<td> <a href="{{ path('AppCofidurBundle_operator_delete',   {'idOp': operator.id}) }}">Supprimer</a>
 	</tr>

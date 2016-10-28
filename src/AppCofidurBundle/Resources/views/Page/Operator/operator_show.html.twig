@@ -1,31 +1,96 @@
 {% extends 'AppCofidurBundle::Page/Operator/operator.html.twig' %}
 
 {% block body %}
+<h1> Résumé des formations de {{ operator.firstname }} {{ operator.lastname }}</h1>
 
 <table>
 	<tr>
         <th> ID </th>
         <th> PRENOM </th>
         <th> NOM </th>
-		{# <th> DATE DE NAISSANCE </th> #}
+		 <th> DATE DE NAISSANCE </th>
 	</tr>
 	<tr>
 		<td> {{ operator.id }} </td>
         <td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
-        {# <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td> #}
-		<td> <a href="{{ path('AppCofidurBundle_operator_edit',     {'idOp': operator.id}) }}">Editer</a>
-		<td> <a href="{{ path('AppCofidurBundle_operator_delete',   {'idOp': operator.id}) }}">Supprimer</a>
+         <td> {{ operator.dateOfBirth |date("d/m/Y")  }} </td>
 	</tr>
 </table>
 
-<br/>
-
-	Cet opérateur a passé les formations suivantes :
+{% if formations %}
+<h2>Cet opérateur suit les formations suivantes :</h2>
+<table class="ope_formations_array">
+	{% set sautdeligne= 0 %}
 	{% for formation in formations %}
+		{% if sautdeligne is even %}
+			<tr>
+		{% endif %}
 
+		<td>
+			{% set val= 0 %}
+			{% for validation in formationsStatus %}
+				{% if val == sautdeligne %}
+					{% if 1 == validation %}
+						<fieldset class="formedNotValidated_formation_sumup">
+					{% elseif 2 == validation %}
+						<fieldset class="learningFormation_formation_sumup">
+					{% elseif 3 == validation %}
+						<fieldset class="futureFormation_formation_sumup">
+					{% elseif 4 == validation %}
+						<fieldset class="formedValidated_formation_sumup">
+					{% elseif 4 == validation %}
+						<fieldset class="formedToTeach_formation_sumup">
+					{% else %}
+						<fieldset>
+					{% endif %}
+				{% endif %}
+			{% set val= val+1 %}
+			{% endfor %}
+
+				<legend>
+					<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': formation.id}) }}">Détails de la formation</a>
+				</legend>
+				<table class="category_page">
+					<tr>
+						<th class="entete_category">ID</th>
+						<td>{{ formation.id }} </td>
+					</tr>
+					<tr>
+						<th class="entete_category">Nom</th>
+						<td>{{ formation.name }} </td>
+					</tr>
+					<tr>
+						<th class="entete_category">Type</th>
+						<td>{{ formation.type }} </td>
+					</tr>
+					<tr>
+						<th class="entete_category">Objectif</th>
+						<td>{{ formation.goal }} </td>
+					</tr>
+					<tr>
+						<th class="entete_category">Moyens pédagogiques</th>
+						<td>{{ formation.teachingAids }} </td>
+					</tr>
+					<tr>
+						<th class="entete_category">Lieu & moyens matériels</th>
+						<td>{{ formation.placesMaterialRessources }} </td>
+					</tr>
+					<tr>
+						<th class="entete_category">Criticité</th>
+						<td>{{ formation.criticality }} </td>
+					</tr>
+				</table>
+			</fieldset>
+		</td>
+		{% if sautdeligne is odd %}
+			</tr>
+		{% endif %}
+		{% set sautdeligne= sautdeligne+1 %}
 	{% endfor %}
-    <a href="{{ path('AppCofidurBundle_operator_add') }}">Ajouter un opérateur</a>
-	
+</table>
+{% else %}
+	<h3>Cet opérateur n'a suivi aucune formation jusqu'à maintenant</h3>
+{% endif %}
     
 {% endblock %}
