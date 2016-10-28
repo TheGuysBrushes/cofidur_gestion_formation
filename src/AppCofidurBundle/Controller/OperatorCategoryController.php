@@ -58,7 +58,7 @@ class OperatorCategoryController extends Controller
         $operatorcategory = $operatorcategoryTest[0];
 
         if (!$operatorcategory) {
-            throw $this->createNotFoundException('Pas d\'objet');
+            throw $this->createNotFoundException('Aucune catégorie de la formation correspondant à l\'opérateur n\'a été trouvée' );
         }
 
         $operatorcategory->setSignature(null);

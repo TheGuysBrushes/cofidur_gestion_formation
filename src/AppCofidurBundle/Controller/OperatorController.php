@@ -17,35 +17,35 @@ class OperatorController extends Controller
 
         $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
 
+        if (!$operator) {
+            throw $this->createNotFoundException('Pas d\'opérateur trouvé');
+        }
+
         $operatorsFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
         $formationsIds= [];
         $formationsStatus= [];
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
         if (!$operatorsFormations){
-            throw $this->createNotFoundException('Pas de formation en cours');
+            throw $this->createNotFoundException('Pas de formation présentes');
         }
 
-        for ($i= 0; $i < count($formationsIds); ++$i){
-            if ($idOp == $formationsIds[$i]->getOperator()->getId()){
-                array_push($operatorsFormations, $formationsIds[$i]->getFormation()->getId());
-                $formationsStatus[$i]= $formationsIds[$i]->getValidation();
+        for ($i= 0; $i < count($operatorsFormations); ++$i){
+            if ($idOp == $operatorsFormations[$i]->getOperator()->getId()){
+                array_push($formationsIds, $operatorsFormations[$i]->getFormation()->getId());
+                $formationsStatus[$i]= $operatorsFormations[$i]->getValidation();
             }
         }
 
         /* Récupération des formations de l'opérateur $idOp */
-        $formations= array();
-        if ($formationsIds){
-            $repo= $em->getRepository('AppCofidurBundle:Formation');
-            for ($i= 0; $i < count($formationsIds); ++$i){
-                $formations[$i]= $repo->find($formationsIds[$i]);
-            }
+        $formations= [];
 
-            if (!$operator) {
-                throw $this->createNotFoundException('Pas d\'opérateur trouvé');
-            }
-
+        $repo= $em->getRepository('AppCofidurBundle:Formation');
+        for ($i= 0; $i < count($formationsIds); ++$i){
+            $tmp = $repo->find($formationsIds[$i]);
+            $formations[$i]= $tmp;
         }
+
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,

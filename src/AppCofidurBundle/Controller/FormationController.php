@@ -65,7 +65,6 @@ class FormationController extends Controller
             'form' => $form->createView(),
         )); 
 
-
     }
 
 
@@ -85,8 +84,6 @@ class FormationController extends Controller
         return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
     }
 
-
-
     public function showAction($idForm)
     {
         $em = $this->getDoctrine()->getManager();
@@ -102,7 +99,6 @@ class FormationController extends Controller
         )); 
     }
 
-
     public function showAllAction()
     {
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:Formation');
@@ -113,6 +109,4 @@ class FormationController extends Controller
             'formations'      => $formations,
         ));
     }
-
-
 }
