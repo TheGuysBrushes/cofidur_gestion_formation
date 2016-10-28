@@ -21,7 +21,7 @@ class OperatorController extends Controller
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
         if(!$ope_formations){
-            throw $this->createNotFoundException('Pas de formation en cours');
+        //    throw $this->createNotFoundException('Pas de formation en cours');
         } else {
             for($i= 0; $i < count($operator_formations); ++$i){
                 if($idOp == $ope_formations[$i]->getOperateur()->getId()){
@@ -33,7 +33,7 @@ class OperatorController extends Controller
         /* Récupération des formations de l'opérateur $idOp */
         $formations= array();
         if(!$operator_formations){
-            throw $this->createNotFoundException('Pas d\'operation formation');
+        //    throw $this->createNotFoundException('Pas d\'operation formation');
         } else {
             $repo= $em->getRepository('AppCofidurBundle:Formation');
             for($i= 0; $i < count($operator_formations); ++$i){
@@ -43,7 +43,7 @@ class OperatorController extends Controller
         }
 
         if (!$operator) {
-            throw $this->createNotFoundException('Pas d\'objet');
+        //    throw $this->createNotFoundException('Pas d\'objet');
         }
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
