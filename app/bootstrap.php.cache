@@ -1055,6 +1055,10 @@ public function isMethodSafe()
 {
 return in_array($this->getMethod(), array('GET','HEAD','OPTIONS','TRACE'));
 }
+public function isMethodCacheable()
+{
+return in_array($this->getMethod(), array('GET','HEAD'));
+}
 public function getContent($asResource = false)
 {
 $currentContentIsResource = is_resource($this->content);
@@ -1420,11 +1424,11 @@ protected $booted = false;
 protected $name;
 protected $startTime;
 protected $loadClassCache;
-const VERSION ='2.8.12';
-const VERSION_ID = 20812;
+const VERSION ='2.8.13';
+const VERSION_ID = 20813;
 const MAJOR_VERSION = 2;
 const MINOR_VERSION = 8;
-const RELEASE_VERSION = 12;
+const RELEASE_VERSION = 13;
 const EXTRA_VERSION ='';
 const END_OF_MAINTENANCE ='11/2018';
 const END_OF_LIFE ='11/2019';
@@ -1887,6 +1891,3 @@ return call_user_func_array(array($this->decorated, $method), $args);
 }
 }
 }
-
-0
-

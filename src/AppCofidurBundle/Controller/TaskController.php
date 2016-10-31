@@ -10,12 +10,63 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class TaskController extends Controller
 {
 
+    public function upAction($idTask){
+        $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
+        $ordre = $task->getOrdre();
+        $category = $task->getCategory();
+        $tasks = $category->getTasks();
+
+        $task_tmp = NULL;
+        foreach($tasks as $task_for_tmp)
+            if($task_for_tmp->getOrdre() == $ordre-1)
+                $task_tmp = $task_for_tmp;
+
+        if($task_tmp != NULL ){
+            $task_tmp->setOrdre($ordre);
+            $task->setOrdre($ordre-1);
+
+            $em->persist($task);
+            $em->persist($task_for_tmp);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
+    }
+
+    public function downAction($idTask){
+         $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
+        $ordre = $task->getOrdre();
+        $category = $task->getCategory();
+        $tasks = $category->getTasks();
+
+        $task_tmp = NULL;
+        foreach($tasks as $task_for_tmp)
+            if($task_for_tmp->getOrdre() == $ordre+1)
+                $task_tmp = $task_for_tmp;
+
+        if($task_tmp != NULL ){
+            $task_tmp->setOrdre($ordre);
+            $task->setOrdre($ordre+1);
+
+            $em->persist($task);
+            $em->persist($task_for_tmp);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
+
+    }
+
+
     public function addAction(Request $request, $idCat)
     {
         $task = new Task();
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppCofidurBundle:Category')->find($idCat);
         $task->setCategory($category);
+        $task->setOrdre(sizeof($category->getTasks()));
 
         $form = $this->createForm(TaskType::class, $task);
 

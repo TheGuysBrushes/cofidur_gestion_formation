@@ -8,7 +8,55 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CategoryController extends Controller
 {
+    public function upAction($idCat){
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCat);
+        $ordre = $category->getOrdre();
+        $formation = $category->getFormation();
+        $categories = $formation->getCategories();
 
+
+        $cat_tmp = NULL;
+        foreach($categories as $cat_for_tmp)
+            if($cat_for_tmp->getOrdre() == $ordre-1)
+                $cat_tmp = $cat_for_tmp;
+
+        if($cat_tmp != NULL ){
+            $cat_tmp->setOrdre($ordre);
+            $category->setOrdre($ordre-1);
+
+            $em->persist($category);
+            $em->persist($cat_for_tmp);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
+    }
+
+    public function downAction($idCat){
+        $em = $this->getDoctrine()->getManager();
+        $category = $em->getRepository('AppCofidurBundle:Category')->find($idCat);
+        $ordre = $category->getOrdre();
+        $formation = $category->getFormation();
+        $categories = $formation->getCategories();
+
+        $cat_tmp = NULL;
+        foreach($categories as $cat_for_tmp)
+            if($cat_for_tmp->getOrdre() == $ordre+1)
+                $cat_tmp = $cat_for_tmp;
+
+        if($cat_tmp != NULL ){
+            $cat_tmp->setOrdre($ordre);
+            $category->setOrdre($ordre+1);
+
+            $em->persist($category);
+            $em->persist($cat_for_tmp);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
+
+    }
 
     public function addAction(Request $request, $idForm)
     {
@@ -17,6 +65,7 @@ class CategoryController extends Controller
         $em = $this->getDoctrine()->getManager();
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
         $category->setFormation($formation);
+        $category->setOrdre(sizeof($formation->getCategories()));
 
         $form = $this->createForm(CategoryType::class, $category);
 

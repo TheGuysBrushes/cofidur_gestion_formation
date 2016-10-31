@@ -43,6 +43,7 @@ class Category
      * @var ArrayCollection $tasks
      *
      * @ORM\OneToMany(targetEntity="Task", mappedBy="category", cascade={"remove"})
+     * @ORM\OrderBy({"ordre" = "ASC"})
      */
     private $tasks;
 

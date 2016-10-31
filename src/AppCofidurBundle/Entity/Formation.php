@@ -68,6 +68,7 @@ class Formation
      * @var ArrayCollection $categories
      *
      * @ORM\OneToMany(targetEntity="Category", mappedBy="formation", cascade={"remove"})
+     * @ORM\OrderBy({"ordre" = "ASC"})
      */
     private $categories;
 

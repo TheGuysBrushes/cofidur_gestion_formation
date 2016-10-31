@@ -122,6 +122,20 @@ AppCofidurBundle_category_delete:
         methods: GET
         id: \d+
 
+AppCofidurBundle_category_up:
+    path: /category/up/{idCat}
+    defaults: { _controller: AppCofidurBundle:Category:up}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_category_down:
+    path: /category/down/{idCat}
+    defaults: { _controller: AppCofidurBundle:Category:down}
+    requirements:
+        methods: GET
+        id: \d+
+
 ### page de taches
 AppCofidurBundle_task_add:
     path: /task/add/{idCat}
@@ -143,6 +157,21 @@ AppCofidurBundle_task_delete:
     requirements:
         methods: GET
         id: \d+
+
+AppCofidurBundle_task_up:
+    path: /task/up/{idTask}
+    defaults: { _controller: AppCofidurBundle:Task:up}
+    requirements:
+        methods: GET
+        id: \d+
+
+AppCofidurBundle_task_down:
+    path: /task/down/{idTask}
+    defaults: { _controller: AppCofidurBundle:Task:down}
+    requirements:
+        methods: GET
+        id: \d+
+
 
 ### Pages de formation d'opérateurs ###
 AppCofidurBundle_operatorformation_add:

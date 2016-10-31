@@ -26,33 +26,6 @@ class OperatorController extends Controller
         $formationsStatus= [];
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
-<<<<<<< HEAD
-        if(!$ope_formations){
-        //    throw $this->createNotFoundException('Pas de formation en cours');
-        } else {
-            for($i= 0; $i < count($ope_formations); ++$i){
-                if($idOp == $ope_formations[$i]->getOperator()->getId()){
-                    array_push($operator_formations, $ope_formations[$i]->getFormation()->getId());
-                    $formations_status[$i]= $ope_formations[$i]->getValidation();
-                }
-            }
-        }
-
-        /* Récupération des formations de l'opérateur $idOp */
-        $formations= array();
-        if(!$operator_formations){
-        //    throw $this->createNotFoundException('Pas d\'operation formation');
-        } else {
-            $repo= $em->getRepository('AppCofidurBundle:Formation');
-            for($i= 0; $i < count($operator_formations); ++$i){
-                $tmp_formation= $repo->find($operator_formations[$i]);
-                $formations[$i]= $tmp_formation;
-            }
-        }
-
-        if (!$operator) {
-        //    throw $this->createNotFoundException('Pas d\'objet');
-=======
         if (!$operatorsFormations) {
             throw $this->createNotFoundException('Pas de formation présentes');
         }
@@ -71,7 +44,6 @@ class OperatorController extends Controller
         for ($i= 0; $i < count($formationsIds); ++$i) {
             $tmp = $repo->find($formationsIds[$i]);
             $formations[$i]= $tmp;
->>>>>>> cc90f0b5fa765ef8c167098aebcfd2f598e664ea
         }
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
