@@ -22,7 +22,7 @@ body {
 #header h3 { text-align: center; font-family: 'Cambria', cursive; font-size: 24px; margin-bottom: 20px; font-weight: normal; }
 
 .main-col { min-width: 600px; max-width: 720px; float: left; padding: 20px; margin-bottom: 20px; }
-.sidebar { min-width: 180px; max-width: 220px; padding-left: 10px; display: inline-block; }
+.sidebar { min-width: 180px; max-width: 240px; padding-left: 10px; display: inline-block; }
 .main-col, .sidebar { border-left: 1px solid #ccc; }
 .sidebar_nav { width: 180px; float: left; padding: 10px; }
 
@@ -124,7 +124,10 @@ td.verticalite > div > span {
 	text-align: center;
 }
 
-/*** Menu déroulant ***/
+
+/*************************/
+/***   MENU DEROULANT  ***/
+/*************************/
 #menu-deroulant, #menu-deroulant ul {
     padding: 0;
     margin: 0;
@@ -163,9 +166,7 @@ td.verticalite > div > span {
 }
 
 /*** Spécifique aux pages ***/
-.category_page {
-
-}
+/*.category_page {}*/
 
 .entete_category {
 	background-color: lightgray;
