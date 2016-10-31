@@ -28,12 +28,14 @@ class TaskController extends Controller
             $em->persist($task);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $task->getCategory()->getFormation()->getId()));
+            return $this->redirectToRoute('AppCofidurBundle_formation_show',
+                ['idForm' => $task->getCategory()->getFormation()->getId()]
+            );
         }
 
         return $this->render('AppCofidurBundle:Page/Task:task_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
+        ));
     }
 
 
@@ -50,7 +52,9 @@ class TaskController extends Controller
         $em->remove($task);
         $em->flush();
 
-        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $task->getCategory()->getFormation()->getId()));
+        return $this->redirectToRoute('AppCofidurBundle_formation_show',
+            ['idForm' => $task->getCategory()->getFormation()->getId()]
+        );
     }
 
 
@@ -76,6 +80,6 @@ class TaskController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Task:task_edit.html.twig', array(
             'form' => $form->createView(),
-        ));    
-    }   
+        ));
+    }
 }

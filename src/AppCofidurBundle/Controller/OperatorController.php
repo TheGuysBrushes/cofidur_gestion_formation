@@ -16,11 +16,17 @@ class OperatorController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
-        $ope_formations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
-        $operator_formations= array();
-        $formations_status= array();
+
+        if (!$operator) {
+            throw $this->createNotFoundException('Pas d\'opérateur trouvé');
+        }
+
+        $operatorsFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
+        $formationsIds= [];
+        $formationsStatus= [];
 
         /* Récupération des IDs des formations liées à l'opérateur $idOp */
+<<<<<<< HEAD
         if(!$ope_formations){
         //    throw $this->createNotFoundException('Pas de formation en cours');
         } else {
@@ -46,12 +52,32 @@ class OperatorController extends Controller
 
         if (!$operator) {
         //    throw $this->createNotFoundException('Pas d\'objet');
+=======
+        if (!$operatorsFormations) {
+            throw $this->createNotFoundException('Pas de formation présentes');
+        }
+
+        for ($i= 0; $i < count($operatorsFormations); ++$i) {
+            if ($idOp == $operatorsFormations[$i]->getOperator()->getId()) {
+                array_push($formationsIds, $operatorsFormations[$i]->getFormation()->getId());
+                $formationsStatus[$i]= $operatorsFormations[$i]->getValidation();
+            }
+        }
+
+        /* Récupération des formations de l'opérateur $idOp */
+        $formations= [];
+
+        $repo= $em->getRepository('AppCofidurBundle:Formation');
+        for ($i= 0; $i < count($formationsIds); ++$i) {
+            $tmp = $repo->find($formationsIds[$i]);
+            $formations[$i]= $tmp;
+>>>>>>> cc90f0b5fa765ef8c167098aebcfd2f598e664ea
         }
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
             'formations'   => $formations,
-            'formations_status' => $formations_status
+            'formationsStatus' => $formationsStatus
         ));
     }
 

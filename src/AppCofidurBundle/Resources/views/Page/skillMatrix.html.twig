@@ -23,7 +23,7 @@
             </td>
 
             <!-- Tous les types de formations -->
-            {% for formation in tab_formations %}
+            {% for formation in formations %}
                 <td class="verticalite">
                     <div>{{ formation.name }}</div>
                 </td>
@@ -31,7 +31,7 @@
 
         </tr>
 
-        {% for operator in tab_operators %}
+        {% for operator in operators %}
             <tr>
                 <td>
                     {{ operator.id }}
@@ -51,29 +51,29 @@
                 </td>
 
                 <!-- TODO : cases à colorer -->
-                {% for formation in tab_formations %}
+                {% for formation in formations %}
                     {% set caseCompleted = "false" %}
-                    {% for forme_formateur in liaison %}
-                        {% if ((operator.id == forme_formateur[0]) and (formation.id == forme_formateur[1])) %}
-                            {% if 1 == forme_formateur[2] %}
+                    {% for formationValidation in formationsValidation %}
+                        {% if ((operator.id == formationValidation[0]) and (formation.id == formationValidation[1])) %}
+                            {% if 1 == formationValidation[2] %}
                                 <td class="formedNotValidated">
-                                    {{ forme_formateur[2] }}
+                                    {{ formationValidation[2] }}
                                 </td>
-                            {% elseif 2 == forme_formateur[2] %}
+                            {% elseif 2 == formationValidation[2] %}
                                 <td class="learningFormation">
-                                    {{ forme_formateur[2] }}
+                                    {{ formationValidation[2] }}
                                 </td>
-                            {% elseif 3 == forme_formateur[2] %}
+                            {% elseif 3 == formationValidation[2] %}
                                 <td class="futureFormation">
-                                    {{ forme_formateur[2] }}
+                                    {{ formationValidation[2] }}
                                 </td>
-                            {% elseif 4 == forme_formateur[2] %}
+                            {% elseif 4 == formationValidation[2] %}
                                 <td class="formedValidated">
-                                    {{ forme_formateur[2] }}
+                                    {{ formationValidation[2] }}
                                 </td>
-                            {% elseif 5 == forme_formateur[2] %}
+                            {% elseif 5 == formationValidation[2] %}
                                 <td class="formedToTeach">
-                                    {{ forme_formateur[2] }}
+                                    {{ formationValidation[2] }}
                                 </td>
                             {% endif %}
                             {% set caseCompleted = "true" %}

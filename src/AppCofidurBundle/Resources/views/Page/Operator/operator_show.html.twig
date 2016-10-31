@@ -1,5 +1,10 @@
 {% extends 'AppCofidurBundle::Page/Operator/operator.html.twig' %}
 
+{% block sidebar_nav %}
+	<h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+	{{ parent() }}
+{% endblock %}
+
 {% block body %}
 <h1> Résumé des formations de {{ operator.firstname }} {{ operator.lastname }}</h1>
 
@@ -14,10 +19,11 @@
 		<td> {{ operator.id }} </td>
         <td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
-         <td> {{ operator.dateOfBirth |date("m|d|Y") }} </td>
+        <td> {{ operator.dateOfBirth |date("d/m/Y")  }} </td>
 	</tr>
 </table>
 
+{% if formations %}
 <h2>Cet opérateur suit les formations suivantes :</h2>
 <table class="ope_formations_array">
 	{% set sautdeligne= 0 %}
@@ -28,7 +34,7 @@
 
 		<td>
 			{% set val= 0 %}
-			{% for validation in formations_status %}
+			{% for validation in formationsStatus %}
 				{% if val == sautdeligne %}
 					{% if 1 == validation %}
 						<fieldset class="formedNotValidated_formation_sumup">
@@ -88,5 +94,8 @@
 		{% set sautdeligne= sautdeligne+1 %}
 	{% endfor %}
 </table>
+{% else %}
+	<h3>Cet opérateur n'a suivi aucune formation jusqu'à maintenant</h3>
+{% endif %}
     
 {% endblock %}

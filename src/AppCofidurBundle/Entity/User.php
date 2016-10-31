@@ -144,7 +144,7 @@ class User extends BaseUser
      *
      * @return \DateTime
      */
-    public function getDateOfBirth()
+    public function getDateOfBirth ()
     {
         return $this->dateOfBirth;
     }

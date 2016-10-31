@@ -15,9 +15,9 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ordre', IntegerType::class,  array('label_format' => 'category.order'))
-            ->add('name', TextType::class,      array('label_format' => 'category.name'))
-            ->add('save', SubmitType::class,    array('label_format' => 'category.save.submit'));
+            ->add('ordre', IntegerType::class,  ['label_format' => 'category.order'])
+            ->add('name', TextType::class,      ['label_format' => 'category.name'])
+            ->add('save', SubmitType::class,    ['label_format' => 'category.save.submit']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

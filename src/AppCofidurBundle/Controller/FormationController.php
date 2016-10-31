@@ -13,8 +13,8 @@ use Symfony\Component\HttpFoundation\Request;
 
 
 class FormationController extends Controller
-{   
-    
+{
+
     public function addAction(Request $request)
     {
         $formation = new Formation();
@@ -35,12 +35,11 @@ class FormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_add.html.twig', array(
             'form' => $form->createView(),
-        ));    
-    }   
-
+        ));
+    }
 
     public function editAction(Request $request, $idForm)
-    {   
+    {
         $em = $this->getDoctrine()->getManager();
         $formation = $em->getRepository('AppCofidurBundle:Formation')->find($idForm);
 
@@ -59,13 +58,12 @@ class FormationController extends Controller
             $em->persist($formation);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show',array('idForm'=>$idForm));
+            return $this->redirectToRoute('AppCofidurBundle_formation_show', ['idForm'=>$idForm]);
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_edit.html.twig', array(
             'form' => $form->createView(),
-        )); 
-
+        ));
 
     }
 
@@ -86,8 +84,6 @@ class FormationController extends Controller
         return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
     }
 
-
-
     public function showAction($idForm)
     {
         $em = $this->getDoctrine()->getManager();
@@ -100,9 +96,8 @@ class FormationController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'     => $formation,
-        )); 
+        ));
     }
-
 
     public function showAllAction()
     {
@@ -114,6 +109,4 @@ class FormationController extends Controller
             'formations'      => $formations,
         ));
     }
-
-
 }
