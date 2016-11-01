@@ -28,12 +28,12 @@
     </head>
     <body>
 
-        <section id="wrapper">
+        <section class="wrapper">
             <header id="header">
                 <div class="top">
                     {% block navigation %}
                     <nav>
-                        <ul class="navigation" id="menu-deroulant">
+                        <ul class="navigation menu-deroulant">
                             <li><a href="{{ path('AppCofidurBundle_homepage') }}">Accueil</a></li>
                             {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ path('AppCofidurBundle_logout') }}">Déconnexion</a></li>

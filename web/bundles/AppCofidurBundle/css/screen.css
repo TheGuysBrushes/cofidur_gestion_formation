@@ -8,9 +8,9 @@ body {
 }
 .clear { clear: both; }
 
-#wrapper { margin: 10px auto; width: 1200px; }
-#wrapper a { text-decoration: none; color: #00628A; }
-#wrapper span.highlight { color: #00628A; }
+.wrapper { margin: 10px auto; width: 1200px; }
+.wrapper a { text-decoration: none; color: #00628A; }
+.wrapper span.highlight { color: #00628A; }
 
 #header { margin-bottom: 20px; }
 #header .top { border-bottom: 1px solid #ccc; margin-bottom: 10px; }
@@ -21,7 +21,7 @@ body {
 #header h2 a { color: #000; }
 #header h3 { text-align: center; font-family: 'Cambria', cursive; font-size: 24px; margin-bottom: 20px; font-weight: normal; }
 
-.content { max-width: 950px; float: left; display: inline-blockz; }
+.content { max-width: 1000px; float: left; display: inline-block; }
 .main-col { min-width: 600px; max-width: 720px; float: left; padding: 20px; margin-bottom: 20px; }
 .sidebar { min-width: 180px; max-width: 240px; padding-left: 10px; display: inline-block; }
 .main-col, .sidebar { border-left: 1px solid #ccc; }
@@ -64,8 +64,10 @@ th{
 /* form */
 label{
 	display:block;
-	width:30%;
+	min-width:30%;
 	float:left;
+	padding-left: 18px;
+	padding-right: 18px;
 }
 
 .page_title {
@@ -129,27 +131,27 @@ th.verticalite > div > span {
 /*************************/
 /***   MENU DEROULANT  ***/
 /*************************/
-#menu-deroulant, #menu-deroulant ul {
+.menu-deroulant, .menu-deroulant ul {
     padding: 0;
     margin: 0;
     list-style: none;
 }
-#menu-deroulant {
+.menu-deroulant {
 /* on centre le menu dans la page */
     text-align: center;
 }
-#menu-deroulant li {
+.menu-deroulant li {
 /* on place les liens du menu horizontalement */
     display: inline-block;
 }
-#menu-deroulant ul li {
+.menu-deroulant ul li {
 /* on enlève ce comportement pour les liens du sous menu */
     display: inherit;
 }
-#menu-deroulant a {
+.menu-deroulant a {
     display: block;
 }
-#menu-deroulant ul {
+.menu-deroulant ul {
     position: absolute;
 /* on cache les sous menus complètement sur la gauche */
     left: -999em;
@@ -157,7 +159,7 @@ th.verticalite > div > span {
     z-index: 1000;
 }
 
-#menu-deroulant li:hover ul {
+.menu-deroulant li:hover ul {
 /* Au survol des li du menu on replace les sous menus */
     left: auto;
 	background-color: white;
@@ -308,10 +310,11 @@ float: right;
 	max-height: 600px;
 }
 
-.ope_formations_element {
+/*.ope_formations_element { }*/
 
-}
-
+/***
+	Forumulaire de connexion
+*/
 .connexion_form {
 	display: block;
 	text-align: center;
