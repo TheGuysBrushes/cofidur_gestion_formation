@@ -15,7 +15,6 @@
         {% block stylesheets %}
             <link href='http://fonts.googleapis.com/css?family=Cambria' rel='stylesheet' type='text/css'>
             <link href="{{ asset('bundles/AppCofidurBundle/css/screen.css') }}" type="text/css" rel="stylesheet" />
-
         {% endblock %}
 
         <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/apple-touch-icon.png">
@@ -33,6 +32,11 @@
                 <div class="top">
                     {% block navigation %}
                     <nav>
+                        {% if is_granted('ROLE_USER') %}
+                        <p class="connected navigation">
+                            Connecté en tant que <b> <a href="/operator/show/{{ app.user.id }}">{{ app.user.username }}</a></b>
+                        </p>
+                        {% endif %}
                         <ul class="navigation menu-deroulant">
                             <li><a href="{{ path('AppCofidurBundle_homepage') }}">Accueil</a></li>
                             {% if is_granted('ROLE_USER') %}
@@ -59,9 +63,9 @@
                                     <li><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></li>
                                     <li><a href="{{ path('AppCofidurBundle_contact') }}">Contact</a></li>
                                     {% if is_granted('ROLE_USER') %}
-                                    <li><a href="/profile">Profil</a></li>
                                     <li><a href="/profile/change-password">Changer de mot de passe</a></li>
                                     {% endif %}
+                                    <li><a href="/profile">Profil</a></li>
                                     {% if is_granted('ROLE_ADMIN') %}
                                     <li><a href="{{ path('AppCofidurBundle_admin') }}">Admin</a></li>
                                     {% endif %}

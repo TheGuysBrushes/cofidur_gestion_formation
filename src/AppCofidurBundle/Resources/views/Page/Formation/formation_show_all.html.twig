@@ -25,10 +25,12 @@
 		<td> {{ formation.criticality }} </td>
 		<td><a href="{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}">Afficher</a><br/>
 			<br/>
+			{% if is_granted('ROLE_ADMIN') %}
 			<a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Editer</a><br/>
 			<br/>
 			<a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a><br/>
 			<br/>
+			{% endif %}
 		</td>
 	</tr>
 {% endfor %}

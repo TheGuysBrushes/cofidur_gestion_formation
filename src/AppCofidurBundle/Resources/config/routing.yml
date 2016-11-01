@@ -90,7 +90,7 @@ AppCofidurBundle_formation_delete:
         id: \d+
 
 AppCofidurBundle_formation_show:
-    path:  /formation/{idForm}
+    path:  /formation/show/{idForm}
     defaults: { _controller: AppCofidurBundle:Formation:show }
     requirements:
         methods: GET

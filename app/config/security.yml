@@ -51,6 +51,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }
         - { path: ^/skillMatrix, role: ROLE_USER }
+        - { path: ^/formation/show, role: ROLE_USER }
         - { path: ^/formation/, role: ROLE_ADMIN }
         - { path: ^/formation, role: ROLE_USER }
         - { path: ^/operatorsformations, role: ROLE_ADMIN }
