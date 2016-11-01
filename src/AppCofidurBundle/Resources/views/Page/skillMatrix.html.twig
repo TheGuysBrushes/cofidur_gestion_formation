@@ -4,29 +4,29 @@
 
     <table>
         <tr>
-            <td class="text_in_bottom">
+            <th class="text_in_bottom">
                 ID
-            </td>
-            <td class="text_in_bottom">
+            </th>
+            <th class="text_in_bottom">
                 LAST NAME
-            </td>
-            <td class="text_in_bottom">
+            </th>
+            <th class="text_in_bottom">
                 FIRST NAME
-            </td>
-            <td class="text_in_bottom">
+            </th>
+            <th class="text_in_bottom">
                 SUPERIEUR
-            </td>
-            <td class="verticalite">
+            </th>
+            <th class="verticalite">
                 <div>
                     <span>COFIDUR / INTERIM</span>
                 </div>
-            </td>
+            </th>
 
             <!-- Tous les types de formations -->
             {% for formation in formations %}
-                <td class="verticalite">
+                <th class="verticalite">
                     <div>{{ formation.name }}</div>
-                </td>
+                </th>
             {% endfor %}
 
         </tr>
@@ -95,8 +95,8 @@
     <br/>
     <table class="color_legend">
         <tr>
-            <td class="text_legende">Code couleur</td>
-            <td class="text_legende">Statut</td>
+            <th class="text_legende">Code couleur</th>
+            <th class="text_legende">Statut</th>
         </tr>
         <tr>
             <td class="formedNotValidated"></td>

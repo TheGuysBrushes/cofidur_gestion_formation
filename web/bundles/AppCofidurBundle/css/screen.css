@@ -79,12 +79,12 @@ label{
 
 /*** Verticalité des en-têtes de la matrice de compétence ***/
 
-td.verticalite {
+th.verticalite {
 	height: 140px;
 	white-space: nowrap;
 }
 
-td.verticalite > div {
+th.verticalite > div {
 	/* 360 - 90 = 270 */
 	transform-origin: 50% 100%;
 	transform:
@@ -93,7 +93,7 @@ td.verticalite > div {
 	width: 10px;
 	text-align: center;
 }
-td.verticalite > div > span {
+th.verticalite > div > span {
 	border-bottom: 1px solid #ccc;
 	padding: 5px 10px;
 }
@@ -309,4 +309,9 @@ float: right;
 
 .ope_formations_element {
 
+}
+
+.connexion_form {
+	display: block;
+	text-align: center;
 }
