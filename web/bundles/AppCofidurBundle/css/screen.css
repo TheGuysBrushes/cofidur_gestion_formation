@@ -8,6 +8,7 @@ body {
 }
 .clear { clear: both; }
 
+/* Conteneurs et entête et bas de la page */
 .wrapper { margin: 10px auto; width: 1200px; }
 .wrapper a, .navigation { text-decoration: none; color: #00628A; }
 .connected a:hover { text-decoration: underline; }
@@ -19,6 +20,7 @@ body {
 .top ul.navigation { list-style: none; text-align: right; }
 .top .navigation li a { padding: 10px 15px; border-left: 1px solid #ccc; }
 .main_header p { text-align: center; font-family: 'Cambria', cursive; font-size: 24px; margin-bottom: 20px; font-weight: normal; }
+.main_header { text-align: center; }
 
 .content { max-width: 1000px; float: left; }
 .main-col { min-width: 600px; max-width: 720px; padding: 20px; margin-bottom: 20px; }
@@ -28,25 +30,21 @@ body {
 .sidebar_nav { width: 180px; padding: 10px; }
 
 .main-col a { color: #F48A00; }
-
-h1 { font-size: 32px; margin-bottom: 8px; }
-h2 { font-size: 28px; margin-bottom: 10px;  }
-h1, h2 { line-height: 1.2em; font-weight: normal; color: #00628A; }
-
 .main-col p { line-height: 1.5em; margin-bottom: 20px; }
 
 #footer { border-top: 1px solid #ccc; clear: both; text-align: center; padding: 10px; color: #aaa; }
+
+
+/* Titres*/
+h1 { font-size: 32px; margin-bottom: 8px; text-align: center; }
+h2 { font-size: 28px; margin-bottom: 10px;  }
+h1, h2 { line-height: 1.2em; font-weight: normal; color: #00628A; }
 
 img {
 	width: 200px;
 	height: auto;
 	padding: 5%;
 }
-
-.main_header {
-	text-align: center;
-}
-
 /* tableaux */
 table{
 	border-collapse: collapse;
@@ -74,11 +72,6 @@ label{
 	padding-left: 18px;
 	padding-right: 18px;
 }
-
-.page_title {
-	text-align: center;
-}
-
 /*used for the first headers of the skill matrix*/
 .text_in_bottom {
 	vertical-align: bottom;
@@ -178,11 +171,7 @@ th.verticalite > div > span {
 	background-color: lightgray;
 }
 
-.task_name {
-	background-color: lightgray;
-}
-
-.task_order {
+.task {
 	background-color: lightgray;
 }
 
@@ -221,23 +210,30 @@ th.verticalite > div > span {
 	text-align: right;
 }
 
-/* Page operatorformateur/X */
-.operatorformation_sumup {
+
+/*********************************/
+/***   Page operatorformation  ***/
+/*********************************/
+
+.infos.operatorformation, .infos {
+	float: left;
+	margin: 4px;
+}
+
+.infos.operatorformation{ width : 45%}
+.infos.operatorformation td{ width : 50%}
+
+.dates.operatorformation {
+	float: right;
+}
+
+.sumup, .details {
 	border: solid;
 	border-color: cornflowerblue;
 	margin-bottom: 3%;
 }
 
-.operatorformation_ids {
-float: left;
-}
-
-.operatorformation_dates {
-float: right;
-}
-
-
-.operatorformation_sumup > legend {
+.sumup > legend, .details> legend{
 	font-size: 150%;
 }
 
@@ -245,9 +241,8 @@ float: right;
 	margin-bottom: 2%;
 }
 
-.operatorformation_informations {
+.infos.operatorformation {
 	margin-bottom: 2%;
-	display: none;
 }
 
 .modif_category {

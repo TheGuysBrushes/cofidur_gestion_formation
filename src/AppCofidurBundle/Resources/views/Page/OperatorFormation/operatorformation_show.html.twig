@@ -23,26 +23,40 @@
 		}
 	</script>
 
-	<h1 class="page_title">Formation d'un opérateur</h1>
+	<h1>Formation d'un opérateur (FFO)</h1>
 
-	<!-- idOperator, idFormation, dateBegin, dateEnd, validation, commentary, idFormer-->
-	<fieldset class="operatorformation_sumup">
-		<legend> Formation operateur </legend>
-		<table class="operatorformation_ids">
+	<!--
+		INFORMATIONS SUR LE TUTEUR, L'OPERATEUR ET LES DATES
+	-->
+	<fieldset class="sumup operatorformation">
+		<legend>Informations</legend>
+		<table class="infos operator">
 			<tr>
-				<th>ID operateur</th>
-				<td> {{ operatorformation.operator.id }}</td>
+				<th>Nom</th>
+				<td> {{ operatorformation.operator.firstname }}</td>
 			</tr>
 			<tr>
-				<th>ID formation</th>
-				<td> {{ operatorformation.formation.id}}</td>
+				<th>Prénom</th>
+				<td> {{ operatorformation.operator.lastname }}</td>
 			</tr>
 			<tr>
-				<th>ID formateur</th>
-				<td> {{ operatorformation.former.id }}</td>
+				<th>Service</th>
+				<td > {{ operatorformation.operator }} ??</td>
 			</tr>
 		</table>
-		<table class="operatorformation_dates">
+
+		<table class="infos operatorformation">
+			<tr>
+				<th>Nom du tuteur</th>
+				<td> {{ operatorformation.former.username }}</td>
+			</tr>
+			<tr>
+				<th>Signature</th>
+				<td> {{ operatorformation.signature }}</td>
+			</tr>
+		</table>
+
+		<table class="dates operatorformation">
 			<tr>
 				<th>Date de début</th>
 				<td> {{ operatorformation.dateBegin|date("m/d/Y")}}</td>
@@ -52,167 +66,168 @@
 				<td> {{ operatorformation.dateEnd|date("m/d/Y") }}</td>
 			</tr>
 		</table>
-
 	</fieldset>
-	<fieldset class="operatorformation_sumup">
+
+	<!--
+		RESUME DE LA FORMATION
+	-->
+	<fieldset class="sumup formation">
 		<legend>Résumé de la formation</legend>
-		<table class="category_page">
+		<table class="infos formation">
 			<tr>
-				<th class="entete_category">ID</th>
-				<th class="entete_category">Name</th>
-				<th class="entete_category">Type</th>
-				<th class="entete_category">Objectif</th>
-				<th class="entete_category">Moyens pédagogiques</th>
-				<th class="entete_category">Lieu & moyens matériels</th>
-				<th class="entete_category">Criticité</th>
+				<th>Nom de la formation</th>
+				<td class="formation name"> {{ operatorformation.formation.type}}</td>
 			</tr>
 			<tr>
-				<td>{{ operatorformation.formation.id }} </td>
-				<td>{{ operatorformation.formation.name }} </td>
-				<td>{{ operatorformation.formation.type }} </td>
-				<td>{{ operatorformation.formation.goal }} </td>
-				<td>{{ operatorformation.formation.teachingAids }} </td>
-				<td>{{ operatorformation.formation.placesMaterialRessources }} </td>
-				<td>{{ operatorformation.formation.criticality }} </td>
-			</tr>
-		</table>
-	</fieldset>
-	<fieldset class="operatorformation_sumup">
-		<legend>Résumé de l'opérateur</legend>
-		<table class="category_page">
-			<tr>
-				<th class="entete_category">ID</th>
-				<th class="entete_category">Nom</th>
-				<th class="entete_category">Prénom</th>
-				{#<th class="entete_category">Date de naissance</th>#}
+				<th>Objectif visé</th>
+				<td > {{ operatorformation.formation.goal}}</td>
 			</tr>
 			<tr>
-				<td>{{ operatorformation.operator.id }} </td>
-				<td>{{ operatorformation.operator.firstname }} </td>
-				<td>{{ operatorformation.operator.lastname }} </td>
-				{#<td>{{ operator.dateofbirth }} </td>#}
+				<th>Moyens pédagogiques</th>
+				<td > {{ operatorformation.formation.placesMaterialRessources}}</td>
 			</tr>
 		</table>
 	</fieldset>
 
+	<!--
+		SUIVI DE L'AVANCEMENT DE LA FORMATION
+	-->
+	<fieldset class="details operatorformation">
+		<legend>Etapes de la formation :</legend>
+		{% set indice_category= 1 %}
+		<!--
+			 Affichage de chaque catégorie
+		-->
+		{% for category in operatorformation.formation.categories %}
+			{% set validated_category="" %}
+		<fieldset class="details category">
+			<legend class="category_title">
+				Catégorie : {{ category.name }} ({{ category.ordre }})
+			</legend>
 
-	{% set indice_category= 1 %}
-	{% for category in operatorformation.formation.categories %}
-		{% set validated_category="" %}
-		<!-- A afficher si la categorie est validée -->
-		{% for opeCat in operatorformation.operatorcategories %}
-			{% if category.id == opeCat.category.id %}
-    <br/>
-    <fieldset class="category">
-		<legend class="category_title">
-			Catégorie : {{ category.name }} ({{ category.ordre }})
-		</legend>
+			{% for opeCat in operatorformation.operatorcategories %}
+				{% if category.id == opeCat.category.id %}
 
-		<!-- div propre -->
-		<div class="operatorformation_task_tab">
-			<table>
-				<tr>
-					<td class="task_name">Nom tache</td>
-					<td class="task_order">Ordre tache</td>
-				</tr>
-				{% set task_nb= 1 %}
-				{% for task in category.tasks %}
-					{% set task_found= 0 %}
-                <tr>
-                    <td>{{ task.name }}</td>
-                    <td>{{ task.ordre }}</td>
-                    {% for opeTask in opeCat.operatortasks %}
-                        {% if opeTask.task.id == task.id %}
-                            {% set task_found= 1 %}
-                    <td>
-                        Tache validée !
-                    </td>
-                    <td>
-                        <a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}">
-                            Invalider tâche
-                        </a>
-                    </td>
-                        {% endif %}
-                    {% endfor %}
-                    {% if task_found == 0 %}
-                    <td>
-                        <div class="task_validator">
-                            <a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
-                                <button id="validateTask{{ indice_category }}{{ task_nb }}" onclick="validate_task(this.id)">Valider</button>
-                            </a>
-                        </div>
-                    </td>
-                    {% endif %}
-                </tr>
-				{% endfor %}
-			</table>
-		</div>
+			<!--
+			Affichage de l'avancement de l'opérateur dans la catégorie -->
 
-		<!-- div propre -->
-		<div id="operatorformation_informations{{ indice_category }}" class="operatorformation_informations">
-			<table>
-				<tr>
-					<th>ID Catégorie</th>
-					<td>{{ category.id }}</td>
-				</tr>
-				<tr>
-					<th>Date signature</th>
-					<td>{{ opeCat.dateSignature|date("m/d/Y") }}</td>
-				</tr>
-				<tr>
-					<th>Signature</th>
-					<td>{{ opeCat.signature }}</td>
-				</tr>
-				<tr>
-					<th>Nombre d'heures</th>
-					<td>{{ opeCat.nbHours|date("H:i")}}</td>
-				</tr>
-				<tr>
-                {% if opeCat.signature != null %}
-                    <th>ID formateur</th>
-                    <td>{{ opeCat.trainer.id }}</td>
-                {% endif %}
-				</tr>
-			</table>
-		</div>
+			<!-- Tâches de la catégorie -->
+			<div class="operatorformation_task_tab">
+				<table>
+					<tr>
+						<th class="task validation"> </th>
+						<th class="task order">Ordre tache</th>
+						<th class="task name">Nom tache</th>
+					</tr>
+					{% set task_nb= 1 %}
+					{% for task in category.tasks %}
+						{% set task_found= 0 %}
+						{% for opeTask in opeCat.operatortasks %}
+							{% if opeTask.task.id == task.id %}
+								{% set task_found= 1 %}
+					<tr>
+						<td><input type="checkbox" name="validated" value="true" checked></td>
+						<td>{{ task.ordre }}</td>
+						<td>{{ task.name }}</td>
+						<td>
+							<a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}">
+								Invalider tâche
+							</a>
+						</td>
+					</tr>
+							{% endif %}
+						{% endfor %}
+						{% if task_found == 0 %}
+					<tr>
+						<td>
+							<input type="checkbox" name="validated" value="true">
+						</td>
+						<td>{{ task.ordre }}</td>
+						<td>{{ task.name }}</td>
+						<td>
+							<div class="task_validator">
+								<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
+									<button id="validateTask{{ indice_category }}{{ task_nb }}" onclick="validate_task(this.id)">Valider</button>
+								</a>
+							</div>
+						</td>
+					</tr>
 
-		        {% if opeCat.signature != null %}
-                    {% set validated_category= true %}
-                {% endif %}
-            {% endif %}
-	    {% endfor %}
+						{% endif %}
+					</tr>
+					{% endfor %}
+				</table>
+			</div>
 
-		<div>
-			<fieldset>
-				<legend>
-					{# Affichage des catégories #}
-					{#<p>{{ category.name }}</p>#}
-
-					{% if not validated_category %}
-						<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
-							<button id="validate">Valider la catégorie</button>
-						</a>
-						<br/>
-					{% else %}
-						Catégorie validée !
+			<!-- Informations de la catégorie et de son avancement -->
+			<div id="operatorformation_informations{{ indice_category }}" class="infos operatorformation">
+				<table>
+					<tr>
+						<th>ID Catégorie</th>
+						<td>{{ category.id }}</td>
+					</tr>
+					<tr>
+						<th>Date signature</th>
+						<td>{{ opeCat.dateSignature|date("m/d/Y") }}</td>
+					</tr>
+					<tr>
+						<th>Signature</th>
+						<td>{{ opeCat.signature }}</td>
+					</tr>
+					<tr>
+						<th>Nombre d'heures</th>
+						<td>{{ opeCat.nbHours|date("H:i")}}</td>
+					</tr>
+					<tr>
+					{% if opeCat.signature != null %}
+						<th>ID formateur</th>
+						<td>{{ opeCat.trainer.id }}</td>
 					{% endif %}
-				</legend>
-				{% if validated_category %}
-					<table class="modif_category">
-						<tr>
-							<td>
-								<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
-							</td>
-							<td>
-								<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
-							</td>
-						</tr>
-					</table>
-					<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
+					</tr>
+				</table>
+			</div>
+
+					{% if opeCat.signature != null %}
+						{% set validated_category= true %}
+					{% endif %}
+
+
+			<div>
+				<fieldset>
+					<legend>
+
+						{% if not validated_category %}
+							<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
+								<button id="validate">Valider la catégorie</button>
+							</a>
+							<br/>
+						{% else %}
+							Catégorie validée !
+						{% endif %}
+					</legend>
+					{% if validated_category %}
+						<table class="modif_category">
+							<tr>
+								<td>
+									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+								</td>
+								<td>
+									<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
+								</td>
+							</tr>
+						</table>
+						<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
+					{% endif %}
+				</fieldset>
+			</div>
+
+					{% set indice_category= indice_category+1 %}
 				{% endif %}
-			</fieldset>
-		</div>
-    </fieldset>
-		{% set indice_category= indice_category+1 %}
+			{% endfor %}
+		</fieldset>
     {% endfor %}
+
+	</fieldset>
+	<br/>
+
 {% endblock %}
