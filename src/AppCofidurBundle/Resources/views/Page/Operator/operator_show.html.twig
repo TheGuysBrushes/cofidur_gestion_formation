@@ -24,6 +24,26 @@
 </table>
 
 {% if formations %}
+	<h3>Légende des couleurs des cadres :</h3>
+	<table class="color_legend">
+		<tr>
+			<th class="text_legende">Code couleur</th>
+			<td class="formedNotValidated"></td>
+			<td class="learningFormation"></td>
+			<td class="futureFormation"></td>
+			<td class="formedValidated"></td>
+			<td class="formedToTeach"></td>
+		</tr>
+		<tr>
+			<th class="text_legende">Statut</th>
+			<td class="text_legende">Formé non habilité</td>
+			<td class="text_legende">En Formation</td>
+			<td class="text_legende">Prévision Formation</td>
+			<td class="text_legende">Habilité</td>
+			<td class="text_legende">Habilité à former</td>
+		</tr>
+	</table>
+
 <h2>Cet opérateur suit les formations suivantes :</h2>
 <table class="ope_formations_array">
 	{% set sautdeligne= 0 %}
