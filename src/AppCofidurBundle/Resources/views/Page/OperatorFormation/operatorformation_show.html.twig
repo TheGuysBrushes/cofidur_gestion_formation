@@ -176,40 +176,40 @@
 			</table>
 		</div>
 
-		<div>
-			<fieldset>
-				<legend>
-                {% if opeCat.signature != null %}
+		        {% if opeCat.signature != null %}
                     {% set validated_category= true %}
-                    Catégorie validée !
-                    <br/>
                 {% endif %}
             {% endif %}
 	    {% endfor %}
 
-        {# Affichage des catégories #}
-                    <p>{{ category.name }}</p>
+		<div>
+			<fieldset>
+				<legend>
+					{# Affichage des catégories #}
+					{#<p>{{ category.name }}</p>#}
 
-        {% if not validated_category %}
-                    <a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
-                        <button id="validate">Valider la catégorie</button>
-                    </a>
-                    <br/>
-        {% endif %}
-        {% if validated_category %}
-                <table class="modif_category">
-                    <tr>
-                        <td>
-                            <a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
-                        </td>
-                        <td>
-                            <a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
-                        </td>
-                    </tr>
-                </table>
-                <button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
-        {% endif %}
-                </legend>
+					{% if not validated_category %}
+						<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
+							<button id="validate">Valider la catégorie</button>
+						</a>
+						<br/>
+					{% else %}
+						Catégorie validée !
+					{% endif %}
+				</legend>
+				{% if validated_category %}
+					<table class="modif_category">
+						<tr>
+							<td>
+								<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+							</td>
+							<td>
+								<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
+							</td>
+						</tr>
+					</table>
+					<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
+				{% endif %}
 			</fieldset>
 		</div>
     </fieldset>
