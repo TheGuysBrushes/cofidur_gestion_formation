@@ -28,66 +28,67 @@
     </head>
     <body>
 
-            <section id="wrapper">
-                <header id="header">
-                    <div class="top">
-                        {% block navigation %}
-                            <nav>
-                                <ul class="navigation" id="menu-deroulant">
-                                    <li><a href="{{ path('AppCofidurBundle_homepage') }}">Accueil</a></li>
-                                    {% if is_granted('ROLE_USER') %}
-                                    <li><a href="{{ path('AppCofidurBundle_logout') }}">Déconnexion</a></li>
-                                    {% else %}
-                                    <li><a href="/register">S'enregistrer</a></li>
-                                    {#<li><a href="{{ path('AppCofidurBundle_register') }}">S'enregistrer</a></li>#}
-                                    <li><a href="{{ path('AppCofidurBundle_login') }}">Connexion</a></li>
-                                    {% endif %}
-                                    {% if is_granted('ROLE_USER') %}
-                                    <li><a href="/">Divers</a>
-                                        <ul>
-                                            <li><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></li>
-                                            <li><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></li>
-                                            <li><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formations des Opérateurs</a></li>
-                                            <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
-                                            <li><a href="/_error/404">Test 404</a></li>
-                                            <li><a href="/_error/403">Test 403</a></li>
-                                        </ul>
-                                    </li>
-                                    {% endif %}
-                                    <li><a href="#">Autres</a>
-                                        <ul>
-                                            <li><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></li>
-                                            <li><a href="{{ path('AppCofidurBundle_contact') }}">Contact</a></li>
-                                            {% if is_granted('ROLE_USER') %}
-                                            <li><a href="/profile">Profil</a></li>
-                                            <li><a href="/profile/change-password">Changer de mot de passe</a></li>
-                                            {% endif %}
-                                            {% if is_granted('ROLE_ADMIN') %}
-                                            <li><a href="{{ path('AppCofidurBundle_admin') }}">Admin</a></li>
-                                            {% endif %}
-                                        </ul>
-                                    </li>
+        <section id="wrapper">
+            <header id="header">
+                <div class="top">
+                    {% block navigation %}
+                    <nav>
+                        <ul class="navigation" id="menu-deroulant">
+                            <li><a href="{{ path('AppCofidurBundle_homepage') }}">Accueil</a></li>
+                            {% if is_granted('ROLE_USER') %}
+                            <li><a href="{{ path('AppCofidurBundle_logout') }}">Déconnexion</a></li>
+                            {% else %}
+                            <li><a href="/register">S'enregistrer</a></li>
+                            {#<li><a href="{{ path('AppCofidurBundle_register') }}">S'enregistrer</a></li>#}
+                            <li><a href="{{ path('AppCofidurBundle_login') }}">Connexion</a></li>
+                            {% endif %}
+                            {% if is_granted('ROLE_USER') %}
+                            <li><a href="/">Divers</a>
+                                <ul>
+                                    <li><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></li>
+                                    <li><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></li>
+                                    <li><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formations des Opérateurs</a></li>
+                                    <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
+                                    <li><a href="/_error/404">Test 404</a></li>
+                                    <li><a href="/_error/403">Test 403</a></li>
                                 </ul>
-                            </nav>
-                        {% endblock %}
+                            </li>
+                            {% endif %}
+                            <li><a href="#">Autres</a>
+                                <ul>
+                                    <li><a href="{{ path('AppCofidurBundle_about') }}">A propos</a></li>
+                                    <li><a href="{{ path('AppCofidurBundle_contact') }}">Contact</a></li>
+                                    {% if is_granted('ROLE_USER') %}
+                                    <li><a href="/profile">Profil</a></li>
+                                    <li><a href="/profile/change-password">Changer de mot de passe</a></li>
+                                    {% endif %}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a href="{{ path('AppCofidurBundle_admin') }}">Admin</a></li>
+                                    {% endif %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                    {% endblock %}
+                </div>
+
+                <fieldset class="main_header">
+                    <legend>
+                        <a href="{{ path('AppCofidurBundle_homepage') }}">
+                            <img src="{{ asset('bundles/AppCofidurBundle/images/logoCofidurEMS.png') }}" alt="logo_cofidurEMS">
+                        </a>
+                    </legend>
+                    <div>
+                        <h3>{% block blog_tagline %}Spécialiste des produits et services électroniques depuis un demi-siècle{% endblock %}</h3>
                     </div>
+                </fieldset>
+            </header>
 
-                    <fieldset class="main_header">
-                        <legend>
-                            <a href="{{ path('AppCofidurBundle_homepage') }}">
-                                <img src="{{ asset('bundles/AppCofidurBundle/images/logoCofidurEMS.png') }}" alt="logo_cofidurEMS">
-                            </a>
-                        </legend>
-                        <div>
-                            <h3>{% block blog_tagline %}Spécialiste des produits et services électroniques depuis un demi-siècle{% endblock %}</h3>
-                        </div>
-                    </fieldset>
-                </header>
+            <aside class="sidebar_nav">
+                {% block sidebar_nav %}{% endblock %}
+            </aside>
 
-                <aside class="sidebar_nav">
-                    {% block sidebar_nav %}{% endblock %}
-                </aside>
-
+            <div class="content">
                 <section class="main-col">
                     {% block body %}{% endblock %}
                 </section>
@@ -97,13 +98,14 @@
                     {% block sidebar %}{% endblock sidebar %}
                 </aside>
                 {% endblock sidebar_container %}
+            </div> <!-- Fin content -->
 
-                <div id="footer">
-                    {% block footer %}
-                        Site de gestion du personnel et des formations Cofidur EMS par DAVID, DE LEEUW, GARNIER
-                    {% endblock %}
-                </div>
-            </section>
+            <div id="footer">
+                {% block footer %}
+                Site de gestion du personnel et des formations Cofidur EMS par DAVID, DE LEEUW, GARNIER
+                {% endblock %}
+            </div>
+        </section>
 
         {% block javascripts %}{% endblock %}
     </body>
