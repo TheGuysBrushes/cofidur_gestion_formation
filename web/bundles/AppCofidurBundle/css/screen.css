@@ -215,6 +215,9 @@ th.verticalite > div > span {
 /***   Page operatorformation  ***/
 /*********************************/
 
+.dates.operatorformation, .infos {
+	margin: 9px;
+}
 
 .dates.operatorformation {
 	float: right;
@@ -237,13 +240,9 @@ th.verticalite > div > span {
  	display: none;
 }
 
-.infos.operatorformation, .infos {
-	float: left;
-	margin: 4px;
- 	width : 45%;
-}
+.infos { float: left; }
 
-.infos.operatorformation td { width : 50%}
+.infos.tutor { width : 45%; }
 
 .modif_category { margin-bottom: 2%; }
 

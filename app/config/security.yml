@@ -50,9 +50,10 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin, role: ROLE_ADMIN }
+        # Modifier les droits d'accès de la matrice de compétence par la suite
         - { path: ^/skillMatrix, role: ROLE_USER }
         - { path: ^/formation/show, role: ROLE_USER }
         - { path: ^/formation/, role: ROLE_ADMIN }
-        - { path: ^/formation, role: ROLE_USER }
+        - { path: ^/operator/show, role: ROLE_USER }
+        - { path: ^/operator/, role: ROLE_ADMIN }
         - { path: ^/operatorsformations, role: ROLE_ADMIN }
-        - { path: ^/operator, role: ROLE_USER }
