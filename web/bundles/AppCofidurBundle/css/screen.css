@@ -215,13 +215,6 @@ th.verticalite > div > span {
 /***   Page operatorformation  ***/
 /*********************************/
 
-.infos.operatorformation, .infos {
-	float: left;
-	margin: 4px;
-}
-
-.infos.operatorformation{ width : 45%}
-.infos.operatorformation td{ width : 50%}
 
 .dates.operatorformation {
 	float: right;
@@ -237,17 +230,22 @@ th.verticalite > div > span {
 	font-size: 150%;
 }
 
-.operatorformation_task_tab {
-	margin-bottom: 2%;
-}
+.operatorformation_task_tab { margin-bottom: 2%; }
 
 .infos.operatorformation {
 	margin-bottom: 2%;
+ 	display: none;
 }
 
-.modif_category {
-	margin-bottom: 2%;
+.infos.operatorformation, .infos {
+	float: left;
+	margin: 4px;
+ 	width : 45%;
 }
+
+.infos.operatorformation td { width : 50%}
+
+.modif_category { margin-bottom: 2%; }
 
 /****************/
 /*** BORDERS ****/

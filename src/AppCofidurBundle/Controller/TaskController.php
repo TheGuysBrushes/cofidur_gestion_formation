@@ -17,12 +17,12 @@ class TaskController extends Controller
         $category = $task->getCategory();
         $tasks = $category->getTasks();
 
-        $task_tmp = NULL;
+        $task_tmp = null;
         foreach($tasks as $task_for_tmp)
             if($task_for_tmp->getOrdre() == $ordre-1)
                 $task_tmp = $task_for_tmp;
 
-        if($task_tmp != NULL ){
+        if($task_tmp != null ){
             $task_tmp->setOrdre($ordre);
             $task->setOrdre($ordre-1);
 
@@ -41,12 +41,12 @@ class TaskController extends Controller
         $category = $task->getCategory();
         $tasks = $category->getTasks();
 
-        $task_tmp = NULL;
+        $task_tmp = null;
         foreach($tasks as $task_for_tmp)
             if($task_for_tmp->getOrdre() == $ordre+1)
                 $task_tmp = $task_for_tmp;
 
-        if($task_tmp != NULL ){
+        if($task_tmp != null ){
             $task_tmp->setOrdre($ordre);
             $task->setOrdre($ordre+1);
 

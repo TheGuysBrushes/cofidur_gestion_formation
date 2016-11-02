@@ -11,12 +11,16 @@
 			var details_block= document.getElementById("operatorformation_informations".concat(indice_category));
 			var details_button= document.getElementById("details".concat(indice_category));
 
-			if(details_block.style.display == "none"){
-				details_block.style.display= "block";
-			} else {
+            /*** Rédéfinit le style de la partie des détails ***/
+            /* Si le style a déjà été définit comme "à afficher", on le cache */
+			if(details_block.style.display == "block"){
 				details_block.style.display= "none";
+            /* Si le style n'a pas été redéfinit ou qu'il est définit comme caché, on l'affiche */
+			} else {
+				details_block.style.display= "block";
 			}
 		}
+
 		function validate_task(id_task_button){
 			var task_button= document.getElementById(id_task_button);
 //			task_button.style.display= "none";
@@ -154,7 +158,6 @@
 					</tr>
 
 						{% endif %}
-					</tr>
 					{% endfor %}
 				</table>
 			</div>
@@ -180,17 +183,13 @@
 					</tr>
 					<tr>
 					{% if opeCat.signature != null %}
+						{% set validated_category= true %}
 						<th>ID formateur</th>
 						<td>{{ opeCat.trainer.id }}</td>
 					{% endif %}
 					</tr>
 				</table>
 			</div>
-
-					{% if opeCat.signature != null %}
-						{% set validated_category= true %}
-					{% endif %}
-
 
 			<div>
 				<fieldset>

@@ -15,13 +15,13 @@ class CategoryController extends Controller
         $formation = $category->getFormation();
         $categories = $formation->getCategories();
 
-
-        $cat_tmp = NULL;
-        foreach($categories as $cat_for_tmp)
-            if($cat_for_tmp->getOrdre() == $ordre-1)
+        $cat_tmp = null;
+        foreach ($categories as $cat_for_tmp)
+            if ($cat_for_tmp->getOrdre() == $ordre-1) {
                 $cat_tmp = $cat_for_tmp;
+            }
 
-        if($cat_tmp != NULL ){
+        if ($cat_tmp != null ){
             $cat_tmp->setOrdre($ordre);
             $category->setOrdre($ordre-1);
 

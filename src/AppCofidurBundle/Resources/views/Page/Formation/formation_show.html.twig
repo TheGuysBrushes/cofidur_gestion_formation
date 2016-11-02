@@ -78,23 +78,27 @@
 					</a>
 				</td>
 				<td class="button" rowspan="1">
-					<button class="move up" href="{{ path('AppCofidurBundle_task_up', {'idTask': task.id}) }}">
-						up
-					</button>
+					<a href="{{ path('AppCofidurBundle_task_up', {'idTask': task.id}) }}">
+						<button class="move up">up</button>
+					</a>
 				</td>
 			</tr>
 			<tr>
 				<td class="button" rowspan="1">
-					<button class="move down" href="{{ path('AppCofidurBundle_task_down', {'idTask': task.id}) }}">
-						down
-					</button>
+					<a href="{{ path('AppCofidurBundle_task_down', {'idTask': task.id}) }}">
+						<button class="move down">down</button>
+					</a>
 				</td>
 			</tr>
 			{% endfor %}
 		</table>
 		<br/>
-		<button class="move up" href="{{ path('AppCofidurBundle_category_up', {'idCat': category.id}) }}">up</button>
-		<button class="move down" href="{{ path('AppCofidurBundle_category_down', {'idCat': category.id}) }}">down</button>
+		<a href="{{ path('AppCofidurBundle_category_up', {'idCat': category.id}) }}">
+			<button class="move up">up</button>
+		</a>
+		<a href="{{ path('AppCofidurBundle_category_down', {'idCat': category.id}) }}">
+			<button class="move down">down</button>
+		</a>
 		<br/><br/>
 
 		<a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}">Ajouter une tâche</a>

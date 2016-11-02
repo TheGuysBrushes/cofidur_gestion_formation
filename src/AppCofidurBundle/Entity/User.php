@@ -170,6 +170,6 @@ class User extends BaseUser
      */
     public function getSuperior()
     {
-        return $this->$superior;
+        return $this->superior;
     }
 }
