@@ -34,7 +34,7 @@
                     <nav>
                         {% if is_granted('ROLE_USER') %}
                         <p class="connected navigation">
-                            Connecté en tant que <b> <a href="/operator/show/{{ app.user.id }}">{{ app.user.username }}</a></b>
+                            Connecté en tant que <b> <a href="{{path('AppCofidurBundle_operator_show', {'idOp': app.user.id})}}">{{ app.user.username }}</a></b>
                         </p>
                         {% endif %}
                         <ul class="navigation menu-deroulant">
