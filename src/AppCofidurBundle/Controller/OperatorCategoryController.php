@@ -9,7 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class OperatorCategoryController extends Controller
 {
-
+    /* On n'a pas à ajouter d'OperatorCategory pour l'instant,
+     * si on veut ajouter une nouvelle catégorie dans l'operatorFormation, on en crée une nouvelle
     public function addAction(Request $request, $idOpForm, $idCategory)
     {
         $em = $this->getDoctrine()->getManager();
@@ -40,6 +41,7 @@ class OperatorCategoryController extends Controller
             ['form' => $form->createView()]
         );
     }
+    */
 
     public function deleteAction($idOpForm, $idCategory)
     {

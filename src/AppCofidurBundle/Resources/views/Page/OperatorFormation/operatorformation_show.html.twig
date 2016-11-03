@@ -121,7 +121,9 @@
                 Si la catégorie n'est pas trouvée,
                 on indique que la catégorie n'était pas présent lors de la céeation de l'operatorCategory#}
 			{% if null == opeCat%}
-				<h2 class="error">La catégorie n'était pas présente quand l'opérateur à commencer à la passer</h2>
+				<h2 class="error">La catégorie n'était pas présente quand l'opérateur à commencer à la passer.
+					<a href="{{ path('AppCofidurBundle_operatorformation_add') }}">Faire passer la formation</a>
+				</h2>
 			{#
 				Sinon, affichage de l'avancement de l'opérateur dans la catégorie #}
 			{% else %}
