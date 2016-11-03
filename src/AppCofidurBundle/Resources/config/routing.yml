@@ -193,7 +193,7 @@ AppCofidurBundle_operatorformation_delete:
         id: \d+
 
 AppCofidurBundle_operatorformation_show:
-    path:  /operatorformation/{idOpForm}
+    path:  /operatorformation/show/{idOpForm}
     defaults: { _controller: AppCofidurBundle:OperatorFormation:show }
     requirements:
         methods: GET
