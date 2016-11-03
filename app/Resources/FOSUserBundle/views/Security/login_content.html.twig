@@ -20,6 +20,7 @@
                     <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
                 </td>
             </tr>
+            {#{{ form_row(form.username, {'label': 'security.login.username'}) }}#}
             <tr>
                 <th>
                     <label for="password">{{ 'security.login.password'|trans }}</label>

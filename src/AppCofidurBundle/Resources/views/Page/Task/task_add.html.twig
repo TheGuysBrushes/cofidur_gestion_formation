@@ -4,7 +4,9 @@
     <h1>Ajout d'une tache</h1>
 
     {{ form_start(form) }}
+    {{ form_errors(form) }}
     {{ form_widget(form) }}
+    {# Bouton add ? #}
     {{ form_end(form) }}
 
 {% endblock %}

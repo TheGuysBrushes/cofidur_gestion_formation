@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block body %}
+	<h1>Formation d'un opérateur (FFO)</h1>
+
 	<script type="text/javascript">
 		function show_details(indice_category){
 			var details_block= document.getElementById("operatorformation_informations".concat(indice_category));
@@ -26,8 +28,6 @@
 //			task_button.style.display= "none";
 		}
 	</script>
-
-	<h1>Formation d'un opérateur (FFO)</h1>
 
 	<!--
 		INFORMATIONS SUR LE TUTEUR, L'OPERATEUR ET LES DATES
@@ -104,17 +104,27 @@
 		-->
 		{% for category in operatorformation.formation.categories %}
 			{% set validated_category="" %}
+			{% set opeCat=null %}
+
+			 {# Recherche de la categorie dans l'operatorCategory#}
+			{% for operatorCategory in operatorformation.operatorcategories %}
+				{% if category.id == operatorCategory.category.id %}
+					{% set opeCat= operatorCategory %}
+				{% endif %}
+			{% endfor %}{# fin for operatorCategory #}
+
 		<fieldset class="details category">
 			<legend class="category_title">
 				Catégorie : {{ category.name }}
 			</legend>
-
-			{% for opeCat in operatorformation.operatorcategories %}
-				{% if category.id == opeCat.category.id %}
-
-			<!--
-			Affichage de l'avancement de l'opérateur dans la catégorie -->
-
+			{#
+                Si la catégorie n'est pas trouvée,
+                on indique que la catégorie n'était pas présent lors de la céeation de l'operatorCategory#}
+			{% if null == opeCat%}
+				<h2 class="error">La catégorie n'était pas présente quand l'opérateur à commencer à la passer</h2>
+			{#
+				Sinon, affichage de l'avancement de l'opérateur dans la catégorie #}
+			{% else %}
 			<!-- Tâches de la catégorie -->
 			<div class="operatorformation_task_tab">
 				<table>
@@ -138,7 +148,7 @@
 						</td>
 					</tr>
 							{% endif %}
-						{% endfor %}
+						{% endfor %}{# fin for opeTask #}
 						{% if task_found == 0 %}
 					<tr>
 						<td>
@@ -156,7 +166,7 @@
 					</tr>
 
 						{% endif %}
-					{% endfor %}
+					{% endfor %}{# fin for task #}
 				</table>
 			</div>
 
@@ -220,7 +230,6 @@
 
 					{% set indice_category= indice_category+1 %}
 				{% endif %}
-			{% endfor %}
 		</fieldset>
     {% endfor %}
 

@@ -1,14 +1,15 @@
 {% extends 'AppCofidurBundle::Page/OperatorFormation/operatorformation.html.twig' %}
 
 {% block body %}
+	<h1>Affichage de toutes les formations d'opérateurs</h1>
 
 <script src="{{ asset('bundles/AppCofidurBundle/js/sorttable.js') }}"></script>
 
 <table class="sortable">
 	<tr>
-		<th> ID </th>
-		<th> ID OPERATOR </th>
-		<th> ID FORMATION </th>
+		<th> MATRICULE </th>
+		<th> NOM UTILISATEUR </th>
+		<th> FORMATION </th>
 		<th> DATE DEBUT </th>
 		<th> DATE FIN </th>
 		<th> VALIDATION </th>
@@ -17,9 +18,17 @@
 	</tr>
 {% for operatorformation in operatorsformations %}
 	<tr>
-		<td> <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">{{ operatorformation.id }}</a> </td>
-		<td> {{ operatorformation.operator.firstName }}</td>
-		<td> {{ operatorformation.formation.name }} </td>
+		<td> {{ operatorformation.id }} </td>
+		<td>
+			<a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operatorformation.operator.id}) }}">
+				{{ operatorformation.operator.username }}
+			</a>
+		</td>
+		<td>
+			<a href="{{ path('AppCofidurBundle_formation_show', {'idForm': operatorformation.formation.id}) }}">
+				{{ operatorformation.formation.name }}
+			</a>
+		</td>
 		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>
 		<td> {{ operatorformation.dateEnd|date("m/d/Y") }} </td>
 		<td> 
@@ -41,14 +50,19 @@
 		</td>
 		<td> {{ operatorformation.commentary }} </td>
 		<td> {{ operatorformation.former.firstName}} </td>
-		<td>
-			<a href="{{ path('AppCofidurBundle_operatorformation_edit', {'idOpForm': operatorformation.id}) }}">
-				<button id="edit"> Edit </button>
+		<td class="button">
+			<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">
+				<button class="show">Afficher</button>
 			</a>
 		</td>
-		<td>
+		<td class="button">
+			<a href="{{ path('AppCofidurBundle_operatorformation_edit', {'idOpForm': operatorformation.id}) }}">
+				<button class="edit">Editer</button>
+			</a>
+		</td>
+		<td class="button">
 			<a href="{{ path('AppCofidurBundle_operatorformation_delete', {'idOpForm': operatorformation.id}) }}">
-				<button id="delete">Supprimer</button>
+				<button class="delete">Supprimer</button>
 			</a>
 		</td>
 	</tr>
