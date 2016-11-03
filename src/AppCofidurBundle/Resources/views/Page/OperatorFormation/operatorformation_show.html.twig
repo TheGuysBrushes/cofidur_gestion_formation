@@ -106,7 +106,7 @@
 			{% set validated_category="" %}
 		<fieldset class="details category">
 			<legend class="category_title">
-				Catégorie : {{ category.name }} ({{ category.ordre }})
+				Catégorie : {{ category.name }}
 			</legend>
 
 			{% for opeCat in operatorformation.operatorcategories %}
@@ -120,7 +120,6 @@
 				<table>
 					<tr>
 						<th class="task validation"> </th>
-						<th class="task order">Ordre tache</th>
 						<th class="task name">Nom tache</th>
 					</tr>
 					{% set task_nb= 1 %}
@@ -130,8 +129,7 @@
 							{% if opeTask.task.id == task.id %}
 								{% set task_found= 1 %}
 					<tr>
-						<td><input type="checkbox" name="validated" value="true" checked></td>
-						<td>{{ task.ordre }}</td>
+						<td><input type="checkbox" name="validated" value="true" disabled checked></td>
 						<td>{{ task.name }}</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}">
@@ -144,7 +142,7 @@
 						{% if task_found == 0 %}
 					<tr>
 						<td>
-							<input type="checkbox" name="validated" value="true">
+							<input type="checkbox" name="validated" disabled value="true">
 						</td>
 						<td>{{ task.ordre }}</td>
 						<td>{{ task.name }}</td>

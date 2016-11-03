@@ -2,7 +2,9 @@
 
 {% block body %}
 
-<table>
+<script src="{{ asset('bundles/AppCofidurBundle/js/sorttable.js') }}"></script>
+
+<table class="sortable">
 	<tr>
 		<th> ID </th>
 		<th> ID OPERATOR </th>
@@ -20,7 +22,23 @@
 		<td> {{ operatorformation.formation.name }} </td>
 		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>
 		<td> {{ operatorformation.dateEnd|date("m/d/Y") }} </td>
-		<td> {{ operatorformation.validation }} </td>
+		<td> 
+			{% if operatorformation.validation == 1 %}
+				Formé mais non validé
+			{% endif %}
+			{% if operatorformation.validation == 2 %}
+				En cours
+			{% endif %}
+			{% if operatorformation.validation == 3 %}
+				Prévue
+			{% endif %}
+			{% if operatorformation.validation == 4 %}
+				Validé
+			{% endif %}
+			{% if operatorformation.validation == 0 %}
+				Formateur
+			{% endif %}
+		</td>
 		<td> {{ operatorformation.commentary }} </td>
 		<td> {{ operatorformation.former.firstName}} </td>
 		<td>
