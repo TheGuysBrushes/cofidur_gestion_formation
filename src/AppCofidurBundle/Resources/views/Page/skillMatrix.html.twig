@@ -5,7 +5,7 @@
     <table>
         <tr>
             <th class="text_in_bottom">
-                ID
+                MATRICULE
             </th>
             <th class="text_in_bottom">
                 LAST NAME
@@ -34,13 +34,13 @@
         {% for operator in operators %}
             <tr>
                 <td>
-                    {{ operator.id }}
+                    <a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operator.id}) }}">{{ operator.id }}</a>
                 </td>
                 <td>
-                    {{ operator.lastname }}
+                    <a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operator.id}) }}">{{ operator.lastname }}</a>
                 </td>
                 <td>
-                    {{ operator.firstname }}
+                    <a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operator.id}) }}">{{ operator.firstname }}</a>
                 </td>
                 <td>
                     SUPERIEUR
@@ -54,26 +54,41 @@
                 {% for formation in formations %}
                     {% set caseCompleted = "false" %}
                     {% for formationValidation in formationsValidation %}
-                        {% if ((operator.id == formationValidation[0]) and (formation.id == formationValidation[1])) %}
+                        {% set operatorId= formationValidation[0] %}
+                        {% set formationId= formationValidation[1] %}
+                        {% set validationValue= formationValidation[2] %}
+                        {% set operatorsformationsId= formationValidation[3] %}
+
+                        {% if ((operator.id == operatorId) and (formation.id == formationId)) %}
                             {% if 1 == formationValidation[2] %}
                                 <td class="formedNotValidated">
-                                    {{ formationValidation[2] }}
+                                    <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
+                                        {{ formationValidation[2] }}
+                                    </a>
                                 </td>
                             {% elseif 2 == formationValidation[2] %}
                                 <td class="learningFormation">
-                                    {{ formationValidation[2] }}
+                                    <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
+                                        {{ formationValidation[2] }}
+                                    </a>
                                 </td>
                             {% elseif 3 == formationValidation[2] %}
                                 <td class="futureFormation">
-                                    {{ formationValidation[2] }}
+                                    <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
+                                        {{ formationValidation[2] }}
+                                    </a>
                                 </td>
                             {% elseif 4 == formationValidation[2] %}
                                 <td class="formedValidated">
-                                    {{ formationValidation[2] }}
+                                    <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
+                                        {{ formationValidation[2] }}
+                                    </a>
                                 </td>
                             {% elseif 5 == formationValidation[2] %}
                                 <td class="formedToTeach">
-                                    {{ formationValidation[2] }}
+                                    <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
+                                        {{ formationValidation[2] }}
+                                    </a>
                                 </td>
                             {% endif %}
                             {% set caseCompleted = "true" %}
