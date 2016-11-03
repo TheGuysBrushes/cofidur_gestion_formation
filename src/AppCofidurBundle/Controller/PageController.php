@@ -43,8 +43,9 @@ class PageController extends Controller
             $operatorId= $operatorsformations[$i]->getOperator()->getId();
             $formationId= $operatorsformations[$i]->getFormation()->getId();
             $validation= $operatorsformations[$i]->getValidation();
+            $operatorsformationsId= $operatorsformations[$i]->getId();
 
-            $allconnexions[$i]= [$operatorId, $formationId, $validation];
+            $allconnexions[$i]= [$operatorId, $formationId, $validation, $operatorsformationsId];
         }
 
         return $this->render('AppCofidurBundle:Page:skillMatrix.html.twig', array(
