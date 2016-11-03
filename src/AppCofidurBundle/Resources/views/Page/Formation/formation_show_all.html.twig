@@ -4,7 +4,9 @@
 
 {% block body %}
 
-<table>
+<script src="{{ asset('bundles/AppCofidurBundle/js/sorttable.js') }}"></script>
+
+<table class="sortable">
 	<tr>
 		<th> ID </th>
 		<th> NOM </th>
@@ -18,10 +20,10 @@
 	<tr>
 		<td> {{ formation.id }} </td>
 		<td> {{ formation.name }} </td>
-		<td> {{ formation.type }} </td>
-		<td> {{ formation.goal }} </td>
-		<td> {{ formation.teachingAids }} </td>
-		<td> {{ formation.placesMaterialRessources }} </td>
+		<td title="{{formation.type}}"> {{ formation.type| slice(0,30) }}... </td>
+		<td title="{{formation.goal}}"> {{ formation.goal| slice(0,30)  }}... </td>
+		<td title="{{formation.teachingAids}}"> {{ formation.teachingAids| slice(0,30)  }}... </td>
+		<td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,30)  }}... </td>
 		<td> {{ formation.criticality }} </td>
 		<td><a href="{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}">Afficher</a><br/>
 			<br/>

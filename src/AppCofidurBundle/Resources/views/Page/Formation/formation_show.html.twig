@@ -54,19 +54,17 @@
 			<fieldset class="ecology">
 		{% endif %}
 		<legend class="category_title">
-			Catégorie : {{ category.name }} ({{ category.ordre }})
+			Catégorie : {{ category.name }}
 			<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}">Éditer</a>
 			<a href="{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}">Supprimer</a>
 		</legend>
 		<table class="task_tab">
 			<tr>
 				<th class="task_name">Nom de la tâche</th>
-				<th class="task_order">Ordonnancement de la tâche</th>
 			</tr>
 			{% for task in category.tasks %}
 			<tr>
 				<td rowspan="2" >{{ task.name }}</td>
-				<td rowspan="2" >{{ task.ordre }}</td>
 				<td rowspan="2" >
 					<a href="{{ path('AppCofidurBundle_task_edit', {'idTask': task.id}) }}">
 						Éditer
