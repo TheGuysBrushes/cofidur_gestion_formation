@@ -1,10 +1,13 @@
 {% extends 'AppCofidurBundle::Page/OperatorCategory/operatorcategory.html.twig' %}
 
+// TODO @see faut-il pouvoir afficher une modification d'operatorCategory ?
 {% block body %}
+    <h1>Modification d'une catégorie de tâche dans l'opérateur</h1>
 
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
 
 {% endblock %}
 
