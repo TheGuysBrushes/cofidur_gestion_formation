@@ -26,7 +26,7 @@ class OperatorController extends Controller
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
-            'operatorformation' => $operatorsFormations
+            'operatorsformations' => $operatorsFormations
         ));
     }
 

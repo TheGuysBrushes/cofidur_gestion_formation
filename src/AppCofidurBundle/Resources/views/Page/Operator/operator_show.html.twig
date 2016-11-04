@@ -80,23 +80,23 @@
 						</tr>
 						<tr>
 							<th class="entete_category">Type</th>
-							<td>{{ operatorformation.formation.type }} </td>
+							<td title="{{ operatorformation.formation.type }}">{{ operatorformation.formation.type| slice(0,30) }}... </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Objectif</th>
-							<td>{{ operatorformation.formation.goal }} </td>
+							<td title="{{ operatorformation.formation.goal }}">{{ operatorformation.formation.goal| slice(0,30) }}... </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Moyens pédagogiques</th>
-							<td>{{ operatorformation.formation.teachingAids }} </td>
+							<td title="{{ operatorformation.formation.teachingAids }}">{{ operatorformation.formation.teachingAids| slice(0,30) }}... </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Lieu & moyens matériels</th>
-							<td>{{ operatorformation.formation.placesMaterialRessources }} </td>
+							<td title="{{ operatorformation.formation.placesMaterialRessources }}">{{ operatorformation.formation.placesMaterialRessources| slice(0,30) }}... </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Criticité</th>
-							<td>{{ operator	formation.formation.criticality }} </td>
+							<td>{{ operatorformation.formation.criticality }} </td>
 						</tr>
 					</table>
 				</fieldset>
