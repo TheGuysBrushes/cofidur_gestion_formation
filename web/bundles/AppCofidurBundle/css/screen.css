@@ -291,23 +291,23 @@ th.verticalite > div > span {
 	Etat des formations
 */
 .formedNotValidated_formation_sumup {
-	border-color: #F48A00;
+	border: solid 5px #F48A00;
 }
 
 .learningFormation_formation_sumup {
-	border-color: #C82829;
+	border: solid 5px #C82829;
 }
 
 .futureFormation_formation_sumup {
-	border-color: #0088CC;
+	border: solid 5px #0088CC;
 }
 
 .formedValidated_formation_sumup {
-	border-color: #629755;
+	border: solid 5px #629755;
 }
 
 .formedToTeach_formation_sumup {
-	border-color: #ffcc00;
+	border: solid 5px #ffcc00;
 }
 
 .ope_formations_array {
