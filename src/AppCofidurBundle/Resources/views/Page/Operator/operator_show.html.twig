@@ -23,7 +23,7 @@
 	</tr>
 </table>
 
-{% if operatorformation %}
+{% if operatorsformations %}
 	<h3>Légende des couleurs des cadres :</h3>
 	<table class="color_legend">
 		<tr>
@@ -47,57 +47,56 @@
 <h2>Cet opérateur suit les formations suivantes :</h2>
 <table class="ope_formations_array">
 	{% set sautdeligne= 0 %}
-	{% for formation in operatorformation %}
+	{% for operatorformation in operatorsformations %}
 		{% if sautdeligne is even %}
 			<tr>
 		{% endif %}
 
 		<td class="ope_formations_array_elem">
-			{% if 1 == formation.validation %}
+			{% if 1 == operatorformation.validation %}
 				<fieldset class="formedNotValidated_formation_sumup">
-			{% elseif 2 == formation.validation %}
+			{% elseif 2 == operatorformation.validation %}
 				<fieldset class="learningFormation_formation_sumup">
-			{% elseif 3 == formation.validation %}
+			{% elseif 3 == operatorformation.validation %}
 				<fieldset class="futureFormation_formation_sumup">
-			{% elseif 4 == formation.validation %}
+			{% elseif 4 == operatorformation.validation %}
 				<fieldset class="formedValidated_formation_sumup">
-			{% elseif 5 == formation.validation %}
+			{% elseif 5 == operatorformation.validation %}
 				<fieldset class="formedToTeach_formation_sumup">
 			{% else %}
 				<fieldset>
 			{% endif %}
-
 					<legend class="ope_formations_array_elem_legend">
-						<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': formation.id}) }}">Détails de la formation</a>
+						<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">Détails de la formation</a>
 					</legend>
 					<table class="category_page">
 						<tr>
 							<th class="entete_category">ID</th>
-							<td>{{ formation.formation.id }} </td>
+							<td>{{ operatorformation.formation.id }} </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Nom</th>
-							<td>{{ formation.formation.name }} </td>
+							<td>{{ operatorformation.formation.name }} </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Type</th>
-							<td>{{ formation.formation.type }} </td>
+							<td>{{ operatorformation.formation.type }} </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Objectif</th>
-							<td>{{ formation.formation.goal }} </td>
+							<td>{{ operatorformation.formation.goal }} </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Moyens pédagogiques</th>
-							<td>{{ formation.formation.teachingAids }} </td>
+							<td>{{ operatorformation.formation.teachingAids }} </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Lieu & moyens matériels</th>
-							<td>{{ formation.formation.placesMaterialRessources }} </td>
+							<td>{{ operatorformation.formation.placesMaterialRessources }} </td>
 						</tr>
 						<tr>
 							<th class="entete_category">Criticité</th>
-							<td>{{ formation.formation.criticality }} </td>
+							<td>{{ operator	formation.formation.criticality }} </td>
 						</tr>
 					</table>
 				</fieldset>
