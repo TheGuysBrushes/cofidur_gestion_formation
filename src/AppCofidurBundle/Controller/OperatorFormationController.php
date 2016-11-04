@@ -52,14 +52,14 @@ class OperatorFormationController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $operatorsformations = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
+        $operatorformation = $em->getRepository('AppCofidurBundle:OperatorFormation')->find($idOpForm);
 
-        if (!$operatorsformations) {
+        if (!$operatorformation) {
             throw $this->createNotFoundException('Pas d\'objet');
         }
 
         return $this->render('AppCofidurBundle:Page/OperatorFormation:operatorformation_show.html.twig', array(
-            'operatorsformations'     => $operatorsformations,
+            'operatorformation'     => $operatorformation,
         ));
     }
 
