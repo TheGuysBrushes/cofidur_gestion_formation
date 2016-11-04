@@ -141,8 +141,8 @@
 							{% if opeTask.task.id == task.id %}
 								{% set task_found= 1 %}
 					<tr>
-						<td><input type="checkbox" name="validated" value="true" disabled checked></td>
-						<td>{{ task.name }}</td>
+						<td><input type="checkbox" name="validated" disabled checked></td>
+						<td class="large">{{ task.name }}</td>
 						<td>
 							<a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}">
 								Invalider tâche
@@ -154,10 +154,9 @@
 						{% if task_found == 0 %}
 					<tr>
 						<td>
-							<input type="checkbox" name="validated" disabled value="true">
+							<input type="checkbox" name="validated" disabled>
 						</td>
-						<td>{{ task.ordre }}</td>
-						<td>{{ task.name }}</td>
+						<td class="large">{{ task.name }}</td>
 						<td>
 							<div class="task_validator">
 								<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
@@ -239,3 +238,5 @@
 	<br/>
 
 {% endblock %}
+
+{% block sidebar_container %}{% endblock %}
