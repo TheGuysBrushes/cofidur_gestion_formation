@@ -3,7 +3,10 @@
 {% block title %}A propos{% endblock%}
 
 {% block body %}
-    <h1>A propos</h1>
+    <fieldset>
+        <legend>
+            <h1>A propos</h1>
+        </legend>
         <p>
             Ce site est une preuve de faisabilité pour informatiser la gestion RH du groupe Cofidur EMS. <br>
             <br>
@@ -17,5 +20,5 @@
             <br>
             Contact : <a href="{{path('AppCofidurBundle_contact')}}">ici</a>
         </p>
-    </article>
+    </fieldset>
 {% endblock %}
