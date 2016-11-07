@@ -334,3 +334,11 @@ th.verticalite > div > span {
 	display: block;
 	text-align: center;
 }
+
+.contact_fieldset > legend {
+	text-align: center;
+}
+
+.contact_fieldset {
+	border: 3px solid black;
+}
