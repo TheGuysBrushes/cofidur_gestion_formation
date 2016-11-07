@@ -10,13 +10,13 @@
 
 <table>
 	<tr>
-        <th> ID </th>
+        {#<th> ID </th>#}
         <th> PRENOM </th>
         <th> NOM </th>
 		 <th> DATE DE NAISSANCE </th>
 	</tr>
 	<tr>
-		<td> {{ operator.id }} </td>
+		{#<td> {{ operator.id }} </td>#}
         <td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
         <td> {{ operator.dateOfBirth |date("d/m/Y")  }} </td>
@@ -70,10 +70,10 @@
 						<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">Détails de la formation</a>
 					</legend>
 					<table class="category_page">
-						<tr>
-							<th class="entete_category">ID</th>
-							<td>{{ operatorformation.formation.id }} </td>
-						</tr>
+						{#<tr>#}
+							{#<th class="entete_category">ID</th>#}
+							{#<td>{{ operatorformation.formation.id }} </td>#}
+						{#</tr>#}
 						<tr>
 							<th class="entete_category">Nom</th>
 							<td>{{ operatorformation.formation.name }} </td>
@@ -86,14 +86,14 @@
 							<th class="entete_category">Objectif</th>
 							<td title="{{ operatorformation.formation.goal }}">{{ operatorformation.formation.goal| slice(0,30) }}... </td>
 						</tr>
-						<tr>
-							<th class="entete_category">Moyens pédagogiques</th>
-							<td title="{{ operatorformation.formation.teachingAids }}">{{ operatorformation.formation.teachingAids| slice(0,30) }}... </td>
-						</tr>
-						<tr>
-							<th class="entete_category">Lieu & moyens matériels</th>
-							<td title="{{ operatorformation.formation.placesMaterialRessources }}">{{ operatorformation.formation.placesMaterialRessources| slice(0,30) }}... </td>
-						</tr>
+						{#<tr>#}
+							{#<th class="entete_category">Moyens pédagogiques</th>#}
+							{#<td title="{{ operatorformation.formation.teachingAids }}">{{ operatorformation.formation.teachingAids| slice(0,30) }}... </td>#}
+						{#</tr>#}
+						{#<tr>#}
+							{#<th class="entete_category">Lieu & moyens matériels</th>#}
+							{#<td title="{{ operatorformation.formation.placesMaterialRessources }}">{{ operatorformation.formation.placesMaterialRessources| slice(0,30) }}... </td>#}
+						{#</tr>#}
 						<tr>
 							<th class="entete_category">Criticité</th>
 							<td>{{ operatorformation.formation.criticality }} </td>
@@ -139,10 +139,10 @@
 											<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': supervisedFormation.id}) }}">Détails de la formation</a>
 										</legend>
 										<table class="category_page">
-											<tr>
-												<th class="entete_category">ID</th>
-												<td>{{ supervisedFormation.formation.id }} </td>
-											</tr>
+											{#<tr>#}
+												{#<th class="entete_category">ID</th>#}
+												{#<td>{{ supervisedFormation.formation.id }} </td>#}
+											{#</tr>#}
 											<tr>
 												<th class="entete_category">Nom</th>
 												<td>{{ supervisedFormation.formation.name }} </td>
@@ -155,14 +155,14 @@
 												<th class="entete_category">Objectif</th>
 												<td title="{{ supervisedFormation.formation.goal }}">{{ supervisedFormation.formation.goal| slice(0,30) }}... </td>
 											</tr>
-											<tr>
-												<th class="entete_category">Moyens pédagogiques</th>
-												<td title="{{ supervisedFormation.formation.teachingAids }}">{{ supervisedFormation.formation.teachingAids| slice(0,30) }}... </td>
-											</tr>
-											<tr>
-												<th class="entete_category">Lieu & moyens matériels</th>
-												<td title="{{ supervisedFormation.formation.placesMaterialRessources }}">{{ supervisedFormation.formation.placesMaterialRessources| slice(0,30) }}... </td>
-											</tr>
+											{#<tr>#}
+												{#<th class="entete_category">Moyens pédagogiques</th>#}
+												{#<td title="{{ supervisedFormation.formation.teachingAids }}">{{ supervisedFormation.formation.teachingAids| slice(0,30) }}... </td>#}
+											{#</tr>#}
+											{#<tr>#}
+												{#<th class="entete_category">Lieu & moyens matériels</th>#}
+												{#<td title="{{ supervisedFormation.formation.placesMaterialRessources }}">{{ sueprvisedFormation.formation.placesMaterialRessources| slice(0,30) }}... </td>#}
+											{#</tr>#}
 											<tr>
 												<th class="entete_category">Criticité</th>
 												<td>{{ supervisedFormation.formation.criticality }} </td>
