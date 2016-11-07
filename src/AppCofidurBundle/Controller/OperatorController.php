@@ -22,11 +22,12 @@ class OperatorController extends Controller
         }
 
         $operatorsFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findBy(array('operator' => $operator));
-
+        $supervisedFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findBy(array('former' => $operator));
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
-            'operatorsformations' => $operatorsFormations
+            'operatorsformations' => $operatorsFormations,
+            'supervisedFormations' => $supervisedFormations
         ));
     }
 
