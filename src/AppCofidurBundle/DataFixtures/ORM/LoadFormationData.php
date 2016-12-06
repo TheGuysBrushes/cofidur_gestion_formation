@@ -1,0 +1,194 @@
+<?php
+namespace AppCofidurBundle\DataFixtures\ORM;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use AppCofidurBundle\Entity\Formation;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+class LoadFormationData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface{
+
+        public function setContainer(ContainerInterface $container = null){
+                $this->container = $container;
+        }
+
+	public function load(ObjectManager $manager){
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Cablage");
+                $manager->persist($formation);
+
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Collage MIDS");
+                $manager->persist($formation);
+
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Contrôle AOI + CLUSO + XPRESS");
+                $manager->persist($formation);
+
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Devitalisation");
+                $manager->persist($formation);
+                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Etuvage PCB");
+                $manager->persist($formation);
+                             
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");   
+                $formation->setName("Insertion CIF");
+                $manager->persist($formation);
+                               
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels"); 
+                $formation->setName("Masquage");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("MDV");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Pilotage machine depot colle GL");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Pilotage machine report CMS");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Potting-Enrobage");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Reparateur CIFx");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Retouches manuelles  CMS");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("test fonctionnel cartes Nodes chassis Suchard ONLINEl");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Test fonctionnel Nodes");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Test INSITU à sondes mobiles et station fixe");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Test JTAG");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Test OK _ NOK");
+                $manager->persist($formation);
+                                
+                $formation = new Formation();
+                $formation->setCriticality(1);
+                $formation->setGoal("Objectif");
+                $formation->setType("Type");
+                $formation->setTeachingAids("Aide pour l'apprentissage");
+                $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
+                $formation->setName("Test Pre-calibration carte FDU508 DIAMANT");
+                $manager->persist($formation);
+                
+		$manager->flush();
+	}
+
+        public function getOrder(){
+                return 1;
+        }
+}

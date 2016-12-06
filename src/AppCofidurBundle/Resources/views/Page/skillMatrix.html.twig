@@ -6,7 +6,7 @@
     <table class="sortable">
         <tr>
             <th class="text_in_bottom">
-                MATRICULE
+                Matricule
             </th>
             <th class="text_in_bottom">
                 Nom
@@ -15,18 +15,21 @@
                 Prénom
             </th>
             <th class="text_in_bottom">
-                SUPERIEUR
+                Superieur N+1
+            </th>            
+            <th class="text_in_bottom">
+                Superieur N+2
             </th>
-            <th class="verticalite">
+            <th class="text_in_bottom">
                 <div>
-                    <span>COFIDUR / INTERIM</span>
+                    <span>Statut</span>
                 </div>
             </th>
 
             <!-- Tous les types de formations -->
             {% for formation in formations %}
-                <th class="verticalite">
-                    <div>{{ formation.name }}</div>
+                <th class="verticalite" title="{{formation.name}}">
+                    <div>{{ formation.name| slice(0,15) }}...</div>
                 </th>
             {% endfor %}
 
@@ -44,7 +47,11 @@
                     <a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operator.id}) }}">{{ operator.firstname }}</a>
                 </td>
                 <td>
-                    SUPERIEUR
+                    SUP+1
+                    {#<!-- {{operator.superior.username}} -->#}
+                </td>
+                <td>
+                    SUP+2
                     {#<!-- {{operator.superior.username}} -->#}
                 </td>
                 <td>
