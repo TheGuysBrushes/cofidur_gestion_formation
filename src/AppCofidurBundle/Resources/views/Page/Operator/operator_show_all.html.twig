@@ -24,8 +24,17 @@
 		<td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
          <td> {{ operator.dateOfBirth |date("d/m/Y") }} </td>
-		<td> <a href="{{ path('AppCofidurBundle_operator_edit',     {'idOp': operator.id}) }}">Editer</a>
-		<td> <a href="{{ path('AppCofidurBundle_operator_delete',   {'idOp': operator.id}) }}">Supprimer</a>
+		<td>
+			<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_operator_edit', {'idOp': operator.id}) }}'}">
+		</td>
+		<td>
+			<input type="button" value="Supprimer"
+				   onclick="if(confirm('Supprimer l\'operateur?')){
+						   window.location.href='{{ path('AppCofidurBundle_operator_delete', {'idOp': operator.id}) }}'
+						   } else {
+						   alert('Suppression annulée');
+						   }">
+		</td>
 	</tr>
 {% endfor %}
 </table>

@@ -33,12 +33,21 @@
 		<td title="{{formation.teachingAids}}"> {{ formation.teachingAids| slice(0,30)  }}... </td>
 		<td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,30)  }}... </td>
 		<td> {{ formation.criticality }} </td>
-		<td><a href="{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}">Afficher</a><br/>
+		<td>
+			<input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">
+			<br/>
 			<br/>
 			{% if is_granted('ROLE_ADMIN') %}
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Editer</a><br/>
+				<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}'}">
 				<br/>
-				<a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a><br/>
+				<br/>
+				<input type="button" value="Supprimer"
+					   onclick="if(confirm('Supprimer la catégorie ?')){
+							   window.location.href='{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}'
+							   } else {
+							   alert('Suppression annulée');
+							   }">
+				<br/>
 				<br/>
 			{% elseif is_granted('ROLE_USER') %}
 				<button id="wanted_formation_button{{ nb_formation }}" onclick="wanted_formation(this.id, {{ formation.id }})">

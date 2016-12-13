@@ -27,6 +27,20 @@
 			var task_button= document.getElementById(id_task_button);
 //			task_button.style.display= "none";
 		}
+
+		{#function validation_box(opeform_id, cat_id, custom_anchor){#}
+			{#var operatorcat_id= document.getElementById(opeform_id);#}
+			{#if(confirm('Valider la catégorie ?')){#}
+				{#alert('opeform_id');#}
+				{#<a href="{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': opeform_id, 'idCategory': cat_id}) }}#custom_anchor$cat_id">#}
+					{#Blabla#}
+				{#</a>#}
+				{#return true;#}
+			{#} else {#}
+				{#alert($cat_id);#}
+				{#return false;#}
+			{#}#}
+		{#}#}
 	</script>
 
 	<!--
@@ -205,9 +219,16 @@
 					<legend>
 
 						{% if not validated_category %}
-							<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id }}">
-								<button id="validate">Valider la catégorie</button>
-							</a>
+							{% set custom_anchor_base= "fieldset_opecat_" %}
+							{#<input type="button" value="Valider la catégorie" onclick="validation_box(operatorformation.id, category.id, {{ custom_anchor_base }})">#}
+							{#<input type="button" value="Valider la catégorie" onclick="if(validation_box(operatorformation.id, category.id, {{ custom_anchor_base }})){}">#}
+							<input type="button" value="Valider la catégorie"
+								   onclick="if(confirm('Valider la catégorie ?')){
+								   	window.location.href='{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': operatorformation.id, 'idCategory': category.id })}}'
+										   } else {
+								   	alert('Validation annulée');
+								   }">
+
 							<br/>
 						{% else %}
 							Catégorie validée !
