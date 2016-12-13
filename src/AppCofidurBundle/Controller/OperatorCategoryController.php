@@ -1,9 +1,8 @@
 <?php
 namespace AppCofidurBundle\Controller;
 
-/*
 use AppCofidurBundle\Entity\OperatorCategory;
-*/
+
 use AppCofidurBundle\Form\Type\OperatorCategoryType;
 
 use Symfony\Component\HttpFoundation\Request;

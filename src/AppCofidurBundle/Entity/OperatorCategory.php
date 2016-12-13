@@ -3,6 +3,7 @@
 namespace AppCofidurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * OperatorCategory
@@ -207,17 +208,17 @@ class OperatorCategory
      */
     public function __construct()
     {
-        $this->operatortasks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->operatortasks = new ArrayCollection();
     }
 
     /**
      * Set operatorformation
      *
-     * @param \AppCofidurBundle\Entity\OperatorFormation $operatorformation
+     * @param OperatorFormation $operatorformation
      *
      * @return OperatorCategory
      */
-    public function setOperatorformation(\AppCofidurBundle\Entity\OperatorFormation $operatorformation = null)
+    public function setOperatorformation(OperatorFormation $operatorformation = null)
     {
         $this->operatorformation = $operatorformation;
 
@@ -227,7 +228,7 @@ class OperatorCategory
     /**
      * Get operatorformation
      *
-     * @return \AppCofidurBundle\Entity\OperatorFormation
+     * @return OperatorFormation
      */
     public function getOperatorformation()
     {
@@ -237,11 +238,11 @@ class OperatorCategory
     /**
      * Add operatortask
      *
-     * @param \AppCofidurBundle\Entity\OperatorTasks $operatortask
+     * @param OperatorTask $operatortask
      *
      * @return OperatorCategory
      */
-    public function addOperatortask(\AppCofidurBundle\Entity\OperatorTasks $operatortask)
+    public function addOperatortask(OperatorTask $operatortask)
     {
         $this->operatortasks[] = $operatortask;
 
@@ -251,9 +252,9 @@ class OperatorCategory
     /**
      * Remove operatortask
      *
-     * @param \AppCofidurBundle\Entity\OperatorTasks $operatortask
+     * @param OperatorTask $operatortask
      */
-    public function removeOperatortask(\AppCofidurBundle\Entity\OperatorTasks $operatortask)
+    public function removeOperatortask(OperatorTask $operatortask)
     {
         $this->operatortasks->removeElement($operatortask);
     }
