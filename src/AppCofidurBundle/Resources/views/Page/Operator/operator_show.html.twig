@@ -57,19 +57,23 @@
 		{% endif %}
 
 		<td class="ope_formations_array_elem">
+			<fieldset 
 			{% if 1 == operatorformation.validation %}
-				<fieldset class="formedNotValidated_formation_sumup">
-			{% elseif 2 == operatorformation.validation %}
-				<fieldset class="learningFormation_formation_sumup">
-			{% elseif 3 == operatorformation.validation %}
-				<fieldset class="futureFormation_formation_sumup">
-			{% elseif 4 == operatorformation.validation %}
-				<fieldset class="formedValidated_formation_sumup">
-			{% elseif 5 == operatorformation.validation %}
-				<fieldset class="formedToTeach_formation_sumup">
-			{% else %}
-				<fieldset>
-			{% endif %}
+				 class="formedNotValidated_formation_sumup"
+            {% endif %}
+			{% if 2 == operatorformation.validation %}
+				 class="learningFormation_formation_sumup"
+            {% endif %}
+			{% if 3 == operatorformation.validation %}
+				 class="futureFormation_formation_sumup"
+            {% endif %}
+			{% if 4 == operatorformation.validation %}
+				 class="formedValidated_formation_sumup"
+            {% endif %}
+			{% if 5 == operatorformation.validation %}
+				 class="formedToTeach_formation_sumup"
+            {% endif %}
+            >
 					<legend class="ope_formations_array_elem_legend">
 						<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">Détails de la formation</a>
 					</legend>
@@ -130,19 +134,23 @@
 			{% endif %}
 
 			<td class="ope_formations_array_elem">
+				<fieldset
 				{% if 1 == supervisedFormation.validation %}
-				<fieldset class="formedNotValidated_formation_sumup">
-					{% elseif 2 == supervisedFormation.validation %}
-					<fieldset class="learningFormation_formation_sumup">
-						{% elseif 3 == supervisedFormation.validation %}
-						<fieldset class="futureFormation_formation_sumup">
-							{% elseif 4 == supervisedFormation.validation %}
-							<fieldset class="formedValidated_formation_sumup">
-								{% elseif 5 == supervisedFormation.validation %}
-								<fieldset class="formedToTeach_formation_sumup">
-									{% else %}
-									<fieldset>
-										{% endif %}
+					 class="formedNotValidated_formation_sumup"
+				{% endif %}
+				{% if 2 == supervisedFormation.validation %}
+					 class="learningFormation_formation_sumup"
+				{% endif %}
+				{% if 3 == supervisedFormation.validation %}
+					class="futureFormation_formation_sumup"
+				{% endif %}
+				{% if 4 == supervisedFormation.validation %}
+					 class="formedValidated_formation_sumup"
+				{% endif %}
+				{% if 5 == supervisedFormation.validation %}
+					 class="formedToTeach_formation_sumup"
+				{% endif %}
+				>
 										<legend class="ope_formations_array_elem_legend">
 											<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': supervisedFormation.id}) }}">Détails de la formation</a>
 										</legend>
