@@ -2,8 +2,6 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\User;
-use AppCofidurBundle\Entity\OperatorFormation;
-
 use AppCofidurBundle\Form\Type\OperatorType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
