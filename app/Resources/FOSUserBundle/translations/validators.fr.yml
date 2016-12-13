@@ -26,4 +26,3 @@ fos_user:
 fos_group:
     name:
         already_used: 'Le nom est déjà utilisé'
-        

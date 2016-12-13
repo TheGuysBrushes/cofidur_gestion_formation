@@ -8,6 +8,7 @@
 /app/spool/*
 
 # Cache, session files and logs (Symfony3)
+*.cache
 /var/cache/*
 /var/logs/*
 /var/sessions/*
@@ -47,6 +48,11 @@
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
 
+# Sensitive configuration files (generated)
+app/config/parameters.yml
+web/config.php
+
 #PHP Storm
-.idea/workspace.xml*
+.idea/*
 src/.idea/workspace.xml
+!.idea/cofidur_gestion_formation.iml

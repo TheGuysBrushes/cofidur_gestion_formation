@@ -2,12 +2,7 @@
 
 namespace AppCofidurBundle\Controller;
 
-use AppCofidurBundle\Entity\User;
-use AppCofidurBundle\Entity\Formation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class PageController extends Controller
 {
@@ -38,20 +33,22 @@ class PageController extends Controller
         $formations = $em->getRepository('AppCofidurBundle:Formation')->findAll();
         $operators= $em->getRepository('AppCofidurBundle:User')->findAll();
         $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
-        $allconnexions= [];
-        for ($i= 0; $i < count($operatorsformations); ++$i) {
+        $allConnexions= [];
+
+        $nbOperatorFormations = count($operatorsformations);
+        for ($i= 0; $i < $nbOperatorFormations; ++$i) {
             $operatorId= $operatorsformations[$i]->getOperator()->getId();
             $formationId= $operatorsformations[$i]->getFormation()->getId();
             $validation= $operatorsformations[$i]->getValidation();
             $operatorsformationsId= $operatorsformations[$i]->getId();
 
-            $allconnexions[$i]= [$operatorId, $formationId, $validation, $operatorsformationsId];
+            $allConnexions[$i]= [$operatorId, $formationId, $validation, $operatorsformationsId];
         }
 
         return $this->render('AppCofidurBundle:Page:skillMatrix.html.twig', array(
             'formations'      => $formations,
             'operators'       => $operators,
-            'formationsValidation'         => $allconnexions,
+            'formationsValidation'         => $allConnexions,
         ));
     }
 }

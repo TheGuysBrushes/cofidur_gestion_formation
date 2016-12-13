@@ -2,6 +2,7 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\OperatorCategory;
+
 use AppCofidurBundle\Form\Type\OperatorCategoryType;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -69,12 +70,6 @@ class OperatorCategoryController extends Controller
         $operatorcategory->setDateSignature(null);
         $operatorcategory->setTrainer(null);
         $operatorcategory->setNbHours(null);
-
-        /*$operatortask=$em->getRepository('AppCofidurBundle:OperatorTask')
-                        ->findBy(array('operatorcategory'=>$operatorcategory));
-        foreach($operatortask as $op_task){
-            $em->remove($op_task);
-        }*/
 
         $em->flush();
 

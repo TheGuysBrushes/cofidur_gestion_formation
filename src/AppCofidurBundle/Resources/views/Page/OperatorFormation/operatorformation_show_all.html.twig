@@ -52,19 +52,18 @@
 		<td> {{ operatorformation.commentary }} </td>
 		<td> {{ operatorformation.former.firstName}} </td>
 		<td class="button">
-			<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">
-				<button class="show">Afficher</button>
-			</a>
+			<input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}'}">
 		</td>
 		<td class="button">
-			<a href="{{ path('AppCofidurBundle_operatorformation_edit', {'idOpForm': operatorformation.id}) }}">
-				<button class="edit">Editer</button>
-			</a>
+			<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_operatorformation_edit', {'idOpForm': operatorformation.id}) }}'}">
 		</td>
 		<td class="button">
-			<a href="{{ path('AppCofidurBundle_operatorformation_delete', {'idOpForm': operatorformation.id}) }}">
-				<button class="delete">Supprimer</button>
-			</a>
+			<input type="button" value="Supprimer"
+				   onclick="if(confirm('Supprimer la catégorie ?')){
+						   window.location.href='{{ path('AppCofidurBundle_operatorformation_delete', {'idOpForm': operatorformation.id}) }}'
+						   } else {
+						   alert('Suppression annulée');
+						   }">
 		</td>
 	</tr>
 {% endfor %}

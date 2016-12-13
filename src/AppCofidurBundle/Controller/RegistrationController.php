@@ -1,11 +1,7 @@
 <?php
 namespace AppCofidurBundle\Controller;
 
-use AppCofidurBundle\Entity\Operator;
-use AppCofidurBundle\Form\Type\RegistrationType;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\UserBundle\Controller\RegistrationController as BaseController;
-use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseController
 {

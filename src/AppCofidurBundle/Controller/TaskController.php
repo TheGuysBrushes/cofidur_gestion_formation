@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class TaskController extends Controller
 {
 
-    public function upAction($idTask){
+    private function changeOrdre($idTask, $delta_ordre) {
         $em = $this->getDoctrine()->getManager();
         $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
         $ordre = $task->getOrdre();
@@ -18,13 +18,14 @@ class TaskController extends Controller
         $tasks = $category->getTasks();
 
         $task_tmp = null;
-        foreach($tasks as $task_for_tmp)
-            if($task_for_tmp->getOrdre() == $ordre-1)
+        foreach($tasks as $task_for_tmp) {
+            if($task_for_tmp->getOrdre() == $ordre + $delta_ordre)
                 $task_tmp = $task_for_tmp;
+        }
 
-        if($task_tmp != null ){
+        if($task_tmp !== null ) {
             $task_tmp->setOrdre($ordre);
-            $task->setOrdre($ordre-1);
+            $task->setOrdre($ordre + $delta_ordre);
 
             $em->persist($task);
             $em->persist($task_for_tmp);
@@ -34,29 +35,12 @@ class TaskController extends Controller
         return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
     }
 
+    public function upAction($idTask){
+        return $this->changeOrdre($idTask, +1);
+    }
+
     public function downAction($idTask){
-         $em = $this->getDoctrine()->getManager();
-        $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
-        $ordre = $task->getOrdre();
-        $category = $task->getCategory();
-        $tasks = $category->getTasks();
-
-        $task_tmp = null;
-        foreach($tasks as $task_for_tmp)
-            if($task_for_tmp->getOrdre() == $ordre+1)
-                $task_tmp = $task_for_tmp;
-
-        if($task_tmp != null ){
-            $task_tmp->setOrdre($ordre);
-            $task->setOrdre($ordre+1);
-
-            $em->persist($task);
-            $em->persist($task_for_tmp);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $category->getFormation()->getId()));
-
+        return $this->changeOrdre($idTask, -1);
     }
 
 
@@ -69,7 +53,6 @@ class TaskController extends Controller
         $task->setOrdre(sizeof($category->getTasks()));
 
         $form = $this->createForm(TaskType::class, $task);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -93,7 +76,6 @@ class TaskController extends Controller
     public function deleteAction(Request $request, $idTask)
     {
         $em = $this->getDoctrine()->getManager();
-
         $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
 
         if (!$task) {
@@ -112,9 +94,7 @@ class TaskController extends Controller
     public function editAction(Request $request, $idTask)
     {
         $em = $this->getDoctrine()->getManager();
-
         $task = $em->getRepository('AppCofidurBundle:Task')->find($idTask);
-
         $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
