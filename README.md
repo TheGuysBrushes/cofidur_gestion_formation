@@ -1,6 +1,6 @@
-# cofidur_gestion_formation
+# Application web de gestion des formations de Cofidur EMS
 Création d'un outil de gestion des formations de l'entreprise Cofidur (projet annuel M2 SILI)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f8744b5c39a7407a965fe3c1b7851c78)](https://www.codacy.com/app/flodavid/cofidur_gestion_formation?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TheGuysBrushes/cofidur_gestion_formation&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f8744b5c39a7407a965fe3c1b7851c78)](https://www.codacy.com/app/flodavid/cofidur_gestion_formation?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TheGuysBrushes/cofidur_gestion_formation&amp;utm_campaign=Badge_Grade) [![SensioLabsInsight](https://insight.sensiolabs.com/projects/cc5f88fb-2df6-438d-99f2-bea76cbb2653/mini.png)](https://insight.sensiolabs.com/projects/cc5f88fb-2df6-438d-99f2-bea76cbb2653)
 ---
 
 ##Choix des technologies
@@ -57,3 +57,5 @@ Les fichiers controlleurs sont accessibles dans :
 - [ ] Ajout des nouvelles compétences disponibles après l'ajout d'une nouvelle formation
 - [ ] Actualisation de la matrice des compétences suite à la validation d'une formation
 - [ ] Proposition de formation lorsqu'une compétence va venir à manquer (message à envoyer à l'administrateur à propos des départs en retraite proches)
+
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/cc5f88fb-2df6-438d-99f2-bea76cbb2653/big.png)](https://insight.sensiolabs.com/projects/cc5f88fb-2df6-438d-99f2-bea76cbb2653)
