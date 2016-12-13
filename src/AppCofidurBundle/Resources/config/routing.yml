@@ -204,12 +204,13 @@ AppCofidurBundle_operatorformation_show_all:
     defaults: { _controller: AppCofidurBundle:OperatorFormation:showAll }
 
 #pages de operatorcategory
-AppCofidurBundle_operatorcategory_add:
-    path: /operatorcategory/add/{idOpForm}/{idCategory}
-    defaults: { _controller: AppCofidurBundle:OperatorCategory:add}
-    requirements:
-        methods: GET
-        id: \d+
+#routing plus forcement necessaire, cela dépend
+#AppCofidurBundle_operatorcategory_add:
+#    path: /operatorcategory/add/{idOpForm}/{idCategory}
+#    defaults: { _controller: AppCofidurBundle:OperatorCategory:add}
+#    requirements:
+#        methods: GET
+#        id: \d+
 
 AppCofidurBundle_operatorcategory_edit:
     path: /operatorcategory/edit/{idOpForm}/{idCategory}
