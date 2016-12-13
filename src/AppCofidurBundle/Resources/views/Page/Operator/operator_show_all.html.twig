@@ -31,8 +31,6 @@
 			<input type="button" value="Supprimer"
 				   onclick="if(confirm('Supprimer l\'operateur?')){
 						   window.location.href='{{ path('AppCofidurBundle_operator_delete', {'idOp': operator.id}) }}'
-						   } else {
-						   alert('Suppression annulée');
 						   }">
 		</td>
 	</tr>
