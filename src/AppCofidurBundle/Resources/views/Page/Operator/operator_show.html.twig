@@ -13,13 +13,17 @@
         {#<th> ID </th>#}
         <th> PRENOM </th>
         <th> NOM </th>
-		 <th> DATE DE NAISSANCE </th>
+		<th> DATE DE NAISSANCE </th>
+		<th> SUPERIEUR N+1 </th>
+		<th> SUPERIEUR N+2 </th>
 	</tr>
 	<tr>
 		{#<td> {{ operator.id }} </td>#}
         <td> {{ operator.firstName }} </td>
         <td> {{ operator.lastName }} </td>
         <td> {{ operator.dateOfBirth |date("d/m/Y")  }} </td>
+		<td> {{ operator.superiorLvl1 }}</td>
+		<td> {{ operator.superiorLvl2 }}</td>
 	</tr>
 </table>
 
@@ -98,6 +102,10 @@
 							<th class="entete_category">Criticité</th>
 							<td>{{ operatorformation.formation.criticality }} </td>
 						</tr>
+						<tr>
+							<th class="entete_category">Formateur</th>
+							<td> {{ operatorformation.former.lastName | upper }} {{ operatorformation.former.firstName }}</td>
+						</tr>
 					</table>
 				</fieldset>
 		</td>
@@ -166,6 +174,10 @@
 											<tr>
 												<th class="entete_category">Criticité</th>
 												<td>{{ supervisedFormation.formation.criticality }} </td>
+											</tr>
+											<tr>
+												<th class="entete_category">Opérateur formé</th>
+												<td>{{ supervisedFormation.operator.lastName | upper }} {{ supervisedFormation.operator.firstName }} </td>
 											</tr>
 										</table>
 									</fieldset>
