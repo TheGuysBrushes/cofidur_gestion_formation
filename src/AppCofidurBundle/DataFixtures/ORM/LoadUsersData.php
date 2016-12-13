@@ -32,6 +32,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 $root->setLastName("root");
                 $root->setDateOfBirth(new \DateTime($faker->date));
                 $root->setEmail("root@root.root");
+                $root->setStatut(rand(1,3));
                 $root->setPlainPassword("root");
                 $root->setEnabled(true);
                 $root->setSuperiorLvl1($root );
@@ -47,6 +48,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                         $user->setEmail($faker->email);
                         $user->setPlainPassword($faker->password);
                         $user->setEnabled(true);
+                        $user->setStatut(rand(1,3));
                         $user->setSuperiorLvl1($root);
                         $user->setSuperiorLvl2($root);
 			$manager->persist($user);

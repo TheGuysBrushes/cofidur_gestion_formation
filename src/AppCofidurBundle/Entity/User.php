@@ -54,6 +54,13 @@ class User extends BaseUser
     private $lastName;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="statut", type="integer")
+     */
+    private $statut;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_of_birth", type="date", nullable=true)
@@ -201,5 +208,29 @@ class User extends BaseUser
     public function getSuperiorLvl2()
     {
         return $this->superiorLvl2;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return string
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param int $statut
+     *
+     * @return User
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
     }
 }
