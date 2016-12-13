@@ -40,20 +40,17 @@
 	</table>
 
 	{% for category in formation.categories %}
-		<br/>
-		{% if AERONAUTIC == formation.type %}
-			<fieldset class="aeronautic" id="fieldset_cat_{{ category.id }}">
-		{% elseif ALUMINIUM == formation.type %}
-			<fieldset class="aluminium" id="fieldset_cat_{{ category.id }}">
-		{% elseif PCB == formation.type %}
-			<fieldset class="aluminium" id="fieldset_cat_{{ category.id }}">
-		{% elseif EMS == formation.type %}
-			<fieldset class="EMS" id="fieldset_cat_{{ category.id }}">
-		{% elseif ENVIRONMENT == formation.type %}
-			<fieldset class="environment" id="fieldset_cat_{{ category.id }}">
-		{% else %}
-			<fieldset class="ecology" id="fieldset_cat_{{ category.id }}">
-		{% endif %}
+	<br/>
+
+    <fieldset
+        {% if AERONAUTIC == formation.type %}   class="aeronautic" {% endif %}
+        {% if ALUMINIUM == formation.type %}    class="aluminium" {% endif %}
+        {% if PCB == formation.type %}          class="aluminium" {% endif %}
+        {% if EMS == formation.type %}          class="EMS" {% endif %}
+        {% if ENVIRONMENT == formation.type %}  class="environment" {% endif %}
+        {% if ECOLOGY == formation.type %}      class="ecology" {% endif %}
+        id="fieldset_cat_{{ category.id }}">
+
 		<legend class="category_title">
 			Catégorie : {{ category.name }}
 			<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">Éditer</a>
