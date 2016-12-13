@@ -25,7 +25,8 @@ class OperatorType extends AbstractType
                 array(
                     'choices'  => array(
                         1 => 'operatorFormation.choices.interim',
-                        2 => 'operatorFormation.choices.cdi',
+                        2 => 'operatorFormation.choices.cdd',
+                        3 => 'operatorFormation.choices.cdi',
                     ),
                     'label_format' => 'operator.statut',
                 )
