@@ -3,9 +3,6 @@
 namespace AppCofidurBundle\Controller;
 
 use AppCofidurBundle\Entity\Formation;
-use AppCofidurBundle\Entity\Category;
-use AppCofidurBundle\Entity\Task;
-
 use AppCofidurBundle\Form\Type\FormationType;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

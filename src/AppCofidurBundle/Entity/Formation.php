@@ -3,7 +3,7 @@
 namespace AppCofidurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use DoctrineCommonCollectionsArrayCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Formation

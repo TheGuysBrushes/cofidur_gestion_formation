@@ -1,0 +1,64 @@
+/*
+Code licensed under the BSD License:
+version: 0.1
+*/
+
+/***
+    By theme
+*/
+.aeronautic {
+    color: #00628A;
+    border-color: #00628A;
+}
+
+.aeronautic legend{
+    color: #80AEBF;
+}
+
+.aluminium {
+    color: #D9D9D9;
+    border-color: #D9D9D9;
+}
+
+.PCB {
+    color: #E0B40F;
+    border-color: #E0B40F;
+}
+
+.EMS {
+    color: #BBBE1F;
+}
+.environment {
+    color: #BBBE1F;
+}
+/* Identical to environment */
+.ecology {
+    color: #BBBE1F;
+}
+
+/***
+    By color
+*/
+.dark-blue {
+    color: #00628A;
+}
+
+.medium-blue {
+    color: #80AEBF;
+}
+
+.medium-gray {
+    color: #D9D9D9;
+}
+
+.light-grey {
+    color: #A6A6A6;
+}
+
+.copper {
+    color: #E0B40F;
+}
+
+.green {
+    color: #BBBE1F;
+}

@@ -21,7 +21,7 @@ class CategoryController extends Controller
                 $cat_tmp = $cat_for_tmp;
             }
 
-        if ($cat_tmp != null ){
+        if ($cat_tmp !== null ){
             $cat_tmp->setOrdre($ordre);
             $category->setOrdre($ordre-1);
 
