@@ -63,7 +63,7 @@ AppCofidurBundle_operator_edit:
 
 AppCofidurBundle_operator_delete:
     path: /operator/delete/{idOp}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:Operator:delete}
     requirements:
         methods: GET
@@ -98,7 +98,7 @@ AppCofidurBundle_formation_edit:
 
 AppCofidurBundle_formation_delete:
     path:  /formation/delete/{idForm}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:Formation:delete }
     requirements:
         methods: GET
@@ -136,7 +136,7 @@ AppCofidurBundle_category_edit:
 
 AppCofidurBundle_category_delete:
     path: /category/delete/{idCat}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:Category:delete}
     requirements:
         methods: GET
@@ -177,7 +177,7 @@ AppCofidurBundle_task_edit:
 
 AppCofidurBundle_task_delete:
     path: /task/delete/{idTask}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:Task:delete}
     requirements:
         methods: GET
@@ -216,7 +216,7 @@ AppCofidurBundle_operatorformation_edit:
 
 AppCofidurBundle_operatorformation_delete:
     path: /operatorformation/delete/{idOpForm}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:OperatorFormation:delete}
     requirements:
         methods: GET
@@ -254,7 +254,7 @@ AppCofidurBundle_operatorcategory_edit:
 
 AppCofidurBundle_operatorcategory_delete:
     path: /operatorcategory/delete/{idOpForm}/{idCategory}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:OperatorCategory:delete}
     requirements:
         methods: GET
@@ -271,7 +271,7 @@ AppCofidurBundle_operatortask_add:
 
 AppCofidurBundle_operatortask_delete:
     path: /operatortask/delete/{idOpForm}/{idCategory}/{idTask}
-    methods: [DELETE]
+    methods: [DELETE,GET]
     defaults: { _controller: AppCofidurBundle:OperatorTask:delete}
     requirements:
         methods: GET
