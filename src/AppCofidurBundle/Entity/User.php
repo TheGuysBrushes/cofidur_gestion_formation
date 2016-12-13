@@ -62,9 +62,15 @@ class User extends BaseUser
 
     /**
      * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumn(name="superior_id", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="superior1_id", referencedColumnName="id", nullable=true)
      */
-    private $superior;
+    private $superiorLvl1;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumn(name="superior2_id", referencedColumnName="id", nullable=true)
+     */
+    private $superiorLvl2;
 
 
     /**
@@ -150,26 +156,50 @@ class User extends BaseUser
     }
 
     /**
-     * Set superior
+     * Set superiorLvl1
      *
-     * @param User $superior
+     * @param User $superiorLvl1
      *
      * @return User
      */
-    public function setSuperior($superior)
+    public function setSuperiorLvl1($superiorLvl1)
     {
-        $this->superior = $superior;
+        $this->superiorLvl1 = $superiorLvl1;
 
         return $this;
     }
 
     /**
-     * Get superior
+     * Get superiorLvl1
      *
      * @return User
      */
-    public function getSuperior()
+    public function getSuperiorLvl1()
     {
-        return $this->superior;
+        return $this->superiorLvl1;
+    }
+
+    /**
+     * Set superiorLvl2
+     *
+     * @param User $superiorLvl2
+     *
+     * @return User
+     */
+    public function setSuperiorLvl2($superiorLvl2)
+    {
+        $this->superiorLvl2 = $superiorLvl2;
+
+        return $this;
+    }
+
+    /**
+     * Get superiorLvl2
+     *
+     * @return User
+     */
+    public function getSuperiorLvl2()
+    {
+        return $this->superiorLvl2;
     }
 }
