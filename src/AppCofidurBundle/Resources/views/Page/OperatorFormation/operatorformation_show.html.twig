@@ -28,19 +28,19 @@
 //			task_button.style.display= "none";
 		}
 
-		{#function validation_box(opeform_id, cat_id, custom_anchor){#}
-			{#var operatorcat_id= document.getElementById(opeform_id);#}
-			{#if(confirm('Valider la catégorie ?')){#}
-				{#alert('opeform_id');#}
-				{#<a href="{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': opeform_id, 'idCategory': cat_id}) }}#custom_anchor$cat_id">#}
-					{#Blabla#}
-				{#</a>#}
-				{#return true;#}
-			{#} else {#}
-				{#alert($cat_id);#}
-				{#return false;#}
-			{#}#}
-		{#}#}
+		/*function validation_box(opeform_id, cat_id, custom_anchor){
+			var operatorcat_id= document.getElementById(opeform_id);
+			if(confirm('Valider la catégorie ?')){
+				alert('opeform_id');
+				<a href="{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': opeform_id, 'idCategory': cat_id}) }}#custom_anchor$cat_id">
+					Blabla
+				</a>
+				return true;
+			} else {
+				alert($cat_id);
+				return false;
+			}
+		}*/
 	</script>
 
 	<!--
@@ -112,48 +112,48 @@
 	-->
 	<fieldset class="details operatorformation">
 		<legend>Etapes de la formation :</legend>
-		{% set indice_category= 1 %}
+	{% set indice_category= 1 %}
 		<!--
 			 Affichage de chaque catégorie
 		-->
-		{% for category in operatorformation.formation.categories %}
-			{% set validated_category="" %}
-			{% set opeCat=null %}
+	{% for category in operatorformation.formation.categories %}
+		{% set validated_category="" %}
+		{% set opeCat=null %}
 
-			 {# Recherche de la categorie dans l'operatorCategory#}
-			{% for operatorCategory in operatorformation.operatorcategories %}
-				{% if category.id == operatorCategory.category.id %}
-					{% set opeCat= operatorCategory %}
-				{% endif %}
-			{% endfor %}{# fin for operatorCategory #}
+		 {# Recherche de la categorie dans l'operatorCategory#}
+		{% for operatorCategory in operatorformation.operatorcategories %}
+			{% if category.id == operatorCategory.category.id %}
+				{% set opeCat= operatorCategory %}
+			{% endif %}
+		{% endfor %}{# fin for operatorCategory #}
 
 		<fieldset class="details category" id="fieldset_opecat_{{ category.id }}">
 			<legend class="category_title">
 				Catégorie : {{ category.name }}
 			</legend>
-			{#
-                Si la catégorie n'est pas trouvée,
-                on indique que la catégorie n'était pas présent lors de la céeation de l'operatorCategory#}
-			{% if null == opeCat%}
+		{#
+			Si la catégorie n'est pas trouvée,
+			on indique que la catégorie n'était pas présent lors de la céeation de l'operatorCategory#}
+		{% if null == opeCat%}
 				<h2 class="error">La catégorie n'était pas présente quand l'opérateur à commencer à la passer.
 					<a href="{{ path('AppCofidurBundle_operatorformation_add') }}">Faire passer la formation</a>
 				</h2>
-			{#
-				Sinon, affichage de l'avancement de l'opérateur dans la catégorie #}
-			{% else %}
-			<!-- Tâches de la catégorie -->
+		{#
+		Sinon, affichage de l'avancement de l'opérateur dans la catégorie #}
+		{% else %}
+		<!-- Tâches de la catégorie -->
 			<div class="operatorformation_task_tab">
 				<table>
 					<tr>
 						<th class="task validation"> </th>
 						<th class="task name">Nom tache</th>
 					</tr>
-					{% set task_nb= 1 %}
-					{% for task in category.tasks %}
-						{% set task_found= 0 %}
-						{% for opeTask in opeCat.operatortasks %}
-							{% if opeTask.task.id == task.id %}
-								{% set task_found= 1 %}
+			{% set task_nb= 1 %}
+			{% for task in category.tasks %}
+				{% set task_found= 0 %}
+				{% for opeTask in opeCat.operatortasks %}
+					{% if opeTask.task.id == task.id %}
+						{% set task_found= 1 %}
 					<tr>
 						<td><input type="checkbox" name="validated" disabled checked></td>
 						<td class="large">{{ task.name }}</td>
@@ -163,9 +163,9 @@
 							</a>
 						</td>
 					</tr>
-							{% endif %}
-						{% endfor %}{# fin for opeTask #}
-						{% if task_found == 0 %}
+					{% endif %}
+				{% endfor %}{# fin for opeTask #}
+				{% if task_found == 0 %}
 					<tr>
 						<td>
 							<input type="checkbox" name="validated" disabled>
@@ -180,8 +180,8 @@
 						</td>
 					</tr>
 
-						{% endif %}
-					{% endfor %}{# fin for task #}
+				{% endif %}
+			{% endfor %}{# fin for task #}
 				</table>
 			</div>
 
@@ -205,11 +205,11 @@
 						<td>{{ opeCat.nbHours|date("H:i")}}</td>
 					</tr>
 					<tr>
-					{% if opeCat.signature != null %}
-						{% set validated_category= true %}
+				{% if opeCat.signature != null %}
+					{% set validated_category= true %}
 						<th>ID formateur</th>
 						<td>{{ opeCat.trainer.id }}</td>
-					{% endif %}
+				{% endif %}
 					</tr>
 				</table>
 			</div>
@@ -218,48 +218,48 @@
 				<fieldset>
 					<legend>
 
-						{% if not validated_category %}
-							{% set custom_anchor_base= "fieldset_opecat_" %}
-							{#<input type="button" value="Valider la catégorie" onclick="validation_box(operatorformation.id, category.id, {{ custom_anchor_base }})">#}
-							{#<input type="button" value="Valider la catégorie" onclick="if(validation_box(operatorformation.id, category.id, {{ custom_anchor_base }})){}">#}
-							<input type="button" value="Valider la catégorie"
-								   onclick="if(confirm('Valider la catégorie ?')){
-								   	window.location.href='{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': operatorformation.id, 'idCategory': category.id })}}'
-										   }">
+			{% if not validated_category %}
+				{% set custom_anchor_base= "fieldset_opecat_" %}
+					{#<input type="button" value="Valider la catégorie" onclick="validation_box(operatorformation.id, category.id, {{ custom_anchor_base }})">#}
+					{#<input type="button" value="Valider la catégorie" onclick="if(validation_box(operatorformation.id, category.id, {{ custom_anchor_base }})){}">#}
+						<input type="button" value="Valider la catégorie"
+							   onclick="if(confirm('Valider la catégorie ?')){
+								window.location.href='{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': operatorformation.id, 'idCategory': category.id })}}'
+									   }">
 
-							<br/>
-						{% else %}
-							Catégorie validée !
-						{% endif %}
+						<br/>
+			{% else %}
+						Catégorie validée !
+			{% endif %}
 					</legend>
-					{% if validated_category %}
-						<table class="modif_category">
-							<tr>
-								<td>
-									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id }}">EDITER</a>
-								</td>
-								<td>
-									<input type="button" value="Supprimer"
-										   onclick="if(confirm('Supprimer la catégorie ?')){
-												   window.location.href='{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}'
-												   }">
-									{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}">SUPPRIMER</a>#}
-								</td>
-							</tr>
-						</table>
-						<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
-					{% endif %}
+			{% if validated_category %}
+					<table class="modif_category">
+						<tr>
+							<td>
+								<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id }}">EDITER</a>
+							</td>
+							<td>
+								<input type="button" value="Supprimer"
+									   onclick="if(confirm('Supprimer la catégorie ?')){
+											   window.location.href='{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}'
+											   }">
+								{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}">SUPPRIMER</a>#}
+							</td>
+						</tr>
+					</table>
+					<button id="details{{ indice_category }}" name="details" value="details" onclick="show_details({{ indice_category }}, this.id)">Détails</button>
+			{% endif %}
 				</fieldset>
 			</div>
 
-					{% set indice_category= indice_category+1 %}
-				{% endif %}
+			{% set indice_category= indice_category+1 %}
+		{% endif %}
 		</fieldset>
     {% endfor %}
 
 	</fieldset>
 	<br/>
 
-{% endblock %}
+{% endblock body %}
 
 {% block sidebar_container %}{% endblock %}

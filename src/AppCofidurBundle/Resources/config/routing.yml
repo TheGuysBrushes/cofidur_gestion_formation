@@ -50,11 +50,12 @@ AppCofidurBundle_logout:
 # Pages des opérateurs
 AppCofidurBundle_operator_add:
     path: /operator/add
-    methods: [GET]
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Operator:add}
 
 AppCofidurBundle_operator_edit:
     path: /operator/edit/{idOp}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Operator:edit}
     requirements:
         methods: GET
@@ -62,6 +63,7 @@ AppCofidurBundle_operator_edit:
 
 AppCofidurBundle_operator_delete:
     path: /operator/delete/{idOp}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:Operator:delete}
     requirements:
         methods: GET
@@ -69,6 +71,7 @@ AppCofidurBundle_operator_delete:
 
 AppCofidurBundle_operator_show:
     path: /operator/show/{idOp}
+    methods: [GET]
     defaults: { _controller: AppCofidurBundle:Operator:show}
     requirements:
         methods: GET
@@ -82,11 +85,12 @@ AppCofidurBundle_operator_show_all:
 ### page de formation ###
 AppCofidurBundle_formation_add:
     path: /formation/add
-    methods: [GET]
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Formation:add}
 
 AppCofidurBundle_formation_edit:
     path:  /formation/edit/{idForm}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Formation:edit }
     requirements:
         methods: GET
@@ -94,6 +98,7 @@ AppCofidurBundle_formation_edit:
 
 AppCofidurBundle_formation_delete:
     path:  /formation/delete/{idForm}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:Formation:delete }
     requirements:
         methods: GET
@@ -101,6 +106,7 @@ AppCofidurBundle_formation_delete:
 
 AppCofidurBundle_formation_show:
     path:  /formation/show/{idForm}
+    methods: [GET]
     defaults: { _controller: AppCofidurBundle:Formation:show }
     requirements:
         methods: GET
@@ -114,6 +120,7 @@ AppCofidurBundle_formation_show_all:
 ### page de categorie ###
 AppCofidurBundle_category_add:
     path: /category/add/{idForm}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Category:add}
     requirements:
         methods: GET
@@ -121,6 +128,7 @@ AppCofidurBundle_category_add:
 
 AppCofidurBundle_category_edit:
     path: /category/edit/{idCat}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Category:edit}
     requirements:
         methods: GET
@@ -128,6 +136,7 @@ AppCofidurBundle_category_edit:
 
 AppCofidurBundle_category_delete:
     path: /category/delete/{idCat}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:Category:delete}
     requirements:
         methods: GET
@@ -135,6 +144,7 @@ AppCofidurBundle_category_delete:
 
 AppCofidurBundle_category_up:
     path: /category/up/{idCat}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Category:up}
     requirements:
         methods: GET
@@ -142,6 +152,7 @@ AppCofidurBundle_category_up:
 
 AppCofidurBundle_category_down:
     path: /category/down/{idCat}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Category:down}
     requirements:
         methods: GET
@@ -150,6 +161,7 @@ AppCofidurBundle_category_down:
 ### page de taches
 AppCofidurBundle_task_add:
     path: /task/add/{idCat}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Task:add}
     requirements:
         methods: GET
@@ -157,6 +169,7 @@ AppCofidurBundle_task_add:
 
 AppCofidurBundle_task_edit:
     path: /task/edit/{idTask}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Task:edit}
     requirements:
         methods: GET
@@ -164,6 +177,7 @@ AppCofidurBundle_task_edit:
 
 AppCofidurBundle_task_delete:
     path: /task/delete/{idTask}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:Task:delete}
     requirements:
         methods: GET
@@ -171,6 +185,7 @@ AppCofidurBundle_task_delete:
 
 AppCofidurBundle_task_up:
     path: /task/up/{idTask}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Task:up}
     requirements:
         methods: GET
@@ -178,6 +193,7 @@ AppCofidurBundle_task_up:
 
 AppCofidurBundle_task_down:
     path: /task/down/{idTask}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:Task:down}
     requirements:
         methods: GET
@@ -187,11 +203,12 @@ AppCofidurBundle_task_down:
 ### Pages de formation d'opérateurs ###
 AppCofidurBundle_operatorformation_add:
     path: /operatorformation/add/
-    methods: [GET]
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:OperatorFormation:add}
 
 AppCofidurBundle_operatorformation_edit:
     path: /operatorformation/edit/{idOpForm}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:OperatorFormation:edit}
     requirements:
         methods: GET
@@ -199,6 +216,7 @@ AppCofidurBundle_operatorformation_edit:
 
 AppCofidurBundle_operatorformation_delete:
     path: /operatorformation/delete/{idOpForm}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:OperatorFormation:delete}
     requirements:
         methods: GET
@@ -206,6 +224,7 @@ AppCofidurBundle_operatorformation_delete:
 
 AppCofidurBundle_operatorformation_show:
     path:  /operatorformation/show/{idOpForm}
+    methods: [GET]
     defaults: { _controller: AppCofidurBundle:OperatorFormation:show }
     requirements:
         methods: GET
@@ -227,6 +246,7 @@ AppCofidurBundle_operatorformation_show_all:
 
 AppCofidurBundle_operatorcategory_edit:
     path: /operatorcategory/edit/{idOpForm}/{idCategory}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:OperatorCategory:edit}
     requirements:
         methods: GET
@@ -234,6 +254,7 @@ AppCofidurBundle_operatorcategory_edit:
 
 AppCofidurBundle_operatorcategory_delete:
     path: /operatorcategory/delete/{idOpForm}/{idCategory}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:OperatorCategory:delete}
     requirements:
         methods: GET
@@ -242,6 +263,7 @@ AppCofidurBundle_operatorcategory_delete:
 #page de operatortasks
 AppCofidurBundle_operatortask_add:
     path: /operatortask/add/{idOpForm}/{idCategory}/{idTask}
+    methods: [POST,GET]
     defaults: { _controller: AppCofidurBundle:OperatorTask:add}
     requirements:
         methods: GET
@@ -249,6 +271,7 @@ AppCofidurBundle_operatortask_add:
 
 AppCofidurBundle_operatortask_delete:
     path: /operatortask/delete/{idOpForm}/{idCategory}/{idTask}
+    methods: [DELETE]
     defaults: { _controller: AppCofidurBundle:OperatorTask:delete}
     requirements:
         methods: GET

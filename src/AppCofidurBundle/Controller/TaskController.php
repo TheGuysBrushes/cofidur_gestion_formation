@@ -36,11 +36,11 @@ class TaskController extends Controller
     }
 
     public function upAction($idTask){
-        return $this->changeOrdre($idTask, +1);
+        return $this->changeOrdre($idTask, -1);
     }
 
     public function downAction($idTask){
-        return $this->changeOrdre($idTask, -1);
+        return $this->changeOrdre($idTask, +1);
     }
 
 

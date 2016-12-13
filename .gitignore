@@ -13,9 +13,11 @@
 /app/bootstrap.php.cache
 /bin/*
 /vendor/
+# Sensitive configuration files (generated)
+web/config.php
 
 # Assets and user uploads
-/web/bundles/framework
+/web/bundles/
 /web/uploads/
 
 # PHPUnit
@@ -24,9 +26,6 @@
 
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
-
-# Sensitive configuration files (generated)
-web/config.php
 
 #PHP Storm
 .idea/*
