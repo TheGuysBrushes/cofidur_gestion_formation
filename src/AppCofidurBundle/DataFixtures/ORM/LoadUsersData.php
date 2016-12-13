@@ -52,7 +52,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 $user->setSuperiorLvl2($user);
                 $manager->persist($user);
 
-		for ($i=0; $i<self::MAX_NB_USERS; ++$i){
+		for ($i=2; $i<self::MAX_NB_USERS+2; ++$i){
 			$usertmp = new User();
 			$usertmp->setUsername($faker->username);
                         $usertmp->setFirstName($faker->firstname);
