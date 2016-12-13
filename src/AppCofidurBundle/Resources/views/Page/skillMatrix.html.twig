@@ -53,13 +53,10 @@
                     {{operator.superiorLvl2.username}}
                 </td>
                 <td>
-                    {% if operator.statut == 1 %}
-                        Intérim
-                    {% elseif operator.statut == 2 %}
-                        CDD
-                    {% elseif operator.statut == 3 %}
-                        CDI
-                    {% endif %}
+                    {% if operator.statut == 1 %}Intérim{% endif %}
+                    {% if operator.statut == 2 %}CDD{% endif %}
+                    {% if operator.statut == 3 %}CDI{% endif %}
+
                 </td>
 
                 <!-- TODO : cases à colorer -->
