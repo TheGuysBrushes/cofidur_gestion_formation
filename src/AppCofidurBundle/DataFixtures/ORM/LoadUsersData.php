@@ -5,7 +5,7 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppCofidurBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;   
 
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface{
 	const MAX_NB_USERS = 50;
@@ -39,20 +39,33 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 $root->setSuperiorLvl2($root);
                 $manager->persist($root);
 
-		for ($i=0; $i<self::MAX_NB_USERS; ++$i){
-			$user = new User();
-			$user->setUsername($faker->username);
-                        $user->setFirstName($faker->firstname);
-                        $user->setLastName($faker->lastname);
-                        $user->setDateOfBirth(new \DateTime($faker->date));
-                        $user->setEmail($faker->email);
-                        $user->setPlainPassword($faker->password);
-                        $user->setEnabled(true);
-                        $user->setStatut(rand(1,3));
-                        $user->setSuperiorLvl1($root);
-                        $user->setSuperiorLvl2($root);
-			$manager->persist($user);
-			$this->addReference('user'.$i, $user);
+                $user = new User();
+                $user->setUsername("user");
+                $user->setFirstName("user");
+                $user->setLastName("user");
+                $user->setDateOfBirth(new \DateTime($faker->date));
+                $user->setEmail("user@user.user");
+                $user->setStatut(rand(1,3));
+                $user->setPlainPassword("user");
+                $user->setEnabled(true);
+                $user->setSuperiorLvl1($user);
+                $user->setSuperiorLvl2($user);
+                $manager->persist($user);
+
+		for ($i=2; $i<self::MAX_NB_USERS+2; ++$i){
+			$usertmp = new User();
+			$usertmp->setUsername($faker->username);
+                        $usertmp->setFirstName($faker->firstname);
+                        $usertmp->setLastName($faker->lastname);
+                        $usertmp->setDateOfBirth(new \DateTime($faker->date));
+                        $usertmp->setEmail($faker->email);
+                        $usertmp->setPlainPassword($faker->password);
+                        $usertmp->setEnabled(true);
+                        $usertmp->setStatut(rand(1,3));
+                        $usertmp->setSuperiorLvl1($user);
+                        $usertmp->setSuperiorLvl2($user);
+			$manager->persist($usertmp);
+			$this->addReference('user'.$i, $usertmp);
 		}
 
 		$manager->flush();
