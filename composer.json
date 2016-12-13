@@ -1,10 +1,11 @@
 {
-    "name": "etudiant/cofidur_app",
+    "name": "vd-fd-ag/cofidur-app",
+    "description": "Web app for Cofidur EMS formations management",
     "license": "proprietary",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "": "src/"
+            "AppCofidur\\": "src/"
         },
         "classmap": [
             "app/AppKernel.php",

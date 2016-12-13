@@ -48,5 +48,6 @@
 */Entity/*~
 
 #PHP Storm
-.idea/workspace.xml*
+.idea/*
 src/.idea/workspace.xml
+!.idea/cofidur_gestion_formation.iml
