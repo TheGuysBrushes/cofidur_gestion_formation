@@ -53,8 +53,11 @@
 
 		<legend class="category_title">
 			Catégorie : {{ category.name }}
-			<a href="{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">Éditer</a>
-			<a href="{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}#fieldset_cat_{{ category.id -1 }}">Supprimer</a>
+			<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}'}">
+			<input type="button" value="Supprimer"
+				   onclick="if(confirm('Supprimer la catégorie ?')){
+						   window.location.href='{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}#fieldset_cat_{{ category.id -1 }}'
+						   }">
 		</legend>
 		<table class="task_tab">
 			<tr>
@@ -103,31 +106,36 @@
 {% endfor %}
 {% endblock %}
 
-{% block sidebar %}
+{% if is_granted('ROLE_ADMIN') %}
+	{% block sidebar %}
 
-	<fieldset class="category">
-		<legend class="category_title">
-			<div>
-				Formation :
-			</div>
-		</legend>
-		<ul>
-			<li>
-				<a href="{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}">Éditer</a>
-			</li>
-			<li>
-				<a href="{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}">Supprimer</a>
-			</li>
-		</ul>
-	</fieldset>
-	<fieldset class="category">
-		<legend class="category_title">
-			Catégorie :
-		</legend>
-		<ul>
-			<li>
-				<a href="{{ path('AppCofidurBundle_category_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
-			</li>
-		</ul>
-	</fieldset>
-{% endblock %}
+		<fieldset class="category">
+			<legend class="category_title">
+				<div>
+					Formation :
+				</div>
+			</legend>
+			<ul>
+				<li>
+					<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}'}">
+				</li>
+				<li>
+					<input type="button" value="Supprimer"
+						   onclick="if(confirm('Supprimer la formation ?')){
+								   window.location.href='{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}'
+								   }">
+				</li>
+			</ul>
+		</fieldset>
+		<fieldset class="category">
+			<legend class="category_title">
+				Catégorie :
+			</legend>
+			<ul>
+				<li>
+					<a href="{{ path('AppCofidurBundle_category_add', {'idForm': formation.id}) }}">Ajouter une catégorie</a>
+				</li>
+			</ul>
+		</fieldset>
+	{% endblock %}
+{% endif %}

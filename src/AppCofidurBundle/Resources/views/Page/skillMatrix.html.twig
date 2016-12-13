@@ -78,25 +78,29 @@
                                         {{ formationValidation[2] }}
                                     </a>
                                 </td>
-                            {% elseif 2 == formationValidation[2] %}
+                            {% endif %}
+                            {% if 2 == formationValidation[2] %}
                                 <td class="learningFormation">
                                     <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
                                         {{ formationValidation[2] }}
                                     </a>
                                 </td>
-                            {% elseif 3 == formationValidation[2] %}
+                            {% endif %}
+                            {% if 3 == formationValidation[2] %}
                                 <td class="futureFormation">
                                     <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
                                         {{ formationValidation[2] }}
                                     </a>
                                 </td>
-                            {% elseif 4 == formationValidation[2] %}
+                            {% endif %}
+                            {% if 4 == formationValidation[2] %}
                                 <td class="formedValidated">
                                     <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
                                         {{ formationValidation[2] }}
                                     </a>
                                 </td>
-                            {% elseif 5 == formationValidation[2] %}
+                            {% endif %}
+                            {% if 5 == formationValidation[2] %}
                                 <td class="formedToTeach">
                                     <a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorsformationsId}) }}">
                                         {{ formationValidation[2] }}
