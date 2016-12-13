@@ -225,9 +225,7 @@
 							<input type="button" value="Valider la catégorie"
 								   onclick="if(confirm('Valider la catégorie ?')){
 								   	window.location.href='{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': operatorformation.id, 'idCategory': category.id })}}'
-										   } else {
-								   	alert('Validation annulée');
-								   }">
+										   }">
 
 							<br/>
 						{% else %}
@@ -241,7 +239,11 @@
 									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id }}">EDITER</a>
 								</td>
 								<td>
-									<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}">SUPPRIMER</a>
+									<input type="button" value="Supprimer"
+										   onclick="if(confirm('Supprimer la catégorie ?')){
+												   window.location.href='{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}'
+												   }">
+									{#<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}">SUPPRIMER</a>#}
 								</td>
 							</tr>
 						</table>
