@@ -80,7 +80,7 @@
 		<table class="infos formation">
 			<tr>
 				<th>Nom de la formation</th>
-				<td class="formation name"> {{ operatorformation.formation.type}}</td>
+				<td class="formation name"> {{ operatorformation.formation.name }}</td>
 			</tr>
 			<tr>
 				<th>Objectif visé</th>
@@ -88,7 +88,7 @@
 			</tr>
 			<tr>
 				<th>Moyens pédagogiques</th>
-				<td > {{ operatorformation.formation.placesMaterialRessources}}</td>
+				<td > {{ operatorformation.formation.placesMaterialRessources }}</td>
 			</tr>
 		</table>
 	</fieldset>
@@ -113,7 +113,7 @@
 				{% endif %}
 			{% endfor %}{# fin for operatorCategory #}
 
-		<fieldset class="details category">
+		<fieldset class="details category" id="fieldset_opecat_{{ category.id }}">
 			<legend class="category_title">
 				Catégorie : {{ category.name }}
 			</legend>
@@ -144,7 +144,7 @@
 						<td><input type="checkbox" name="validated" disabled checked></td>
 						<td class="large">{{ task.name }}</td>
 						<td>
-							<a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}">
+							<a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}#fieldset_opecat_{{ category.id }}">
 								Invalider tâche
 							</a>
 						</td>
@@ -159,7 +159,7 @@
 						<td class="large">{{ task.name }}</td>
 						<td>
 							<div class="task_validator">
-								<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}">
+								<a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}#fieldset_opecat_{{ category.id }}">
 									<button id="validateTask{{ indice_category }}{{ task_nb }}" onclick="validate_task(this.id)">Valider</button>
 								</a>
 							</div>
@@ -205,7 +205,7 @@
 					<legend>
 
 						{% if not validated_category %}
-							<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">
+							<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id }}">
 								<button id="validate">Valider la catégorie</button>
 							</a>
 							<br/>
@@ -217,10 +217,10 @@
 						<table class="modif_category">
 							<tr>
 								<td>
-									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">EDITER</a>
+									<a href="{{ path('AppCofidurBundle_operatorcategory_edit', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id }}">EDITER</a>
 								</td>
 								<td>
-									<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}">SUPPRIMER</a>
+									<a href="{{ path('AppCofidurBundle_operatorcategory_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id}) }}#fieldset_opecat_{{ category.id -1 }}">SUPPRIMER</a>
 								</td>
 							</tr>
 						</table>

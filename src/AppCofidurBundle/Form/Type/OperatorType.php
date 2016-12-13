@@ -16,7 +16,29 @@ class OperatorType extends AbstractType
         $builder
             ->add('firstName', TextType::class, ['label_format' => 'operator.firstName',])
             ->add('lastName', TextType::class,  ['label_format' => 'operator.lastName',])
-            //->add('dateOfBirth', DateType::class,   ['label_format' => 'operator.dateOfBirth',])
+            ->add('dateOfBirth', DateType::class,   ['label_format' => 'operator.dateOfBirth',])
+            ->add('statut', ChoiceType::class,
+                array(
+                    'choices'  => array(
+                        1 => 'operatorFormation.choices.interim',
+                        2 => 'operatorFormation.choices.cdd',
+                        3 => 'operatorFormation.choices.cdi',
+                    ),
+                    'label_format' => 'operator.statut',
+                )
+            )
+            ->add('superiorLvl1', EntityType::class,
+                array(
+                   'class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName',
+                   'label_format' => 'operatorFormation.operatorName',
+                )
+            )
+            ->add('superiorLvl2', EntityType::class,
+                array(
+                   'class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName',
+                   'label_format' => 'operatorFormation.operatorName',
+                )
+            )
             ->add('save', SubmitType::class, array('label' => 'operator.add.submit'));
     }
 

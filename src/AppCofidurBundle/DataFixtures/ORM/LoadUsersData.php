@@ -26,6 +26,19 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 		$faker = \Faker\Factory::create();
                 $userManager = $this->container->get('fos_user.user_manager');
                 
+                $root = new User();
+                $root->setUsername("root");
+                $root->setFirstName("root");
+                $root->setLastName("root");
+                $root->setDateOfBirth(new \DateTime($faker->date));
+                $root->setEmail("root@root.root");
+                $root->setStatut(rand(1,3));
+                $root->setPlainPassword("root");
+                $root->setEnabled(true);
+                $root->setSuperiorLvl1($root );
+                $root->setSuperiorLvl2($root);
+                $manager->persist($root);
+
 		for ($i=0; $i<self::MAX_NB_USERS; ++$i){
 			$user = new User();
 			$user->setUsername($faker->username);
@@ -35,19 +48,12 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                         $user->setEmail($faker->email);
                         $user->setPlainPassword($faker->password);
                         $user->setEnabled(true);
+                        $user->setStatut(rand(1,3));
+                        $user->setSuperiorLvl1($root);
+                        $user->setSuperiorLvl2($root);
 			$manager->persist($user);
 			$this->addReference('user'.$i, $user);
 		}
-                
-                $user = new User();
-                $user->setUsername("root");
-                $user->setFirstName("root");
-                $user->setLastName("root");
-                $user->setDateOfBirth(new \DateTime($faker->date));
-                $user->setEmail("root@root.root");
-                $user->setPlainPassword("root");
-                $user->setEnabled(true);
-                $manager->persist($user);
 
 		$manager->flush();
 	}
