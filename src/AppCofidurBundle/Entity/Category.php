@@ -61,7 +61,7 @@ class Category
      */
     public function __construct()
     {
-        $this->tasks = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tasks = new ArrayCollection();
     }
 
     /**
@@ -129,7 +129,7 @@ class Category
      *
      * @return Category
      */
-    public function setFormation(\AppCofidurBundle\Entity\Formation $formation = null)
+    public function setFormation(Formation $formation = null)
     {
         $this->formation = $formation;
 
@@ -153,7 +153,7 @@ class Category
      *
      * @return Category
      */
-    public function addTask(\AppCofidurBundle\Entity\Task $task)
+    public function addTask(Task $task)
     {
         $this->tasks[] = $task;
 
@@ -165,7 +165,7 @@ class Category
      *
      * @param \AppCofidurBundle\Entity\Task $task
      */
-    public function removeTask(\AppCofidurBundle\Entity\Task $task)
+    public function removeTask(Task $task)
     {
         $this->tasks->removeElement($task);
     }

@@ -112,7 +112,7 @@ class Task
      *
      * @return Task
      */
-    public function setCategory(\AppCofidurBundle\Entity\Category $category = null)
+    public function setCategory(Category $category = null)
     {
         $this->category = $category;
 

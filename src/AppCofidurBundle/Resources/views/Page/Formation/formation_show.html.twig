@@ -140,5 +140,8 @@
 				</li>
 			</ul>
 		</fieldset>
-	{% endblock %}
+	{% endblock sidebar %}
+
+{% else %}
+	{% block sidebar_container %}{% endblock sidebar_container %}
 {% endif %}
