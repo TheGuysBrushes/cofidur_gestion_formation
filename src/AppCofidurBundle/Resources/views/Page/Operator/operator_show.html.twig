@@ -6,6 +6,22 @@
 {% endblock %}
 
 {% block body %}
+	<script src="{{ asset('bundles/appcofidur/js/sorttable.js') }}"></script>
+	<script type="text/javascript">
+		function display_subordinates(){
+			var subordinates_list= document.getElementById("subordinates_list");
+
+			/*** Rédéfinit le style de la partie des détails ***/
+			/* Si le style a déjà été définit comme "à afficher", on le cache */
+			if(subordinates_list.style.display == "block"){
+				subordinates_list.style.display= "none";
+				/* Si le style n'a pas été redéfinit ou qu'il est définit comme caché, on l'affiche */
+			} else {
+				subordinates_list.style.display= "block";
+			}
+		}
+	</script>
+
 	<h1> Résumé des compétences de {{ operator.firstname }} {{ operator.lastname }}</h1>
 
 <table>
@@ -26,24 +42,29 @@
 		<td> {{ operator.superiorLvl2 }}</td>
 	</tr>
 </table>
+<br/>
+<br/>
 
-{#{% if subordinates %}#}
-	{#<h3>Liste des subalternes de {{ operator.firstname }} {{ operator.lastname }} :</h3>#}
-	{#<ul>#}
-		{#{% for subordinate in subordinates %}#}
-			{#<li> {{ subordinate.lastname | upper }} {{ subordinate.firstname }}</li>#}
-		{#{% endfor %}#}
-	{#</ul>
-{% endif %}#}
-
-{% if subordinates %}
+<button id="display_subordinates" onclick="display_subordinates()">Afficher/Cacher les subalternes</button>
+<div id="subordinates_list" style="display: none">
+	{% if subordinates %}
 	<h3>Liste des subalternes de {{ operator.firstname }} {{ operator.lastname }} :</h3>
-	<ul>
+	<table class="sortable">
+		<tr>
+			<th>NOM</th>
+			<TH>PRENOM</TH>
+		</tr>
 		{% for subordinate in subordinates %}
-			<li> {{ subordinate.lastname | upper }} {{ subordinate.firstname }}</li>
+		<tr>
+			<td> {{ subordinate.lastname | upper }} </td>
+			<td> {{ subordinate.firstname }}</td>
+		</tr>
 		{% endfor %}
-	</ul>
-{% endif %}
+	</table>
+	{% else %}
+		<h3>Vous n'êtes le chef d'aucun opérateur, désolé !</h3>
+	{% endif %}
+</div>
 
 
 
