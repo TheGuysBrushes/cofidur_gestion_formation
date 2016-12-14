@@ -27,7 +27,27 @@
 	</tr>
 </table>
 
-{% if operatorsformations %}
+{#{% if subordinates %}#}
+	{#<h3>Liste des subalternes de {{ operator.firstname }} {{ operator.lastname }} :</h3>#}
+	{#<ul>#}
+		{#{% for subordinate in subordinates %}#}
+			{#<li> {{ subordinate.lastname | upper }} {{ subordinate.firstname }}</li>#}
+		{#{% endfor %}#}
+	{#</ul>
+{% endif %}#}
+
+{% if subordinates %}
+	<h3>Liste des subalternes de {{ operator.firstname }} {{ operator.lastname }} :</h3>
+	<ul>
+		{% for subordinate in subordinates %}
+			<li> {{ subordinate.lastname | upper }} {{ subordinate.firstname }}</li>
+		{% endfor %}
+	</ul>
+{% endif %}
+
+
+
+	{% if operatorsformations %}
 	<h3>Légende des couleurs des cadres :</h3>
 	<table class="color_legend">
 		<tr>

@@ -21,11 +21,13 @@ class OperatorController extends Controller
 
         $operatorsFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findBy(array('operator' => $operator));
         $supervisedFormations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findBy(array('former' => $operator));
+        $subordinates= $em->getRepository('AppCofidurBundle:User')->findBy(array('superiorLvl1' => $operator));
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_show.html.twig', array(
             'operator'     => $operator,
             'operatorsformations' => $operatorsFormations,
-            'supervisedFormations' => $supervisedFormations
+            'supervisedFormations' => $supervisedFormations,
+            'subordinates' => $subordinates
         ));
     }
 
