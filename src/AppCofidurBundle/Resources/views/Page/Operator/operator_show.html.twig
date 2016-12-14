@@ -108,8 +108,16 @@
 						</tr>
 						<tr>
 							<th class="entete_category">Formateur</th>
-							<td> {{ operatorformation.former.lastName | upper }} {{ operatorformation.former.firstName }}</td>
+							<td> {{ operatorformation.former.lastName | upper | slice(0.10) }} {{ operatorformation.former.firstName | slice(0.10) }}</td>
 						</tr>
+						<tr>
+							<th class="entete_category">Temps écoulé depuis la fin de la formation</th>
+							<td>{{ operatorformation.getFormationElapsedTime }} jour(s)</td>
+						</tr>
+						{#Valeur a changer : champ de validité a placer ici a la plac du 5#}
+						{% if operatorformation.getFormationElapsedTime > operatorformation.formation.validityTime %}
+							<tr><td>ATTENTION LA FORMATION N'EST PLUS VALIDE</td></tr>
+						{% endif %}
 					</table>
 				</fieldset>
 		</td>
@@ -185,8 +193,16 @@
 											</tr>
 											<tr>
 												<th class="entete_category">Opérateur formé</th>
-												<td>{{ supervisedFormation.operator.lastName | upper }} {{ supervisedFormation.operator.firstName }} </td>
+												<td>{{ supervisedFormation.operator.lastName | upper | slice(0.10) }} {{ supervisedFormation.operator.firstName | slice(0.10) }} </td>
 											</tr>
+											<tr>
+												<th class="entete_category">Temps écoulé depuis la fin de la formation</th>
+												<td>{{ supervisedFormation.getFormationElapsedTime }} jour(s)</td>
+											</tr>
+											{#Valeur a changer : champ de validité a placer ici a la plac du 5#}
+											{% if supervisedFormation.getFormationElapsedTime > supervisedFormation.formation.validityTime %}
+												<tr><td>ATTENTION LA FORMATION N'EST PLUS VALIDE</td></tr>
+											{% endif %}
 										</table>
 									</fieldset>
 			</td>

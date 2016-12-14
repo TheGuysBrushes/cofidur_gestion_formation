@@ -34,13 +34,14 @@ class OperatorFormationType extends AbstractType
             ->add('dateBegin', DateType::class, array(
                     'label_format' => 'operatorFormation.dateBegin',
                     // L'année de signature peut être choisie entre l'année actuelle et l'année précédente
-                    'years' => range( date("Y"), date("Y",strtotime("-1 year")) )
+                    'years' => range( date("Y"), date("Y",strtotime("-1 year")) ),
                 )
             )
             ->add('dateEnd', DateType::class, array(
                     'label_format' => 'operatorFormation.dateEnd',
                     // L'année de signature peut être choisie entre l'année précédente et l'année suivante
-                    'years' => range( date("Y",strtotime("-1 year")), date("Y",strtotime("+1 year")) )
+                    'years' => range( date("Y",strtotime("-1 year")), date("Y",strtotime("+1 year")) ),
+//                    'data' => new \DateTime('+1 day'),
                 )
             )
             ->add('validation', ChoiceType::class,

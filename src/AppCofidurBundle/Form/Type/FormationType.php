@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class FormationType extends AbstractType
 {
@@ -23,6 +24,7 @@ class FormationType extends AbstractType
             ->add('placesMaterialRessources', TextType::class,
                 ['label_format' => 'formation.placesMaterialRessources']
             )
+            ->add('validityTime', NumberType::class,   ['label_format' => 'formation.validityTime'])
             ->add('criticality', ChoiceType::class,
                array('label_format' => 'formation.criticality',
                     'choices'  => array(

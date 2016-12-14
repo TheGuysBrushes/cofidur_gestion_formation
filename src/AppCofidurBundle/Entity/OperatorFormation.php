@@ -3,6 +3,7 @@
 namespace AppCofidurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Faker\Provider\cs_CZ\DateTime;
 
 /**
  * OperatorFormation
@@ -88,6 +89,8 @@ class OperatorFormation
     public function __construct()
     {
         $this->operatorcategories = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dateBegin= new \DateTime();
+        $this->dateEnd= new \DateTime('+1 day');
     }
 
     /**
@@ -324,5 +327,25 @@ class OperatorFormation
     public function getOperatorcategories()
     {
         return $this->operatorcategories;
+    }
+
+    /**
+     * Get the number of days elapsed from the end of the formation till the current date
+     * @return string
+     */
+    public function getFormationElapsedTime()
+    {
+        $end= $this->dateEnd;
+        $current= new \DateTime();
+
+        //if the formation isn't finished yet, we consider that the elapsed time is 0
+        if((null == $end) | ($current < $end)) {
+            return 0;
+        }
+        else {
+            $interval= $end->diff($current);
+            $formatted_elapsed_time= $interval->format('%a');
+            return $formatted_elapsed_time;
+        }
     }
 }

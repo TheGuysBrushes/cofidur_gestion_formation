@@ -19,6 +19,7 @@ formation:
     goal: 'Objectif visé'
     teachingAids: 'Moyens pédagogiques'
     placesMaterialRessources: 'Lieu et moyens matériels'
+    validityTime: 'Temps de validité'
     criticality: 'Criticité'
     save:
         submit: 'Enregistrer la formation'

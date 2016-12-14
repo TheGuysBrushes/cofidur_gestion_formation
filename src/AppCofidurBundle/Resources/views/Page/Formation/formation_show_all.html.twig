@@ -21,6 +21,7 @@
 			<th> OBJECTIF </th>
 			<th> MOYENS PEDAGOGIQUES </th>
 			<th> MOYENS MATERIELS </th>
+			<th> TEMPS DE VALIDITÉ </th>
 			<th> CRITICITE </th>
 		</tr>
 	{% set nb_formation= 1 %}
@@ -32,6 +33,7 @@
 			<td title="{{formation.goal}}"> {{ formation.goal| slice(0,30)  }}... </td>
 			<td title="{{formation.teachingAids}}"> {{ formation.teachingAids| slice(0,30)  }}... </td>
 			<td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,30)  }}... </td>
+			<td title="{{formation.validityTime}}"> {{ formation.validityTime  }} jour(s)</td>
 			<td> {{ formation.criticality }} </td>
 			<td>
 				<input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">

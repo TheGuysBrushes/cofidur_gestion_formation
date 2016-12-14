@@ -72,6 +72,13 @@ class Formation
      */
     private $categories;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="validityTime", type="integer")
+     */
+    private $validityTime;
+
 
     /**
      * Constructor
@@ -233,6 +240,29 @@ class Formation
     public function getPlacesMaterialRessources()
     {
         return $this->placesMaterialRessources;
+    }
+
+    /**
+     * Get validityTime
+     *
+     * @return int
+     */
+    public function getValidityTime(){
+        return $this->validityTime;
+    }
+
+    /**
+     * Set validityTime
+     *
+     * @param integer $validity_time
+     *
+     * @return Formation
+     */
+    public function setValidityTime($validity_time)
+    {
+        $this->validityTime= $validity_time;
+
+        return $this;
     }
 
     /**

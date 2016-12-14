@@ -2,6 +2,7 @@
 
 namespace AppCofidurBundle\Form\Type;
 
+use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,7 +24,8 @@ class OperatorCategoryType extends AbstractType
                     'label_format' => 'operatorCategory.dateSignature',
                     'placeholder' => ['year' => 'date.year', 'month' => 'date.month', 'day' => 'date.day'],
                     // L'année de signature peut être choisie entre l'année actuelle et l'année précédente
-                    'years' => range( date("Y"), date("Y", strtotime("-1 year")) )
+                    'years' => range( date("Y"), date("Y", strtotime("-1 year")) ),
+                    'data' => new \DateTime()
                 )
             )
             ->add('signature', TextType::class, ['label_format' => 'operatorCategory.signature'])
