@@ -25,30 +25,4 @@ class PageController extends Controller
     {
         return $this->render('AppCofidurBundle:Page:admin.html.twig');
     }
-
-    public function skillMatrixAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $formations = $em->getRepository('AppCofidurBundle:Formation')->findAll();
-        $operators= $em->getRepository('AppCofidurBundle:User')->findAll();
-        $operatorsformations= $em->getRepository('AppCofidurBundle:OperatorFormation')->findAll();
-        $allConnexions= [];
-
-        $nbOperatorFormations = count($operatorsformations);
-        for ($i= 0; $i < $nbOperatorFormations; ++$i) {
-            $operatorId= $operatorsformations[$i]->getOperator()->getId();
-            $formationId= $operatorsformations[$i]->getFormation()->getId();
-            $validation= $operatorsformations[$i]->getValidation();
-            $operatorsformationsId= $operatorsformations[$i]->getId();
-
-            $allConnexions[$i]= [$operatorId, $formationId, $validation, $operatorsformationsId];
-        }
-
-        return $this->render('AppCofidurBundle:Page:skillMatrix.html.twig', array(
-            'formations'      => $formations,
-            'operators'       => $operators,
-            'formationsValidation'         => $allConnexions,
-        ));
-    }
 }

@@ -24,8 +24,8 @@ AppCofidurBundle_admin:
 ### Matrice de compétences ###
 AppCofidurBundle_skillMatrix:
     path: /skillMatrix
-    methods: [GET]
-    defaults: { _controller: AppCofidurBundle:Page:skillMatrix }
+    methods: [POST, GET]
+    defaults: { _controller: AppCofidurBundle:SkillMatrix:skillMatrix }
 
 ### Pages d'authentifiation ###
 AppCofidurBundle_login:

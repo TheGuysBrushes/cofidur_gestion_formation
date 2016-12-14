@@ -3,6 +3,33 @@
 {% block body %}
 <script src="{{ asset('bundles/appcofidur/js/sorttable.js') }}"></script>
 
+    <script type="text/javascript">
+        function show_matrix_form(){
+            var m_form= document.getElementById("form_matrix");
+
+            if(m_form.style.display == "block"){
+                m_form.style.display= "none";
+            } else {
+                m_form.style.display= "block";
+            }
+        }
+    </script>
+
+    <a href="#" onclick="show_matrix_form()">Afficher/Cacher le formulaire</a>
+    <br/>
+    <br>
+    <div id="form_matrix" style="display:none;">    
+        <a href="{{ path('AppCofidurBundle_skillMatrix') }}">Remise à zéro...</a>
+        <br>
+        <br>
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    <br/>
+
     <table class="sortable">
         <tr>
             <th class="text_in_bottom">
@@ -119,38 +146,32 @@
 {% endblock %}
 
 {% block sidebar %}
-    <h1>Légende des couleurs :</h1>
-    <br/>
+    <h3>Légende des couleurs :</h3>
     <table class="color_legend">
         <tr>
             <th class="text_legende">Code couleur</th>
-            <th class="text_legende">Statut</th>
-        </tr>
-        <tr>
             <td class="formedNotValidated"></td>
-            <td class="text_legende">Formé non habilité</td>
-        </tr>
-        <tr>
             <td class="learningFormation"></td>
-            <td class="text_legende">En Formation</td>
-        </tr>
-        <tr>
             <td class="futureFormation"></td>
-            <td class="text_legende">Prévision Formation</td>
-        </tr>
-        <tr>
             <td class="formedValidated"></td>
-            <td class="text_legende">Habilité</td>
+            <td class="formedToTeach"></td>
         </tr>
         <tr>
-            <td class="formedToTeach"></td>
+            <th class="text_legende">Statut</th>
+            <td class="text_legende">Formé non habilité</td>
+            <td class="text_legende">En Formation</td>
+            <td class="text_legende">Prévision Formation</td>
+            <td class="text_legende">Habilité</td>
             <td class="text_legende">Habilité à former</td>
         </tr>
-
     </table>
+
+    <br/>
 {% endblock %}
 
 {% block sidebar_nav %}
+    <br/>
+
     {% if is_granted('ROLE_USER') %}
     <h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
     {% endif %}
@@ -158,4 +179,5 @@
     <h2><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></h2>
     <h2><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formation d'opérateurs</a></h2>
     {% endif %}
+
 {% endblock %}
