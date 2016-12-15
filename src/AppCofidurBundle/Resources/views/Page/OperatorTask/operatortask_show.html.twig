@@ -1,0 +1,31 @@
+{% set task_found= 0 %}
+{% for opeTask in opeCat.operatortasks %}
+    {% if opeTask.task.id == task.id %}
+        {% set task_found= 1 %}
+        <tr>
+            <td><input type="checkbox" name="validated" disabled checked></td>
+            <td class="large">{{ task.name }}</td>
+            <td>
+                <a href="{{ path('AppCofidurBundle_operatortask_delete', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id}) }}#{{ category.name }}{{ category.id }}">
+                    Invalider tâche
+                </a>
+            </td>
+        </tr>
+    {% endif %}
+{% endfor %}{# fin for opeTask #}
+{% if task_found == 0 %}
+    <tr>
+        <td>
+            <input type="checkbox" name="validated" disabled>
+        </td>
+        <td class="large">{{ task.name }}</td>
+        <td>
+            <div class="task_validator">
+                <a href="{{ path('AppCofidurBundle_operatortask_add', {'idOpForm': operatorformation.id, 'idCategory': category.id, 'idTask': task.id 	}) }}#{{ category.name }}{{ category.id }}">
+                    <button id="validateTask{{ indice_category }}{{ task_nb }}" onclick="validate_task(this.id)">Valider</button>
+                </a>
+            </div>
+        </td>
+    </tr>
+
+{% endif %}

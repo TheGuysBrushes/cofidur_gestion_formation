@@ -37,6 +37,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
                 $root->setEnabled(true);
                 $root->setSuperiorLvl1($root );
                 $root->setSuperiorLvl2($root);
+                $root->setSuperAdmin(true);
                 $manager->persist($root);
 
                 $user = new User();
@@ -55,15 +56,15 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 		for ($i=2; $i<self::MAX_NB_USERS+2; ++$i){
 			$usertmp = new User();
 			$usertmp->setUsername($faker->username);
-                        $usertmp->setFirstName($faker->firstname);
-                        $usertmp->setLastName($faker->lastname);
-                        $usertmp->setDateOfBirth(new \DateTime($faker->date));
-                        $usertmp->setEmail($faker->email);
-                        $usertmp->setPlainPassword($faker->password);
-                        $usertmp->setEnabled(true);
-                        $usertmp->setStatut(rand(1,3));
-                        $usertmp->setSuperiorLvl1($user);
-                        $usertmp->setSuperiorLvl2($user);
+            $usertmp->setFirstName($faker->firstname);
+            $usertmp->setLastName($faker->lastname);
+            $usertmp->setDateOfBirth(new \DateTime($faker->date));
+            $usertmp->setEmail($faker->email);
+            $usertmp->setPlainPassword($faker->password);
+            $usertmp->setEnabled(true);
+            $usertmp->setStatut(rand(1,3));
+            $usertmp->setSuperiorLvl1($user);
+            $usertmp->setSuperiorLvl2($user);
 			$manager->persist($usertmp);
 			$this->addReference('user'.$i, $usertmp);
 		}
@@ -72,6 +73,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 	}
 	
 	public function getOrder(){
-		return 2;
-        }
+		return 9;
+    }
 }

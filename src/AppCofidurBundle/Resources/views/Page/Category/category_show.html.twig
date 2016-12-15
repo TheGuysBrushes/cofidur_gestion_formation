@@ -1,0 +1,40 @@
+<br/>
+
+<fieldset
+        {% if AERONAUTIC == formation.type %}       class="aeronautic"
+        {% elseif ALUMINIUM == formation.type %}    class="aluminium"
+        {% elseif PCB == formation.type %}          class="PCB"
+        {% elseif EMS == formation.type %}          class="EMS"
+        {% elseif ENVIRONMENT == formation.type %}  class="environment"
+        {% elseif ECOLOGY == formation.type %}      class="ecology"
+        {% endif %}
+        id="fieldset_cat_{{ category.id }}">
+
+    <legend class="category_title">
+        Catégorie : {{ category.name }}
+        <input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}'}">
+        <input type="button" value="Supprimer"
+               onclick="if(confirm('Supprimer la catégorie ?')){
+                       window.location.href='{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}#fieldset_cat_{{ category.id -1 }}'
+                       }">
+    </legend>
+    <table class="task_tab">
+        <tr>
+            <th class="task_name">Nom de la tâche</th>
+        </tr>
+        {% for task in category.tasks %}
+            {% include 'AppCofidurBundle::Page/Task/task_show.html.twig' %}
+        {% endfor %}
+    </table>
+    <br/>
+    <a href="{{ path('AppCofidurBundle_category_up', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">
+        <button class="move up">up</button>
+    </a>
+    <a href="{{ path('AppCofidurBundle_category_down', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">
+        <button class="move down">down</button>
+    </a>
+    <br/><br/>
+
+    <a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">Ajouter une tâche</a>
+
+</fieldset>

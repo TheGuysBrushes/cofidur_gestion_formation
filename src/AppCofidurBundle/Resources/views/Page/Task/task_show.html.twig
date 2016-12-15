@@ -1,0 +1,25 @@
+<tr>
+    <td rowspan="2" >{{ task.name }}</td>
+    <td rowspan="2" >
+        <a href="{{ path('AppCofidurBundle_task_edit', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
+            Éditer
+        </a>
+    </td>
+    <td rowspan="2" >
+        <a href="{{ path('AppCofidurBundle_task_delete', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
+            Supprimer
+        </a>
+    </td>
+    <td class="button" rowspan="1">
+        <a href="{{ path('AppCofidurBundle_task_up', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
+            <button class="move up">up</button>
+        </a>
+    </td>
+</tr>
+<tr>
+    <td class="button" rowspan="1">
+        <a href="{{ path('AppCofidurBundle_task_down', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
+            <button class="move down">down</button>
+        </a>
+    </td>
+</tr>
