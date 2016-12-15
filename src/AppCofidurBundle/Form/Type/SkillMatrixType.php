@@ -24,19 +24,6 @@ class SkillMatrixType extends AbstractType
                     'label_format' => 'Formation',
                 )
             )   
-            ->add('qualification', ChoiceType::class,
-                array(
-                    'choices'  => array(
-                        1 => 'Formé non habilité',
-                        2 => 'En Formation',
-                        3 => 'Prévision Formation',
-                        4 => 'Habilité',
-                        5 => 'Habilité à former',
-                    ),
-                    'required' => false,
-                    'label_format' => 'Qualification',
-                )
-            ) 
             ->add('criticality', ChoiceType::class,
                array('label_format' => 'formation.criticality',
                     'choices'  => array(
@@ -50,6 +37,19 @@ class SkillMatrixType extends AbstractType
                     'required' => false,
                 )
             )
+            ->add('qualification', ChoiceType::class,
+                array(
+                    'choices'  => array(
+                        1 => 'Formé non habilité',
+                        2 => 'En Formation',
+                        3 => 'Prévision Formation',
+                        4 => 'Habilité',
+                        5 => 'Habilité à former',
+                    ),
+                    'required' => false,
+                    'label_format' => 'Qualification',
+                )
+            ) 
             ->add('superiorLvl1', EntityType::class,
                 array(
                     'class'  => 'AppCofidurBundle:User',

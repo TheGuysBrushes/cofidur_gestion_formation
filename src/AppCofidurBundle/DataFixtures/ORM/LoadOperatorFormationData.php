@@ -17,8 +17,8 @@ class LoadOperatorFormationData extends AbstractFixture implements OrderedFixtur
         
 	public function load(ObjectManager $manager){
 
-                for($j=1; $j<51; $j++){
-                        for ($i=1; $i < 20; $i++) { 
+                for($j=1; $j<53; $j++){
+                        for ($i=1; $i < 21; $i++) { 
                                 $rand = rand(1,3);
                                 if($rand == 2){
                                         $operator = $manager->getRepository('AppCofidurBundle:User')->find($j);

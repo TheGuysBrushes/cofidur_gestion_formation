@@ -168,7 +168,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $this->createVisserie($manager);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -178,7 +178,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -188,7 +188,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -198,7 +198,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -208,7 +208,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -218,7 +218,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -228,7 +228,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -238,7 +238,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -248,7 +248,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -258,7 +258,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -268,7 +268,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -278,7 +278,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -288,7 +288,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -298,7 +298,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -308,7 +308,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -318,7 +318,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -328,7 +328,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -338,7 +338,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
@@ -348,7 +348,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $manager->persist($formation);
 
         $formation = new Formation();
-        $formation->setCriticality(1);
+        $formation->setCriticality(rand(1,5));
         $formation->setGoal("Objectif");
         $formation->setType("Type");
         $formation->setTeachingAids("Aide pour l'apprentissage");
