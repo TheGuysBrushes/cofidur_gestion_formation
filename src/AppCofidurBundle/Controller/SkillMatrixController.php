@@ -22,8 +22,6 @@ class SkillMatrixController extends Controller
             //traitement spécifique au formulaire
             $allConnexions= [];
 
-
-
             $formationTabRecherche = [];
             $operatorTabRecherche = [];
             $operatorformationTabRecheche = [];
@@ -31,6 +29,11 @@ class SkillMatrixController extends Controller
             //qualifications
             if($form["qualification"]->getData() != null){
                 $operatorformationTabRecheche["validation"] = $form["qualification"]->getData();
+            }
+
+            //criticité
+            if($form["criticality"]->getData() != null){
+                $formationTabRecherche["criticality"] = $form["criticality"]->getData();
             }
 
             //statut
@@ -73,6 +76,7 @@ class SkillMatrixController extends Controller
                 if($form["qualification"]->getData() != null){
                     $nbOpForm = count($operatorsformations);
                     for($i=0; $i<$nbOpForm; ++$i){
+
                         if($form["formation"]->getData() != null){
                             if($operatorsformations[$i]->getFormation() == $form["formation"]->getData()){
                                 $new_Operators[$i] = $operatorsformations[$i]->getOperator();
@@ -80,13 +84,18 @@ class SkillMatrixController extends Controller
                         }else{
                             $new_Operators[$i] = $operatorsformations[$i]->getOperator();
                         }
+
                     }
-                    foreach($new_Operators as $new_op){
-                        foreach($operators as $op){
+
+
+                    $end_Operators=[];
+                    foreach($operators as $op){
+                        foreach($new_Operators as $new_op){
                             if($op == $new_op)
                                 $end_Operators[$op->getId()] = $op;
                         }
                     }
+
                     $operators = $end_Operators;
                 }
             }else{

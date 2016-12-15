@@ -23,7 +23,7 @@ class SkillMatrixType extends AbstractType
                     'required' => false,
                     'label_format' => 'Formation',
                 )
-            )     
+            )   
             ->add('qualification', ChoiceType::class,
                 array(
                     'choices'  => array(
@@ -35,6 +35,19 @@ class SkillMatrixType extends AbstractType
                     ),
                     'required' => false,
                     'label_format' => 'Qualification',
+                )
+            ) 
+            ->add('criticality', ChoiceType::class,
+               array('label_format' => 'formation.criticality',
+                    'choices'  => array(
+                        1 => '1',
+                        2 => '1+',
+                        3 => '2',
+                        4 => '2+',
+                        5 => '3',
+                        6 => '3+',
+                    ),                    
+                    'required' => false,
                 )
             )
             ->add('superiorLvl1', EntityType::class,
