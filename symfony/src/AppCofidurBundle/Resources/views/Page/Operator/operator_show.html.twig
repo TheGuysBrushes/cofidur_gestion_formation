@@ -66,8 +66,6 @@
 	{% endif %}
 </div>
 
-
-
 	{% if operatorsformations %}
 	<h3>Légende des couleurs des cadres :</h3>
 	<table class="color_legend">
@@ -97,71 +95,8 @@
 			<tr>
 		{% endif %}
 
-		<td class="ope_formations_array_elem">
-			<fieldset 
-			{% if 1 == operatorformation.validation %}
-				 class="formedNotValidated_formation_sumup"
-            {% endif %}
-			{% if 2 == operatorformation.validation %}
-				 class="learningFormation_formation_sumup"
-            {% endif %}
-			{% if 3 == operatorformation.validation %}
-				 class="futureFormation_formation_sumup"
-            {% endif %}
-			{% if 4 == operatorformation.validation %}
-				 class="formedValidated_formation_sumup"
-            {% endif %}
-			{% if 5 == operatorformation.validation %}
-				 class="formedToTeach_formation_sumup"
-            {% endif %}
-            >
-					<legend class="ope_formations_array_elem_legend">
-						<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}">Détails de la formation</a>
-					</legend>
-					<table class="category_page">
-						{#<tr>#}
-							{#<th class="entete_category">ID</th>#}
-							{#<td>{{ operatorformation.formation.id }} </td>#}
-						{#</tr>#}
-						<tr>
-							<th class="entete_category">Nom</th>
-							<td>{{ operatorformation.formation.name }} </td>
-						</tr>
-						<tr>
-							<th class="entete_category">Type</th>
-							<td title="{{ operatorformation.formation.type }}">{{ operatorformation.formation.type| slice(0,30) }}... </td>
-						</tr>
-						<tr>
-							<th class="entete_category">Objectif</th>
-							<td title="{{ operatorformation.formation.goal }}">{{ operatorformation.formation.goal| slice(0,30) }}... </td>
-						</tr>
-						{#<tr>#}
-							{#<th class="entete_category">Moyens pédagogiques</th>#}
-							{#<td title="{{ operatorformation.formation.teachingAids }}">{{ operatorformation.formation.teachingAids| slice(0,30) }}... </td>#}
-						{#</tr>#}
-						{#<tr>#}
-							{#<th class="entete_category">Lieu & moyens matériels</th>#}
-							{#<td title="{{ operatorformation.formation.placesMaterialRessources }}">{{ operatorformation.formation.placesMaterialRessources| slice(0,30) }}... </td>#}
-						{#</tr>#}
-						<tr>
-							<th class="entete_category">Criticité</th>
-							<td>{{ operatorformation.formation.criticality }} </td>
-						</tr>
-						<tr>
-							<th class="entete_category">Formateur</th>
-							<td> {{ operatorformation.former.lastName | upper | slice(0.10) }} {{ operatorformation.former.firstName | slice(0.10) }}</td>
-						</tr>
-						<tr>
-							<th class="entete_category">Temps écoulé depuis la fin de la formation</th>
-							<td>{{ operatorformation.getFormationElapsedTime }} jour(s)</td>
-						</tr>
-						{#Valeur a changer : champ de validité a placer ici a la plac du 5#}
-						{% if operatorformation.getFormationElapsedTime > operatorformation.formation.validityTime %}
-							<tr><td>ATTENTION LA FORMATION N'EST PLUS VALIDE</td></tr>
-						{% endif %}
-					</table>
-				</fieldset>
-		</td>
+		{% include 'AppCofidurBundle::Page/OperatorFormation/operatorformation_showSumup.html.twig' %}
+
 		{% if sautdeligne is odd %}
 			</tr>
 		{% endif %}
@@ -176,82 +111,21 @@
 {% if supervisedFormations %}
 	<h2>Cet opérateur supervise les formations suivantes :</h2>
 	<table class="ope_formations_array">
-		{% set sautdeligne= 0 %}
-		{% for supervisedFormation in supervisedFormations %}
-			{% if sautdeligne is even %}
-				<tr>
-			{% endif %}
 
-			<td class="ope_formations_array_elem">
-				<fieldset
-				{% if 1 == supervisedFormation.validation %}
-					 class="formedNotValidated_formation_sumup"
-				{% endif %}
-				{% if 2 == supervisedFormation.validation %}
-					 class="learningFormation_formation_sumup"
-				{% endif %}
-				{% if 3 == supervisedFormation.validation %}
-					class="futureFormation_formation_sumup"
-				{% endif %}
-				{% if 4 == supervisedFormation.validation %}
-					 class="formedValidated_formation_sumup"
-				{% endif %}
-				{% if 5 == supervisedFormation.validation %}
-					 class="formedToTeach_formation_sumup"
-				{% endif %}
-				>
-										<legend class="ope_formations_array_elem_legend">
-											<a href="{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': supervisedFormation.id}) }}">Détails de la formation</a>
-										</legend>
-										<table class="category_page">
-											{#<tr>#}
-												{#<th class="entete_category">ID</th>#}
-												{#<td>{{ supervisedFormation.formation.id }} </td>#}
-											{#</tr>#}
-											<tr>
-												<th class="entete_category">Nom</th>
-												<td>{{ supervisedFormation.formation.name }} </td>
-											</tr>
-											<tr>
-												<th class="entete_category">Type</th>
-												<td title="{{ supervisedFormation.formation.type }}">{{ supervisedFormation.formation.type| slice(0,30) }}... </td>
-											</tr>
-											<tr>
-												<th class="entete_category">Objectif</th>
-												<td title="{{ supervisedFormation.formation.goal }}">{{ supervisedFormation.formation.goal| slice(0,30) }}... </td>
-											</tr>
-											{#<tr>#}
-												{#<th class="entete_category">Moyens pédagogiques</th>#}
-												{#<td title="{{ supervisedFormation.formation.teachingAids }}">{{ supervisedFormation.formation.teachingAids| slice(0,30) }}... </td>#}
-											{#</tr>#}
-											{#<tr>#}
-												{#<th class="entete_category">Lieu & moyens matériels</th>#}
-												{#<td title="{{ supervisedFormation.formation.placesMaterialRessources }}">{{ sueprvisedFormation.formation.placesMaterialRessources| slice(0,30) }}... </td>#}
-											{#</tr>#}
-											<tr>
-												<th class="entete_category">Criticité</th>
-												<td>{{ supervisedFormation.formation.criticality }} </td>
-											</tr>
-											<tr>
-												<th class="entete_category">Opérateur formé</th>
-												<td>{{ supervisedFormation.operator.lastName | upper | slice(0.10) }} {{ supervisedFormation.operator.firstName | slice(0.10) }} </td>
-											</tr>
-											<tr>
-												<th class="entete_category">Temps écoulé depuis la fin de la formation</th>
-												<td>{{ supervisedFormation.getFormationElapsedTime }} jour(s)</td>
-											</tr>
-											{#Valeur a changer : champ de validité a placer ici a la plac du 5#}
-											{% if supervisedFormation.getFormationElapsedTime > supervisedFormation.formation.validityTime %}
-												<tr><td>ATTENTION LA FORMATION N'EST PLUS VALIDE</td></tr>
-											{% endif %}
-										</table>
-									</fieldset>
-			</td>
-			{% if sautdeligne is odd %}
-				</tr>
-			{% endif %}
-			{% set sautdeligne= sautdeligne+1 %}
-		{% endfor %}
+    {% set sautdeligne= 0 %}
+    {% for operatorformation in supervisedFormations %}
+        {% if sautdeligne is even %}
+            <tr>
+        {% endif %}
+
+        {% include 'AppCofidurBundle::Page/OperatorFormation/operatorformation_showSumup.html.twig' %}
+
+        {% if sautdeligne is odd %}
+            </tr>
+        {% endif %}
+        {% set sautdeligne= sautdeligne+1 %}
+    {% endfor %} {# Fin for supervisedFormation #}
+
 	</table>
 {% else %}
 	<h3>Cet opérateur n'a encore supervisé aucune formation</h3>

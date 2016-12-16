@@ -43,70 +43,8 @@
 	</table>
 
 	{% for category in formation.categories %}
-	<br/>
-
-    <fieldset
-        {% if AERONAUTIC == formation.type %}   class="aeronautic" {% endif %}
-        {% if ALUMINIUM == formation.type %}    class="aluminium" {% endif %}
-        {% if PCB == formation.type %}          class="aluminium" {% endif %}
-        {% if EMS == formation.type %}          class="EMS" {% endif %}
-        {% if ENVIRONMENT == formation.type %}  class="environment" {% endif %}
-        {% if ECOLOGY == formation.type %}      class="ecology" {% endif %}
-        id="fieldset_cat_{{ category.id }}">
-
-		<legend class="category_title">
-			Catégorie : {{ category.name }}
-			<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_category_edit', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}'}">
-			<input type="button" value="Supprimer"
-				   onclick="if(confirm('Supprimer la catégorie ?')){
-						   window.location.href='{{ path('AppCofidurBundle_category_delete', {'idCat': category.id}) }}#fieldset_cat_{{ category.id -1 }}'
-						   }">
-		</legend>
-		<table class="task_tab">
-			<tr>
-				<th class="task_name">Nom de la tâche</th>
-			</tr>
-			{% for task in category.tasks %}
-			<tr>
-				<td rowspan="2" >{{ task.name }}</td>
-				<td rowspan="2" >
-					<a href="{{ path('AppCofidurBundle_task_edit', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
-						Éditer
-					</a>
-				</td>
-				<td rowspan="2" >
-					<a href="{{ path('AppCofidurBundle_task_delete', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
-						Supprimer
-					</a>
-				</td>
-				<td class="button" rowspan="1">
-					<a href="{{ path('AppCofidurBundle_task_up', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
-						<button class="move up">up</button>
-					</a>
-				</td>
-			</tr>
-			<tr>
-				<td class="button" rowspan="1">
-					<a href="{{ path('AppCofidurBundle_task_down', {'idTask': task.id}) }}#fieldset_cat_{{ category.id }}">
-						<button class="move down">down</button>
-					</a>
-				</td>
-			</tr>
-			{% endfor %}
-		</table>
-		<br/>
-		<a href="{{ path('AppCofidurBundle_category_up', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">
-			<button class="move up">up</button>
-		</a>
-		<a href="{{ path('AppCofidurBundle_category_down', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">
-			<button class="move down">down</button>
-		</a>
-		<br/><br/>
-
-		<a href="{{ path('AppCofidurBundle_task_add', {'idCat': category.id}) }}#fieldset_cat_{{ category.id }}">Ajouter une tâche</a>
-
-	</fieldset>
-{% endfor %}
+		{% include 'AppCofidurBundle::Page/Category/category_show.html.twig' %}
+    {% endfor %}
 {% endblock %}
 
 {% if is_granted('ROLE_ADMIN') %}
