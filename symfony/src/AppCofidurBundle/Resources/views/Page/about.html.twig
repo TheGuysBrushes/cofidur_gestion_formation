@@ -1,0 +1,24 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block title %}A propos{% endblock%}
+
+{% block body %}
+    <fieldset>
+        <legend>
+            <h1>A propos</h1>
+        </legend>
+        <p>
+            Ce site est une preuve de faisabilité pour informatiser la gestion RH du groupe Cofidur EMS. <br>
+            <br>
+            Il a été réalisé sur 4 semaines par 3 étudiants :
+            <ul>
+                <li>DAVID Florian</li>
+                <li>DE LEEUW Valérian</li>
+                <li>GARNIER Antoine</li>
+            </ul>
+            N'hésitez pas à nous contacter pour toute demande et/ou problème !<br>
+            <br>
+            Contact : <a href="{{path('AppCofidurBundle_contact')}}">ici</a>
+        </p>
+    </fieldset>
+{% endblock %}

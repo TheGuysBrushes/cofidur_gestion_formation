@@ -1,0 +1,66 @@
+{% extends 'AppCofidurBundle::Page/Formation/formation.html.twig' %}
+
+{% block sidebar_container %}{% endblock %}
+
+{% block body %}
+	<h1>Affichage de toutes les formations</h1>
+
+	<script src="{{ asset('bundles/appcofidur/js/sorttable.js') }}"></script>
+
+	<script type="text/javascript">
+		function wanted_formation(wanted_formation_button_id, formation_id){
+			alert("Vous souhaitez passer la formation ".concat(formation_id).concat(" !"));
+		}
+	</script>
+
+	<table class="sortable">
+		<tr>
+			<th> ID </th>
+			<th> NOM </th>
+			<th> TYPE </th>
+			<th> OBJECTIF </th>
+			<th> MOYENS PEDAGOGIQUES </th>
+			<th> MOYENS MATERIELS </th>
+			<th> TEMPS DE VALIDITÉ </th>
+			<th> CRITICITE </th>
+		</tr>
+	{% set nb_formation= 1 %}
+	{% for formation in formations %}
+		<tr>
+			<td> {{ formation.id }} </td>
+			<td> {{ formation.name }} </td>
+			<td title="{{formation.type}}"> {{ formation.type| slice(0,30) }}... </td>
+			<td title="{{formation.goal}}"> {{ formation.goal| slice(0,30)  }}... </td>
+			<td title="{{formation.teachingAids}}"> {{ formation.teachingAids| slice(0,30)  }}... </td>
+			<td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,30)  }}... </td>
+			<td title="{{formation.validityTime}}"> {{ formation.validityTime  }} jour(s)</td>
+			<td> {{ formation.criticality }} </td>
+			<td>
+				<input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">
+				<br/>
+				<br/>
+				{% if is_granted('ROLE_ADMIN') %}
+					<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}'}">
+					<br/>
+					<br/>
+					<input type="button" value="Supprimer"
+						   onclick="if(confirm('Supprimer la catégorie ?')){
+								   window.location.href='{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}'
+								   }">
+					<br/>
+					<br/>
+				{% elseif is_granted('ROLE_USER') %}
+					<button id="wanted_formation_button{{ nb_formation }}" onclick="wanted_formation(this.id, {{ formation.id }})">
+						Passer la formation
+					</button>
+				{% endif %}
+			</td>
+		</tr>
+	{% set nb_formation= nb_formation+1 %}
+	{% endfor %}
+	</table>
+
+	<br/>
+	<a href="{{ path('AppCofidurBundle_formation_add') }}">Ajouter une formation</a>
+
+{% endblock body %}

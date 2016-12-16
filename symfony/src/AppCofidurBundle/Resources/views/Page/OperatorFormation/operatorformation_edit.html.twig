@@ -1,0 +1,16 @@
+{% extends 'AppCofidurBundle::Page/OperatorFormation/operatorformation.html.twig' %}
+
+{% block body %}
+    <h1>Modification de la formation d'un opérateur</h1>
+
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+{% endblock %}
+
+{% block sidebar_nav %}
+<h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+{{ parent() }}
+{% endblock %}

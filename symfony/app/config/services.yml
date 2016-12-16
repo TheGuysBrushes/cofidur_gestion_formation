@@ -1,0 +1,14 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+#services:
+#    service_name:
+#        class: AppCofidurBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+services:
+    app.form.registration:
+        class: AppCofidurBundle\Form\Type\RegistrationType
+        tags:
+            - { name: form.type, alias: app_user_registration }

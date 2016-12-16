@@ -1,0 +1,14 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+
+{% block sidebar_nav %}
+
+{% if is_granted('ROLE_USER') %}
+<h2><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></h2>
+    {% if is_granted('ROLE_ADMIN') %}
+<h2><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></h2>
+<h2><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence des opérateurs</a></h2>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

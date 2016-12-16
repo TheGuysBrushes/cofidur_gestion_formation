@@ -1,0 +1,24 @@
+{% extends 'AppCofidurBundle::layout.html.twig' %}
+
+{% block body %}
+    {% if is_granted('ROLE_USER') %}
+        <h1><p class="welcome"> Vous êtes bien connecté sur le service de gestion des formations de Cofidur-EMS</p></h1>
+    {% else %}
+        <h1><p class="welcome">Bienvenue sur le service de gestion des formations de Cofidur-EMS</p></h1>
+    {% endif %}
+
+    {% if is_granted('ROLE_USER') %}
+    <h3>
+        <ul>
+            <li><a href="{{ path('AppCofidurBundle_formation_show_all') }}">Formations</a></li>
+            <li><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></li>
+            {% if is_granted('ROLE_ADMIN') %}
+            <li><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formations des Opérateurs</a></li>
+            {% endif %}
+            <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
+        </ul>
+    </h3>
+
+    {% endif %}
+{% endblock %}
+

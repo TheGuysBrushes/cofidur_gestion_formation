@@ -1,0 +1,110 @@
+# Catégorie
+category:
+    id: 'Identifiant de la catégorie'
+    name: 'Nom de la catégorie'
+    order: 'Ordonnancement de la catégorie'
+    save:
+        submit: 'Enregistrer la catégorie'
+    edit:
+        submit: 'Mettre à jour la catégorie'
+    add:
+        submit: 'Créer la catégorie'
+    delete:
+        submit: 'Supprimer la catégorie'
+# Formation
+formation:
+    id: 'Identifiant de la formation'
+    name: 'Nom de la formation'
+    type: 'Type de la formation'
+    goal: 'Objectif visé'
+    teachingAids: 'Moyens pédagogiques'
+    placesMaterialRessources: 'Lieu et moyens matériels'
+    validityTime: 'Temps de validité'
+    criticality: 'Criticité'
+    save:
+        submit: 'Enregistrer la formation'
+    edit:
+        submit: 'Mettre à jour la formation'
+    add:
+        submit: 'Créer la formation'
+    delete:
+        submit: 'Supprimer la formation'
+# OperatorCategory
+operatorCategory:
+    id: 'Identifiant de la catégorie de l''opérateur'
+    dateSignature: 'Date de la signature'
+    signature: 'Signature'
+    nbHours: 'Nombre d''heures'
+    trainerName: 'Nom du Formateur'
+    save:
+        submit: 'Enregistrer'
+    edit:
+        submit: 'Mettre à jour la catégorie de l''opérateur'
+    add:
+        submit: 'Créer la catégorie de l''opérateur'
+    delete:
+        submit: 'Supprimer la catégorie de l''opérateur'
+# Formation d'opérateur
+operatorFormation:
+    operatorId: 'Identifiant de l''opérateur'
+    formationId: 'Identifiant de la formation'
+    formationName: 'Nom de la formation'
+    dateBegin: 'Date de début de formation'
+    dateEnd: 'Date de fin de formation'
+    validation: 'Etat de la formation'
+    commentary: 'Commentaire°'
+    formerId: 'Identifiant du formateur'
+    operatorName: 'Nom de l''opérateur'
+    formerName: 'Nom du tuteur'
+    choices:
+        unvalidated: 'Non validé'
+        validating: 'En cours de validation'
+        planned: 'Prévue'
+        formed: 'Formé'
+        can_form: 'Peut former'
+    save:
+        submit: 'Enregistrer la formation de l''opérateur'
+    edit:
+        submit: 'Mettre à jour la formation d''opérateur'
+    add:
+        submit: 'Ajouter la formation à l''opérateur'
+    delete:
+        submit: 'Supprimer la formation de l''opérateur'
+# Opérateur
+operator:
+    id: 'Identifiant de l''opérateur'
+    firstName: 'Prénom'
+    lastName: 'Nom'
+    dateOfBirth: 'Date de naissance'
+    save:
+        submit: 'Enregistrer l''opérateur'
+    edit:
+        submit: 'Mettre à jour l''opérateur'
+    add:
+        submit: 'Créer l''opérateur'
+    delete:
+        submit: 'Supprimer l''opérateur'
+# Enregistrement
+security:
+    login:
+        firstName: 'Prénom'
+        lastName: 'Nom'
+        dateOfBirth: 'Date de naissance'
+# Tâche
+task:
+    id: 'Identifiant de la tâche'
+    order: 'Ordonnancement de la tâche'
+    name: 'Intitulé de la tâche'
+    save:
+        submit: 'Enregistrer la tâche'
+    edit:
+        submit: 'Mettre à jour la tâche'
+    add:
+        submit: 'Créer la tâche'
+    delete:
+        submit: 'Supprimer la tâche'
+
+date:
+    year: 'Année'
+    month: 'Mois'
+    day: 'Jour'
