@@ -9,7 +9,7 @@ Renouvellement d'une formation avec une durée de validité de formation.
 
 Filtre dans les tableaux, pour une seule personne, certaines dates, ...
 
-Matrice de compétence :
-	Champ de recherche, menu déroulant, clic, ... sur une personne, une compétence, ...
+Matrice de compétences :
+	Champ de recherche, menu déroulant, clic, ... sur une personne, une compétences, ...
 	
 Voir pour les backups

@@ -7,3 +7,8 @@ Cofidur EMS {{ status_text }}
     <h1>Une erreur est survenue</h1>
 	<h2 class="error">Identifiant de l'erreur : "{{ status_code }} {{ status_text }}".</h2>
 {% endblock %}
+
+{% block sidebar_nav %}
+    <h2><em><a href="javascript:history.go(-1)">Retour</a></em></h2>
+    {{ parent() }}
+{% endblock %}

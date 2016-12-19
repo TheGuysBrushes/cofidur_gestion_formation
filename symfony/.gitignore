@@ -13,6 +13,7 @@
 /app/bootstrap.php.cache
 /bin/*
 /vendor/
+
 # Sensitive configuration files (generated)
 web/config.php
 
@@ -29,4 +30,3 @@ web/config.php
 
 #PHP Storm
 .idea/*
-!.idea/cofidur_gestion_formation.iml
