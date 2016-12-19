@@ -92,6 +92,9 @@ class OperatorController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $operator = $form->getData();
+            $operator->setUsername(strtolower(substr($operator->getFirstName(), 0, 3)) . strtolower($operator->getLastName()));
+            $random = random_bytes(10);
+            $operator->setPassword(base64_encode($random));
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($operator);

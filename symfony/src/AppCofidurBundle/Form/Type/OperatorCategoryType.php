@@ -28,7 +28,7 @@ class OperatorCategoryType extends AbstractType
                     'data' => new \DateTime()
                 )
             )
-            ->add('signature', TextType::class, ['label_format' => 'operatorCategory.signature'])
+//            ->add('signature', TextType::class, ['label_format' => 'operatorCategory.signature'])
             ->add('nbHours', TimeType::class, ['label_format' => 'operatorCategory.nbHours'])
             ->add('trainer', EntityType::class,
                array(

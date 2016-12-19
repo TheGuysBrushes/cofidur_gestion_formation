@@ -6,7 +6,10 @@
 
 <script src="{{ asset('bundles/appcofidur/js/sorttable.js') }}"></script>
 
-<table class="sortable">
+    <a href="{{ path('AppCofidurBundle_operatorformation_add') }}">Faire passer une formation à un opérateur </a>
+    <br/>
+
+    <table class="sortable">
 	<tr>
 		<th> MATRICULE </th>
 		<th> NOM UTILISATEUR </th>
@@ -66,10 +69,6 @@
 	</tr>
 {% endfor %}
 </table>
-
-<br/>
-<a href="{{ path('AppCofidurBundle_operatorformation_add') }}">Faire passer une formation à un opérateur </a>
-	
 {% endblock %}
 
 {% block sidebar_container %}

@@ -47,13 +47,13 @@ class OperatorFormationType extends AbstractType
             ->add('validation', ChoiceType::class,
                 array(
                     'choices'  => array(
-                        1 => 'operatorFormation.choices.unvalidated',
-                        2 => 'operatorFormation.choices.validating',
-                        3 => 'operatorFormation.choices.planned',
-                        4 => 'operatorFormation.choices.formed',
-                        5 => 'operatorFormation.choices.can_form',
+                        1 => 'operatorFormation.validationChoices.unvalidated',
+                        2 => 'operatorFormation.validationChoices.validating',
+                        3 => 'operatorFormation.validationChoices.planned',
+                        4 => 'operatorFormation.validationChoices.formed',
+                        5 => 'operatorFormation.validationChoices.can_form',
                     ),
-                    'label_format' => 'operatorFormation.validation',
+                    'label_format' => 'operatorFormation.validationStatus',
                 )
             )
             ->add('commentary', TextType::class, ['label' => 'operatorFormation.commentary'])

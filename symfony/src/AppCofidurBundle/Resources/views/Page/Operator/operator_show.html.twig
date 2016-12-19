@@ -27,11 +27,13 @@
 <table>
 	<tr>
         {#<th> ID </th>#}
-        <th> PRENOM </th>
-        <th> NOM </th>
-		<th> DATE DE NAISSANCE </th>
+        <th> Prénom </th>
+        <th> Nom </th>
+		<th> Date de naissance </th>
 		<th> SUPERIEUR N+1 </th>
 		<th> SUPERIEUR N+2 </th>
+		<th> Adresse Email</th>
+		<th> Matricule </th>
 	</tr>
 	<tr>
 		{#<td> {{ operator.id }} </td>#}
@@ -40,6 +42,8 @@
         <td> {{ operator.dateOfBirth |date("d/m/Y")  }} </td>
 		<td> {{ operator.superiorLvl1 }}</td>
 		<td> {{ operator.superiorLvl2 }}</td>
+		<td><a href="#">{{ operator.email }}</a></td>
+		<td> {{ operator.id }}</td>
 	</tr>
 </table>
 <br/>

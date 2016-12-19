@@ -2,6 +2,7 @@
 
 namespace AppCofidurBundle\Form\Type;
 
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -20,26 +21,27 @@ class OperatorType extends AbstractType
             ->add('firstName', TextType::class, ['label_format' => 'operator.firstName',])
             ->add('lastName', TextType::class,  ['label_format' => 'operator.lastName',])
             ->add('dateOfBirth', DateType::class,   ['label_format' => 'operator.dateOfBirth',])
+            ->add('email', EmailType::class,    ['label_format' => 'operator.email',])
             ->add('statut', ChoiceType::class,
                 array(
                     'choices'  => array(
-                        1 => 'operatorFormation.choices.interim',
-                        2 => 'operatorFormation.choices.cdd',
-                        3 => 'operatorFormation.choices.cdi',
+                        1 => 'operator.statusChoices.interim',
+                        2 => 'operator.statusChoices.cdd',
+                        3 => 'operator.statusChoices.cdi',
                     ),
-                    'label_format' => 'operator.statut',
+                    'label_format' => 'operator.employmentStatus',
                 )
             )
             ->add('superiorLvl1', EntityType::class,
                 array(
                    'class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName',
-                   'label_format' => 'operatorFormation.operatorName',
+                    'label_format' => 'operatorFormation.superior1Name',
                 )
             )
             ->add('superiorLvl2', EntityType::class,
                 array(
-                   'class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName',
-                   'label_format' => 'operatorFormation.operatorName',
+                    'class'  => 'AppCofidurBundle:User', 'choice_label' => 'firstName',
+                    'label_format' => 'operatorFormation.superior2Name',
                 )
             )
             ->add('save', SubmitType::class, array('label' => 'operator.add.submit'));
@@ -52,10 +54,11 @@ class OperatorType extends AbstractType
         ));
     }
 
-    public function getParent()
-    {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
-    }
+//    public function getParent()
+//    {
+////        return 'AppCofidurBundle\Form\Type\RegistrationType';
+//        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+//    }
 
     public function getBlockPrefix()
     {

@@ -11,6 +11,28 @@ category:
         submit: 'Créer la catégorie'
     delete:
         submit: 'Supprimer la catégorie'
+
+# Opérateur
+operator:
+    id: 'Identifiant de l''opérateur'
+    firstName: 'Prénom'
+    lastName: 'Nom'
+    dateOfBirth: 'Date de naissance'
+    email: 'Adresse e-mail'
+    employmentStatus: 'Statut d''embauche'
+    save:
+        submit: 'Enregistrer l''opérateur'
+    edit:
+        submit: 'Mettre à jour l''opérateur'
+    add:
+        submit: 'Créer l''opérateur'
+    delete:
+        submit: 'Supprimer l''opérateur'
+    statusChoices:
+        cdi: 'CDI'
+        interim: 'Intérimaire'
+        cdd: 'CDD'
+
 # Formation
 formation:
     id: 'Identifiant de la formation'
@@ -51,17 +73,19 @@ operatorFormation:
     formationName: 'Nom de la formation'
     dateBegin: 'Date de début de formation'
     dateEnd: 'Date de fin de formation'
-    validation: 'Etat de la formation'
-    commentary: 'Commentaire°'
-    formerId: 'Identifiant du formateur'
-    operatorName: 'Nom de l''opérateur'
-    formerName: 'Nom du tuteur'
-    choices:
+    validationStatus: 'Etat de la formation'
+    validationChoices:
         unvalidated: 'Non validé'
         validating: 'En cours de validation'
         planned: 'Prévue'
         formed: 'Formé'
         can_form: 'Peut former'
+    commentary: 'Commentaire°'
+    formerId: 'Identifiant du formateur'
+    operatorName: 'Nom de l''opérateur'
+    superior1Name: 'Nom du supérieur N+1'
+    superior2Name: 'Nom du supérieur N+2'
+    formerName: 'Nom du tuteur'
     save:
         submit: 'Enregistrer la formation de l''opérateur'
     edit:
@@ -70,20 +94,6 @@ operatorFormation:
         submit: 'Ajouter la formation à l''opérateur'
     delete:
         submit: 'Supprimer la formation de l''opérateur'
-# Opérateur
-operator:
-    id: 'Identifiant de l''opérateur'
-    firstName: 'Prénom'
-    lastName: 'Nom'
-    dateOfBirth: 'Date de naissance'
-    save:
-        submit: 'Enregistrer l''opérateur'
-    edit:
-        submit: 'Mettre à jour l''opérateur'
-    add:
-        submit: 'Créer l''opérateur'
-    delete:
-        submit: 'Supprimer l''opérateur'
 # Enregistrement
 security:
     login:

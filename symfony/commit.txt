@@ -1,0 +1,4 @@
+git commit -m "Inscription d'un utilisateur corrigée
+ + Username crée : 3 premières lettres prénom + nom
+ + password généré. Attention, il n'est pas affichable !
+ + email non demandé peut être null
