@@ -1,3 +1,6 @@
+various:
+    search: 'Recherche'
+
 # Catégorie
 category:
     id: 'Identifiant de la catégorie'
@@ -17,9 +20,14 @@ operator:
     id: 'Identifiant de l''opérateur'
     firstName: 'Prénom'
     lastName: 'Nom'
+    registrationNumber: 'Matricule'
     dateOfBirth: 'Date de naissance'
     email: 'Adresse e-mail'
     employmentStatus: 'Statut d''embauche'
+    statusChoices:
+        cdi: 'CDI'
+        interim: 'Intérimaire'
+        cdd: 'CDD'
     save:
         submit: 'Enregistrer l''opérateur'
     edit:
@@ -28,13 +36,12 @@ operator:
         submit: 'Créer l''opérateur'
     delete:
         submit: 'Supprimer l''opérateur'
-    statusChoices:
-        cdi: 'CDI'
-        interim: 'Intérimaire'
-        cdd: 'CDD'
+    superior1: 'Superieur Niveau 1'
+    superior2: 'Superieur Niveau 2'
 
 # Formation
 formation:
+    title: 'Formation'
     id: 'Identifiant de la formation'
     name: 'Nom de la formation'
     type: 'Type de la formation'
@@ -51,6 +58,7 @@ formation:
         submit: 'Créer la formation'
     delete:
         submit: 'Supprimer la formation'
+
 # OperatorCategory
 operatorCategory:
     id: 'Identifiant de la catégorie de l''opérateur'
@@ -66,6 +74,7 @@ operatorCategory:
         submit: 'Créer la catégorie de l''opérateur'
     delete:
         submit: 'Supprimer la catégorie de l''opérateur'
+
 # Formation d'opérateur
 operatorFormation:
     operatorId: 'Identifiant de l''opérateur'
@@ -94,12 +103,21 @@ operatorFormation:
         submit: 'Ajouter la formation à l''opérateur'
     delete:
         submit: 'Supprimer la formation de l''opérateur'
+    qualification: 'Qualification'
+    qualificationChoices:
+        formed: 'Habilité'
+        formedUnentitled: 'Formé non habilité'
+        forming: 'En Formation'
+        foreseenFormation: 'Prévision Formation'
+        canForm: 'Habilité à former'
+
 # Enregistrement
 security:
     login:
         firstName: 'Prénom'
         lastName: 'Nom'
         dateOfBirth: 'Date de naissance'
+
 # Tâche
 task:
     id: 'Identifiant de la tâche'

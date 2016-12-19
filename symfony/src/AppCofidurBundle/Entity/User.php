@@ -61,9 +61,9 @@ class User extends BaseUser
     /**
      * @var int
      *
-     * @ORM\Column(name="statut", type="integer")
+     * @ORM\Column(name="status", type="integer")
      */
-    private $statut;
+    private $status;
 
     /**
      * @var \DateTime
@@ -83,6 +83,13 @@ class User extends BaseUser
      * @ORM\JoinColumn(name="superior2_id", referencedColumnName="id", nullable=true)
      */
     private $superiorLvl2;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="registration_number", type="string", nullable=true)
+     */
+    private $registrationNumber;
 
 
     /**
@@ -216,25 +223,49 @@ class User extends BaseUser
     }
 
     /**
-     * Get statut
+     * Get status
      *
      * @return string
      */
-    public function getStatut()
+    public function getStatus()
     {
-        return $this->statut;
+        return $this->status;
     }
 
     /**
-     * Set statut
+     * Set status
      *
-     * @param int $statut
+     * @param int $status
      *
      * @return User
      */
-    public function setStatut($statut)
+    public function setStatus($status)
     {
-        $this->statut = $statut;
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get registrationNumber
+     *
+     * @return string
+     */
+    public function getRegistrationNumber()
+    {
+        return $this->registrationNumber;
+    }
+
+    /**
+     * Set registrationNumber
+     *
+     * @param string $registrationNumber
+     *
+     * @return User
+     */
+    public function setRegistrationNumber($registrationNumber = null)
+    {
+        $this->registrationNumber = $registrationNumber;
 
         return $this;
     }

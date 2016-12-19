@@ -37,8 +37,8 @@ class SkillMatrixController extends Controller
             }
 
             //statut
-            if($form["statut"]->getData() != null){
-                $operatorTabRecherche["statut"] = $form["statut"]->getData();
+            if($form["status"]->getData() != null){
+                $operatorTabRecherche["status"] = $form["status"]->getData();
             }
 
             //superieurlvl1

@@ -21,7 +21,7 @@ class SkillMatrixType extends AbstractType
                     'class'  => 'AppCofidurBundle:Formation',
                     'choice_label' => 'name',
                     'required' => false,
-                    'label_format' => 'Formation',
+                    'label_format' => 'formation.title',
                 )
             )   
             ->add('criticality', ChoiceType::class,
@@ -40,14 +40,14 @@ class SkillMatrixType extends AbstractType
             ->add('qualification', ChoiceType::class,
                 array(
                     'choices'  => array(
-                        1 => 'Formé non habilité',
-                        2 => 'En Formation',
-                        3 => 'Prévision Formation',
-                        4 => 'Habilité',
-                        5 => 'Habilité à former',
+                        1 => 'operatorFormation.qualificationChoices.formedUnentitled',
+                        2 => 'operatorFormation.qualificationChoices.forming',
+                        3 => 'operatorFormation.qualificationChoices.foreseenFormation',
+                        4 => 'operatorFormation.qualificationChoices.formed',
+                        5 => 'operatorFormation.qualificationChoices.canForm',
                     ),
                     'required' => false,
-                    'label_format' => 'Qualification',
+                    'label_format' => 'operatorFormation.qualification',
                 )
             ) 
             ->add('superiorLvl1', EntityType::class,
@@ -55,7 +55,7 @@ class SkillMatrixType extends AbstractType
                     'class'  => 'AppCofidurBundle:User',
                     'choice_label' => 'username',
                     'required' => false,
-                    'label_format' => 'Superieur Niveau 1',
+                    'label_format' => 'operator.superior1',
                 )
             ) 
             ->add('superiorLvl2', EntityType::class,
@@ -63,21 +63,21 @@ class SkillMatrixType extends AbstractType
                     'class'  => 'AppCofidurBundle:User',
                     'choice_label' => 'username',
                     'required' => false,
-                    'label_format' => 'Superieur Niveau 2',
+                    'label_format' => 'operator.superior2',
                 )
             )     
-            ->add('statut', ChoiceType::class,
+            ->add('status', ChoiceType::class,
                 array(
                     'choices'  => array(
-                        1 => 'Interim',
-                        2 => 'CDD',
-                        3 => 'CDI',
+                        1 => 'operator.statusChoices.interim',
+                        2 => 'operator.statusChoices.cdd',
+                        3 => 'operator.statusChoices.cdi',
                     ),
                     'required' => false,
-                    'label_format' => 'Statut',
+                    'label_format' => 'operator.employmentStatus',
                 )
             )
-            ->add('save', SubmitType::class, array('label' => 'Recherche'));
+            ->add('save', SubmitType::class, array('label' => 'various.search'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

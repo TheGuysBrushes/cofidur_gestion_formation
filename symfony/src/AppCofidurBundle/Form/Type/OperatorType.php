@@ -20,9 +20,17 @@ class OperatorType extends AbstractType
         $builder
             ->add('firstName', TextType::class, ['label_format' => 'operator.firstName',])
             ->add('lastName', TextType::class,  ['label_format' => 'operator.lastName',])
-            ->add('dateOfBirth', DateType::class,   ['label_format' => 'operator.dateOfBirth',])
-            ->add('email', EmailType::class,    ['label_format' => 'operator.email',])
-            ->add('statut', ChoiceType::class,
+            ->add('registrationNumber', TextType::class,  ['label_format' => 'operator.registrationNumber', 'required' => false,])
+            ->add('dateOfBirth', DateType::class, array(
+                'label_format' => 'security.login.dateOfBirth',
+                'placeholder' => array(
+                    'year' => 'date.year', 'month' => 'date.month', 'day' => 'date.day'
+                ),
+                // L'année de naissance peut être choisie entre 80 et 14 ans avant l'année actuelle
+                'years' => range(date("Y",strtotime("-14 year")), date("Y",strtotime("-85 year")))
+            ))
+            ->add('email', EmailType::class,    ['label_format' => 'operator.email', 'required' => false,])
+            ->add('status', ChoiceType::class,
                 array(
                     'choices'  => array(
                         1 => 'operator.statusChoices.interim',
