@@ -17,11 +17,13 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
     private function createVisserie(ObjectManager $manager) {
         $formation = new Formation();
-        $formation->setName("Visserie");
+        $formation->setName("FREINAGE ET MARQUAGE VISSERIE");
+        $formation->setType("Visserie");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("CEPX/METH/CL/09/017");
         $formation->setCriticality(4);
         $formation->setGoal("Savoir effectuer les diverses opérations de freinage et marquage visserie sur les produits
         THALES DAE en respectant leurs contraintes et exigences définies dans les procédures");
-        $formation->setType("CEPX/METH/CL/09/017 - FREINAGE ET MARQUAGE VISSERIE");
         $formation->setTeachingAids("Support de formation pour le freinage et le marquage de la visserie CEPX/METH/CL/09/06
         (document issu des procédures Thalès DAE 16262754 / Freinage démontage de la visserie et 16262760-024 / Marquage de la visserie )");
         $formation->setPlacesMaterialRessources("Formation en salle");
@@ -169,8 +171,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -179,8 +183,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -189,8 +195,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -199,8 +207,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -209,8 +219,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -219,8 +231,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -229,8 +243,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -239,8 +255,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -249,8 +267,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -259,8 +279,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -269,8 +291,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -279,8 +303,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -289,8 +315,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -299,8 +327,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -309,8 +339,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -319,8 +351,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -329,8 +363,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -339,8 +375,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);
@@ -349,8 +387,10 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
 
         $formation = new Formation();
         $formation->setCriticality(rand(1,5));
-        $formation->setGoal("Objectif");
-        $formation->setType("Type");
+        $formation->setGoal("OBJECTIF");
+        $formation->setType("TYPE");
+        $formation->setSector("SECTEUR");
+        $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
         $formation->setValidityTime(0);

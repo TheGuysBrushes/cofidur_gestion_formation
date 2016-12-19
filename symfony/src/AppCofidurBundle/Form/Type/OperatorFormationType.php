@@ -56,7 +56,7 @@ class OperatorFormationType extends AbstractType
                     'label_format' => 'operatorFormation.validationStatus',
                 )
             )
-            ->add('commentary', TextType::class, ['label' => 'operatorFormation.commentary'])
+            ->add('commentary', TextType::class, ['label' => 'operatorFormation.commentary', 'required' => false])
             ->add('former', EntityType::class,
                 array(
                    'class'  => 'AppCofidurBundle:User',

@@ -10,7 +10,7 @@
 
 	<table class="sortable">
 	<tr>
-        <th> ID </th>
+        <th>MAT.</th>
 		<th> NOM D'UTILISATEUR </th>
         <th> PRENOM </th>
         <th> NOM </th>
@@ -18,7 +18,7 @@
 	</tr>
 {% for operator in operators %}
 	<tr>
-		<td> {{ operator.id }} </td>
+		<td> {{ operator.registrationNumber }} </td>
         <td>
 			<a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operator.id}) }}">
 				{{ operator.username }}

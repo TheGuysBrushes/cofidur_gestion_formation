@@ -11,18 +11,17 @@
 
     <table class="sortable">
 	<tr>
-		<th> MATRICULE </th>
-		<th> NOM UTILISATEUR </th>
+		<th> UTILISATEUR </th>
 		<th> FORMATION </th>
-		<th> DATE DEBUT </th>
-		<th> DATE FIN </th>
-		<th> VALIDATION </th>
+		<th> DEBUT </th>
+		<th> FIN </th>
+		<th> ETAT </th>
+        <th> DUREE VALID.</th>
 		<th> COMMENTAIRE </th>
-		<th> ID FORMATEUR </th>
+		<th> FORMATEUR </th>
 	</tr>
 {% for operatorformation in operatorsformations %}
 	<tr>
-		<td> {{ operatorformation.id }} </td>
 		<td>
 			<a href="{{ path('AppCofidurBundle_operator_show', {'idOp': operatorformation.operator.id}) }}">
 				{{ operatorformation.operator.username }}
@@ -36,24 +35,33 @@
 		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>
 		<td> {{ operatorformation.dateEnd|date("m/d/Y") }} </td>
 		<td> 
-			{% if operatorformation.validation == 1 %}
-				Formé mais non validé
-			{% endif %}
-			{% if operatorformation.validation == 2 %}
-				En cours
-			{% endif %}
-			{% if operatorformation.validation == 3 %}
-				Prévue
-			{% endif %}
-			{% if operatorformation.validation == 4 %}
-				Validé
-			{% endif %}
-			{% if operatorformation.validation == 5 %}
-				Formateur
-			{% endif %}
-		</td>
+        {% if operatorformation.validation == 1 %}
+            Formé mais non validé
+        {% endif %}
+        {% if operatorformation.validation == 2 %}
+            En cours
+        {% endif %}
+        {% if operatorformation.validation == 3 %}
+            Prévue
+        {% endif %}
+        {% if operatorformation.validation == 4 %}
+            Validé
+        {% endif %}
+        {% if operatorformation.validation == 5 %}
+            Formateur
+        {% endif %}
+
+        {% if operatorformation.formation.validityTime > 0 %}
+            {% if operatorformation.getRemainingTime() > 0 %}
+        <td>{{ operatorformation.getRemainingTime() }} jour(s)</td>
+            {% else  %}
+        <td class="error">Pas ou plus valide</td>
+            {% endif %}
+        {% else %}
+        <td><i>Permanente</i></td>
+        {% endif %}
 		<td> {{ operatorformation.commentary }} </td>
-		<td> {{ operatorformation.former.firstName}} </td>
+		<td> {{ operatorformation.former.username}} </td>
 		<td class="button">
 			<input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_operatorformation_show', {'idOpForm': operatorformation.id}) }}'}">
 		</td>

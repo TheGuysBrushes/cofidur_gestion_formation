@@ -188,6 +188,13 @@ th.verticalite > div > span {
 	background-color: lightgray;
 }
 
+.formationName{
+	background-color: dodgerblue;
+    color:white;
+    font-weight: bold;
+    font-family: arial;
+}
+
 .task {
 	background-color: lightgray;
 }
@@ -255,7 +262,7 @@ th.verticalite > div > span {
 
 .infos { float: left; }
 
-.infos.tutor { width : 45%; }
+.infos.tutor { width : 20%; }
 
 .modif_category { margin-bottom: 2%; }
 

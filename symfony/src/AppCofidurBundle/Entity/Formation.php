@@ -32,9 +32,23 @@ class Formation
     /**
      * @var string
      *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reference", type="string", length=255)
+     */
+    private $reference;
 
     /**
      * @var string
@@ -46,9 +60,9 @@ class Formation
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=255)
+     * @ORM\Column(name="sector", type="string", length=255)
      */
-    private $type;
+    private $sector;
 
     /**
      * @var string
@@ -123,6 +137,30 @@ class Formation
     }
 
     /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Formation
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
      * Set name
      *
      * @param string $name
@@ -144,6 +182,30 @@ class Formation
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set reference
+     *
+     * @param string $reference
+     *
+     * @return Formation
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return string
+     */
+    public function getReference()
+    {
+        return $this->reference;
     }
 
     /**
@@ -171,27 +233,27 @@ class Formation
     }
 
     /**
-     * Set type
+     * Set sector
      *
-     * @param string $type
+     * @param string $sector
      *
      * @return Formation
      */
-    public function setType($type)
+    public function setSector($sector)
     {
-        $this->type = $type;
+        $this->sector = $sector;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get sector
      *
      * @return string
      */
-    public function getType()
+    public function getSector()
     {
-        return $this->type;
+        return $this->sector;
     }
 
     /**

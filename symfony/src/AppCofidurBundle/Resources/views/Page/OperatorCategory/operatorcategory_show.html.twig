@@ -40,16 +40,8 @@
         <div id="operatorformation_informations{{ indice_category }}" class="infos operatorformation">
             <table>
                 <tr>
-                    <th>ID Catégorie</th>
-                    <td>{{ category.id }}</td>
-                </tr>
-                <tr>
                     <th>Date signature</th>
                     <td>{{ opeCat.dateSignature|date("m/d/Y") }}</td>
-                </tr>
-                <tr>
-                    <th>Signature</th>
-                    <td>{{ opeCat.signature }}</td>
                 </tr>
                 <tr>
                     <th>Nombre d'heures</th>
@@ -58,8 +50,8 @@
                 <tr>
                     {% if opeCat.signature != null %}
                         {% set validated_category= true %}
-                        <th>ID formateur</th>
-                        <td>{{ opeCat.trainer.id }}</td>
+                        <th>Formateur</th>
+                        <td>{{ opeCat.trainer.username }}</td>
                     {% endif %}
                 </tr>
             </table>

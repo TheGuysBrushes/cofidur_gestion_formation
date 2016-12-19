@@ -1,4 +1,10 @@
-git commit -m "Inscription d'un utilisateur corrigée
- + Username crée : 3 premières lettres prénom + nom
- + password généré. Attention, il n'est pas affichable !
- + email non demandé peut être null
+git commit -m "
++ Correction de la gestion du type et du nom dans formation
++ Ajout de "sector" dans formation, en string, ça pourrait être un entier ?
++ Ajout de "reference" dans formation, pourra être découpé par la suite
++ Page formation_show revue pour ajouter nouveaux champs et corriger + CSS (+ correction droits)
++ Modification de fixture formation pour prendre en compte les modifs précendentes
++ Liens d'ajout déplacés en haut des pages et placement boutons uniformisés
++ Matricule au lieu d'ID dans tableaux opérateurs
++ Signatures et IDs retirés des pages
++ Gestion de la durée de validité améliorée sur operator_show/show_all

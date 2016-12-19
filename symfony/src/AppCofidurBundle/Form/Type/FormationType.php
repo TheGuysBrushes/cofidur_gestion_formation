@@ -17,12 +17,17 @@ class FormationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class,      ['label_format' => 'formation.name'])
             ->add('type', TextType::class,      ['label_format' => 'formation.type'])
+            ->add('reference', TextType::class,      ['label_format' => 'formation.reference'])
+            ->add('name', TextType::class,      ['label_format' => 'formation.name'])
+            ->add('sector', TextType::class,  ['label_format' => 'formation.sector'])
             ->add('goal', TextareaType::class,  ['label_format' => 'formation.goal'])
             ->add('teachingAids', TextareaType::class,  ['label_format' => 'formation.teachingAids'])
             ->add('placesMaterialRessources', TextType::class,
                 ['label_format' => 'formation.placesMaterialRessources']
+            )
+            ->add('reference', TextType::class,
+                ['label_format' => 'formation.reference']
             )
             ->add('validityTime', NumberType::class,   ['label_format' => 'formation.validityTime'])
             ->add('criticality', ChoiceType::class,

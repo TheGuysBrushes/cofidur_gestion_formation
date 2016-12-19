@@ -17,13 +17,10 @@
 
 	<table class="category_page">
 		<tr>
-			<td class="entete_category">ID</td><td>{{ formation.id }} </td>
+			<td class="entete_category">Nom</td><td class="formationName">{{ formation.reference }} -- {{ formation.name }} </td>
 		</tr>
 		<tr>
-			<td class="entete_category">Nom</td><td>{{ formation.name }} </td>
-		</tr>
-		<tr>
-			<td class="entete_category">Type</td><td>{{ formation.type }} </td>
+			<td class="entete_category">Secteur et Type</td><td>{{ formation.sector }} -- {{ formation.type }}</td>
 		</tr>
 		<tr>
 			<td class="entete_category">Objectif</td><td>{{ formation.goal }} </td>
@@ -47,8 +44,14 @@
     {% endfor %}
 {% endblock %}
 
-{% if is_granted('ROLE_ADMIN') %}
-	{% block sidebar %}
+{% block sidebar_container %}
+	{% if is_granted('ROLE_ADMIN') %}
+        {{ parent() }}
+    {% endif %}
+{% endblock sidebar_container %}
+
+{% block sidebar %}
+	{% if is_granted('ROLE_ADMIN') %}
 
 		<fieldset class="category">
 			<legend class="category_title">
@@ -78,8 +81,6 @@
 				</li>
 			</ul>
 		</fieldset>
-	{% endblock sidebar %}
 
-{% else %}
-	{% block sidebar_container %}{% endblock sidebar_container %}
-{% endif %}
+    {% endif %}
+{% endblock sidebar %}

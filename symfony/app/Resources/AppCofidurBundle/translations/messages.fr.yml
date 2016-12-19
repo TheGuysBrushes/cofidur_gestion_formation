@@ -48,6 +48,8 @@ formation:
     goal: 'Objectif visé'
     teachingAids: 'Moyens pédagogiques'
     placesMaterialRessources: 'Lieu et moyens matériels'
+    reference: 'Référence'
+    sector: 'Secteur'
     validityTime: 'Temps de validité'
     criticality: 'Criticité'
     save:
