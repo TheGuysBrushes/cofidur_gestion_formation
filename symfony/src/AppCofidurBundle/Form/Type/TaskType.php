@@ -15,7 +15,8 @@ class TaskType extends AbstractType
     {
         $builder
             ->add('name', TextType::class,  ['label' => 'task.name'])
-            ->add('save', SubmitType::class,    ['label' => 'task.save.submit']);
+            ->add('save', SubmitType::class,    ['label' => 'task.save.submit'])
+            ->add('saveAndAdd', SubmitType::class,    ['label' => 'task.save.submitAndAdd']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

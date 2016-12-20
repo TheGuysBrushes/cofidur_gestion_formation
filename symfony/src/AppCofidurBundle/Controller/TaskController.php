@@ -62,9 +62,15 @@ class TaskController extends Controller
             $em->persist($task);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show',
-                ['idForm' => $task->getCategory()->getFormation()->getId()]
-            );
+            if ($form->get('saveAndAdd')->isClicked()) {
+                return $this->redirectToRoute('AppCofidurBundle_task_add',
+                    ['idCat' => $task->getCategory()->getId()]
+                );
+            } else {
+                return $this->redirectToRoute('AppCofidurBundle_formation_show',
+                    ['idForm' => $task->getCategory()->getFormation()->getId()]
+                );
+            }
         }
 
         return $this->render('AppCofidurBundle:Page/Task:task_add.html.twig', array(

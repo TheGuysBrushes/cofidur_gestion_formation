@@ -100,7 +100,11 @@ class OperatorController extends Controller
             $em->persist($operator);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_operator_show_all');
+            $nextAction= $form->get('saveAndAdd')->isClicked()
+                ? 'AppCofidurBundle_operator_add'
+                : 'AppCofidurBundle_operator_show_all';
+
+            return $this->redirectToRoute($nextAction);
         }
 
         return $this->render('AppCofidurBundle:Page/Operator:operator_add.html.twig', array(

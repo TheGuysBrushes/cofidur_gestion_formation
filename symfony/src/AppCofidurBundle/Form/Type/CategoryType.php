@@ -15,7 +15,8 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class,      ['label_format' => 'category.name'])
-            ->add('save', SubmitType::class,    ['label_format' => 'category.save.submit']);
+            ->add('save', SubmitType::class,    ['label_format' => 'category.save.submit'])
+            ->add('saveAndAdd', SubmitType::class,    ['label_format' => 'category.save.submitAndAdd']);
     }
 
     public function configureOptions(OptionsResolver $resolver)

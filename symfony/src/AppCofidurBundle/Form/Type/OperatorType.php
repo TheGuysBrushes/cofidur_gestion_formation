@@ -52,7 +52,8 @@ class OperatorType extends AbstractType
                     'label_format' => 'operatorFormation.superior2Name',
                 )
             )
-            ->add('save', SubmitType::class, array('label' => 'operator.add.submit'));
+            ->add('save', SubmitType::class, array('label' => 'operator.add.submit'))
+            ->add('saveAndAdd', SubmitType::class, array('label' => 'operator.add.submitAndAdd'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

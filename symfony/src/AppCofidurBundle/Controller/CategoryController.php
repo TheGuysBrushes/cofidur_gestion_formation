@@ -78,7 +78,11 @@ class CategoryController extends Controller
             $em->persist($category);
             $em->flush();
 
-            return $this->redirectToRoute('AppCofidurBundle_formation_show', array('idForm' => $idForm));
+            $nextAction= $form->get('saveAndAdd')->isClicked()
+            ? 'AppCofidurBundle_category_add'
+            : 'AppCofidurBundle_formation_show';
+
+            return $this->redirectToRoute($nextAction, array('idForm' => $idForm));
         }
 
         return $this->render('AppCofidurBundle:Page/Category:category_add.html.twig', array(

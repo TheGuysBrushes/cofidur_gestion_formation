@@ -8,12 +8,28 @@ category:
     order: 'Ordonnancement de la catégorie'
     save:
         submit: 'Enregistrer la catégorie'
+        submitAndAdd: 'Enregistrer et ajouter une autre'
     edit:
         submit: 'Mettre à jour la catégorie'
     add:
         submit: 'Créer la catégorie'
     delete:
         submit: 'Supprimer la catégorie'
+
+# Tâche
+task:
+    id: 'Identifiant de la tâche'
+    order: 'Ordonnancement de la tâche'
+    name: 'Intitulé de la tâche'
+    save:
+        submit: 'Enregistrer la tâche'
+        submitAndAdd: 'Enregistrer et ajouter une autre'
+    edit:
+        submit: 'Mettre à jour la tâche'
+    add:
+        submit: 'Créer la tâche'
+    delete:
+        submit: 'Supprimer la tâche'
 
 # Opérateur
 operator:
@@ -34,6 +50,7 @@ operator:
         submit: 'Mettre à jour l''opérateur'
     add:
         submit: 'Créer l''opérateur'
+        submitAndAdd: 'Créer et ajouter un autre'
     delete:
         submit: 'Supprimer l''opérateur'
     superior1: 'Superieur Niveau 1'
@@ -119,20 +136,6 @@ security:
         firstName: 'Prénom'
         lastName: 'Nom'
         dateOfBirth: 'Date de naissance'
-
-# Tâche
-task:
-    id: 'Identifiant de la tâche'
-    order: 'Ordonnancement de la tâche'
-    name: 'Intitulé de la tâche'
-    save:
-        submit: 'Enregistrer la tâche'
-    edit:
-        submit: 'Mettre à jour la tâche'
-    add:
-        submit: 'Créer la tâche'
-    delete:
-        submit: 'Supprimer la tâche'
 
 date:
     year: 'Année'
