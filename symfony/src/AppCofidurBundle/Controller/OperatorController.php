@@ -58,6 +58,32 @@ class OperatorController extends Controller
         return $this->redirectToRoute('AppCofidurBundle_operator_show_all');
     }
 
+    public function setAdminAction($idOp) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
+
+        $operator->addRole("ROLE_ADMIN");
+        $em->persist($operator);
+        $em->flush();
+
+        return $this->redirectToRoute('AppCofidurBundle_operator_show', array('idOp' => $operator->getId()));
+    }
+
+    public function unsetAdminAction($idOp) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $operator = $em->getRepository('AppCofidurBundle:User')->find($idOp);
+
+        $operator->removeRole("ROLE_ADMIN");
+        $em->persist($operator);
+        $em->flush();
+
+        return $this->redirectToRoute('AppCofidurBundle_operator_show', array('idOp' => $operator->getId()));
+    }
+
     public function editAction(Request $request, $idOp)
     {
         $em = $this->getDoctrine()->getManager();

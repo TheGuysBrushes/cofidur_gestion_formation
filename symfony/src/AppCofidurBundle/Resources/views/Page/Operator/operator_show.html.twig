@@ -33,6 +33,7 @@
 		<th> SUPERIEUR N+2 </th>
 		<th> Adresse Email</th>
 		<th> Matricule </th>
+        <th> Role </th>
 	</tr>
 	<tr>
 		{#<td> {{ operator.id }} </td>#}
@@ -43,6 +44,20 @@
 		<td> {{ operator.superiorLvl2 }}</td>
 		<td><a href="#">{{ operator.email }}</a></td>
 		<td> {{ operator.registrationNumber }}</td>
+        <td>
+        {% if operator.hasRole("ROLE_ADMIN") %}
+            Administrateur
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+            </td><td><button id="display_subordinates" onclick={window.location.href="{{ path('AppCofidurBundle_operator_unsetAdmin', {'idOp': operator.id}) }}"}>Rétrograder</button>
+            {% endif %}
+        {% else %}
+            Utilisateur
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+            {#</td><td><a href="{{ path('AppCofidurBundle_operator_setAdmin', {'idOp': operator.id}) }}">Promouvoir</a>#}
+            </td><td><button id="display_subordinates" onclick={window.location.href="{{ path('AppCofidurBundle_operator_setAdmin', {'idOp': operator.id}) }}"}>Promouvoir</button>
+            {% endif %}
+        {% endif %}
+        </td>
 	</tr>
 </table>
 <br/>

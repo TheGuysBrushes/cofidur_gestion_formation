@@ -61,6 +61,22 @@ AppCofidurBundle_operator_edit:
         methods: GET
         id: \d+
 
+AppCofidurBundle_operator_setAdmin:
+    path: /operator/setAdmin/{idOp}
+    methods: [GET,POST]
+    defaults: { _controller: AppCofidurBundle:Operator:setAdmin}
+    requirements:
+        methods: POST
+        id: \d+
+
+AppCofidurBundle_operator_unsetAdmin:
+    path: /operator/unsetAdmin/{idOp}
+    methods: [GET,POST]
+    defaults: { _controller: AppCofidurBundle:Operator:unsetAdmin}
+    requirements:
+        methods: POST
+        id: \d+
+
 AppCofidurBundle_operator_delete:
     path: /operator/delete/{idOp}
     methods: [DELETE,GET]

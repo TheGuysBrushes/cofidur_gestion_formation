@@ -46,11 +46,11 @@
             </tr>
             <tr>
                 <th class="entete_category">Opérateur formé</th>
-                <td>{{ operatorformation.operator.lastName | upper | slice(0.10) }} {{ operatorformation.operator.firstName | slice(0.10) }} </td>
+                <td>{{ operatorformation.operator.lastName | upper }} {{ operatorformation.operator.firstName | upper | slice(0,1)  }}. </td>
             </tr>
             <tr>
                 <th class="entete_category">Formateur</th>
-                <td> {{ operatorformation.former.lastName | upper | slice(0.10) }} {{ operatorformation.former.firstName | slice(0.10) }}</td>
+                <td> {{ operatorformation.former.lastName | upper }} {{ operatorformation.former.firstName | upper | slice(0,1) }}. </td>
             </tr>
             <tr>
                 <th class="entete_category">Temps écoulé depuis la fin de la formation</th>
