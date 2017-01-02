@@ -53,8 +53,8 @@ operator:
         submitAndAdd: 'Créer et ajouter un autre'
     delete:
         submit: 'Supprimer l''opérateur'
-    superior1: 'Superieur Niveau 1'
-    superior2: 'Superieur Niveau 2'
+    superior1: 'Supérieur Niveau 1'
+    superior2: 'Supérieur Niveau 2'
 
 # Formation
 formation:

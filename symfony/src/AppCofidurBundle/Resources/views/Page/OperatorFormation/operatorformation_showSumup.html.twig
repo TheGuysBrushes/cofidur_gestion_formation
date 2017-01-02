@@ -24,14 +24,14 @@
                 <th class="entete_category">Nom</th>
                 <td>{{ operatorformation.formation.name }} </td>
             </tr>
-            <tr>
-                <th class="entete_category">Type</th>
-                <td title="{{ operatorformation.formation.type }}">{{ operatorformation.formation.type| slice(0,30) }}... </td>
-            </tr>
-            <tr>
-                <th class="entete_category">Objectif</th>
-                <td title="{{ operatorformation.formation.goal }}">{{ operatorformation.formation.goal| slice(0,30) }}... </td>
-            </tr>
+            {#<tr>#}
+                {#<th class="entete_category">Type</th>#}
+                {#<td title="{{ operatorformation.formation.type }}">{{ operatorformation.formation.type| slice(0,30) }}... </td>#}
+            {#</tr>#}
+            {#<tr>#}
+                {#<th class="entete_category">Objectif</th>#}
+                {#<td title="{{ operatorformation.formation.goal }}">{{ operatorformation.formation.goal| slice(0,30) }}... </td>#}
+            {#</tr>#}
             {#<tr>#}
             {#<th class="entete_category">Moyens pédagogiques</th>#}
             {#<td title="{{ operatorformation.formation.teachingAids }}">{{ operatorformation.formation.teachingAids| slice(0,30) }}... </td>#}
@@ -54,10 +54,10 @@
             </tr>
             <tr>
                 <th class="entete_category">Temps écoulé depuis la fin de la formation</th>
-                <td>{{ operatorformation.getFormationElapsedTime }} jour(s)</td>
+                <td>{{ operatorformation.getElapsedTime }} jour(s)</td>
             </tr>
             {#Valeur a changer : champ de validité a placer ici a la plac du 5#}
-            {% if operatorformation.getFormationElapsedTime > operatorformation.formation.validityTime %}
+            {% if operatorformation.getElapsedTime > operatorformation.formation.validityTime %}
                 <tr><td>ATTENTION LA FORMATION N'EST PLUS VALIDE</td></tr>
             {% endif %}
         </table>

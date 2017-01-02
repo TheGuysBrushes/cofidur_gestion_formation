@@ -55,12 +55,11 @@
 	<table class="sortable">
 		<tr>
 			<th>NOM</th>
-			<TH>PRENOM</TH>
+			<th>PRENOM</th>
 		</tr>
 		{% for subordinate in subordinates %}
 		<tr>
-			<td> {{ subordinate.lastname | upper }} </td>
-			<td> {{ subordinate.firstname }}</td>
+			<td colspan="2"> <a href="{{ path('AppCofidurBundle_operator_show', {'idOp': subordinate.id}) }}">{{ subordinate.lastname | upper }} {{ subordinate.firstname }} </a></td>
 		</tr>
 		{% endfor %}
 	</table>
