@@ -8,7 +8,6 @@ use AppCofidurBundle\Form\Type\FormationType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class FormationController extends Controller
 {
 
@@ -81,6 +80,15 @@ class FormationController extends Controller
         return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
     }
 
+    public function sort_by_date($a, $b) {
+        $a = strtotime($a['date']);
+        $b = strtotime($b['date']);
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a < $b) ? -1 : 1;
+    }
+
     public function showAction($idForm)
     {
         $em = $this->getDoctrine()->getManager();
@@ -90,6 +98,65 @@ class FormationController extends Controller
         if (!$formation) {
             throw $this->createNotFoundException('Pas d\'objet');
         }
+
+        $op_fo = $em->getRepository('AppCofidurBundle:OperatorFormation')->findBy(['formation'=>$formation]);
+
+        $tab=[];
+        foreach($op_fo as $opfo){
+            if($opfo->getValidation() >= 4){
+                $date_str = date("d-M-y", $opfo->getDateEnd()->getTimestamp());
+                if(isset($tab[$date_str])){
+                    $tab[$date_str] += 1;
+                }else{
+                    $tab[$date_str] = 1;
+                }
+            }
+        }
+
+        if($formation->getValidityTime() != 0){
+            $finaltab=[];
+            foreach($tab as $k => $v){
+                $ma_date_ts = strtotime($k);
+                for($i=0; $i<$formation->getValidityTime(); $i++){
+                    $ma_date_ts = strtotime('+1 day', $ma_date_ts);
+                    $ma_date = date("d-M-y", $ma_date_ts);
+                    if(isset($finaltab[$ma_date])){
+                        $finaltab[$ma_date] += $v;
+                    }else{
+                        $finaltab[$ma_date] = $v;
+                    }
+                }
+                $ma_date_ts = strtotime('+1 day', $ma_date_ts);
+                $ma_date = date("d-M-y", $ma_date_ts);
+                if(isset($finaltab[$ma_date])){
+                    $finaltab[$ma_date] -= 1;
+                }else{
+                    $finaltab[$ma_date] = 0;                    
+                }
+            }
+        }else{
+            $finaltab = $tab;
+        }
+
+        foreach($finaltab as $k => $v){
+            $finaltab[strtotime($k)] = $v;
+            unset($finaltab[$k]);
+        }
+
+        ksort($finaltab);
+
+        foreach($finaltab as $k => $v){
+            $finaltab[date("d-M-y", $k)] = $v;
+            unset($finaltab[$k]);
+        }       
+
+        $fileName = $this->container->get('kernel')->locateResource('@AppCofidurBundle/Resources/public/data/data.tsv');
+        $file = fopen($fileName, "w+");
+        fwrite($file, "date\toperator\n");
+        foreach($finaltab as $d => $e){
+           fwrite($file, $d."\t".$e."\n");
+        }
+        fclose($file);
 
         // We count the number of formations of operators concerning this formation
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
