@@ -151,7 +151,7 @@ class FormationController extends Controller
         }       
 
         $fileName = $this->container->get('kernel')->locateResource('@AppCofidurBundle/Resources/public/data/');
-        $fileName = $fileName.$formation->getId().'.tsv';
+        $fileName = $fileName.'data_'.$formation->getId().'.tsv';
         $file = fopen($fileName, "w+");
         fwrite($file, "date\toperator\n");
         foreach($finaltab as $d => $e){
