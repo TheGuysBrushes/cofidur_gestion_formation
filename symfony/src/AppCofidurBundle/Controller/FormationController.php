@@ -89,6 +89,20 @@ class FormationController extends Controller
         return ($a < $b) ? -1 : 1;
     }
 
+    private function nbOperatorsFormationsValids($em, $formation, $validity)
+    {
+        $opFormationsValids = $em->findBy(
+            array('formation' => $formation->getId(), 'validation' => $validity)
+        );
+
+        $nbValids = 0;
+        foreach($opFormationsValids as $opFormationValids) {
+            if ($opFormationValids->getFormation()->getValidityTime() == 0 || $opFormationValids->getRemainingTime() > 0) {++$nbValids;}
+        }
+
+        return $nbValids;
+    }
+
     public function showAction($idForm)
     {
         $em = $this->getDoctrine()->getManager();
@@ -148,9 +162,10 @@ class FormationController extends Controller
         foreach($finaltab as $k => $v){
             $finaltab[date("d-M-y", $k)] = $v;
             unset($finaltab[$k]);
-        }       
+        }
 
-        $fileName = $this->container->get('kernel')->locateResource('@AppCofidurBundle/Resources/public/data/');
+//        $fileName = $this->container->get('kernel')->locateResource('@AppCofidurBundle/Resources/public/data/');
+        $fileName = $this->getParameter('data_directory');
         $fileName = $fileName.'data_'.$formation->getId().'.tsv';
         $file = fopen($fileName, "w+");
         fwrite($file, "date\toperator\n");
@@ -162,19 +177,9 @@ class FormationController extends Controller
         // We count the number of formations of operators concerning this formation
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
 
-        $nbFormer = count($em->findBy(
-            array('formation' => $formation->getId(), 'validation' => 5)
-        ));
+        $nbFormer = $this->nbOperatorsFormationsValids($em, $formation, 5);
 
-        $nbFormedAndFormer = $nbFormer + count($em->findBy(
-            array('formation' => $formation->getId(), 'validation' => 4)
-        ));
-//        $operatorsFormations = $em->createQueryBuilder('f')
-//            ->where('f.validity = :validity')
-//            ->where('f.formation = :idformation')
-//            ->setParameter('validity', '4')
-//            ->setParameter('id_formation', $idForm)
-//            ->getQuery();
+        $nbFormedAndFormer = $nbFormer + $this->nbOperatorsFormationsValids($em, $formation, 4);
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'     => $formation,
@@ -189,28 +194,15 @@ class FormationController extends Controller
 
         $formations = $em->findAll();
 
-        // We count the number of formations of operators concerning this formation
+        // We count the number of formations of operators concerning each formation
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
 
         $formationsNbFormed = [];
         $formationsCanForm = [];
         foreach($formations as $formation) {
-//            $operatorsFormations = $em->createQueryBuilder('f')
-//                ->where('f.validity = :validity')
-//                ->where('f.formation = :idformation')
-//                ->setParameter('validity', '4')
-//                ->setParameter('id_formation', $formation->getId())
-//                ->getQuery();
-//            $formationsNbFormed[] = count($em->findByFormation($formation->getId()));
-
-            $nb_former = count($em->findBy(
-                array('formation' => $formation->getId(), 'validation' => 5)
-            ));
-            $formationsCanForm[] = $nb_former;
-            $formationsNbFormed[] = $nb_former + count($em->findBy(
-                array('formation' => $formation->getId(), 'validation' => 4)
-            ));
-//            $formationsNbFormed[] = count($operatorsFormations);
+            $nbFormer = $this->nbOperatorsFormationsValids($em, $formation, 5);
+            $formationsCanForm[] = $nbFormer;
+            $formationsNbFormed[] = $nbFormer + $this->nbOperatorsFormationsValids($em, $formation, 4);
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show_all.html.twig', array(

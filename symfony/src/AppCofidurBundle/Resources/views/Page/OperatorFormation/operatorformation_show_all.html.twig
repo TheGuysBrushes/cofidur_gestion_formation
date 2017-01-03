@@ -15,8 +15,7 @@
 		<th> FORMATION </th>
 		<th> DEBUT </th>
 		<th> FIN </th>
-		<th> ETAT </th>
-        <th> DUREE VALID.</th>
+        <th> VALIDITE</th>
 		<th> COMMENTAIRE </th>
 		<th> FORMATEUR </th>
 	</tr>
@@ -34,39 +33,27 @@
 		</td>
 		<td> {{ operatorformation.dateBegin|date("m/d/Y")}} </td>
 		<td> {{ operatorformation.dateEnd|date("m/d/Y") }} </td>
-		<td> 
-        {% if operatorformation.validation == 1 %}
-            Formé mais non validé
-        {% endif %}
-        {% if operatorformation.validation == 2 %}
-            En cours
-        {% endif %}
-        {% if operatorformation.validation == 3 %}
-            Prévue
-        {% endif %}
-        {% if operatorformation.validation == 4 %}
-            Validé
-        {% endif %}
-        {% if operatorformation.validation == 5 %}
-            Formateur
-        {% endif %}
 		{% if operatorformation.validation == 1 %}
-		<td><i>Invalidée</i></td>
+		<td><i>Invalidée</i>
 		{% elseif operatorformation.validation == 2 %}
-		<td><i>En cours</i></td>
+		<td><i>En cours</i>
 		{% elseif operatorformation.validation == 3 %}
-		<td><i>Prévue</i></td>
+		<td><i>Prévue</i>
 		{% else %}
 			{% if operatorformation.formation.validityTime > 0 %}
 				{% if operatorformation.getRemainingTime() > 0 %}
-		<td>{{ operatorformation.getRemainingTime() }} jour(s)</td>
+		<td>{{ operatorformation.getRemainingTime() }} jour(s)
 				{% else  %}
-		<td class="error">Pas ou plus valide</td>
+		<td class="error">Pas ou plus valide
 				{% endif %}
 			{% else %}
-		<td><i>Permanente</i></td>
+		<td><i>Permanente</i>
 			{% endif %}
 		{% endif %}
+		{% if operatorformation.validation == 5 %}
+			<b>(F)</b>
+		{% endif %}
+		</td>
 		<td> {{ operatorformation.commentary }} </td>
 		<td> {{ operatorformation.former.username}} </td>
 		<td class="button">
