@@ -19,7 +19,8 @@ web/config.php
 
 # Assets and user uploads
 /web/bundles/
-/web/uploads/
+/web/uploads/*
+!web/uploads/data/.dummy
 
 # PHPUnit
 /app/phpunit.xml
@@ -30,3 +31,4 @@ web/config.php
 
 #PHP Storm
 .idea/*
+web/uploads/

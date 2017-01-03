@@ -6,7 +6,7 @@
     <td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,20)  }}... </td>
     <td title="{{formation.validityTime}}"> {{ formation.validityTime  }} jour(s)</td>
     <td> {{ formation.criticality }} </td>
-    <td> {{ formationsNbFormed[formation.id-1] }} / {{ formationsNbCanForm[formation.id-1] }} </td>
+    <td> {{ formationsNbFormed[formation.id-1] }} ({{ formationsNbFormedTot[formation.id-1] }}) / {{ formationsNbFormer[formation.id-1] }} {#({{ formationsNbFormerTot[formation.id-1] }})#}</td>
     {% if is_granted('ROLE_ADMIN') %}
     <td>
     {#<td> {{ formation.criticality }} </td>#}

@@ -89,6 +89,18 @@ class FormationController extends Controller
         return ($a < $b) ? -1 : 1;
     }
 
+    private function nbOperatorsFormations($em, $formation, $validity)
+    {
+        $opFormationsValids = $em->findBy(
+            array('formation' => $formation->getId(), 'validation' => $validity)
+        );
+
+        $nbValids = count($opFormationsValids);
+
+        return $nbValids;
+    }
+
+
     private function nbOperatorsFormationsValids($em, $formation, $validity)
     {
         $opFormationsValids = $em->findBy(
@@ -178,13 +190,17 @@ class FormationController extends Controller
         $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
 
         $nbFormer = $this->nbOperatorsFormationsValids($em, $formation, 5);
-
         $nbFormedAndFormer = $nbFormer + $this->nbOperatorsFormationsValids($em, $formation, 4);
+
+        $nbFormerTot = $this->nbOperatorsFormations($em, $formation, 5);
+        $nbFormedAndFormerTot = $nbFormerTot + $this->nbOperatorsFormations($em, $formation, 4);
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'     => $formation,
             'nbFormed'      => $nbFormedAndFormer,
             'nbFormer'      => $nbFormer,
+            'nbFormedTot' => $nbFormedAndFormerTot,
+            'nbFormerTot' => $nbFormerTot,
         ));
     }
 
@@ -199,16 +215,24 @@ class FormationController extends Controller
 
         $formationsNbFormed = [];
         $formationsCanForm = [];
+//        $formationsNbFormerTot = [];
+        $formationsNbFormedTot = [];
         foreach($formations as $formation) {
             $nbFormer = $this->nbOperatorsFormationsValids($em, $formation, 5);
             $formationsCanForm[] = $nbFormer;
             $formationsNbFormed[] = $nbFormer + $this->nbOperatorsFormationsValids($em, $formation, 4);
+
+            $nbFormerTot =$this->nbOperatorsFormations($em, $formation, 5);
+//            $formationsNbFormerTot[] = $nbFormerTot;
+            $formationsNbFormedTot[] = $nbFormerTot + $this->nbOperatorsFormations($em, $formation, 4);
         }
 
         return $this->render('AppCofidurBundle:Page/Formation:formation_show_all.html.twig', array(
             'formations'      => $formations,
             'formationsNbFormed' => $formationsNbFormed,
-            'formationsNbCanForm' => $formationsCanForm,
+            'formationsNbFormer' => $formationsCanForm,
+            'formationsNbFormedTot' => $formationsNbFormedTot,
+//            'formationsNbFormerTot' => $formationsNbFormerTot,
         ));
     }
 }
