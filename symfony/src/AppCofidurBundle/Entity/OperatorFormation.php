@@ -371,12 +371,13 @@ class OperatorFormation
      */
     public function getRemainingTime()
     {
+        $current= new \DateTime();
         //if the formation isn't finished yet, the validity time is 0 (for infinity / invalidated yet formation)
         if( $this->validation < 4 || null == $this->dateEnd) {
             return 0;
         }
         else {
-            $elapsed= $this->getElapsedTime();
+            $elapsed= $this->getElapsedTime($current);
             $validityTime= $this->getFormation()->getValidityTime();
 
             $remaining= $validityTime - $elapsed;

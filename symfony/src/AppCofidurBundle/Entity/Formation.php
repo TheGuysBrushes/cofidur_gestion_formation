@@ -87,7 +87,7 @@ class Formation
     private $categories;
 
     /**
-     * @var int
+     * @var integer
      *
      * @ORM\Column(name="validityTime", type="integer")
      */
@@ -307,7 +307,7 @@ class Formation
     /**
      * Get validityTime
      *
-     * @return int
+     * @return integer
      */
     public function getValidityTime(){
         return $this->validityTime;
@@ -316,7 +316,7 @@ class Formation
     /**
      * Set validityTime
      *
-     * @param integer $validity_time
+     * @param  integer $validity_time
      *
      * @return Formation
      */

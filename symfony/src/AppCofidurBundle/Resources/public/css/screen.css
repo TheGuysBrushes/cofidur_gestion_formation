@@ -350,3 +350,17 @@ th.verticalite > div > span {
 .contact_fieldset {
 	border: 3px solid black;
 }
+
+
+/* d3 */
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.area {
+  fill: steelblue;
+}
