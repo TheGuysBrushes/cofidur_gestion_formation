@@ -27,6 +27,11 @@ AppCofidurBundle_skillMatrix:
     methods: [POST, GET]
     defaults: { _controller: AppCofidurBundle:SkillMatrix:skillMatrix }
 
+AppCofidurBundle_skillMatrix:
+    path: /skillMatrix/
+    methods: [POST, GET]
+    defaults: { _controller: AppCofidurBundle:SkillMatrix:skillMatrix }
+
 ### Pages d'authentifiation ###
 AppCofidurBundle_login:
     path: /login

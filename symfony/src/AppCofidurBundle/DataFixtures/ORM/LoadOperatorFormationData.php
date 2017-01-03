@@ -29,7 +29,7 @@ class LoadOperatorFormationData extends AbstractFixture implements OrderedFixtur
 
                     $operatorformation = new OperatorFormation();
                     $operatorformation->setDateBegin(date_create(date('Y-m-d H:i:s')));
-                    $operatorformation->setDateEnd(date_create(date('Y-m-d H:i:s')));
+                    $operatorformation->setDateEnd( date_create(date('Y-m-d H:i:s', strtotime( '+'.mt_rand(-15,10).' days'))) );
                     $operatorformation->setValidation(rand(1, 5));
                     $operatorformation->setCommentary("Petit commentaire");
                     $operatorformation->setFormer($former);

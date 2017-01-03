@@ -50,16 +50,23 @@
         {% if operatorformation.validation == 5 %}
             Formateur
         {% endif %}
-
-        {% if operatorformation.formation.validityTime > 0 %}
-            {% if operatorformation.getRemainingTime() > 0 %}
-        <td>{{ operatorformation.getRemainingTime() }} jour(s)</td>
-            {% else  %}
-        <td class="error">Pas ou plus valide</td>
-            {% endif %}
-        {% else %}
-        <td><i>Permanente</i></td>
-        {% endif %}
+		{% if operatorformation.validation == 1 %}
+		<td><i>Invalidée</i></td>
+		{% elseif operatorformation.validation == 2 %}
+		<td><i>En cours</i></td>
+		{% elseif operatorformation.validation == 3 %}
+		<td><i>Prévue</i></td>
+		{% else %}
+			{% if operatorformation.formation.validityTime > 0 %}
+				{% if operatorformation.getRemainingTime() > 0 %}
+		<td>{{ operatorformation.getRemainingTime() }} jour(s)</td>
+				{% else  %}
+		<td class="error">Pas ou plus valide</td>
+				{% endif %}
+			{% else %}
+		<td><i>Permanente</i></td>
+			{% endif %}
+		{% endif %}
 		<td> {{ operatorformation.commentary }} </td>
 		<td> {{ operatorformation.former.username}} </td>
 		<td class="button">

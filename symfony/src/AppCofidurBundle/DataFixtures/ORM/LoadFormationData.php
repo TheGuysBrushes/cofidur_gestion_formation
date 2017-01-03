@@ -27,7 +27,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setTeachingAids("Support de formation pour le freinage et le marquage de la visserie CEPX/METH/CL/09/06
         (document issu des procédures Thalès DAE 16262754 / Freinage démontage de la visserie et 16262760-024 / Marquage de la visserie )");
         $formation->setPlacesMaterialRessources("Formation en salle");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
 
         // Création d'une catégorie
         $category = new Category();
@@ -177,7 +177,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Cablage");
         $manager->persist($formation);
 
@@ -189,7 +189,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Collage MIDS");
         $manager->persist($formation);
 
@@ -201,7 +201,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Contrôle AOI + CLUSO + XPRESS");
         $manager->persist($formation);
 
@@ -213,7 +213,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Devitalisation");
         $manager->persist($formation);
 
@@ -225,7 +225,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Etuvage PCB");
         $manager->persist($formation);
 
@@ -237,7 +237,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Insertion CIF");
         $manager->persist($formation);
 
@@ -249,7 +249,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Masquage");
         $manager->persist($formation);
 
@@ -261,7 +261,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("MDV");
         $manager->persist($formation);
 
@@ -273,7 +273,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Pilotage machine depot colle GL");
         $manager->persist($formation);
 
@@ -285,7 +285,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Pilotage machine report CMS");
         $manager->persist($formation);
 
@@ -297,7 +297,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Potting-Enrobage");
         $manager->persist($formation);
 
@@ -309,7 +309,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Reparateur CIFx");
         $manager->persist($formation);
 
@@ -321,7 +321,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Retouches manuelles  CMS");
         $manager->persist($formation);
 
@@ -333,7 +333,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("test fonctionnel cartes Nodes chassis Suchard ONLINEl");
         $manager->persist($formation);
 
@@ -345,7 +345,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Test fonctionnel Nodes");
         $manager->persist($formation);
 
@@ -357,7 +357,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Test INSITU à sondes mobiles et station fixe");
         $manager->persist($formation);
 
@@ -369,7 +369,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Test JTAG");
         $manager->persist($formation);
 
@@ -381,7 +381,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Test OK _ NOK");
         $manager->persist($formation);
 
@@ -393,7 +393,7 @@ class LoadFormationData extends AbstractFixture implements OrderedFixtureInterfa
         $formation->setReference("REFERENCE");
         $formation->setTeachingAids("Aide pour l'apprentissage");
         $formation->setPlacesMaterialRessources("Lieux et moyens materiels");
-        $formation->setValidityTime(0);
+        $formation->setValidityTime(rand(0,1)*rand(1,20));
         $formation->setName("Test Pre-calibration carte FDU508 DIAMANT");
         $manager->persist($formation);
                 

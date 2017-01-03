@@ -82,15 +82,33 @@
 				<td>{{ operatorformation.dateEnd|date("m/d/Y") }}</td>
 			</tr>
 			<tr>
-                {% if operatorformation.formation.validityTime > 0 %}
-                    <th>Temps avant invalidité</th>
-                    {% if operatorformation.getRemainingTime() > 0 %}
-                        <td>{{ operatorformation.getRemainingTime() }} jour(s)</td>
-                    {% else  %}
-                        <td class="error">La formation n'est pas ou plus valide</td>
-                    {% endif %}
+                <th>Validation</th>
+                {% if operatorformation.validation == 1 %}
+                <td>La formation a été invalidée</td> </tr>
+                {% elseif operatorformation.validation == 2 %}
+                <td>La formation est en cours</td> </tr>
+                {% elseif operatorformation.validation == 3 %}
+                <td>La formation est prévue mais n'a pas encore commencé</td> </tr>
                 {% else %}
-                    <th colspan="2">Pas d'invalidation sur cette formation</th>
+                    {% if operatorformation.formation.validityTime > 0 %}
+                        {% if operatorformation.getRemainingTime() > 0 %}
+            <tr><th>Valide ?</th>
+                    <td>La formation est valide</td> </tr>
+            <tr><th>Temps avant invalidité</th>
+                    <td>{{ operatorformation.getRemainingTime() }} jour(s)</td></tr>
+            <tr><th>Temps écoulé</th>
+                    <td>{{ operatorformation.getElapsedTime() }} jour(s)</td></tr>
+                        {% else  %}
+            <tr><th>Valide ? </th>
+                    <td class="error">La formation n'est pas ou plus valide</td></tr>
+            <tr><th>Temps avant invalidité</th>
+                    <td>{{ operatorformation.getRemainingTime() }} jour(s)</td></tr>
+            <tr><th>Temps écoulé</th>
+                    <td>{{ operatorformation.getElapsedTime() }} jour(s)</td></tr>
+                        {% endif %}
+                    {% else %}
+                <th colspan="2">Pas d'invalidation sur cette formation</th>
+                    {% endif %}
                 {% endif %}
             </tr>
 
@@ -105,7 +123,9 @@
 		<table class="infos formation">
 			<tr>
 				<th>Nom de la formation</th>
-				<td class="formation name"> {{ operatorformation.formation.name }}</td>
+				<td class="formation name">
+                    <a href="{{ path('AppCofidurBundle_formation_show', {'idForm': operatorformation.formation.id }) }}">{{ operatorformation.formation.name }}</a>
+                </td>
 			</tr>
 			<tr>
 				<th>Objectif visé</th>
