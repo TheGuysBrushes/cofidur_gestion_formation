@@ -159,8 +159,27 @@ class FormationController extends Controller
         }
         fclose($file);
 
+        // We count the number of formations of operators concerning this formation
+        $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
+
+        $nbFormer = count($em->findBy(
+            array('formation' => $formation->getId(), 'validation' => 5)
+        ));
+
+        $nbFormedAndFormer = $nbFormer + count($em->findBy(
+            array('formation' => $formation->getId(), 'validation' => 4)
+        ));
+//        $operatorsFormations = $em->createQueryBuilder('f')
+//            ->where('f.validity = :validity')
+//            ->where('f.formation = :idformation')
+//            ->setParameter('validity', '4')
+//            ->setParameter('id_formation', $idForm)
+//            ->getQuery();
+
         return $this->render('AppCofidurBundle:Page/Formation:formation_show.html.twig', array(
             'formation'     => $formation,
+            'nbFormed'      => $nbFormedAndFormer,
+            'nbFormer'      => $nbFormer,
         ));
     }
 
@@ -170,8 +189,34 @@ class FormationController extends Controller
 
         $formations = $em->findAll();
 
+        // We count the number of formations of operators concerning this formation
+        $em = $this->getDoctrine()->getRepository('AppCofidurBundle:OperatorFormation');
+
+        $formationsNbFormed = [];
+        $formationsCanForm = [];
+        foreach($formations as $formation) {
+//            $operatorsFormations = $em->createQueryBuilder('f')
+//                ->where('f.validity = :validity')
+//                ->where('f.formation = :idformation')
+//                ->setParameter('validity', '4')
+//                ->setParameter('id_formation', $formation->getId())
+//                ->getQuery();
+//            $formationsNbFormed[] = count($em->findByFormation($formation->getId()));
+
+            $nb_former = count($em->findBy(
+                array('formation' => $formation->getId(), 'validation' => 5)
+            ));
+            $formationsCanForm[] = $nb_former;
+            $formationsNbFormed[] = $nb_former + count($em->findBy(
+                array('formation' => $formation->getId(), 'validation' => 4)
+            ));
+//            $formationsNbFormed[] = count($operatorsFormations);
+        }
+
         return $this->render('AppCofidurBundle:Page/Formation:formation_show_all.html.twig', array(
             'formations'      => $formations,
+            'formationsNbFormed' => $formationsNbFormed,
+            'formationsNbCanForm' => $formationsCanForm,
         ));
     }
 }

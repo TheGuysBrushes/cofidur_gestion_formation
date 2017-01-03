@@ -64,7 +64,7 @@ th{
     cursor: default;
 }
 
-th:hover {
+table.sortable th:hover {
 	text-decoration: underline;
 }
 
