@@ -1,0 +1,34 @@
+<tr>
+    <td title="{{ formation.name }}"> {{ formation.name| slice(0,20)  }}... </td>
+    <td> {{ formation.sector }} </td>
+    <td> {{formation.type}} </td>
+    <td title="{{formation.teachingAids}}"> {{ formation.teachingAids| slice(0,20)  }}... </td>
+    <td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,20)  }}... </td>
+    <td title="{{formation.validityTime}}"> {{ formation.validityTime  }} jour(s)</td>
+    <td> {{ formation.criticality }} </td>
+    <td> {{ formationsNbFormed[formation.id-1] }} / {{ formationsNbCanForm[formation.id-1] }} </td>
+    {% if is_granted('ROLE_ADMIN') %}
+    <td>
+    {#<td> {{ formation.criticality }} </td>#}
+        {#{% if is_granted('ROLE_ADMIN') %}#}
+    {#<td>#}
+        <input type="button" value="Afficher & Compléter" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">
+    </td>
+    <td>
+        <input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}'}">
+    </td>
+    <td>
+        <input class="button" type="button" value="Supprimer"
+               onclick="if(confirm('Supprimer la catégorie ?')){
+							   window.location.href='{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}'
+							   }">
+    </td>
+    {% else %}
+    <td>
+        <input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">
+        <button id="wanted_formation_button{{ nb_formation }}" onclick="wanted_formation(this.id, {{ formation.id }})">
+            Passer la formation
+        </button>
+    </td>
+    {% endif %}
+</tr>

@@ -21,45 +21,15 @@
 			<th> NOM </th>
 			<th> TYPE </th>
 			<th> SECTEUR </th>
-			<th> OBJECTIF </th>
 			<th> MOYENS PEDAGOGIQUES </th>
 			<th> MOYENS MATERIELS </th>
 			<th> TEMPS DE VALIDITÉ </th>
 			<th> CRITICITE </th>
+			<th> HABILITES </th>
 		</tr>
 	{% set nb_formation= 1 %}
 	{% for formation in formations %}
-		<tr>
-			<td title="{{ formation.name }}"> {{ formation.name| slice(0,20)  }}... </td>
-			<td> {{ formation.sector }} </td>
-			<td> {{formation.type}} </td>
-			<td title="{{formation.goal}}"> {{ formation.goal| slice(0,20)  }}... </td>
-			<td title="{{formation.teachingAids}}"> {{ formation.teachingAids| slice(0,20)  }}... </td>
-			<td title="{{formation.placesMaterialRessources}}"> {{ formation.placesMaterialRessources| slice(0,20)  }}... </td>
-			<td title="{{formation.validityTime}}"> {{ formation.validityTime  }} jour(s)</td>
-			<td> {{ formation.criticality }} </td>
-            {% if is_granted('ROLE_ADMIN') %}
-			<td>
-				<input type="button" value="Afficher & Compléter" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">
-            </td>
-			<td>
-				<input type="button" value="Editer" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_edit', {'idForm': formation.id}) }}'}">
-			</td>
-			<td>
-				<input class="button" type="button" value="Supprimer"
-					   onclick="if(confirm('Supprimer la catégorie ?')){
-							   window.location.href='{{ path('AppCofidurBundle_formation_delete', {'idForm': formation.id}) }}'
-							   }">
-			</td>
-            {% else %}
-            <td>
-                <input type="button" value="Afficher" onclick="{window.location.href='{{ path('AppCofidurBundle_formation_show', {'idForm': formation.id}) }}'}">
-                <button id="wanted_formation_button{{ nb_formation }}" onclick="wanted_formation(this.id, {{ formation.id }})">
-                    Passer la formation
-                </button>
-            </td>
-            {% endif %}
-		</tr>
+		{% include 'AppCofidurBundle::Page/Formation/formation_show_line.html.twig' %}
 	{% set nb_formation= nb_formation+1 %}
 	{% endfor %}
 	</table>

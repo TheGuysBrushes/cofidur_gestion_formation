@@ -17,25 +17,28 @@
 
 	<table class="category_page">
 		<tr>
-			<td class="entete_category">Nom</td><td class="formationName">{{ formation.reference }} -- {{ formation.name }} </td>
+			<th class="entete_category">Nom</th><td class="formationName">{{ formation.reference }} -- {{ formation.name }} </td>
 		</tr>
 		<tr>
-			<td class="entete_category">Secteur et Type</td><td>{{ formation.sector }} -- {{ formation.type }}</td>
+			<th class="entete_category">Secteur et Type</th><td>{{ formation.sector }} -- {{ formation.type }}</td>
 		</tr>
 		<tr>
-			<td class="entete_category">Objectif</td><td>{{ formation.goal }} </td>
+			<th class="entete_category">Objectif</th><td>{{ formation.goal }} </td>
 		</tr>
 		<tr>
-			<td class="entete_category">Moyens pédagogiques</td><td>{{ formation.teachingAids }} </td>
+			<th class="entete_category">Moyens pédagogiques</th><td>{{ formation.teachingAids }} </td>
 		</tr>
 		<tr>
-			<td class="entete_category">Lieu & moyens matériels</td><td>{{ formation.placesMaterialRessources }} </td>
+			<th class="entete_category">Lieu & moyens matériels</th><td>{{ formation.placesMaterialRessources }} </td>
 		</tr>
 		<tr>
-			<td class="entete_category">Temps de validation</td><td>{{ formation.validityTime }} </td>
+			<th class="entete_category">Temps de validation</th><td>{{ formation.validityTime }} </td>
 		</tr>
 		<tr>
-			<td class="entete_category">Criticité</td><td>{{ formation.criticality }} </td>
+			<th class="entete_category">Criticité</th><td>{{ formation.criticality }} </td>
+		</tr>
+		<tr>
+			<th class="entete_category">Habilitées / habilitées à former</th><td> {{ nbFormed }} / {{ nbFormer }} </td>
 		</tr>
 	</table>
 

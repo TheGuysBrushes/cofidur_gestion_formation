@@ -138,6 +138,11 @@ AppCofidurBundle_formation_show_all:
     methods: [GET]
     defaults: { _controller: AppCofidurBundle:Formation:showAll }
 
+AppCofidurBundle_formation_getNbFormed:
+    path:  /formation/getNbFormed
+    methods: [GET]
+    defaults: { _controller: AppCofidurBundle:Formation:getNbFormed }
+
 ### page de categorie ###
 AppCofidurBundle_category_add:
     path: /category/add/{idForm}
