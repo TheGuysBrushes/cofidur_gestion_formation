@@ -44,7 +44,7 @@ class OperatorFormation
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateEnd", type="date")
+     * @ORM\Column(name="dateEnd", type="date", nullable=true)
      */
     private $dateEnd;
 
@@ -346,6 +346,15 @@ class OperatorFormation
     }
 
     /**
+     * Verify that the formation is renewable
+     * @return bool
+     */
+    public function isRenewable()
+    {
+        return $this->getFormation()->getValidityTime() > 0;
+    }
+
+    /**
      * Get the number of days elapsed from the end of the formation till the current date
      * @return string
      */
@@ -385,5 +394,25 @@ class OperatorFormation
 //            $formatted_remaining= $remaining->format('%a');
             return $remaining;
         }
+    }
+
+    /**
+     * Verify if the formation is invalidated :
+     *  the number of days elapsed since the end of the formation is greater than validity time
+     * @return bool
+     */
+    public function isInvalidated()
+    {
+        $validityTime= $this->getFormation()->getValidityTime();
+        return $validityTime > 0 && $this->getElapsedTime() > $validityTime;
+    }
+
+    /**
+     * Verify that the operator has finished the formation. He may have been habilitated or be waiting for validation
+     * @return bool
+     */
+    public function isFinished()
+    {
+        return $this->validation == 1 or $this->validation >= 4;
     }
 }

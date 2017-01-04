@@ -5,7 +5,8 @@
 
 <script src="{{ asset('bundles/appcofidur/js/sorttable.js') }}"></script>
 
-	<a href="{{ path('AppCofidurBundle_operator_add') }}">Ajouter un opérateur</a>
+	<input type="button" value="Ajouter un opérateur" onclick="{window.location.href='{{ path('AppCofidurBundle_operator_add') }}'}">
+	<br/>
 	<br/>
 
 	<table class="sortable">

@@ -37,13 +37,14 @@ class OperatorFormationType extends AbstractType
                     'years' => range( date("Y"), date("Y",strtotime("-1 year")) ),
                 )
             )
-            ->add('dateEnd', DateType::class, array(
-                    'label_format' => 'operatorFormation.dateEnd',
-                    // L'année de signature peut être choisie entre l'année précédente et l'année suivante
-                    'years' => range( date("Y",strtotime("-1 year")), date("Y",strtotime("+1 year")) ),
-//                    'data' => new \DateTime('+1 day'),
-                )
-            )
+            /// La date de fin de la formation ne doit pas être initialisé à la création ?
+//             ->add('dateEnd', DateType::class, array(
+//                     'label_format' => 'operatorFormation.dateEnd',
+//                     // L'année de signature peut être choisie entre l'année précédente et l'année suivante
+//                     'years' => range( date("Y",strtotime("-1 year")), date("Y",strtotime("+1 year")) ),
+// //                    'data' => new \DateTime('+1 day'),
+//                 )
+//             )
             ->add('validation', ChoiceType::class,
                 array(
                     'choices'  => array(

@@ -42,8 +42,6 @@
                             {% if is_granted('ROLE_USER') %}
                             <li><a href="{{ path('AppCofidurBundle_logout') }}">Déconnexion</a></li>
                             {% else %}
-                            <li><a href="/register">S'enregistrer</a></li>
-                            {#<li><a href="{{ path('AppCofidurBundle_register') }}">S'enregistrer</a></li>#}
                             <li><a href="{{ path('AppCofidurBundle_login') }}">Connexion</a></li>
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}
@@ -53,6 +51,8 @@
                                     <li><a href="{{ path('AppCofidurBundle_operator_show_all') }}">Opérateurs</a></li>
                                     <li><a href="{{ path('AppCofidurBundle_operatorformation_show_all') }}">Formations des Opérateurs</a></li>
                                     <li><a href="{{ path('AppCofidurBundle_skillMatrix') }}">Matrice de compétence</a></li>
+                                    <li><a href="/register">S'enregistrer</a></li>
+                                    {#<li><a href="{{ path('AppCofidurBundle_register') }}">S'enregistrer</a></li>#}
                                     <li><a href="/_error/404">Test 404</a></li>
                                     <li><a href="/_error/403">Test 403</a></li>
                                 </ul>

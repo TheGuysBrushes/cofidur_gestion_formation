@@ -1,18 +1,17 @@
 <td class="ope_formations_array_elem">
     <fieldset
+        {#Couleur du fieldset selon l'état de validation de celle-ci#}
         {% if 1 == operatorformation.validation %}
             class="formedNotValidated_formation_sumup"
-        {% endif %}
-        {% if 2 == operatorformation.validation %}
+        {% elseif 2 == operatorformation.validation %}
             class="learningFormation_formation_sumup"
-        {% endif %}
-        {% if 3 == operatorformation.validation %}
+        {% elseif 3 == operatorformation.validation %}
             class="futureFormation_formation_sumup"
-        {% endif %}
-        {% if 4 == operatorformation.validation %}
+        {% elseif operatorformation.isInvalidated() %}
+            class="unvalidated_formation_sumup"
+        {% elseif 4 == operatorformation.validation %}
             class="formedValidated_formation_sumup"
-        {% endif %}
-        {% if 5 == operatorformation.validation %}
+        {% elseif 5 == operatorformation.validation %}
             class="formedToTeach_formation_sumup"
         {% endif %}
     >
@@ -24,6 +23,7 @@
                 <th class="entete_category">Nom</th>
                 <td>{{ operatorformation.formation.name }} </td>
             </tr>
+            {# Champs possibles selon le demandes de l'entreprises #}
             {#<tr>#}
                 {#<th class="entete_category">Type</th>#}
                 {#<td title="{{ operatorformation.formation.type }}">{{ operatorformation.formation.type| slice(0,30) }}... </td>#}
@@ -54,11 +54,21 @@
             </tr>
             <tr>
                 <th class="entete_category">Temps écoulé depuis la fin de la formation</th>
-                <td>{{ operatorformation.getElapsedTime }} jour(s)</td>
+            {% if operatorformation.isFinished() %}
+                <td>{{ operatorformation.getElapsedTime() }} jour(s)</td>
+            {% else %}
+                <td><i>Formation non terminée</i></td>
+            {% endif %}
             </tr>
+            {% if operatorformation.isRenewable() and not operatorformation.isInvalidated() %}
+            <tr>
+                <th class="entete_category">Temps de validité restant</th>
+                <td>{{ operatorformation.getRemainingTime() }} jour(s)</td>
+            </tr>
+            {% endif %}
             {#Valeur a changer : champ de validité a placer ici a la plac du 5#}
-            {% if operatorformation.getElapsedTime > operatorformation.formation.validityTime %}
-                <tr><td>ATTENTION LA FORMATION N'EST PLUS VALIDE</td></tr>
+            {% if operatorformation.isInvalidated %}
+                <tr><td colspan="2">LA FORMATION N'EST PLUS VALIDE</td></tr>
             {% endif %}
         </table>
     </fieldset>

@@ -127,6 +127,10 @@ th.verticalite > div > span {
 	background-color: #629755;
 }
 
+.formedUnvalidated {
+	background-color: #C8C8C8;
+}
+
 .formedToTeach {
 	background-color: #ffcc00;
 }
@@ -300,6 +304,10 @@ th.verticalite > div > span {
 /***
 	Etat des formations
 */
+.unvalidated_formation_sumup {
+	border: solid 2px #C8C8C8;
+}
+
 .formedNotValidated_formation_sumup {
 	border: solid 5px #F48A00;
 }

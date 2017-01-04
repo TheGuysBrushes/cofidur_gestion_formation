@@ -16,7 +16,7 @@ class LoadOperatorFormationData extends AbstractFixture implements OrderedFixtur
         public function setContainer(ContainerInterface $container = null){
                 $this->container = $container;
         }
-        
+
 	public function load(ObjectManager $manager){
 
         for($j=1; $j<53; $j++){
@@ -28,9 +28,15 @@ class LoadOperatorFormationData extends AbstractFixture implements OrderedFixtur
                     $formation = $manager->getRepository('AppCofidurBundle:Formation')->find($i);
 
                     $operatorformation = new OperatorFormation();
+                    $validation = rand(1, 5);
+                    $operatorformation->setValidation($validation);
                     $operatorformation->setDateBegin(date_create(date('Y-m-d H:i:s')));
-                    $operatorformation->setDateEnd( date_create(date('Y-m-d H:i:s', strtotime( '+'.mt_rand(-150,0).' days'))) );
-                    $operatorformation->setValidation(rand(1, 5));
+                    if ($validation == 1 ) {
+                        $operatorformation->setDateEnd( date_create(date('Y-m-d H:i:s', strtotime( '+'.mt_rand(-10,0).' days'))) );
+                    }
+                    if ($validation > 3 ) {
+                        $operatorformation->setDateEnd( date_create(date('Y-m-d H:i:s', strtotime( '+'.mt_rand(-150,0).' days'))) );
+                    }
                     $operatorformation->setCommentary("Petit commentaire");
                     $operatorformation->setFormer($former);
                     $operatorformation->setOperator($operator);
@@ -52,7 +58,7 @@ class LoadOperatorFormationData extends AbstractFixture implements OrderedFixtur
 
         $manager->flush();
     }
-	
+
 	public function getOrder(){
 		return 10;
     }
