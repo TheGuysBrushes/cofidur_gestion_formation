@@ -80,15 +80,6 @@ class FormationController extends Controller
         return $this->redirectToRoute('AppCofidurBundle_formation_show_all');
     }
 
-    public function sort_by_date($a, $b) {
-        $a = strtotime($a['date']);
-        $b = strtotime($b['date']);
-        if ($a == $b) {
-            return 0;
-        }
-        return ($a < $b) ? -1 : 1;
-    }
-
     private function nbOperatorsFormations($em, $formation, $validity)
     {
         $opFormationsValids = $em->findBy(
@@ -171,12 +162,20 @@ class FormationController extends Controller
 
         ksort($finaltab);
 
+
+        if($formation->getValidityTime() == 0){
+            $i=0;
+            foreach($finaltab as $k => $v){
+                $finaltab[$k] += $i;
+                $i += $v;
+            }
+        }
+
         foreach($finaltab as $k => $v){
             $finaltab[date("d-M-y", $k)] = $v;
             unset($finaltab[$k]);
         }
 
-//        $fileName = $this->container->get('kernel')->locateResource('@AppCofidurBundle/Resources/public/data/');
         $fileName = $this->getParameter('data_directory');
         $fileName = $fileName.'data_'.$formation->getId().'.tsv';
         $file = fopen($fileName, "w+");

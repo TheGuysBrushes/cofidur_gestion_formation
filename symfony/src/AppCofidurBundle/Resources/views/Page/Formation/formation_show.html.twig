@@ -47,6 +47,7 @@
 	</table>
 
 	<br>
+	<h2>Evolutions des opérateurs</h3>
 	<div id="graph"></div>
 
 		<script>
@@ -69,6 +70,7 @@
 
 			var yAxis = d3.svg.axis()
 			  .scale(y)
+			  .tickFormat(d3.format("d"))
 			  .orient("left");
 
 			var area = d3.svg.area()
@@ -104,7 +106,7 @@
 			  .call(xAxis)
 			.append("text")
 			  .attr("x", width)
-			  .attr("y", -6)
+			  .attr("y", -10)
 			  .attr("dx", ".71em")
 			  .style("text-anchor", "end")
 			  .text("Temps");
@@ -118,14 +120,6 @@
 			  .attr("dy", ".71em")
 			  .style("text-anchor", "end")
 			  .text("Opérateurs");
-
-			svg.append("text")
-			  .attr("x", (width / 2))             
-			  .attr("y", 20 - (margin.top / 2))
-			  .attr("text-anchor", "middle")  
-			  .style("font-size", "20px") 
-			  .style("text-decoration", "bold")  
-			  .text("Prévision des évolutions des opérateurs");
 			});
 		</script>
 
