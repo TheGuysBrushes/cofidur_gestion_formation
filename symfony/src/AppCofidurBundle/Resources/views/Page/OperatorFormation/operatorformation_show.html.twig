@@ -8,41 +8,6 @@
 {% block body %}
 	<h1>Formation d'un opérateur (FFO)</h1>
 
-	<script type="text/javascript">
-		function show_details(indice_category){
-			var details_block= document.getElementById("operatorformation_informations".concat(indice_category));
-			var details_button= document.getElementById("details".concat(indice_category));
-
-            /*** Rédéfinit le style de la partie des détails ***/
-            /* Si le style a déjà été définit comme "à afficher", on le cache */
-			if(details_block.style.display == "block"){
-				details_block.style.display= "none";
-            /* Si le style n'a pas été redéfinit ou qu'il est définit comme caché, on l'affiche */
-			} else {
-				details_block.style.display= "block";
-			}
-		}
-
-		function validate_task(id_task_button){
-			var task_button= document.getElementById(id_task_button);
-//			task_button.style.display= "none";
-		}
-
-		{#function validation_box(opeform_id, cat_id, custom_anchor){#}
-			{#var operatorcat_id= document.getElementById(opeform_id);#}
-			{#if(confirm('Valider la catégorie ?')){#}
-				{#alert('opeform_id');#}
-				{#<a href="{{ path('AppCofidurBundle_operatorcategory_edit',{'idOpForm': opeform_id, 'idCategory': cat_id}) }}#custom_anchor$cat_id">#}
-					{#Blabla#}
-				{#</a>#}
-				{#return true;#}
-			{#} else {#}
-				{#alert($cat_id);#}
-				{#return false;#}
-			{#}#}
-		{#}#}
-	</script>
-
 	<!--
 		INFORMATIONS SUR LE TUTEUR, L'OPERATEUR ET LES DATES
 	-->
