@@ -1,3 +1,36 @@
-#logs
-/logs/*
-.data/*
+# Cache and logs (Symfony2)
+/app/cache/
+!app/cache/.gitkeep
+/app/logs/*
+!app/logs/.gitkeep
+
+# Email spool folder
+/app/spool/*
+
+# Parameters
+/app/config/parameters.yml
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/bin/*
+/vendor/
+
+# Sensitive configuration files (generated)
+web/config.php
+
+# Assets and user uploads
+/web/bundles/
+web/uploads/*
+!/web/uploads/data/
+/web/uploads/data/*
+!/web/uploads/data/.gitkeep
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Backup entities generated with doctrine:generate:entities command
+*/Entity/*~
+
+#PHP Storm
+.idea/*
